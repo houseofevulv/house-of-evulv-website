@@ -3,6 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Categories } from "@/components/sentinels/Categories";
 import { Ceremony } from "@/components/sentinels/Ceremony";
+import { Faq } from "@/components/sentinels/Faq";
 import { Hero } from "@/components/sentinels/Hero";
 import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
@@ -69,6 +70,7 @@ export default function SentinelsPage() {
           <Ceremony />
           <Partnership />
           <Nominate />
+          <Faq />
         </main>
         <SiteFooter variant="sentinels" />
       </PageShell>

@@ -69,6 +69,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
               <Link href="#categories" className={linkCls}>Categories</Link>
               <Link href="#selection" className={linkCls}>Selection</Link>
               <Link href="#nominate" className={linkCls}>Nominate</Link>
+              <Link href="#faq" className={linkCls}>Questions</Link>
             </Col>
             <Col title="Partners" className="md:col-span-3 lg:col-span-2">
               <Link href="#partner" className={linkCls}>Partnership tiers</Link>

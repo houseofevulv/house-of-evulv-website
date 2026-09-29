@@ -23,6 +23,7 @@ export const menuGroups = [
       { href: "/sentinels-of-peace", label: "The programme" },
       { href: "/sentinels-of-peace#categories", label: "Categories" },
       { href: "/sentinels-of-peace#partner", label: "Partnership" },
+      { href: "/sentinels-of-peace#faq", label: "Questions" },
     ],
   },
 ];

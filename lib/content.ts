@@ -66,12 +66,31 @@ export type SiteContent = {
     bank: { bankName: string; accountName: string; accountNumber: string } | null;
     useConfirmed: boolean;
   };
+  selection: {
+    criteria: { title: string; body: string }[];
+    panel: { name: string; role: string }[];
+  };
+  faq: {
+    items: { q: string; a: string; confirmed: boolean; links?: { href: string; label: string }[] }[];
+  };
 };
 
 export const content = raw as SiteContent;
 
-export const { site, contact, founder, event, nominations, steps, categories, partnership, states, donate } =
-  content;
+export const {
+  site,
+  contact,
+  founder,
+  event,
+  nominations,
+  steps,
+  categories,
+  partnership,
+  states,
+  donate,
+  selection,
+  faq,
+} = content;
 
 /**
  * Extras package (FEATURE_FULL=true): nominator confirmation email, honouree announcements, visitor figures.

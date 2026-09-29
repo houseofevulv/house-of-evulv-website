@@ -1,8 +1,10 @@
-import { nominations, steps } from "@/lib/content";
+import { nominations, selection, steps } from "@/lib/content";
 import { currentStepIndex, dayMonth } from "@/lib/dates";
 
 export function Timeline() {
   const current = currentStepIndex();
+  const { criteria, panel } = selection;
+  const published = criteria.length > 0 || panel.length > 0;
 
   return (
     <section
@@ -11,9 +13,11 @@ export function Timeline() {
     >
       <div className="flex flex-col gap-[22px] md:flex-row md:items-end md:justify-between">
         <h2 className="t-h2-52 m-0 max-w-[620px] text-forest">How an honouree is chosen</h2>
-        {/* TODO(client): confirm criteria and panel members will be published on this date */}
+        {/* TODO(client): criteria and panel members go in content/site-content.json (selection) by this date */}
         <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sage-text md:text-[17px]">
-          Criteria and panel members are published on {dayMonth(nominations.opens)}, the day nominations open.
+          {published
+            ? "Each shortlisted nomination is verified, then scored by an independent panel against the criteria below."
+            : `Criteria and panel members are published on ${dayMonth(nominations.opens)}, the day nominations open.`}
         </p>
       </div>
 
@@ -52,6 +56,38 @@ export function Timeline() {
           );
         })}
       </ol>
+
+      {published && (
+        <div className="grid grid-cols-1 gap-8 border-t border-forest/20 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-x-6">
+          {criteria.length > 0 && (
+            <div className="flex flex-col gap-4 lg:col-span-7">
+              <h3 className="m-0 text-[22px] font-bold tracking-[-0.025em] text-forest md:text-2xl">The criteria</h3>
+              <ol className="m-0 grid list-none grid-cols-1 gap-3 p-0 md:grid-cols-2">
+                {criteria.map((c, i) => (
+                  <li key={c.title} className="flex flex-col gap-1.5 rounded-2xl bg-bone/60 p-5">
+                    <span className="text-[13px] font-bold text-forest/70">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-lg font-bold tracking-[-0.015em] text-forest">{c.title}</span>
+                    <span className="text-[15px] leading-normal text-sage-text">{c.body}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+          {panel.length > 0 && (
+            <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9">
+              <h3 className="m-0 text-[22px] font-bold tracking-[-0.025em] text-forest md:text-2xl">The panel</h3>
+              <ul className="m-0 list-none border-t border-forest/20 p-0">
+                {panel.map((m) => (
+                  <li key={m.name} className="flex flex-col gap-0.5 border-b border-forest/20 py-3.5">
+                    <span className="text-[17px] font-bold text-forest">{m.name}</span>
+                    <span className="text-sm text-sage-text">{m.role}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 }

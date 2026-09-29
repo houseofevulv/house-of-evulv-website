@@ -218,5 +218,103 @@
       "accountNumber": ""
     },
     "useConfirmed": false
+  },
+  "selection": {
+    "_note": "Published on nominations.opens. Leave the lists empty until the client supplies them; the site then shows a 'published on' line instead.",
+    "criteria": [],
+    "_criteriaExample": {
+      "title": "Documented impact",
+      "body": "What changed for the people involved, and how we know."
+    },
+    "panel": [],
+    "_panelExample": {
+      "name": "",
+      "role": "Civil society"
+    }
+  },
+  "faq": {
+    "_note": "Tokens in answers are filled from the content above: {opens}, {closes}, {announcement}, {ceremony}, {email}. Items with confirmed=false are unverified with the client.",
+    "items": [
+      {
+        "q": "Who can nominate?",
+        "a": "Anyone. Colleagues, neighbours, community members and the people a nominee helped are all welcome to nominate.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I nominate myself?",
+        "a": "The House will confirm whether self-nominations are accepted before nominations open on {opens}.",
+        "confirmed": false
+      },
+      {
+        "q": "Does it cost anything to nominate?",
+        "a": "No. Nominating is free.",
+        "confirmed": false
+      },
+      {
+        "q": "When do nominations open and close?",
+        "a": "Nominations open on {opens} and close on {closes}.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I nominate more than one person?",
+        "a": "Yes. Send one form for each nominee.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I nominate a group or an organisation?",
+        "a": "Yes, in the categories that accept them. Community Resilience and Humanitarian Service accept individuals or groups, and National Development is for organisations. Each category shows who is eligible.",
+        "confirmed": true
+      },
+      {
+        "q": "How long does it take?",
+        "a": "About ten minutes. Specific events, places and dates count for more than general praise, so it helps to have those to hand.",
+        "confirmed": true
+      },
+      {
+        "q": "Do I need a link or documents?",
+        "a": "No. A link to news coverage, a letter or photographs helps, but it is optional.",
+        "confirmed": true
+      },
+      {
+        "q": "Will the nominee know I nominated them?",
+        "a": "If your nominee is shortlisted, we contact you, the nominee and one referee to confirm the details. Shortlisted nominees are named publicly only with their consent, and nominees may decline at any time.",
+        "confirmed": true
+      },
+      {
+        "q": "How are honourees chosen?",
+        "a": "Shortlisted claims are verified, then an independent panel from civil society, security, academia and the media scores the shortlist against published criteria. The panel's decision is final.",
+        "confirmed": true
+      },
+      {
+        "q": "When will I hear the outcome?",
+        "a": "Every nominator hears the outcome, shortlisted or not. Honourees are announced on {announcement}.",
+        "confirmed": true
+      },
+      {
+        "q": "I made a mistake in my nomination. What do I do?",
+        "a": "Email {email} with your reference number and the correction.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I attend the ceremony?",
+        "a": "The Grand Honours on {ceremony} is by invitation. Partners and honourees receive places for their guests.",
+        "confirmed": true
+      },
+      {
+        "q": "How else can I support the programme?",
+        "a": "Organisations can become partners, and anyone can give to support the work.",
+        "confirmed": true,
+        "links": [
+          {
+            "href": "#partner",
+            "label": "Partnership tiers"
+          },
+          {
+            "href": "/#donate",
+            "label": "Give"
+          }
+        ]
+      }
+    ]
   }
 }
