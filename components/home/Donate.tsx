@@ -1,57 +1,92 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
+import { Photo } from "@/components/Photo";
 import { contact, donate } from "@/lib/content";
+import { GIFT_USES, giveLink } from "@/lib/giving";
 
 /*
-  Giving options come from content/site-content.json (donate). A payment link shows "Give online", bank details
-  show with a copy button, and with neither the section invites people to get in touch.
+  Giving options come from content/site-content.json (donate): a payment page link, bank details, or neither.
+  The main button always works: it opens the payment page when there is one, otherwise an email to the House.
 */
 export function Donate() {
-  const { paymentUrl, paymentProvider, bank } = donate;
-  const hasOnline = Boolean(paymentUrl);
+  const give = giveLink();
+  const { bank, paymentProvider, paymentUrl } = donate;
 
   return (
     <section
       id="donate"
-      className="grid scroll-mt-4 grid-cols-1 gap-6 rounded-[22px] bg-sage px-5 py-7 md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:p-16"
+      className="on-dark grid scroll-mt-4 grid-cols-1 gap-6 rounded-[22px] bg-forest p-3 pb-7 text-bone md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:p-16"
     >
-      <div className="flex flex-col gap-4 md:gap-6 lg:col-span-6">
-        <p className="m-0 text-sm font-semibold text-forest md:text-[15px]">Support the work</p>
-        <h2 className="t-h2-48 m-0 max-w-[620px] text-forest">Help us honour and support the people who keep the peace.</h2>
-        {/* TODO(client): confirm how gifts are used (donate.useConfirmed = false) */}
-        <p className="m-0 max-w-[520px] text-base leading-[1.6] text-sage-text md:text-lg">
-          Gifts fund the Sentinels of Peace Grand Honours and our programmes in peace, healing and human development:
-          finding and verifying nominees, documenting their work, and connecting them with people who can support it.
-        </p>
-      </div>
+      <Photo
+        src="/images/medal-pinning.jpg"
+        alt="A medal being pinned to a decorated uniform"
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        position="46% center"
+        mobilePosition="center 40%"
+        tone="dark"
+        className="h-[300px] w-full rounded-2xl md:h-[420px] md:rounded-[20px] lg:col-span-5 lg:h-full lg:min-h-[560px]"
+      />
 
-      <div className="on-light flex flex-col gap-5 rounded-[20px] bg-white p-[22px] md:rounded-3xl md:p-8 lg:col-span-5 lg:col-start-8 lg:self-end">
-        {hasOnline && (
-          <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-7 px-2 md:px-0 lg:col-span-6 lg:col-start-7 lg:justify-center">
+        <div className="flex flex-col gap-4">
+          <p className="m-0 text-sm font-semibold text-lime md:text-[15px]">Support the work</p>
+          <h2 className="t-h2-48 m-0">Help us honour and support the people who keep the peace.</h2>
+          <p className="m-0 text-base leading-[1.6] text-on-dark-2 md:text-lg">
+            Most of the people who hold communities together never receive recognition or backing. Your gift changes that.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="m-0 pb-3 text-[15px] font-bold">Your gift helps us</h3>
+          <ol className="m-0 list-none p-0">
+            {GIFT_USES.map((u, i) => (
+              <li
+                key={u.title}
+                className={`grid grid-cols-[32px_1fr] gap-3 border-t border-rule-dark py-4 ${i === GIFT_USES.length - 1 ? "border-b" : ""}`}
+              >
+                <span className="text-[15px] font-bold text-lime tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                <span className="flex flex-col gap-1">
+                  <span className="text-[17px] font-bold tracking-[-0.01em]">{u.title}</span>
+                  <span className="text-[15px] leading-normal text-on-dark-2">{u.body}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2.5 md:flex-row md:items-center md:gap-3">
             <a
-              href={paymentUrl!}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn min-h-12 bg-forest px-6 py-4 font-bold text-bone"
+              href={give.href}
+              {...(give.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="btn min-h-12 bg-lime px-7 py-4 text-base font-bold text-forest-ink"
             >
-              Give online
-              <span className="sr-only"> (opens in a new tab)</span>
+              {paymentUrl ? "Give now" : "Give to the work"}
+              {give.external && <span className="sr-only"> (opens in a new tab)</span>}
             </a>
-            {paymentProvider && (
-              <p className="m-0 text-center text-[13px] text-muted">Secure payment by {paymentProvider}</p>
-            )}
+            <Link
+              href="/sentinels-of-peace#partner"
+              className="btn min-h-12 border border-bone px-[23px] py-[15px] font-semibold text-bone"
+            >
+              Give as an organisation
+            </Link>
           </div>
-        )}
+          <p className="m-0 text-[13px] leading-normal text-on-dark-3">
+            {paymentUrl
+              ? `Secure payment${paymentProvider ? ` by ${paymentProvider}` : ""}. Questions about giving: ${contact.email}.`
+              : `Online giving is being set up. Email or call ${contact.phoneDisplay} and we will send you the details.`}
+          </p>
+        </div>
 
         {bank && (
-          <div className="flex flex-col gap-3">
-            <h3 className="m-0 text-[15px] font-bold text-ink">{hasOnline ? "Or give by bank transfer" : "Give by bank transfer"}</h3>
+          <div className="on-light flex flex-col gap-3 rounded-2xl bg-bone p-5 text-ink">
+            <h3 className="m-0 text-[15px] font-bold">Give by bank transfer</h3>
             <dl className="m-0 flex flex-col text-[15px]">
-              <div className="flex justify-between gap-4 border-t border-rule-2 py-3">
+              <div className="flex justify-between gap-4 border-t border-rule-2 py-2.5">
                 <dt className="text-muted">Bank</dt>
                 <dd className="m-0 text-right font-semibold">{bank.bankName}</dd>
               </div>
-              <div className="flex justify-between gap-4 border-t border-rule-2 py-3">
+              <div className="flex justify-between gap-4 border-t border-rule-2 py-2.5">
                 <dt className="text-muted">Account name</dt>
                 <dd className="m-0 text-right font-semibold">{bank.accountName}</dd>
               </div>
@@ -65,36 +100,6 @@ export function Donate() {
             </dl>
           </div>
         )}
-
-        {!hasOnline && !bank && (
-          <div className="flex flex-col gap-4">
-            <h3 className="m-0 text-xl font-bold tracking-[-0.02em] text-ink">Give to House of Evulv</h3>
-            <p className="m-0 text-[15px] leading-[1.6] text-body">
-              Online giving is being set up. To give now, or to talk about a larger or recurring gift, get in touch and we
-              will send you the details.
-            </p>
-            <a
-              href={`mailto:${contact.email}?subject=${encodeURIComponent("Giving to House of Evulv")}`}
-              className="btn min-h-12 bg-forest px-6 py-4 font-bold text-bone"
-            >
-              Talk to us about giving
-            </a>
-            <p className="m-0 text-center text-sm text-muted">
-              Or call{" "}
-              <a href={contact.phoneHref} className="lnk inline-flex min-h-11 items-center font-semibold text-forest underline md:min-h-0">
-                {contact.phoneDisplay}
-              </a>
-            </p>
-          </div>
-        )}
-
-        <p className="m-0 border-t border-rule-2 pt-4 text-sm leading-normal text-muted">
-          Supporting as an organisation?{" "}
-          <Link href="/sentinels-of-peace#partner" className="font-semibold text-forest underline">
-            See partnership tiers
-          </Link>
-          .
-        </p>
       </div>
     </section>
   );

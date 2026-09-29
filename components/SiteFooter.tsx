@@ -73,6 +73,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
             </Col>
             <Col title="Partners" className="md:col-span-3 lg:col-span-2">
               <Link href="#partner" className={linkCls}>Partnership tiers</Link>
+              <Link href="#support" className={linkCls}>Give to the programme</Link>
               <a href={partnership.briefMailto} className={`${linkCls} max-md:hidden`}>Request the brief</a>
               <a href={`mailto:${contact.email}?subject=Press`} className={linkCls}>Press enquiries</a>
             </Col>

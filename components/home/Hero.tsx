@@ -7,11 +7,11 @@ export function Hero() {
   return (
     <Photo
       as="section"
-      src="/images/hero-crowd-flag.jpg"
-      alt="People walking through Lagos, one carrying the Nigerian flag"
+      src="/images/durbar-riders.jpg"
+      alt="Horsemen in ceremonial regalia at a durbar, watched by a crowd"
       sizes="(min-width: 1440px) 1408px, 100vw"
-      position="center 62%"
-      mobilePosition="center 60%"
+      position="center 45%"
+      mobilePosition="34% center"
       priority
       tone="dark"
       className="on-dark flex min-h-[min(720px,100svh)] flex-col justify-between rounded-[22px] md:min-h-[720px] md:rounded-[28px] lg:min-h-[860px]"

@@ -60,10 +60,10 @@ export function Commitments() {
             </p>
           </div>
           <Photo
-            src="/images/evolution-graduate.jpg"
-            alt="Graduate walking down outdoor steps"
+            src="/images/young-speaker-podium.jpg"
+            alt="A young woman speaking at a podium"
             sizes="170px"
-            position="center 45%"
+            position="center 22%"
             tone="dark"
             className="hidden w-[170px] shrink-0 rounded-2xl lg:block"
           />

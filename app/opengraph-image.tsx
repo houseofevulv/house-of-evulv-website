@@ -9,7 +9,7 @@ export const contentType = "image/jpeg";
 export default async function Image() {
   const [fonts, hero, logo] = await Promise.all([
     ogFonts(),
-    ogPhoto("hero-crowd-flag"),
+    ogPhoto("durbar-riders"),
     ogSvg("brand/house-of-evulv/svg/horizontal-no-tagline-reversed.svg"),
   ]);
   return asJpeg(
@@ -35,7 +35,7 @@ export default async function Image() {
             alt=""
             width={1168}
             height={598}
-            style={{ position: "absolute", top: 0, left: 0, width: 1168, height: 598, objectFit: "cover", objectPosition: "center 62%" }}
+            style={{ position: "absolute", top: 0, left: 0, width: 1168, height: 598, objectFit: "cover", objectPosition: "center 45%" }}
           />
           <div
             style={{

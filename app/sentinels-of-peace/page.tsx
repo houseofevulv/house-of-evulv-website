@@ -7,6 +7,7 @@ import { Faq } from "@/components/sentinels/Faq";
 import { Hero } from "@/components/sentinels/Hero";
 import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
+import { Support } from "@/components/sentinels/Support";
 import { Timeline } from "@/components/sentinels/Timeline";
 import { WhatItDoes } from "@/components/sentinels/WhatItDoes";
 import { WhyItExists } from "@/components/sentinels/WhyItExists";
@@ -71,6 +72,7 @@ export default function SentinelsPage() {
           <Partnership />
           <Nominate />
           <Faq />
+          <Support />
         </main>
         <SiteFooter variant="sentinels" />
       </PageShell>

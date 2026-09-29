@@ -5,11 +5,11 @@ export function Ceremony() {
   return (
     <Photo
       as="section"
-      src="/images/ceremony-hall.jpg"
-      alt="Guests celebrating in a grand hall lit by a chandelier"
+      src="/images/reception-guests.jpg"
+      alt="Guests greeting one another at a formal evening reception"
       sizes="(min-width: 1440px) 1408px, 100vw"
-      position="center 58%"
-      mobilePosition="62% center"
+      position="center 35%"
+      mobilePosition="40% center"
       tone="dark"
       className="on-dark flex min-h-[440px] items-end rounded-[22px] md:min-h-[520px] md:rounded-[28px]"
     >
