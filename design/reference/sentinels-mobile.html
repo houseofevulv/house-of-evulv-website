@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentinels of Peace Grand Honours, mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bone:#F3F1EC;--ink:#121614;--muted:#4F5752;--body:#3E4641;--forest:#16302B;--forest-ink:#0B1A17;--forest-mid:#2A443D;--sage:#D9E0D3;--sage-text:#2F3A35;--lime:#C3DD6E;--on-dark:#DCE3DD;--on-dark-2:#C9D3CD;--on-dark-3:#9FB0A8;--rule-dark:#2E4A42;--rule-dark-2:#3C5A51;--rule:#D6D4CC;--rule-2:#CFD3CC;--card-border:#DEDDD6}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bone);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--forest)}
+h1,h2,h3,p{margin:0}
+.wrap{padding:8px;display:flex;flex-direction:column;gap:8px}
+.panel{border-radius:22px;overflow:hidden}
+.dark{background:var(--forest);color:var(--bone)}
+.ph{position:relative;overflow:hidden;background:var(--forest-mid)}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.btn{display:block;text-align:center;padding:15px 20px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;min-height:48px}
+.btn-lime{background:var(--lime);color:var(--forest-ink)}
+.btn-ghost{border:1px solid var(--bone);color:var(--bone);font-weight:600;padding:14px 19px}
+.btn-forest{background:var(--forest);color:var(--bone)}
+.label{font-size:14px;font-weight:600;color:var(--muted)}
+.h2{font-size:32px;line-height:1.08;font-weight:700;letter-spacing:-.035em}
+.sec{padding:40px 16px}
+/* header */
+.hdr{height:64px;padding:0 12px 0 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--bone);text-decoration:none}
+.menu-btn{width:44px;height:44px;border-radius:12px;border:0;background:rgba(243,241,236,.12);color:var(--bone);display:flex;align-items:center;justify-content:center;padding:0}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--on-dark-2);padding:0 20px}
+.dot{width:8px;height:8px;border-radius:999px;background:var(--lime);flex-shrink:0}
+/* hero */
+.hero-body{padding:28px 20px 24px;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:14px;font-weight:600;color:var(--lime)}
+.h1{font-size:48px;line-height:.95;font-weight:700;letter-spacing:-.05em}
+.lead{font-size:16px;line-height:1.55;color:var(--on-dark-2)}
+.mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 12px}
+.mosaic .ph{aspect-ratio:1/1;border-radius:14px}
+.meta{padding:20px;display:flex;flex-direction:column}
+.meta div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--rule-dark-2);font-size:15px}
+.meta div:last-child{border-bottom:1px solid var(--rule-dark-2)}
+.meta span:first-child{color:var(--on-dark-3)}
+.meta span:last-child{font-weight:600;text-align:right}
+.ctas{padding:0 20px 24px;display:flex;flex-direction:column;gap:10px}
+/* why */
+.why p{font-size:16px;line-height:1.6;color:var(--body)}
+/* what it does */
+.tile{border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.tile h3{font-size:26px;font-weight:700;letter-spacing:-.03em}
+.tile p{font-size:15px;line-height:1.5}
+.tile-photo{height:360px;justify-content:flex-end;color:var(--bone)}
+.tile-photo .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,17,0) 40%,rgba(10,20,17,.75) 100%)}
+.tile-photo .txt{position:relative}
+/* categories */
+.cat{padding:18px 0;border-top:1px solid var(--rule-2);display:flex;flex-direction:column;gap:6px}
+.cat:last-child{border-bottom:1px solid var(--rule-2)}
+.cat h3{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.cat p{font-size:15px;line-height:1.5;color:var(--body)}
+.cat .elig{font-size:13px;font-weight:600;color:var(--muted)}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{position:relative;padding:0 0 22px 30px}
+.tl li::before{content:"";position:absolute;left:6px;top:16px;bottom:-2px;width:2px;background:var(--forest);opacity:.25}
+.tl li:last-child::before{display:none}
+.tl .node{position:absolute;left:0;top:2px;width:14px;height:14px;border-radius:999px;border:2px solid var(--forest);background:transparent}
+.tl .now .node{background:var(--lime)}
+.tl .when{font-size:13px;font-weight:700;color:var(--forest)}
+.tl h3{font-size:22px;font-weight:700;letter-spacing:-.025em;color:var(--forest);padding:4px 0}
+.tl p{font-size:15px;line-height:1.5;color:var(--sage-text)}
+/* ceremony */
+.cer{min-height:440px;display:flex;align-items:flex-end}
+.cer .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,17,.1) 20%,rgba(10,20,17,.85) 100%)}
+.cer .txt{position:relative;padding:24px 20px;color:var(--bone);display:flex;flex-direction:column;gap:10px}
+/* partnership */
+.tier{border-radius:20px;padding:22px;background:#fff;border:1px solid var(--card-border)}
+.tier.founding{background:var(--forest);color:var(--bone);border-color:var(--forest)}
+.tier h3{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.tier .lim{font-size:14px;color:var(--muted);padding-top:2px}
+.tier.founding .lim{color:var(--lime)}
+.tier dl{margin:16px 0 0}
+.tier dt{font-size:13px;font-weight:700;color:var(--muted);padding-top:12px;border-top:1px solid var(--rule-2)}
+.tier.founding dt{color:var(--on-dark-3);border-color:var(--rule-dark)}
+.tier dd{margin:4px 0 12px;font-size:15px;line-height:1.5}
+/* form */
+.form{border-radius:20px;background:var(--bone);color:var(--ink);padding:22px 18px;display:flex;flex-direction:column;gap:22px}
+.fs{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.fs+.fs{border-top:1px solid var(--rule);padding-top:20px}
+.fs-title{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.fld{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600}
+.fld input,.fld select,.fld textarea{font:inherit;font-weight:500;font-size:16px;padding:14px 16px;border:1px solid var(--rule-2);background:#fff;color:var(--ink);border-radius:12px;width:100%;min-height:50px}
+.help{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;font-size:13px;font-weight:500;color:#5E6661}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--body);font-weight:500}
+.consent input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--forest);flex-shrink:0}
+.after div{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--rule-dark);font-size:15px;line-height:1.5}
+.after div:last-child{border-bottom:1px solid var(--rule-dark)}
+.after b{color:var(--lime)}
+.after span{color:var(--on-dark-2)}
+/* footer */
+.foot{padding:32px 16px 24px;display:flex;flex-direction:column;gap:28px;font-size:15px;color:var(--muted)}
+.foot .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.foot .cols div{display:flex;flex-direction:column;gap:0}
+.foot .h{padding-bottom:4px}
+.foot .h{font-size:13px;font-weight:700;color:var(--ink)}
+.foot a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.foot .bar{border-top:1px solid var(--rule);padding-top:16px;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.foot .bar a{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="panel dark">
+<header class="hdr">
+<a class="brand" href="home-mobile.html">House of Evulv</a>
+<a class="menu-btn" href="mobile-menu.html" aria-label="Open menu"><svg viewBox="0 0 24 24" width="20" height="20" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg></a>
+</header>
+<div class="status"><span class="dot"></span>Nominations close 20 November</div>
+<div class="hero-body">
+<div class="eyebrow">A House of Evulv programme, first edition</div>
+<h1 class="h1">Sentinels of Peace</h1>
+<p class="lead">Grand Honours for the individuals and organisations whose work prevents conflict, protects lives and helps communities in Nigeria recover.</p>
+</div>
+<div class="mosaic">
+<div class="ph"><img src="../../public/images/woman-blazer.jpg" alt="Woman in a black blazer, smiling" style="object-position:center 25%"></div>
+<div class="ph"><img src="../../public/images/cadets.jpg" alt="Cadets in dress uniform on parade" style="object-position:center 30%"></div>
+<div class="ph"><img src="../../public/images/young-man.jpg" alt="Young man standing on steps" style="object-position:center 40%"></div>
+<div class="ph"><img src="../../public/images/flag-pole.jpg" alt="Nigerian flag on a flagpole" style="object-position:center 30%"></div>
+</div>
+<div class="meta">
+<div><span>Ceremony</span><span>Friday 18 December</span></div>
+<div><span>Venue</span><span>Sheraton Lagos, Ikeja</span></div>
+<div><span>Nominations close</span><span>Friday 20 November</span></div>
+</div>
+<div class="ctas">
+<a class="btn btn-lime" href="#nominate">Nominate someone</a>
+<a class="btn btn-ghost" href="#partner">Become a partner</a>
+</div>
+</section>
+
+<section id="why" class="sec why" style="display:flex;flex-direction:column;gap:16px">
+<h2 class="h2">Much of the work that keeps a community stable is never recorded.</h2>
+<p>Mediators, first responders, community leaders, public servants and civic groups prevent violence and help people recover from it. Few of them are ever named.</p>
+<p>The Grand Honours names them, documents what they did, and puts them in the same room as the institutions able to support their work.</p>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:8px">
+<article class="tile tile-photo ph panel" style="border-radius:20px">
+<img src="../../public/images/recognise-joy-flag.jpg" alt="Woman celebrating in front of a Nigerian flag" style="object-position:center 40%">
+<div class="scrim"></div>
+<div class="txt"><h3>Recognise</h3><p style="color:var(--on-dark)">Public honours for documented service in peace, security and community resilience.</p></div>
+</article>
+<article class="tile" style="background:var(--sage)"><h3 style="color:var(--forest)">Convene</h3><p style="color:var(--sage-text)">Government, business, diplomatic, traditional, humanitarian and civic leaders in one room.</p></article>
+<article class="tile" style="background:#fff;border:1px solid var(--card-border)"><h3>Amplify</h3><p style="color:var(--body)">Each honouree's story is written up and published so the work reaches more people.</p></article>
+<article class="tile" style="background:var(--forest);color:var(--bone)"><h3 style="color:var(--lime)">Advance</h3><p style="color:var(--on-dark)">Honourees are introduced to partners who can fund, extend or replicate what they started.</p></article>
+</section>
+
+<section id="categories" class="sec" style="display:flex;flex-direction:column;gap:20px">
+<h2 class="h2">Honour categories</h2>
+<p style="font-size:14px;line-height:1.55;color:var(--muted)">Draft list for the first edition. The House confirms final categories before nominations open.</p>
+<div>
+<div class="cat"><h3>Peace and Security Service</h3><p>Service that prevented violence or protected lives, in uniform or out of it.</p><span class="elig">Individual</span></div>
+<div class="cat"><h3>Community Resilience</h3><p>Work that helped a community withstand a crisis or rebuild after one.</p><span class="elig">Individual or group</span></div>
+<div class="cat"><h3>Responsible Citizenship</h3><p>Conduct in public or private life that strengthened trust between people.</p><span class="elig">Individual</span></div>
+<div class="cat"><h3>Humanitarian Service</h3><p>Relief and care for displaced, injured or vulnerable people.</p><span class="elig">Individual or group</span></div>
+<div class="cat"><h3>National Development</h3><p>Organisations whose work improved lives across a state or the country.</p><span class="elig">Organisation</span></div>
+</div>
+</section>
+
+<section id="selection" class="panel" style="background:var(--sage);padding:28px 20px;display:flex;flex-direction:column;gap:22px">
+<h2 class="h2" style="color:var(--forest)">How an honouree is chosen</h2>
+<p style="font-size:15px;line-height:1.55;color:var(--sage-text)">Criteria and panel members are published on 19 October, the day nominations open.</p>
+<ol class="tl">
+<li class="now"><span class="node"></span><div class="when">19 Oct to 20 Nov</div><h3>Nominations</h3><p>Anyone submits a nomination through this page.</p></li>
+<li><span class="node"></span><div class="when">23 to 27 Nov</div><h3>Verification</h3><p>We confirm each shortlisted claim with the nominator and one referee.</p></li>
+<li><span class="node"></span><div class="when">30 Nov to 4 Dec</div><h3>Panel review</h3><p>Five independent panellists from civil society, security, academia and the media score the shortlist.</p></li>
+<li><span class="node"></span><div class="when">Monday 7 Dec</div><h3>Announcement</h3><p>Honourees are named and their profiles published here.</p></li>
+<li><span class="node"></span><div class="when">Friday 18 Dec</div><h3>Grand Honours</h3><p>Presentation at the Sheraton Lagos Hotel, Ikeja.</p></li>
+</ol>
+</section>
+
+<section class="panel ph cer">
+<img src="../../public/images/guard-of-honour.jpg" alt="Guard of honour on a red carpet" style="object-position:65% 45%">
+<div class="scrim"></div>
+<div class="txt">
+<div style="font-size:14px;font-weight:600;color:var(--lime)">The ceremony</div>
+<div style="font-size:32px;line-height:1.05;font-weight:700;letter-spacing:-.04em">Friday 18 December 2026, Sheraton Lagos Hotel, Ikeja.</div>
+<p style="font-size:15px;line-height:1.55;color:var(--on-dark)">Attendance is by invitation. Partners and honourees receive places for their guests.</p>
+</div>
+</section>
+
+<section id="partner" class="sec" style="display:flex;flex-direction:column;gap:16px;padding-left:8px;padding-right:8px">
+<div style="padding:0 8px;display:flex;flex-direction:column;gap:14px">
+<h2 class="h2">Partner with the inaugural edition</h2>
+<p style="font-size:15px;line-height:1.55;color:var(--body)">Partners fund nominations, honouree documentation and the ceremony. Terms are agreed with each partner in advance.</p>
+</div>
+<div class="tier founding"><h3>Founding</h3><div class="lim">One partner</div><dl><dt>What you support</dt><dd>The inaugural edition as a whole</dd><dt>Recognition</dt><dd>Named with the programme on all materials</dd><dt>Contribution</dt><dd>On request</dd></dl></div>
+<div class="tier"><h3>Strategic</h3><div class="lim">Five, one per category</div><dl><dt>What you support</dt><dd>One honour category</dd><dt>Recognition</dt><dd>Named with your category at the ceremony</dd><dt>Contribution</dt><dd>On request</dd></dl></div>
+<div class="tier"><h3>Programme</h3><div class="lim">Up to three</div><dl><dt>What you support</dt><dd>Nominations, documentation or the ceremony</dd><dt>Recognition</dt><dd>Named with the activity you fund</dd><dt>Contribution</dt><dd>On request</dd></dl></div>
+<div class="tier"><h3>Media</h3><div class="lim">Up to four</div><dl><dt>What you support</dt><dd>Coverage of the ceremony and honourees</dd><dt>Recognition</dt><dd>Named as media partner</dd><dt>Contribution</dt><dd>In kind</dd></dl></div>
+<div style="padding:4px 8px 0;display:flex;flex-direction:column;gap:12px">
+<a class="btn btn-forest" href="mailto:hello@houseofevulv.com?subject=Sentinels%20of%20Peace%20partnership">Request the partnership brief</a>
+<span style="font-size:15px;color:var(--body);text-align:center">Or call <a href="tel:+2348023942101" style="font-weight:700;display:inline-flex;align-items:center;min-height:44px">+234 802 394 2101</a></span>
+</div>
+</section>
+
+<section id="nominate" class="panel dark" style="padding:28px 12px 12px;display:flex;flex-direction:column;gap:20px">
+<div style="padding:0 8px;display:flex;flex-direction:column;gap:14px">
+<h2 style="font-size:36px;line-height:1;font-weight:700;letter-spacing:-.045em">Nominate someone whose work deserves a name.</h2>
+<p style="font-size:16px;line-height:1.55;color:var(--on-dark-2)">Anyone can nominate, including the nominee's colleagues, neighbours or the people they helped. It takes about ten minutes.</p>
+</div>
+<form class="form" onsubmit="return false">
+<fieldset class="fs">
+<div class="fs-title">The nominee</div>
+<label class="fld">Full name<input type="text" autocomplete="off" placeholder="As they are publicly known"></label>
+<label class="fld">Organisation<input type="text" placeholder="Leave blank if none"></label>
+<label class="fld">Category<select><option>Choose one</option><option>Peace and Security Service</option><option>Community Resilience</option><option>Responsible Citizenship</option><option>Humanitarian Service</option><option>National Development</option></select></label>
+<label class="fld">State where the work happened<select><option>Choose a state</option><option>Lagos</option><option>FCT Abuja</option><option>(all 36 states plus FCT)</option></select></label>
+</fieldset>
+<fieldset class="fs">
+<div class="fs-title">Their work</div>
+<label class="fld">What did they do, and who benefited?<textarea rows="6" placeholder="Where it happened, roughly when, and what changed for the people involved."></textarea><span class="help"><span>Specific events count for more than general praise.</span><span style="white-space:nowrap">0 / 1,200</span></span></label>
+<label class="fld">Link to coverage or records<input type="url" inputmode="url" placeholder="Optional: news report, letter, photographs"></label>
+</fieldset>
+<fieldset class="fs">
+<div class="fs-title">About you</div>
+<label class="fld">Your name<input type="text" autocomplete="name"></label>
+<label class="fld">Email or WhatsApp number<input type="text" autocomplete="email" placeholder="For the reference number"></label>
+<label class="consent"><input type="checkbox"><span>I agree that House of Evulv may contact me and the nominee about this nomination, as set out in the <a href="#privacy">privacy notice</a> (NDPA 2023).</span></label>
+</fieldset>
+<button class="btn btn-forest" type="submit" style="border:0;font:inherit;font-size:16px;font-weight:700;width:100%">Submit nomination</button>
+</form>
+<div class="after" style="padding:4px 8px 12px">
+<div style="font-size:15px;font-weight:700;border:0;padding:0 0 12px;display:block">After you submit</div>
+<div><b>Same day</b><span>You receive a reference number by email.</span></div>
+<div><b>By 27 Nov</b><span>If your nominee is shortlisted, we call you and one referee to confirm the details.</span></div>
+<div><b>By 7 Dec</b><span>Every nominator hears the outcome, shortlisted or not.</span></div>
+</div>
+</section>
+
+<footer class="foot">
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--ink)">Sentinels of Peace</span>
+<span>Grand Honours presented by <a href="home-mobile.html" style="font-weight:700;color:var(--forest)">House of Evulv</a>, Lagos.</span>
+</div>
+<div class="cols">
+<div><span class="h">This edition</span><a href="#categories">Categories</a><a href="#selection">Selection</a><a href="#nominate">Nominate</a></div>
+<div><span class="h">Partners</span><a href="#partner">Partnership tiers</a><a href="mailto:hello@houseofevulv.com?subject=Press">Press enquiries</a></div>
+<div style="grid-column:span 2"><span class="h">Contact</span><a href="mailto:hello@houseofevulv.com">hello@houseofevulv.com</a><a href="tel:+2348023942101">+234 802 394 2101</a></div>
+</div>
+<div class="bar"><span>© 2026 House of Evulv</span><span id="privacy"><a href="#privacy">Privacy notice (NDPA 2023)</a> &nbsp; <a href="#privacy">Nomination terms</a></span></div>
+</footer>
+
+</div>
+</body>
+</html>

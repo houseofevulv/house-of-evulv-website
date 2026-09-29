@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House of Evulv, mobile menu (open state)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#F3F1EC;font-family:'Manrope',system-ui,sans-serif}
+.overlay{min-height:100svh;padding:8px;display:flex}
+.sheet{flex:1;border-radius:22px;background:#16302B;color:#F3F1EC;display:flex;flex-direction:column}
+.hdr{height:64px;padding:0 12px 0 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.02em;color:#F3F1EC;text-decoration:none}
+.close{width:44px;height:44px;border-radius:12px;background:rgba(243,241,236,.12);color:#F3F1EC;display:flex;align-items:center;justify-content:center;text-decoration:none}
+nav{padding:24px 20px;display:flex;flex-direction:column}
+nav a{display:flex;justify-content:space-between;align-items:center;min-height:60px;border-top:1px solid #2E4A42;color:#F3F1EC;text-decoration:none;font-size:28px;font-weight:700;letter-spacing:-.03em}
+nav a:last-child{border-bottom:1px solid #2E4A42}
+.group{font-size:13px;font-weight:600;color:#9FB0A8;padding:20px 0 8px}
+.bottom{margin-top:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.status{display:flex;align-items:center;gap:8px;font-size:14px;color:#C9D3CD}
+.dot{width:8px;height:8px;border-radius:999px;background:#C3DD6E}
+.btn{display:block;text-align:center;padding:15px 20px;border-radius:12px;background:#C3DD6E;color:#0B1A17;font-size:15px;font-weight:700;text-decoration:none}
+.contact{font-size:14px;color:#C9D3CD;display:flex;flex-direction:column;gap:6px}
+.contact a{color:#F3F1EC;display:inline-flex;align-items:center;min-height:44px}
+</style>
+</head>
+<body>
+<div class="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+<div class="sheet">
+<div class="hdr">
+<a class="brand" href="home-mobile.html">House of Evulv</a>
+<a class="close" href="home-mobile.html" aria-label="Close menu"><svg viewBox="0 0 24 24" width="20" height="20" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+</div>
+<nav aria-label="Main">
+<div class="group">The House</div>
+<a href="home-mobile.html#about">About</a>
+<a href="home-mobile.html#commitments">Commitments</a>
+<a href="home-mobile.html#story">Our story</a>
+<div class="group">Sentinels of Peace</div>
+<a href="sentinels-mobile.html">The programme</a>
+<a href="sentinels-mobile.html#categories">Categories</a>
+<a href="sentinels-mobile.html#partner">Partnership</a>
+</nav>
+<div class="bottom">
+<div class="status"><span class="dot"></span>Nominations open until 20 November</div>
+<a class="btn" href="sentinels-mobile.html#nominate">Nominate someone</a>
+<div class="contact"><a href="mailto:hello@houseofevulv.com">hello@houseofevulv.com</a><a href="tel:+2348023942101">+234 802 394 2101</a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+
+  --color-bone: #f3f1ec;
+  --color-ink: #121614;
+  --color-muted: #4f5752;
+  --color-body: #3e4641;
+  --color-statement-grey: #7c857f;
+  --color-forest: #16302b;
+  --color-forest-ink: #0b1a17;
+  --color-forest-mid: #2a443d;
+  --color-sage: #d9e0d3;
+  --color-sage-deep: #b9c4b1;
+  --color-photo-fallback: #c9d1c2;
+  --color-sage-text: #2f3a35;
+  --color-lime: #c3dd6e;
+  --color-on-dark: #dce3dd;
+  --color-on-dark-2: #c9d3cd;
+  --color-on-dark-3: #9fb0a8;
+  --color-rule-dark: #2e4a42;
+  --color-rule-dark-2: #3c5a51;
+  --color-rule: #d6d4cc;
+  --color-rule-2: #cfd3cc;
+  --color-card-border: #deddd6;
+  --color-row-hover: #eceae3;
+  --color-table-rule: #e4e2db;
+  --color-table-rule-2: #efede7;
+  --color-help: #5e6661;
+  --color-error: #b42318;
+  --color-white: #ffffff;
+
+  --breakpoint-xs: 400px;
+}
+
+/*
+  Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px,
+  and interpolates linearly between.
+*/
+@utility t-home-hero {
+  font-size: clamp(44px, calc(7.1429vw - 10.857px), 92px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  @media (min-width: 768px) {
+    line-height: 0.98;
+  }
+}
+@utility t-sop-hero {
+  font-size: clamp(48px, calc(8.3333vw - 16px), 104px);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+@utility t-feature {
+  font-size: clamp(40px, calc(5.3571vw - 1.143px), 76px);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+@utility t-nominate {
+  font-size: clamp(36px, calc(4.1667vw + 4px), 64px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+@utility t-h2-48 {
+  font-size: clamp(32px, calc(2.381vw + 13.714px), 48px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  @media (max-width: 767px) {
+    line-height: 1.08;
+  }
+}
+@utility t-h2-52 {
+  font-size: clamp(32px, calc(2.9762vw + 9.143px), 52px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  @media (max-width: 767px) {
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+}
+@utility t-h2-56 {
+  font-size: clamp(32px, calc(3.5714vw + 4.571px), 56px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  @media (max-width: 767px) {
+    letter-spacing: -0.035em;
+  }
+}
+@utility t-contact-email {
+  font-size: clamp(26px, calc(8.631vw - 40.286px), 84px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  @media (max-width: 767px) {
+    letter-spacing: -0.03em;
+  }
+}
+@utility t-statement {
+  font-size: clamp(28px, calc(3.869vw - 1.714px), 54px);
+  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  @media (min-width: 768px) {
+    line-height: 1.18;
+  }
+}
+@utility t-quote {
+  font-size: clamp(24px, calc(2.381vw + 5.714px), 40px);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  @media (min-width: 768px) {
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+}
+@utility t-tile-44 {
+  font-size: clamp(30px, calc(2.0833vw + 14px), 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  @media (min-width: 768px) {
+    letter-spacing: -0.035em;
+  }
+}
+@utility t-tile-40 {
+  font-size: clamp(26px, calc(2.0833vw + 10px), 40px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  @media (min-width: 768px) {
+    letter-spacing: -0.035em;
+  }
+}
+@utility t-tile-36 {
+  font-size: clamp(26px, calc(1.4881vw + 14.571px), 36px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+@utility t-tile-28 {
+  font-size: clamp(26px, calc(0.2976vw + 23.714px), 28px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+@utility t-category {
+  font-size: clamp(22px, calc(1.1905vw + 12.857px), 30px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 16px;
+  }
+  body {
+    margin: 0;
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  a {
+    color: var(--color-forest);
+  }
+
+  /* Focus ring: forest on light surfaces, lime on dark ones */
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 2px;
+  }
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-lime);
+  }
+  .on-dark .on-light :focus-visible {
+    outline-color: var(--color-forest);
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background-color 0.18s ease;
+    cursor: pointer;
+  }
+  .lnk {
+    transition: opacity 0.18s ease;
+  }
+  @media (hover: hover) {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    .lnk:hover {
+      opacity: 0.7;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn,
+    .lnk {
+      transition: none;
+    }
+  }
+}
+
+/* Reading pages */
+@layer components {
+  .prose-evulv > * + * {
+    margin-top: 1em;
+  }
+  .prose-evulv h2 {
+    margin: 2.2em 0 0;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  .prose-evulv h2 + * {
+    margin-top: 0.6em;
+  }
+  .prose-evulv p,
+  .prose-evulv ul {
+    margin-bottom: 0;
+  }
+  .prose-evulv ul {
+    padding-left: 1.25em;
+    list-style: disc;
+  }
+  .prose-evulv li + li {
+    margin-top: 0.4em;
+  }
+  .prose-evulv a {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}

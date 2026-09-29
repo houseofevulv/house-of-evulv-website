@@ -1,0 +1,222 @@
+{
+  "_note": "Single source for dates, venue, lists and contact details. Every value marked unconfirmed must be checked with the client before launch.",
+  "site": {
+    "name": "House of Evulv",
+    "tagline": "Peace, healing and human development",
+    "description": "House of Evulv is a social impact platform in Lagos. We run programmes in peace, healing and human development.",
+    "url": "https://houseofevulv.com",
+    "copyrightYear": 2026
+  },
+  "contact": {
+    "email": "hello@houseofevulv.com",
+    "phoneDisplay": "+234 802 394 2101",
+    "phoneHref": "tel:+2348023942101",
+    "city": "Lagos, Nigeria",
+    "hours": "Mon to Fri, 9am to 5pm WAT",
+    "streetAddress": null,
+    "rcNumber": null
+  },
+  "founder": {
+    "name": "Mr Taiwo Onayinka",
+    "nameConfirmed": false,
+    "title": "Founder, House of Evulv",
+    "quote": "Honestly, it is about time we had platforms that foster peace and advance the evolution of society for the next generation.",
+    "photo": null,
+    "_photoNote": "Canvas uses founder-standin.jpg, which is NOT the founder. Replace before launch."
+  },
+  "event": {
+    "name": "The Sentinels of Peace Grand Honours",
+    "shortName": "Sentinels of Peace",
+    "edition": "First edition",
+    "ceremonyDate": "2026-12-12",
+    "ceremonyDateDisplay": "Saturday 12 December 2026",
+    "ceremonyDateConfirmed": true,
+    "venue": "Sheraton Lagos Hotel, Ikeja",
+    "venueShort": "Sheraton Lagos, Ikeja",
+    "venueAddress": "30 Mobolaji Bank Anthony Way, Ikeja, Lagos",
+    "venueConfirmed": false
+  },
+  "nominations": {
+    "opens": "2026-10-19",
+    "closes": "2026-11-20",
+    "closesDisplay": "20 November",
+    "verificationBy": "2026-11-27",
+    "outcomeBy": "2026-12-07",
+    "referenceFormat": "SOP-26-0000",
+    "descriptionMaxChars": 1200
+  },
+  "steps": [
+    {
+      "id": "nominations",
+      "start": "2026-10-19",
+      "end": "2026-11-20",
+      "when": "19 Oct to 20 Nov",
+      "title": "Nominations",
+      "body": "Anyone submits a nomination through this page."
+    },
+    {
+      "id": "verification",
+      "start": "2026-11-23",
+      "end": "2026-11-27",
+      "when": "23 to 27 Nov",
+      "title": "Verification",
+      "body": "We confirm each shortlisted claim with the nominator and one referee."
+    },
+    {
+      "id": "panel",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "when": "30 Nov to 4 Dec",
+      "title": "Panel review",
+      "body": "Five independent panellists from civil society, security, academia and the media score the shortlist."
+    },
+    {
+      "id": "announcement",
+      "start": "2026-12-07",
+      "end": "2026-12-07",
+      "when": "Monday 7 Dec",
+      "title": "Announcement",
+      "body": "Honourees are named and their profiles published here."
+    },
+    {
+      "id": "honours",
+      "start": "2026-12-12",
+      "end": "2026-12-12",
+      "when": "Saturday 12 Dec",
+      "title": "Grand Honours",
+      "body": "Presentation at the Sheraton Lagos Hotel, Ikeja."
+    }
+  ],
+  "categories": [
+    {
+      "title": "Peace and Security Service",
+      "body": "Service that prevented violence or protected lives, in uniform or out of it.",
+      "eligible": "Individual"
+    },
+    {
+      "title": "Community Resilience",
+      "body": "Work that helped a community withstand a crisis or rebuild after one.",
+      "eligible": "Individual or group"
+    },
+    {
+      "title": "Responsible Citizenship",
+      "body": "Conduct in public or private life that strengthened trust between people.",
+      "eligible": "Individual"
+    },
+    {
+      "title": "Humanitarian Service",
+      "body": "Relief and care for displaced, injured or vulnerable people.",
+      "eligible": "Individual or group"
+    },
+    {
+      "title": "National Development",
+      "body": "Organisations whose work improved lives across a state or the country.",
+      "eligible": "Organisation"
+    }
+  ],
+  "partnership": {
+    "tiers": [
+      {
+        "name": "Founding",
+        "limit": "One partner",
+        "highlight": true
+      },
+      {
+        "name": "Strategic",
+        "limit": "Five, one per category",
+        "highlight": false
+      },
+      {
+        "name": "Programme",
+        "limit": "Up to three",
+        "highlight": false
+      },
+      {
+        "name": "Media",
+        "limit": "Up to four",
+        "highlight": false
+      }
+    ],
+    "rows": [
+      {
+        "label": "What you support",
+        "cells": [
+          "The inaugural edition as a whole",
+          "One honour category",
+          "Nominations, documentation or the ceremony",
+          "Coverage of the ceremony and honourees"
+        ]
+      },
+      {
+        "label": "Recognition",
+        "cells": [
+          "Named with the programme on all materials",
+          "Named with your category at the ceremony",
+          "Named with the activity you fund",
+          "Named as media partner"
+        ]
+      },
+      {
+        "label": "Contribution",
+        "cells": [
+          "On request",
+          "On request",
+          "On request",
+          "In kind"
+        ]
+      }
+    ],
+    "briefMailto": "mailto:hello@houseofevulv.com?subject=Sentinels%20of%20Peace%20partnership"
+  },
+  "states": [
+    "Abia",
+    "Adamawa",
+    "Akwa Ibom",
+    "Anambra",
+    "Bauchi",
+    "Bayelsa",
+    "Benue",
+    "Borno",
+    "Cross River",
+    "Delta",
+    "Ebonyi",
+    "Edo",
+    "Ekiti",
+    "Enugu",
+    "FCT Abuja",
+    "Gombe",
+    "Imo",
+    "Jigawa",
+    "Kaduna",
+    "Kano",
+    "Katsina",
+    "Kebbi",
+    "Kogi",
+    "Kwara",
+    "Lagos",
+    "Nasarawa",
+    "Niger",
+    "Ogun",
+    "Ondo",
+    "Osun",
+    "Oyo",
+    "Plateau",
+    "Rivers",
+    "Sokoto",
+    "Taraba",
+    "Yobe",
+    "Zamfara"
+  ],
+  "donate": {
+    "_note": "Fill paymentUrl (a Paystack or Flutterwave payment page link) and/or bank once the client provides them. With neither, the section invites people to get in touch. Confirm how gifts are used before launch.",
+    "paymentUrl": null,
+    "paymentProvider": null,
+    "bank": null,
+    "_bankExample": {
+      "bankName": "",
+      "accountName": "",
+      "accountNumber": ""
+    },
+    "useConfirmed": false
+  }
+}
