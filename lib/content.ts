@@ -107,6 +107,6 @@ export const {
  */
 export const isFull = process.env.FEATURE_FULL === "true";
 
-/** Stand-in used until the client supplies the founder's portrait. TODO(client): replace. */
-export const founderPhoto = founder.photo ?? "/images/founder-standin.jpg";
-export const founderPhotoAlt = founder.photo ? founder.name : "Stand-in portrait";
+/** The founder's portrait, or null until the client supplies a real one. No stand-in: the site must not show anyone else as him. */
+export const founderPhoto = founder.photo;
+export const founderPhotoAlt = `Portrait of ${founder.name}`;
