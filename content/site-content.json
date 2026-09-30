@@ -37,7 +37,7 @@
     "venueConfirmed": false
   },
   "nominations": {
-    "opens": "2026-10-19",
+    "opens": "2026-09-30",
     "closes": "2026-11-20",
     "closesDisplay": "20 November",
     "verificationBy": "2026-11-27",
@@ -48,9 +48,9 @@
   "steps": [
     {
       "id": "nominations",
-      "start": "2026-10-19",
+      "start": "2026-09-30",
       "end": "2026-11-20",
-      "when": "19 Oct to 20 Nov",
+      "when": "30 Sep to 20 Nov",
       "title": "Nominations",
       "body": "Anyone submits a nomination through this page."
     },
@@ -242,7 +242,7 @@
       },
       {
         "q": "Can I nominate myself?",
-        "a": "The House will confirm whether self-nominations are accepted before nominations open on {opens}.",
+        "a": "The House is confirming whether self-nominations are accepted. Until then, please nominate someone else, or email {email} to ask.",
         "confirmed": false
       },
       {
@@ -251,8 +251,8 @@
         "confirmed": false
       },
       {
-        "q": "When do nominations open and close?",
-        "a": "Nominations open on {opens} and close on {closes}.",
+        "q": "When do nominations close?",
+        "a": "Nominations opened on {opens} and close on {closes}.",
         "confirmed": true
       },
       {

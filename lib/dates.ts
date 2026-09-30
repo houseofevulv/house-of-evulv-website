@@ -37,8 +37,8 @@ const fmt = (opts: Intl.DateTimeFormatOptions) => (iso: string) =>
 
 /** "19 October" */
 export const dayMonth = fmt({ day: "numeric", month: "long" });
-/** "19 Oct" */
-export const dayMonthShort = fmt({ day: "numeric", month: "short" });
+/** "19 Oct". en-GB writes September as "Sept"; the site uses three-letter months throughout. */
+export const dayMonthShort = (iso: string) => fmt({ day: "numeric", month: "short" })(iso).replace("Sept", "Sep");
 /** "Friday 20 November" */
 export const weekdayDayMonth = fmt({ weekday: "long", day: "numeric", month: "long" });
 

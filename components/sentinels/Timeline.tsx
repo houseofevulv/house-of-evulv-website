@@ -1,5 +1,5 @@
-import { nominations, selection, steps } from "@/lib/content";
-import { currentStepIndex, dayMonth } from "@/lib/dates";
+import { selection, steps } from "@/lib/content";
+import { currentStepIndex } from "@/lib/dates";
 
 export function Timeline() {
   const current = currentStepIndex();
@@ -13,11 +13,11 @@ export function Timeline() {
     >
       <div className="flex flex-col gap-[22px] md:flex-row md:items-end md:justify-between">
         <h2 className="t-h2-52 m-0 max-w-[620px] text-forest">How an honouree is chosen</h2>
-        {/* TODO(client): criteria and panel members go in content/site-content.json (selection) by this date */}
+        {/* TODO(client): criteria and panel members go in content/site-content.json (selection); confirm the timing */}
         <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sage-text md:text-[17px]">
           {published
             ? "Each shortlisted nomination is verified, then scored by an independent panel against the criteria below."
-            : `Criteria and panel members are published on ${dayMonth(nominations.opens)}, the day nominations open.`}
+            : "Criteria and panel members are published here before shortlisting begins."}
         </p>
       </div>
 

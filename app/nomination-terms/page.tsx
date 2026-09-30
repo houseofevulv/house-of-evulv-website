@@ -41,7 +41,7 @@ export default function NominationTermsPage() {
         than one nomination, one form per nominee.
       </p>
       {/* TODO(client): decide whether self-nominations are accepted, then replace this paragraph. */}
-      <p>Self-nominations: the House will confirm whether self-nominations are accepted before nominations open.</p>
+      <p>Self-nominations: the House is confirming whether self-nominations are accepted. Until then, please nominate someone else.</p>
 
       <h2>Accurate information</h2>
       <p>
