@@ -11,6 +11,8 @@ export type Step = {
 
 export type Category = { title: string; body: string; eligible: string };
 
+type FaqItem = { q: string; a: string; confirmed: boolean; links?: { href: string; label: string }[] };
+
 export type PartnerTier = { name: string; limit: string; highlight: boolean };
 
 export type SiteContent = {
@@ -44,6 +46,8 @@ export type SiteContent = {
     venueConfirmed: boolean;
   };
   nominations: {
+    /** false for 2026: honourees are selected, not publicly nominated */
+    public: boolean;
     opens: string;
     closes: string;
     closesDisplay: string;
@@ -66,12 +70,16 @@ export type SiteContent = {
     bank: { bankName: string; accountName: string; accountNumber: string } | null;
     useConfirmed: boolean;
   };
+  support: { types: string[] };
   selection: {
     criteria: { title: string; body: string }[];
     panel: { name: string; role: string }[];
   };
   faq: {
-    items: { q: string; a: string; confirmed: boolean; links?: { href: string; label: string }[] }[];
+    /** Shown while nominations.public is false (2026, selected edition) */
+    items: FaqItem[];
+    /** Shown when public nominations return */
+    publicItems: FaqItem[];
   };
 };
 
@@ -88,6 +96,7 @@ export const {
   partnership,
   states,
   donate,
+  support,
   selection,
   faq,
 } = content;

@@ -3,7 +3,8 @@
 Website for House of Evulv (Lagos) and its first programme, the Sentinels of Peace Grand Honours.
 
 - **Stack:** Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Server Actions with zod
-- **Nominations:** stored in a Google Sheet, with an email alert through Resend
+- **2026 edition:** honourees are **selected**, not publicly nominated. `nominations.public` is `false` in `content/site-content.json`, which hides the nomination form and shows a support pledge form in its place. Set it to `true` to bring public nominations back in a future edition.
+- **Forms:** support pledges (and, when switched on, nominations) are stored in a Google Sheet, with an email alert through Resend
 - **Hosting:** Vercel
 - **Package:** Essentials. `FEATURE_FULL` stays `false`; see `lib/content.ts`.
 
@@ -12,10 +13,10 @@ Website for House of Evulv (Lagos) and its first programme, the Sentinels of Pea
 | Route | Page |
 | --- | --- |
 | `/` | Home |
-| `/sentinels-of-peace` | Sentinels of Peace, including the nomination form |
+| `/sentinels-of-peace` | Sentinels of Peace, including the support pledge form and FAQ |
 | `/our-story` | Our story |
 | `/privacy` | Privacy notice (pending legal review) |
-| `/nomination-terms` | Nomination terms (pending legal review) |
+| `/selection-terms` | Selection terms for the 2026 edition (pending legal review). `/nomination-terms` redirects here while public nominations are off. |
 | any other | Styled 404 |
 
 ## Run it locally
@@ -49,8 +50,8 @@ See `.env.example`. Set them in Vercel under Project → Settings → Environmen
 
 | Variable | Purpose |
 | --- | --- |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `NOMINATIONS_SHEET_ID` | Google Sheet for nominations. The sheet needs a tab named `Nominations` with a header row. |
-| `RESEND_API_KEY`, `NOMINATIONS_ALERT_TO`, `NOMINATIONS_FROM` | Email alert for each nomination |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `NOMINATIONS_SHEET_ID` | The Google Sheet. It needs a tab named `Support` (columns: timestamp, name, organisation, contact, how they want to help, amount, message, consent, user agent) and, for editions with public nominations, a tab named `Nominations`. Each tab needs a header row. |
+| `RESEND_API_KEY`, `NOMINATIONS_ALERT_TO`, `NOMINATIONS_FROM` | Email alert for each pledge (and nomination) |
 | `ALLOW_INDEXING` | `true` on the production domain at launch only; everything else stays out of search engines |
 | `FEATURE_FULL` | `false` (Essentials) |
 
@@ -69,6 +70,6 @@ The full brief and acceptance checklist are in `CLAUDE.md`. Before go-live:
 
 1. Confirm the venue and set `event.venueConfirmed`.
 2. Replace the founder stand-in photo (`founder.photo`) and confirm his name.
-3. Add the Google Sheet and Resend variables, then send one real test nomination.
+3. Add the Google Sheet and Resend variables, then send one real test pledge.
 4. Connect `houseofevulv.com` in Vercel and set `ALLOW_INDEXING=true` for Production.
 5. Legal review of the privacy notice and nomination terms.

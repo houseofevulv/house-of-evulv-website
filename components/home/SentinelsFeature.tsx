@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Photo } from "@/components/Photo";
 import { event, nominations } from "@/lib/content";
-import { dayMonth, dayMonthShort, nominationPhase } from "@/lib/dates";
+import { primaryAction } from "@/lib/cta";
+import { dayMonth, dayMonthShort } from "@/lib/dates";
 
 function Row({ label, children, last }: { label: string; children: React.ReactNode; last?: boolean }) {
   return (
@@ -17,7 +18,7 @@ function Row({ label, children, last }: { label: string; children: React.ReactNo
 }
 
 export function SentinelsFeature() {
-  const closed = nominationPhase() === "closed";
+  const action = primaryAction();
   return (
     <section
       id="sentinels"
@@ -27,7 +28,7 @@ export function SentinelsFeature() {
         <div className="contents lg:flex lg:flex-col lg:gap-7">
           <h2 className="t-feature m-0">The Sentinels of Peace Grand Honours</h2>
           <p className="order-2 m-0 max-w-[520px] text-base leading-[1.55] text-on-dark-2 md:text-[19px] lg:order-none">
-            A public honours programme for <span className="md:hidden">people</span>
+            A national honours programme for <span className="md:hidden">people</span>
             <span className="hidden md:inline">individuals</span> and organisations whose work prevents conflict,
             protects lives or helps communities recover.
           </p>
@@ -40,23 +41,29 @@ export function SentinelsFeature() {
               <span className="hidden xs:inline">{event.venue}</span>
               <span className="xs:hidden">{event.venueShort}</span>
             </Row>
-            <Row label="Nominations" last>
-              <span className="hidden md:inline">
-                {dayMonth(nominations.opens)} to {dayMonth(nominations.closes)}
-              </span>
-              <span className="md:hidden">
-                {dayMonthShort(nominations.opens)} to {dayMonthShort(nominations.closes)}
-              </span>
-            </Row>
+            {nominations.public ? (
+              <Row label="Nominations" last>
+                <span className="hidden md:inline">
+                  {dayMonth(nominations.opens)} to {dayMonth(nominations.closes)}
+                </span>
+                <span className="md:hidden">
+                  {dayMonthShort(nominations.opens)} to {dayMonthShort(nominations.closes)}
+                </span>
+              </Row>
+            ) : (
+              <Row label="Selection" last>
+                By an independent panel
+              </Row>
+            )}
           </dl>
           <div className="flex flex-col gap-2.5 md:flex-row md:gap-3">
-            {/* Mobile leads with the nomination; desktop leads with the programme */}
-            {!closed && (
+            {/* Mobile leads with the main action; desktop leads with the programme */}
+            {action && (
               <Link
-                href="/sentinels-of-peace#nominate"
+                href={action.href}
                 className="btn min-h-12 bg-lime px-5 py-[15px] font-bold text-forest-ink md:order-2 md:border md:border-bone md:bg-transparent md:px-[23px] md:py-[15px] md:font-semibold md:text-bone"
               >
-                Nominate someone
+                {action.label}
               </Link>
             )}
             <Link
@@ -79,7 +86,9 @@ export function SentinelsFeature() {
         className="order-1 h-[300px] rounded-2xl md:order-4 md:aspect-[4/3] md:h-auto md:w-full md:rounded-[20px] lg:order-none lg:col-span-5 lg:col-start-8 lg:aspect-[519/692]"
       >
         <p className="absolute right-5 bottom-5 left-5 m-0 hidden rounded-2xl bg-bone p-[22px] text-base leading-normal font-medium text-ink md:block">
-          The public nominates. An independent panel reviews each nomination against published criteria.
+          {nominations.public
+            ? "The public nominates. An independent panel reviews each nomination against published criteria."
+            : "Our research team identifies candidates. An independent panel chooses the honourees against published criteria."}
         </p>
       </Photo>
     </section>

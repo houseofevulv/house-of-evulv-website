@@ -24,7 +24,7 @@ export function Support() {
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,17,.6)_0%,rgba(10,20,17,.78)_40%,rgba(10,20,17,.92)_75%)] md:bg-[linear-gradient(90deg,rgba(10,20,17,.9)_0%,rgba(10,20,17,.75)_45%,rgba(10,20,17,.1)_80%)]"
       />
       <div
-        id="support"
+        id="give"
         className="relative flex w-full scroll-mt-4 flex-col gap-6 px-5 py-7 text-bone md:max-w-[640px] md:px-12 md:py-12 lg:px-16 lg:py-14"
       >
         <p className="m-0 text-sm font-semibold text-lime md:text-base">Support the programme</p>

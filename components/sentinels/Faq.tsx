@@ -41,7 +41,7 @@ export function Faq() {
 
       {/* TODO(client): items with confirmed=false in content/site-content.json (faq) are unverified */}
       <div className="border-t border-rule-2 md:col-span-8 lg:col-span-7 lg:col-start-6">
-        {faq.items.map((item) => (
+        {(nominations.public ? faq.publicItems : faq.items).map((item) => (
           <details key={item.q} className="group border-b border-rule-2">
             <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold tracking-[-0.015em] text-ink md:py-5 md:text-xl [&::-webkit-details-marker]:hidden">
               {item.q}

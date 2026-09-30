@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { contact } from "@/lib/content";
-import { nominationStatus } from "@/lib/dates";
+import { primaryAction } from "@/lib/cta";
+import { siteStatus } from "@/lib/dates";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { StatusDot } from "./StatusDot";
@@ -53,7 +54,9 @@ const navLinks = {
 };
 
 export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page" }) {
-  const status = nominationStatus();
+  const status = siteStatus();
+  const action = primaryAction(variant === "sentinels");
+  const menuAction = primaryAction();
   const onPhoto = variant === "home";
 
   return (
@@ -78,9 +81,9 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
                 <StatusDot phase={status.phase} />
                 {status.sentinels}
               </span>
-              {status.phase !== "closed" && (
-                <Link href="#nominate" className="btn bg-lime px-5 py-[13px] font-bold text-forest-ink">
-                  Nominate someone
+              {action && (
+                <Link href={action.href} className="btn bg-lime px-5 py-[13px] font-bold text-forest-ink">
+                  {action.label}
                 </Link>
               )}
             </>
@@ -104,6 +107,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
           groups={menuGroups}
           status={status.home}
           phase={status.phase}
+          action={menuAction}
           email={contact.email}
           phoneDisplay={contact.phoneDisplay}
           phoneHref={contact.phoneHref}

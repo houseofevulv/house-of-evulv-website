@@ -12,6 +12,8 @@ type Props = {
   groups: { title: string; links: NavLink[] }[];
   status: string;
   phase: Phase;
+  /** Main call to action at the foot of the menu, or null for none */
+  action: { href: string; label: string } | null;
   email: string;
   phoneDisplay: string;
   phoneHref: string;
@@ -21,7 +23,7 @@ type Props = {
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export function MobileMenu({ groups, status, phase, email, phoneDisplay, phoneHref, triggerTone = "forest" }: Props) {
+export function MobileMenu({ groups, status, phase, action, email, phoneDisplay, phoneHref, triggerTone = "forest" }: Props) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -155,13 +157,9 @@ export function MobileMenu({ groups, status, phase, email, phoneDisplay, phoneHr
                 <StatusDot phase={phase} />
                 {status}
               </p>
-              {phase !== "closed" && (
-                <Link
-                  href="/sentinels-of-peace#nominate"
-                  onClick={close}
-                  className="btn min-h-12 bg-lime px-5 py-[15px] font-bold text-forest-ink"
-                >
-                  Nominate someone
+              {action && (
+                <Link href={action.href} onClick={close} className="btn min-h-12 bg-lime px-5 py-[15px] font-bold text-forest-ink">
+                  {action.label}
                 </Link>
               )}
               <div className="flex flex-col gap-1.5 text-sm">

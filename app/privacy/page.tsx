@@ -10,9 +10,9 @@ import { pageOpenGraph } from "@/lib/metadata";
   period for donation records.
 */
 
-const LAST_UPDATED = "29 September 2026";
+const LAST_UPDATED = "30 September 2026";
 
-// The header shows the live nomination status; re-render hourly.
+// The header shows the live programme status; re-render hourly.
 export const revalidate = 3600;
 
 const description = `How ${site.name} collects, uses and protects the personal information people share with us.`;
@@ -44,35 +44,37 @@ export default function PrivacyPage() {
 
       <h2>What this notice covers</h2>
       <ul>
-        <li>nominations for {event.name};</li>
+        <li>people we consider for {event.name};</li>
+        <li>support pledges made through this website;</li>
         <li>gifts and donations;</li>
         <li>messages and calls to us, including partnership enquiries;</li>
         <li>visits to this website.</li>
       </ul>
 
-      <h2>Nominations</h2>
-      <p>When you nominate someone, we collect:</p>
-      <ul>
-        <li>about the nominee: their full name, organisation (if any), the honour category and the state where the work happened;</li>
-        <li>your description of what they did and who benefited, and any link to coverage or records you provide;</li>
-        <li>about you: your name and your email address or WhatsApp number;</li>
-        <li>your consent, the time of your submission and basic technical details of your browser, which help us spot automated spam.</li>
-      </ul>
+      {/* TODO(client): confirm the lawful basis for candidate research with counsel (legitimate interests vs consent) */}
+      <h2>People we consider for the honours</h2>
       <p>
-        We use this only to assess nominations against the published criteria, to contact you about your nomination, and,
-        if the nominee is shortlisted, to contact the nominee and one referee to verify the details. We rely on your consent,
-        which you give by ticking the box on the form.
+        For this edition, honourees are selected rather than publicly nominated. To find and assess candidates, our research
+        team gathers information about their work: their name, organisation, the category and state concerned, what they
+        did and who benefited, public coverage or records, and what referees and community contacts tell us. We also record
+        how to contact them.
       </p>
       <p>
-        Please do not send sensitive information such as health details, religious beliefs or identity documents unless it is
-        essential to the nomination.
+        We use this only to assess candidates against the published criteria and to contact them. We do this in our
+        legitimate interest in recognising public service, and we ask shortlisted candidates for their consent before
+        anything about them is published. See the <Link href="/selection-terms">selection terms</Link>.
+      </p>
+      <p>
+        If you think we hold information about you as a candidate, you may ask us what we hold, ask us to correct it, or ask
+        us to stop considering you, at any time.
       </p>
 
-      <h2>If you have been nominated</h2>
+      <h2>Support pledges</h2>
       <p>
-        Someone else gave us your details. You may ask us what we hold, ask us to correct it, or decline the nomination at any
-        time. Shortlisted nominees are named publicly only with their consent. See the{" "}
-        <Link href="/nomination-terms">nomination terms</Link>.
+        When you use the support form, we collect your name, organisation (if any), email address or WhatsApp number, how you
+        would like to help, any amount or offer you mention, your message, your consent, the time you sent it and basic
+        technical details of your browser, which help us spot automated spam. We use this only to reply and to arrange your
+        support, and we rely on your consent, which you give by ticking the box on the form.
       </p>
 
       <h2>Gifts and donations</h2>
@@ -98,15 +100,18 @@ export default function PrivacyPage() {
 
       <h2>Who can see your information</h2>
       <p>
-        Nominations are stored in Google Workspace, in an account controlled by {site.name}, and a copy of each nomination is
-        sent to our nominations inbox. Only {site.name} staff and the members of the independent review panel can see them.
+        Candidate research and support pledges are stored in Google Workspace, in an account controlled by {site.name}, and
+        a copy of each pledge is sent to our inbox. Only {site.name} staff can see pledges; candidate information is also
+        shared with the members of the independent panel.
         We do not sell personal information or use it for marketing.
       </p>
 
       <h2>How long we keep it</h2>
       <p>
-        We delete unsuccessful nominations 12 months after the ceremony. Where a nominee becomes an honouree, we keep what is
-        needed to document the honour, and we publish a profile only with the honouree&apos;s consent.
+        We delete information about candidates who are not selected 12 months after the ceremony. Where a candidate becomes
+        an honouree, we keep what is needed to document the honour, and we publish a profile only with their consent. We keep
+        support pledges for as long as we are in touch about them, and no longer than 12 months after the ceremony unless
+        they become donation records.
       </p>
 
       <h2>Your rights</h2>
@@ -118,8 +123,7 @@ export default function PrivacyPage() {
         <li>withdraw your consent at any time. This does not affect anything we did before you withdrew it.</li>
       </ul>
       <p>
-        To use any of these rights, email {mail} with the subject &ldquo;Data request&rdquo; and, if you have one, your
-        nomination reference number. If you are unhappy with our response, you can complain to the Nigeria Data Protection
+        To use any of these rights, email {mail} with the subject &ldquo;Data request&rdquo;. If you are unhappy with our response, you can complain to the Nigeria Data Protection
         Commission.
       </p>
 

@@ -7,27 +7,7 @@ import { nominations } from "@/lib/content";
 import { nominationPhase, TIME_ZONE, weekdayDayMonth } from "@/lib/dates";
 import { formatReference } from "@/lib/reference";
 import { appendNomination, sheetsConfigured } from "@/lib/sheets";
-
-const MIN_FILL_MS = 3000;
-const RATE_LIMIT = 5;
-const RATE_WINDOW_MS = 60 * 60 * 1000;
-
-/*
-  Per-IP rate limit, held in memory. On Vercel each warm function instance keeps its own map, so this
-  stops bursts from one client but is not a global guarantee. Move to Vercel KV / Upstash if abuse appears.
-*/
-const hits = new Map<string, number[]>();
-function rateLimited(ip: string) {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  if (recent.length >= RATE_LIMIT) {
-    hits.set(ip, recent);
-    return true;
-  }
-  recent.push(now);
-  hits.set(ip, recent);
-  return false;
-}
+import { clientIp, looksLikeBot, rateLimited } from "@/lib/spam";
 
 let devCounter = 0;
 
@@ -35,6 +15,10 @@ const GENERIC_ERROR =
   "We couldn't send your nomination just now. Please try again in a few minutes, or email it to hello@houseofevulv.com.";
 
 export async function nominate(formData: FormData): Promise<NominateState> {
+  // 2026 edition: honourees are selected, not nominated, so the form is off and the action refuses submissions.
+  if (!nominations.public) {
+    return { status: "error", errors: {}, message: "This edition does not take public nominations." };
+  }
   const phase = nominationPhase();
   if (phase === "before") {
     return {
@@ -48,17 +32,13 @@ export async function nominate(formData: FormData): Promise<NominateState> {
   }
 
   // Spam checks. Bots get a generic message so they learn nothing.
-  const honeypot = String(formData.get("website") ?? "");
-  const renderedAt = Number(formData.get("rendered_at") ?? 0);
-  if (honeypot !== "" || !renderedAt || Date.now() - renderedAt < MIN_FILL_MS) {
+  if (looksLikeBot(formData)) {
     return { status: "error", errors: {}, message: GENERIC_ERROR };
   }
 
   const h = await headers();
-  const ip = h.get("x-real-ip") ?? h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  const raw = Object.fromEntries(
-    FIELD_ORDER.map((k) => [k, formData.get(k) ?? ""])
-  );
+  const ip = `nominate:${clientIp(h)}`;
+  const raw = Object.fromEntries(FIELD_ORDER.map((k) => [k, formData.get(k) ?? ""]));
   const parsed = nominationSchema.safeParse(raw);
   if (!parsed.success) {
     const errors: Partial<Record<FieldName, string>> = {};

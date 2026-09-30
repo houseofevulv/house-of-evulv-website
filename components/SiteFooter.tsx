@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { contact, partnership, site } from "@/lib/content";
+import { primaryAction } from "@/lib/cta";
+import { contact, nominations, partnership, site } from "@/lib/content";
 import { Logo } from "./Logo";
 
 // Mobile: every footer link is a 44px tap target. Desktop: plain text links.
@@ -20,6 +21,10 @@ function Col({ title, className = "", children }: { title: string; className?: s
 export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page" }) {
   const sop = variant === "sentinels" ? "" : "/sentinels-of-peace";
   const home = variant === "home" ? "" : "/";
+  const action = primaryAction(variant === "sentinels");
+  const terms = nominations.public
+    ? { href: "/nomination-terms", label: "Nomination terms" }
+    : { href: "/selection-terms", label: "Selection terms" };
 
   return (
     <footer className="flex flex-col gap-7 px-4 pt-8 pb-6 text-[15px] text-muted md:gap-24 md:px-12 md:pt-14 md:pb-4">
@@ -53,7 +58,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
               <Link href={`${home}#donate`} className={linkCls}>Donate</Link>
             </Col>
             <Col title="Sentinels of Peace" className="md:col-span-3 lg:col-span-2">
-              <Link href={`${sop}#nominate`} className={linkCls}>Nominate</Link>
+              {action && <Link href={action.href} className={linkCls}>{action.short}</Link>}
               <Link href={`${sop}#categories`} className={linkCls}>Categories</Link>
               <Link href={`${sop}#partner`} className={linkCls}>Partnership</Link>
             </Col>
@@ -68,7 +73,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
             <Col title="This edition" className="md:col-span-3 lg:col-span-2 lg:col-start-6">
               <Link href="#categories" className={linkCls}>Categories</Link>
               <Link href="#selection" className={linkCls}>Selection</Link>
-              <Link href="#nominate" className={linkCls}>Nominate</Link>
+              {nominations.public && action && <Link href={action.href} className={linkCls}>{action.short}</Link>}
               <Link href="#faq" className={linkCls}>Questions</Link>
             </Col>
             <Col title="Partners" className="md:col-span-3 lg:col-span-2">
@@ -92,8 +97,8 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
           <Link href="/privacy" className="lnk inline-flex min-h-11 items-center text-muted underline md:min-h-0">
             Privacy notice (NDPA 2023)
           </Link>
-          <Link href="/nomination-terms" className="lnk inline-flex min-h-11 items-center text-muted underline md:min-h-0">
-            Nomination terms
+          <Link href={terms.href} className="lnk inline-flex min-h-11 items-center text-muted underline md:min-h-0">
+            {terms.label}
           </Link>
         </div>
       </div>

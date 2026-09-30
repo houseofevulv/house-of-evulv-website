@@ -1,4 +1,4 @@
-import { nominations, steps } from "./content";
+import { event, nominations, steps } from "./content";
 
 export const TIME_ZONE = "Africa/Lagos";
 
@@ -60,5 +60,23 @@ export function nominationStatus(today = todayInLagos()): Status {
     home: `Nominations open until ${closes}`,
     sentinels: `Closes ${closes}`,
     sentinelsMobile: `Nominations close ${closes}`,
+  };
+}
+
+/**
+ * Status line shown in the header and menu. With public nominations it counts down to the close; when the edition
+ * selects its honourees (2026), it points to the ceremony instead.
+ */
+export function siteStatus(today = todayInLagos()): Status {
+  if (nominations.public) return nominationStatus(today);
+  if (today > event.ceremonyDate) {
+    const t = `First edition held ${dayMonth(event.ceremonyDate)}`;
+    return { phase: "closed", home: t, sentinels: t, sentinelsMobile: t };
+  }
+  return {
+    phase: "open",
+    home: `Grand Honours, ${weekdayDayMonth(event.ceremonyDate)}`,
+    sentinels: `Grand Honours ${dayMonth(event.ceremonyDate)}`,
+    sentinelsMobile: `Grand Honours, ${weekdayDayMonth(event.ceremonyDate)}`,
   };
 }

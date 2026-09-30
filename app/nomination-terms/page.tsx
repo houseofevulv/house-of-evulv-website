@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ReadingPage } from "@/components/ReadingPage";
 import { contact, event, nominations, site } from "@/lib/content";
 import { pageOpenGraph } from "@/lib/metadata";
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
 };
 
 export default function NominationTermsPage() {
+  // 2026 edition: no public nominations, so the selection terms apply instead
+  if (!nominations.public) redirect("/selection-terms");
   return (
     <ReadingPage
       title="Nomination terms"

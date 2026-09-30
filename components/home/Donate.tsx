@@ -74,7 +74,7 @@ export function Donate() {
           <p className="m-0 text-[13px] leading-normal text-on-dark-3">
             {paymentUrl
               ? `Secure payment${paymentProvider ? ` by ${paymentProvider}` : ""}. Questions about giving: ${contact.email}.`
-              : `Online giving is being set up. Email or call ${contact.phoneDisplay} and we will send you the details.`}
+              : `Tell us how you would like to help and we will be in touch. Or call ${contact.phoneDisplay}.`}
           </p>
         </div>
 

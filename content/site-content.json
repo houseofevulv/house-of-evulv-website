@@ -37,6 +37,8 @@
     "venueConfirmed": false
   },
   "nominations": {
+    "public": false,
+    "_publicNote": "2026 (first edition): honourees are selected by the House's research team and an independent panel, not publicly nominated. Set to true to bring back the public nomination form in a future edition.",
     "opens": "2026-09-30",
     "closes": "2026-11-20",
     "closesDisplay": "20 November",
@@ -51,8 +53,8 @@
       "start": "2026-09-30",
       "end": "2026-11-20",
       "when": "30 Sep to 20 Nov",
-      "title": "Nominations",
-      "body": "Anyone submits a nomination through this page."
+      "title": "Research",
+      "body": "Our research team identifies candidates across all 36 states and the FCT."
     },
     {
       "id": "verification",
@@ -60,7 +62,7 @@
       "end": "2026-11-27",
       "when": "23 to 27 Nov",
       "title": "Verification",
-      "body": "We confirm each shortlisted claim with the nominator and one referee."
+      "body": "We confirm each shortlisted candidate's record with one referee, and ask the candidate for consent."
     },
     {
       "id": "panel",
@@ -143,7 +145,7 @@
         "cells": [
           "The inaugural edition as a whole",
           "One honour category",
-          "Nominations, documentation or the ceremony",
+          "Research, documentation or the ceremony",
           "Coverage of the ceremony and honourees"
         ]
       },
@@ -233,8 +235,8 @@
     }
   },
   "faq": {
-    "_note": "Tokens in answers are filled from the content above: {opens}, {closes}, {announcement}, {ceremony}, {email}. Items with confirmed=false are unverified with the client.",
-    "items": [
+    "_note": "Tokens in answers are filled from the content above: {opens}, {closes}, {announcement}, {ceremony}, {email}. 'items' shows while nominations.public is false (2026); 'publicItems' shows when public nominations return. Items with confirmed=false are unverified with the client.",
+    "publicItems": [
       {
         "q": "Who can nominate?",
         "a": "Anyone. Colleagues, neighbours, community members and the people a nominee helped are all welcome to nominate.",
@@ -315,6 +317,78 @@
           }
         ]
       }
+    ],
+    "items": [
+      {
+        "q": "Can I nominate someone?",
+        "a": "Not in this edition. For the first Sentinels of Peace Grand Honours, honourees are selected: our research team identifies candidates across all 36 states and the FCT, and an independent panel chooses the honourees against published criteria.",
+        "confirmed": true
+      },
+      {
+        "q": "How are honourees chosen?",
+        "a": "Our research team identifies candidates and checks each one's record, including with a referee. An independent panel from civil society, security, academia and the media then scores the shortlist against published criteria. The panel's decision is final.",
+        "confirmed": true
+      },
+      {
+        "q": "Who can be honoured?",
+        "a": "Individuals, groups and organisations whose work prevented conflict, protected lives or helped a community recover, in one of five categories. Each category shows who is eligible.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I apply or put myself forward?",
+        "a": "No. There are no applications in this edition, which keeps the selection independent.",
+        "confirmed": true
+      },
+      {
+        "q": "Does anyone pay to be honoured?",
+        "a": "No. Honourees never pay to be honoured or to attend the ceremony. If anyone asks you for money in the programme's name, they are not from House of Evulv: please report it to {email}.",
+        "confirmed": false
+      },
+      {
+        "q": "Will honourees be asked before they are named?",
+        "a": "Yes. Shortlisted candidates are named publicly only with their consent, and anyone may decline.",
+        "confirmed": true
+      },
+      {
+        "q": "When are honourees announced?",
+        "a": "Honourees are announced on {announcement}, and presented at the Grand Honours on {ceremony}.",
+        "confirmed": true
+      },
+      {
+        "q": "Can I attend the ceremony?",
+        "a": "The Grand Honours on {ceremony} is by invitation. Partners and honourees receive places for their guests.",
+        "confirmed": true
+      },
+      {
+        "q": "Will future editions take public nominations?",
+        "a": "If a future edition opens public nominations, we will announce it here.",
+        "confirmed": false
+      },
+      {
+        "q": "How can I support the programme?",
+        "a": "Tell us how you would like to help using the support form on this page. If you represent an organisation, see the partnership tiers.",
+        "confirmed": true,
+        "links": [
+          {
+            "href": "#support",
+            "label": "Support form"
+          },
+          {
+            "href": "#partner",
+            "label": "Partnership tiers"
+          }
+        ]
+      }
+    ]
+  },
+  "support": {
+    "_note": "Options for the support pledge form on the Sentinels page. Pledges go to the 'Support' tab of the Google Sheet with an email alert.",
+    "types": [
+      "Give money",
+      "Sponsor or partner",
+      "Give in kind (venue, media, services)",
+      "Volunteer",
+      "Something else"
     ]
   }
 }

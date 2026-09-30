@@ -39,7 +39,18 @@ async function call(path: string, init: RequestInit) {
  * API actually wrote, which keeps it unique when two nominations arrive at once, then written into column B.
  */
 export async function appendNomination(row: (string | boolean)[], toReference: (n: number) => string) {
-  const range = encodeURIComponent(`${SHEET}!A:L`);
+  const rowNumber = await appendRow(SHEET, "A:L", row);
+  const reference = toReference(rowNumber - 1);
+  await call(`/values/${encodeURIComponent(`${SHEET}!B${rowNumber}`)}?valueInputOption=RAW`, {
+    method: "PUT",
+    body: JSON.stringify({ values: [[reference]] }),
+  });
+  return reference;
+}
+
+/** Appends one row to a tab and returns the sheet row number it landed on */
+export async function appendRow(tab: string, columns: string, row: (string | boolean)[]) {
+  const range = encodeURIComponent(`${tab}!${columns}`);
   const appended = await call(`/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`, {
     method: "POST",
     body: JSON.stringify({ values: [row] }),
@@ -47,11 +58,5 @@ export async function appendNomination(row: (string | boolean)[], toReference: (
   const updated: string = appended.updates?.updatedRange ?? "";
   const rowNumber = Number(/!A(\d+)/.exec(updated)?.[1]);
   if (!rowNumber) throw new Error(`Could not read appended row from "${updated}"`);
-
-  const reference = toReference(rowNumber - 1);
-  await call(`/values/${encodeURIComponent(`${SHEET}!B${rowNumber}`)}?valueInputOption=RAW`, {
-    method: "PUT",
-    body: JSON.stringify({ values: [[reference]] }),
-  });
-  return reference;
+  return rowNumber;
 }

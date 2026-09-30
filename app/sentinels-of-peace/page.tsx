@@ -8,10 +8,11 @@ import { Hero } from "@/components/sentinels/Hero";
 import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
 import { Support } from "@/components/sentinels/Support";
+import { SupportPledge } from "@/components/sentinels/SupportPledge";
 import { Timeline } from "@/components/sentinels/Timeline";
 import { WhatItDoes } from "@/components/sentinels/WhatItDoes";
 import { WhyItExists } from "@/components/sentinels/WhyItExists";
-import { event, site } from "@/lib/content";
+import { event, nominations, site } from "@/lib/content";
 import { pageOpenGraph } from "@/lib/metadata";
 
 // Status, timeline and form state depend on today's date in Lagos; re-render hourly.
@@ -70,9 +71,19 @@ export default function SentinelsPage() {
           <Timeline />
           <Ceremony />
           <Partnership />
-          <Nominate />
-          <Faq />
-          <Support />
+          {/* 2026 edition: honourees are selected, so the pledge form takes the nomination form's place */}
+          {nominations.public ? (
+            <>
+              <Nominate />
+              <Faq />
+              <Support />
+            </>
+          ) : (
+            <>
+              <SupportPledge />
+              <Faq />
+            </>
+          )}
         </main>
         <SiteFooter variant="sentinels" />
       </PageShell>

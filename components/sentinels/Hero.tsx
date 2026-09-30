@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
-import { event, nominations } from "@/lib/content";
-import { nominationPhase, weekdayDayMonth } from "@/lib/dates";
+import { primaryAction } from "@/lib/cta";
+import { event, nominations, steps } from "@/lib/content";
+import { weekdayDayMonth } from "@/lib/dates";
 import { HeroSlides, type Slide } from "./HeroSlides";
 
 // Illustrative photographs; replace with the programme's own once the first edition has taken place.
@@ -27,7 +28,8 @@ const slides: Slide[] = [
 ];
 
 export function Hero() {
-  const closed = nominationPhase() === "closed";
+  const action = primaryAction(true);
+  const announcement = steps.find((s) => s.id === "announcement");
   // TODO(client): the venue is unconfirmed (event.venueConfirmed = false)
   const meta = [
     { label: "Ceremony", value: weekdayDayMonth(event.ceremonyDate) },
@@ -40,7 +42,9 @@ export function Hero() {
         </>
       ),
     },
-    { label: "Nominations close", value: weekdayDayMonth(nominations.closes) },
+    nominations.public
+      ? { label: "Nominations close", value: weekdayDayMonth(nominations.closes) }
+      : { label: "Honourees announced", value: weekdayDayMonth(announcement?.start ?? nominations.outcomeBy) },
   ];
 
   return (
@@ -82,9 +86,9 @@ export function Hero() {
 
           <div className="flex flex-col gap-5 lg:col-span-4 lg:items-end">
             <div className="flex flex-col gap-2.5 md:flex-row lg:justify-end">
-              {!closed && (
-                <Link href="#nominate" className="btn min-h-12 bg-lime px-6 py-[15px] font-bold text-forest-ink">
-                  Nominate someone
+              {action && (
+                <Link href={action.href} className="btn min-h-12 bg-lime px-6 py-[15px] font-bold text-forest-ink">
+                  {action.label}
                 </Link>
               )}
               <Link

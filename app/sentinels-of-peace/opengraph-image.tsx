@@ -3,7 +3,9 @@ import { C, Frame, asJpeg, OG_SIZE, StatusPill, ogFonts, ogPhoto, ogSvg } from "
 import { event, nominations } from "@/lib/content";
 import { dayMonthShort, weekdayDayMonth } from "@/lib/dates";
 
-export const alt = `${event.name}: nominate someone whose work deserves a name.`;
+export const alt = nominations.public
+  ? `${event.name}: nominate someone whose work deserves a name.`
+  : `${event.name}: honouring the people who keep communities at peace.`;
 export const size = OG_SIZE;
 export const contentType = "image/jpeg";
 
@@ -38,13 +40,17 @@ export default async function Image() {
             <img src={logo} alt="" width={366} height={90} style={{ width: 366, height: 90 }} />
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               <div style={{ display: "flex", fontSize: 56, lineHeight: 1, fontWeight: 700, letterSpacing: "-0.045em", color: C.ink }}>
-                Nominate someone whose work deserves a name.
+                {nominations.public ? "Nominate someone whose work deserves a name." : "Honouring the people who keep the peace."}
               </div>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 14 }}>
-                <StatusPill>
-                  Nominations {dayMonthShort(nominations.opens)} to {dayMonthShort(nominations.closes)}
-                </StatusPill>
-                {event.ceremonyDateConfirmed && (
+                {nominations.public ? (
+                  <StatusPill>
+                    Nominations {dayMonthShort(nominations.opens)} to {dayMonthShort(nominations.closes)}
+                  </StatusPill>
+                ) : (
+                  <StatusPill>Grand Honours, {weekdayDayMonth(event.ceremonyDate)}</StatusPill>
+                )}
+                {nominations.public && event.ceremonyDateConfirmed && (
                   <div style={{ display: "flex", fontSize: 22, fontWeight: 700, color: C.muted, paddingLeft: 4 }}>
                     Grand Honours, {weekdayDayMonth(event.ceremonyDate)}
                   </div>

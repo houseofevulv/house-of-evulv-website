@@ -16,7 +16,7 @@ export function Timeline() {
         {/* TODO(client): criteria and panel members go in content/site-content.json (selection); confirm the timing */}
         <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sage-text md:text-[17px]">
           {published
-            ? "Each shortlisted nomination is verified, then scored by an independent panel against the criteria below."
+            ? "Each candidate is verified, then scored by an independent panel against the criteria below."
             : "Criteria and panel members are published here before shortlisting begins."}
         </p>
       </div>

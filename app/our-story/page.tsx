@@ -60,8 +60,8 @@ export default function OurStoryPage() {
               so that people and institutions grow in how they think, lead and contribute.
             </p>
             <p className="m-0">
-              Our first programme is the {event.shortName} Grand Honours. It asks the public to name the people doing this
-              work, verifies what they did, and brings them into the same room as the institutions able to support it. The
+              Our first programme is the {event.shortName} Grand Honours. It finds the people doing this work, verifies what
+              they did, and brings them into the same room as the institutions able to support it. The
               first ceremony takes place in Lagos on {event.ceremonyDateDisplay}.
             </p>
             <div className="flex flex-col gap-3 pt-2 md:flex-row md:items-center md:gap-5">
