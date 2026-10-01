@@ -32,10 +32,7 @@ export function Commitments() {
       className="flex scroll-mt-4 flex-col gap-6 px-2 pb-8 md:gap-10 md:px-6 md:pt-10 md:pb-16 lg:px-12"
     >
       <div className="mx-2 flex flex-col gap-4 md:mx-0 md:flex-row md:items-end md:justify-between md:px-4">
-        <div className="flex flex-col gap-3">
-          <p className="t-eyebrow m-0 text-bronze">Peace | Healing | Evolution</p>
-          <h2 className="t-h2-48 m-0 max-w-[640px]">Three commitments decide what we take on.</h2>
-        </div>
+        <h2 className="t-h2-48 m-0 max-w-[640px]">Three commitments decide what we take on.</h2>
         <p className="m-0 max-w-[360px] text-base leading-[1.55] text-muted md:text-[17px]">
           Every programme has to serve at least one of them, and we report against it.
         </p>
