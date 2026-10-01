@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo";
+import { RingBackdrop } from "@/components/Ornament";
 import { contact } from "@/lib/content";
 
 export function ContactBand() {
@@ -9,10 +9,7 @@ export function ContactBand() {
       className="on-dark relative flex scroll-mt-4 flex-col justify-between gap-8 overflow-clip rounded-[22px] bg-black px-5 py-7 text-ivory md:gap-24 md:rounded-[28px] md:p-12 lg:gap-32 lg:p-16"
     >
       {/* The open ring of the emblem, as a quiet ornament */}
-      <Logo
-        name="ring"
-        className="pointer-events-none absolute -right-24 -bottom-40 h-auto w-[420px] opacity-[0.14] md:-right-16 md:-bottom-56 md:w-[640px]"
-      />
+      <RingBackdrop className="!top-full !left-[82%] opacity-[0.12]" />
       <div className="relative flex items-start justify-between gap-8">
         <div className="flex flex-col gap-3">
           <p className="t-eyebrow m-0 text-gold">Contact</p>

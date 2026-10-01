@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { Divider, FlankedLabel } from "@/components/Ornament";
 import { SiteHeader } from "@/components/SiteHeader";
 import { primaryAction } from "@/lib/cta";
 import { event, nominations, steps } from "@/lib/content";
@@ -30,11 +31,12 @@ export function Hero() {
           <Logo name="knightLeft" eager className="hidden h-[420px] w-auto lg:block xl:h-[520px]" />
           <div className="flex max-w-[620px] flex-col items-center gap-6 text-center md:gap-7">
             <Logo name="sentinelsSeal" eager className="h-auto w-[220px] md:w-[280px] xl:w-[320px]" />
-            <p className="t-eyebrow m-0 text-gold">A House of Evulv programme, first edition</p>
+            <FlankedLabel>By House of Evulv, first edition</FlankedLabel>
             <h1 className="t-sop-hero m-0 text-gold">Sentinels of Peace</h1>
             <p className="t-display m-0 text-lg leading-snug text-ivory md:text-2xl">
               Honour for those who stand guard over peace.
             </p>
+            <Divider />
             <div className="flex flex-col gap-2.5 self-stretch pt-1 md:flex-row md:justify-center md:self-auto">
               {action && (
                 <Link href={action.href} className="btn min-h-12 bg-gold px-6 py-[15px] font-bold text-black">

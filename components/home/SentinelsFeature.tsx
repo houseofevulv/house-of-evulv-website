@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { FlankedLabel } from "@/components/Ornament";
 import { event, nominations } from "@/lib/content";
 import { primaryAction } from "@/lib/cta";
 import { SEAL_PARTS } from "@/lib/seal";
@@ -81,10 +82,10 @@ export function SentinelsFeature() {
       <div className="order-1 flex flex-col items-center justify-center gap-6 rounded-2xl border border-ivory/20 px-6 py-9 text-center md:order-4 md:rounded-[20px] md:py-12 lg:order-none lg:col-span-5 lg:col-start-8">
         <Logo name="sentinelsSeal" className="h-auto w-[200px] md:w-[260px] lg:w-[300px]" />
         <div className="flex flex-col gap-2.5">
-          <p className="t-eyebrow m-0 text-gold">The seal</p>
-          <p className="t-display m-0 max-w-[340px] text-lg leading-snug text-ivory md:text-xl">
+          <FlankedLabel>The Sentinel Seal</FlankedLabel>
+          {/* <p className="t-display m-0 max-w-[340px] text-lg leading-snug text-ivory md:text-xl">
             Honour for those who stand guard over peace.
-          </p>
+          </p> */}
         </div>
         <ul className="m-0 flex list-none flex-wrap justify-center gap-2 p-0">
           {SEAL_PARTS.map((p) => (

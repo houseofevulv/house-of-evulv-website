@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Divider } from "@/components/Ornament";
 import { PageShell } from "@/components/PageShell";
 import { TheEmblem } from "@/components/TheEmblem";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -33,7 +34,8 @@ export default function OurStoryPage() {
             className="mt-auto flex flex-col gap-[18px] px-5 pt-16 pb-8 md:px-8 md:pt-24 md:pb-10 lg:gap-7 lg:px-10 lg:pb-12"
           >
             <p className="t-eyebrow m-0 text-gold">About {site.name}</p>
-            <h1 className="t-sop-hero m-0">Our story</h1>
+            <h1 className="t-sop-hero m-0 text-gold">Our story</h1>
+            <Divider className="self-start" />
             <p className="m-0 max-w-[640px] text-base leading-[1.55] text-on-dark-2 md:text-xl">{lead}</p>
           </div>
         </section>
