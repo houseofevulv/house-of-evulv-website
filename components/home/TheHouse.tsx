@@ -19,7 +19,7 @@ export function TheHouse() {
           Our work is anchored upon three enduring ideals: peace that restores order, healing that renews the human
           spirit, and evolution that transforms noble intention into lasting progress.
         </p>
-        <p className="t-eyebrow m-0 border-t border-rule pt-5 text-bronze">Purpose, polished into permanence.</p>
+        <p className="t-eyebrow m-0 text-bronze">Purpose, polished into permanence.</p>
       </div>
     </section>
   );

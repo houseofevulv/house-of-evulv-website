@@ -49,9 +49,9 @@ export function SentinelsFeature() {
         </div>
       </div>
 
-      <ol className="m-0 grid list-none grid-cols-1 p-0 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4">
+      <ol className="m-0 grid list-none grid-cols-1 gap-2.5 p-0 sm:grid-cols-2 md:gap-4 lg:grid-cols-4">
         {pillars.map((p, i) => (
-          <li key={p.title} className="flex flex-col gap-2 border-t border-ivory/20 py-5 lg:pb-0">
+          <li key={p.title} className="flex flex-col gap-2 rounded-2xl bg-ivory/[0.06] p-5">
             <span className="t-eyebrow text-gold">0{i + 1}</span>
             <h3 className="t-display m-0 text-xl md:text-2xl">{p.title}</h3>
             <p className="m-0 text-[15px] leading-[1.55] text-on-dark-2">{p.body}</p>

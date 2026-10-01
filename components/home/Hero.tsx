@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { Divider, RingBackdrop } from "@/components/Ornament";
+import { RingBackdrop } from "@/components/Ornament";
 import { SiteHeader } from "@/components/SiteHeader";
 
 /** No photograph: the emblem on espresso, the client's headline, one sentence, two actions (brand manual cover) */
@@ -15,7 +15,6 @@ export function Hero() {
       >
         <Logo name="houseEmblem" eager alt="" className="h-auto w-[150px] md:w-[210px] lg:w-[250px]" />
         <h1 className="t-home-hero m-0 max-w-[820px] text-gold">Where vision becomes legacy.</h1>
-        <Divider />
         <p className="m-0 max-w-[620px] text-base leading-[1.6] text-on-dark md:text-lg">
           House of Evulv conceives and produces consequential platforms that foster peace, inspire healing and advance
           the evolution of people, institutions and society.

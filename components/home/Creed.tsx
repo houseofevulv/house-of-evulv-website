@@ -1,4 +1,3 @@
-import { Divider } from "@/components/Ornament";
 
 export function Creed() {
   return (
@@ -7,7 +6,6 @@ export function Creed() {
       <blockquote className="t-quote m-0 max-w-[900px]">
         <p className="m-0">“Peace is not the silence after conflict; it is the courage that prevents the first blow.”</p>
       </blockquote>
-      <Divider tone="light" />
       <p className="m-0 text-[15px] font-bold text-muted">House of Evulv</p>
     </section>
   );

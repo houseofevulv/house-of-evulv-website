@@ -30,11 +30,11 @@ export function Partnership() {
           Express interest →
         </a>
       </div>
-      <ul className="m-0 flex list-none flex-col p-0 lg:col-span-5 lg:col-start-8">
+      <ul className="m-0 grid list-none grid-cols-1 gap-2.5 p-0 sm:grid-cols-2 md:gap-4 lg:col-span-6 lg:col-start-7 lg:self-center">
         {tiers.map((t) => (
           <li
             key={t.name}
-            className="flex flex-col gap-1 border-t border-rule-2 py-4 last:border-b md:flex-row md:items-baseline md:justify-between md:gap-6 md:py-5"
+            className="flex flex-col gap-1.5 rounded-[20px] bg-sand p-5 md:p-6"
           >
             <span className="t-display text-lg text-ink md:text-xl">{t.name}</span>
             <span className="text-[15px] text-muted">{t.promise}</span>

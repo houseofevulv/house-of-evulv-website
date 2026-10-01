@@ -17,7 +17,7 @@ export function Mark() {
           branch embodies peace, reconciliation and healing. Silver expresses clarity and integrity; gold affirms the
           enduring worth of purpose and a humanity restored, elevated and continually becoming.
         </p>
-        <p className="t-eyebrow m-0 border-t border-ivory/20 pt-5 text-gold">Peace. Healing. Evolution.</p>
+        <p className="t-eyebrow m-0 text-gold">Peace. Healing. Evolution.</p>
       </div>
     </section>
   );
