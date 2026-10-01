@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Photo } from "@/components/Photo";
+import { Logo } from "@/components/Logo";
 import { event, nominations } from "@/lib/content";
 import { primaryAction } from "@/lib/cta";
+import { SEAL_PARTS } from "@/lib/seal";
 import { dayMonth, dayMonthShort } from "@/lib/dates";
 
 function Row({ label, children, last }: { label: string; children: React.ReactNode; last?: boolean }) {
@@ -76,21 +77,26 @@ export function SentinelsFeature() {
         </div>
       </div>
 
-      <Photo
-        src="/images/conference.webp"
-        alt="A woman in a patterned headwrap, seen from behind, watching a speaker on stage in a full auditorium"
-        sizes="(min-width: 1440px) 520px, (min-width: 1024px) 38vw, 100vw"
-        position="40% center"
-        mobilePosition="40% 35%"
-        tone="dark"
-        className="order-1 h-[300px] rounded-2xl md:order-4 md:aspect-[4/3] md:h-auto md:w-full md:rounded-[20px] lg:order-none lg:col-span-5 lg:col-start-8 lg:aspect-[519/692]"
-      >
-        <p className="absolute right-5 bottom-5 left-5 m-0 hidden rounded-2xl bg-ivory p-[22px] text-base leading-normal font-medium text-ink md:block">
-          {nominations.public
-            ? "The public nominates. An independent panel reviews each nomination against published criteria."
-            : "Our research team identifies candidates. An independent panel chooses the honourees against published criteria."}
-        </p>
-      </Photo>
+      {/* The seal alone: it already carries its two sentinels */}
+      <div className="order-1 flex flex-col items-center justify-center gap-6 rounded-2xl bg-navy px-6 py-9 text-center md:order-4 md:rounded-[20px] md:py-12 lg:order-none lg:col-span-5 lg:col-start-8">
+        <Logo name="sentinelsSeal" className="h-auto w-[200px] md:w-[260px] lg:w-[300px]" />
+        <div className="flex flex-col gap-2.5">
+          <p className="t-eyebrow m-0 text-gold">The seal</p>
+          <p className="t-display m-0 max-w-[340px] text-lg leading-snug text-ivory md:text-xl">
+            Honour for those who stand guard over peace.
+          </p>
+        </div>
+        <ul className="m-0 flex list-none flex-wrap justify-center gap-2 p-0">
+          {SEAL_PARTS.map((p) => (
+            <li key={p.name} className="rounded-full border border-ivory/25 px-3 py-1.5 text-[13px] font-semibold text-on-dark">
+              {p.name.replace(/^The /, "").replace(/^./, (c) => c.toUpperCase())}
+            </li>
+          ))}
+        </ul>
+        <Link href="/sentinels-of-peace" className="lnk inline-flex min-h-11 items-center text-sm font-bold text-gold underline md:min-h-0">
+          What the seal means
+        </Link>
+      </div>
     </section>
   );
 }

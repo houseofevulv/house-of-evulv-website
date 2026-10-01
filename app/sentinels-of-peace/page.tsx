@@ -9,7 +9,6 @@ import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
 import { Support } from "@/components/sentinels/Support";
 import { SupportPledge } from "@/components/sentinels/SupportPledge";
-import { TheSeal } from "@/components/sentinels/TheSeal";
 import { Timeline } from "@/components/sentinels/Timeline";
 import { WhatItDoes } from "@/components/sentinels/WhatItDoes";
 import { WhyItExists } from "@/components/sentinels/WhyItExists";
@@ -69,7 +68,6 @@ export default function SentinelsPage() {
         <main className="flex flex-col gap-2 md:gap-4">
           <Hero />
           <WhyItExists />
-          <TheSeal />
           <WhatItDoes />
           <Categories />
           <Timeline />
