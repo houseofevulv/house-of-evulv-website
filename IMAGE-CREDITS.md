@@ -6,7 +6,6 @@ Evulv's own photos, and the programme's own after the first edition.
 
 | File in public/images | Pexels source (photographer, photo ID) | Used for |
 | --- | --- | --- |
-| durbar-riders.jpg | kings-studio, 39822749 | Home hero, home social preview |
 | medal-pinning.jpg | sanusi-jabir, 30129324 | Sentinels hero slide 1, home support section |
 | reception-guests.jpg | eagrapher, 3611092 | Sentinels ceremony band |
 | trophy-dark.jpg | n-voitkevich, 6532366 | Sentinels Recognise tile |

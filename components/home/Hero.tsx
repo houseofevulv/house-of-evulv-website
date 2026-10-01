@@ -1,46 +1,34 @@
 import Link from "next/link";
-import { Photo } from "@/components/Photo";
+import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/content";
 
+/** No photograph: the emblem in gold and silver on espresso, as on the cover of the brand manual */
 export function Hero() {
   return (
-    <Photo
-      as="section"
-      src="/images/durbar-riders.jpg"
-      alt="Horsemen in ceremonial regalia at a durbar, watched by a crowd"
-      sizes="(min-width: 1440px) 1408px, 100vw"
-      position="center 45%"
-      mobilePosition="34% center"
-      priority
-      tone="dark"
-      className="on-dark flex min-h-[min(720px,100svh)] flex-col justify-between rounded-[22px] md:min-h-[720px] md:rounded-[28px] lg:min-h-[860px]"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,10,7,.5)_0%,rgba(14,10,7,0)_25%,rgba(14,10,7,0)_40%,rgba(14,10,7,.82)_100%)] md:bg-[linear-gradient(180deg,rgba(14,10,7,.55)_0%,rgba(14,10,7,0)_28%,rgba(14,10,7,0)_45%,rgba(14,10,7,.78)_100%)]"
-      />
+    <section className="on-dark flex min-h-[min(720px,100svh)] flex-col rounded-[22px] bg-espresso text-ivory md:rounded-[28px] lg:min-h-[820px]">
       <SiteHeader variant="home" />
       <div
         id="content"
-        className="relative flex flex-col gap-5 px-5 pb-6 text-ivory lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:px-10 lg:pb-11"
+        className="flex grow flex-col items-center gap-9 px-5 pt-4 pb-8 md:gap-12 md:px-8 md:pb-12 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:px-10 lg:pb-16"
       >
-        <h1 className="t-home-hero m-0 max-w-[940px]">We honour and support the people who keep communities at peace.</h1>
-        <div className="flex shrink-0 flex-col gap-5 lg:w-[340px] lg:gap-[22px] lg:pb-2">
-          <p className="m-0 text-base leading-[1.55] text-on-dark md:text-[17px]">
-            <span className="md:hidden">
-              A social impact platform in Lagos, running programmes in peace, healing and human development.
-            </span>
-            <span className="hidden md:inline">{site.description}</span>
-          </p>
-          <Link
-            href="/sentinels-of-peace"
-            className="btn bg-gold px-5 py-[15px] font-bold text-black md:self-start md:bg-ivory md:px-6 md:py-4"
-          >
-            See the Sentinels of Peace
-          </Link>
+        <div className="order-2 flex flex-col gap-6 self-stretch lg:order-1 lg:col-span-7 lg:gap-8 lg:self-center">
+          <p className="t-eyebrow m-0 text-gold">Peace | Healing | Evolution</p>
+          <h1 className="t-home-hero m-0 text-gold">We honour and support the people who keep communities at peace.</h1>
+          <p className="m-0 max-w-[520px] text-base leading-[1.55] text-on-dark md:text-lg">{site.description}</p>
+          <div className="flex flex-col gap-2.5 md:flex-row md:gap-3">
+            <Link href="/sentinels-of-peace" className="btn min-h-12 bg-gold px-6 py-[15px] font-bold text-black">
+              See the Sentinels of Peace
+            </Link>
+            <Link href="/our-story" className="btn min-h-12 border border-ivory px-[23px] py-[14px] font-semibold text-ivory">
+              Our story
+            </Link>
+          </div>
+        </div>
+        <div className="order-1 flex justify-center lg:order-2 lg:col-span-5 lg:justify-end">
+          <Logo name="houseEmblem" eager alt="" className="h-auto w-[200px] md:w-[280px] lg:w-[420px]" />
         </div>
       </div>
-    </Photo>
+    </section>
   );
 }

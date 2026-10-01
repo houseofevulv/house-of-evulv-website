@@ -68,7 +68,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
           <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-9 text-[15px] font-semibold lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-5 text-sm font-semibold lg:flex xl:gap-9 xl:text-[15px]">
           {navLinks[variant].map((l) => (
             <Link key={l.label} href={l.href} className="lnk py-3 text-ivory no-underline">
               {l.label}
