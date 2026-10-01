@@ -12,8 +12,8 @@ export const menuGroups = [
   {
     title: "The House",
     links: [
-      { href: "/#about", label: "About" },
-      { href: "/#commitments", label: "Commitments" },
+      { href: "/#about", label: "Our House" },
+      { href: "/#commitments", label: "Our Ideology" },
       { href: ourStory, label: "Our story" },
       { href: "/#donate", label: "Donate" },
     ],
@@ -31,11 +31,11 @@ export const menuGroups = [
 
 const navLinks = {
   home: [
-    { href: "#about", label: "About" },
-    { href: "#commitments", label: "Commitments" },
+    { href: "#about", label: "Our House" },
+    { href: "#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
-    { href: ourStory, label: "Our story" },
-    { href: "#donate", label: "Donate" },
+    { href: "#partnership", label: "Partnership" },
+    { href: "#contact", label: "Contact" },
   ],
   sentinels: [
     { href: "#why", label: "Why it exists" },
@@ -45,11 +45,11 @@ const navLinks = {
   ],
   // Pages without their own sections link back to the home anchors
   page: [
-    { href: "/#about", label: "About" },
-    { href: "/#commitments", label: "Commitments" },
+    { href: "/#about", label: "Our House" },
+    { href: "/#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
-    { href: ourStory, label: "Our story" },
-    { href: "/#donate", label: "Donate" },
+    { href: "/#partnership", label: "Partnership" },
+    { href: "/#contact", label: "Contact" },
   ],
 };
 

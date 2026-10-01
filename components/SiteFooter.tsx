@@ -93,7 +93,11 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
       </div>
 
       <div className="flex flex-col gap-2.5 border-t border-rule-dark pt-4 text-[13px] text-on-dark-3 md:flex-row md:items-center md:justify-between md:pt-5">
-        <span>© {site.copyrightYear} {site.name}. Elevating humanity, evolving consciousness.</span>
+        <span>
+          © {site.copyrightYear} {site.name}. All rights reserved.
+          <br />
+          {site.name} is a subsidiary of Evulv Global Ventures, a general merchandise business.
+        </span>
         <div className="flex flex-wrap gap-x-4 md:gap-6">
           <Link href="/privacy" className="lnk inline-flex min-h-11 items-center text-on-dark-2 underline md:min-h-0">
             Privacy notice (NDPA 2023)

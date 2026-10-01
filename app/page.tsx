@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Commitments } from "@/components/home/Commitments";
 import { ContactBand } from "@/components/home/ContactBand";
+import { Creed } from "@/components/home/Creed";
 import { Donate } from "@/components/home/Donate";
 import { Hero } from "@/components/home/Hero";
+import { Ideology } from "@/components/home/Ideology";
+import { Mark } from "@/components/home/Mark";
+import { Partnership } from "@/components/home/Partnership";
 import { SentinelsFeature } from "@/components/home/SentinelsFeature";
-import { Statement } from "@/components/home/Statement";
-import { Story } from "@/components/home/Story";
+import { TheHouse } from "@/components/home/TheHouse";
 import { contact, site } from "@/lib/content";
 import { pageOpenGraph } from "@/lib/metadata";
 
@@ -40,10 +42,12 @@ export default function Home() {
       <PageShell>
         <main className="flex flex-col gap-2 md:gap-4">
           <Hero />
-          <Statement />
-          <Commitments />
+          <TheHouse />
+          <Ideology />
+          <Mark />
           <SentinelsFeature />
-          <Story />
+          <Partnership />
+          <Creed />
           <Donate />
           <ContactBand />
         </main>

@@ -1,76 +1,47 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { FlankedLabel } from "@/components/Ornament";
-import { event, nominations } from "@/lib/content";
-import { primaryAction } from "@/lib/cta";
-import { SEAL_PARTS } from "@/lib/seal";
-import { dayMonth, dayMonthShort } from "@/lib/dates";
 
-function Row({ label, children, last }: { label: string; children: React.ReactNode; last?: boolean }) {
-  return (
-    <div
-      className={`flex justify-between gap-4 border-t border-ivory/20 py-3.5 text-[15px] md:py-[18px] md:text-base ${
-        last ? "border-b" : ""
-      }`}
-    >
-      <dt className="text-on-dark-2">{label}</dt>
-      <dd className="m-0 text-right font-semibold">{children}</dd>
-    </div>
-  );
-}
+const pillars = [
+  { title: "Recognise", body: "Distinguished service, sacrifice and moral courage." },
+  { title: "Convene", body: "Influential voices across sectors and generations." },
+  { title: "Amplify", body: "Stories that restore faith in leadership and humanity." },
+  { title: "Advance", body: "Partnerships that translate honour into social impact." },
+];
 
 export function SentinelsFeature() {
-  const action = primaryAction();
   return (
     <section
       id="sentinels"
-      className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-navy px-5 py-7 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0 lg:p-16"
+      className="on-dark flex scroll-mt-4 flex-col gap-8 rounded-[22px] bg-navy px-5 py-7 text-ivory md:gap-12 md:rounded-[28px] md:p-12 lg:p-16"
     >
-      <div className="contents lg:col-span-6 lg:flex lg:flex-col lg:justify-between lg:gap-12">
-        <div className="contents lg:flex lg:flex-col lg:gap-7">
-          <h2 className="t-feature m-0">The Sentinels of Peace Grand Honours</h2>
-          <p className="order-2 m-0 max-w-[520px] text-base leading-[1.55] text-on-dark md:text-[19px] lg:order-none">
-            A national honours programme for <span className="md:hidden">people</span>
-            <span className="hidden md:inline">individuals</span> and organisations whose work prevents conflict,
-            protects lives or helps communities recover.
-          </p>
+      <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-center lg:gap-x-6">
+        {/* The seal alone: it already carries its two sentinels */}
+        <div className="flex flex-col items-center gap-5 rounded-2xl border border-ivory/20 px-6 py-9 text-center md:rounded-[20px] md:py-12 lg:order-2 lg:col-span-5 lg:col-start-8">
+          <Logo name="sentinelsSeal" className="h-auto w-[200px] md:w-[260px] lg:w-[300px]" />
+          <FlankedLabel>The Grand Honours</FlankedLabel>
+          <p className="t-eyebrow m-0 text-on-dark-2">Lagos · December 2026</p>
         </div>
-        <div className="order-3 flex flex-col gap-5 lg:order-none lg:gap-8">
-          <dl className="m-0 flex flex-col">
-            {/* TODO(client): the venue is unconfirmed (event.venueConfirmed = false) */}
-            <Row label="When">{event.ceremonyDateDisplay}</Row>
-            <Row label="Where">
-              <span className="hidden xs:inline">{event.venue}</span>
-              <span className="xs:hidden">{event.venueShort}</span>
-            </Row>
-            {nominations.public ? (
-              <Row label="Nominations" last>
-                <span className="hidden md:inline">
-                  {dayMonth(nominations.opens)} to {dayMonth(nominations.closes)}
-                </span>
-                <span className="md:hidden">
-                  {dayMonthShort(nominations.opens)} to {dayMonthShort(nominations.closes)}
-                </span>
-              </Row>
-            ) : (
-              <Row label="Selection" last>
-                By an independent panel
-              </Row>
-            )}
-          </dl>
+        <div className="flex flex-col gap-5 lg:col-span-6 lg:gap-7">
+          <p className="t-eyebrow m-0 text-gold">Our Flagship Institution</p>
+          <h2 className="t-feature m-0">Courage deserves more than applause.</h2>
+          <p className="m-0 max-w-[560px] text-base leading-[1.6] text-on-dark md:text-[19px]">
+            The Sentinels of Peace™ Grand Honours is conceived as an enduring national institution dedicated to
+            identifying, honouring and amplifying extraordinary individuals and organisations advancing peace,
+            responsible citizenship, community resilience and national development.
+          </p>
+          <p className="m-0 max-w-[560px] text-[15px] leading-[1.6] text-on-dark-2 md:text-base">
+            Its inaugural gathering will convene leaders from government, business, diplomacy, peace and security
+            institutions, traditional institutions, humanitarian organisations, the professions, media, academia and
+            entertainment.
+          </p>
           <div className="flex flex-col gap-2.5 md:flex-row md:gap-3">
-            {/* Mobile leads with the main action; desktop leads with the programme */}
-            {action && (
-              <Link
-                href={action.href}
-                className="btn min-h-12 bg-gold px-5 py-[15px] font-bold text-black md:order-2 md:border md:border-ivory md:bg-transparent md:px-[23px] md:py-[15px] md:font-semibold md:text-ivory"
-              >
-                {action.label}
-              </Link>
-            )}
+            <Link href="/sentinels-of-peace#partner" className="btn min-h-12 bg-gold px-6 py-[15px] font-bold text-black">
+              Join the founding circle →
+            </Link>
             <Link
               href="/sentinels-of-peace"
-              className="btn min-h-12 border border-ivory px-[19px] py-[14px] font-semibold text-ivory md:order-1 md:border-0 md:bg-gold md:px-6 md:py-4 md:font-bold md:text-black"
+              className="btn min-h-12 border border-ivory px-[23px] py-[14px] font-semibold text-ivory"
             >
               Visit the programme
             </Link>
@@ -78,26 +49,15 @@ export function SentinelsFeature() {
         </div>
       </div>
 
-      {/* The seal alone: it already carries its two sentinels */}
-      <div className="order-1 flex flex-col items-center justify-center gap-6 rounded-2xl border border-ivory/20 px-6 py-9 text-center md:order-4 md:rounded-[20px] md:py-12 lg:order-none lg:col-span-5 lg:col-start-8">
-        <Logo name="sentinelsSeal" className="h-auto w-[200px] md:w-[260px] lg:w-[300px]" />
-        <div className="flex flex-col gap-2.5">
-          <FlankedLabel>The Sentinel Seal</FlankedLabel>
-          {/* <p className="t-display m-0 max-w-[340px] text-lg leading-snug text-ivory md:text-xl">
-            Honour for those who stand guard over peace.
-          </p> */}
-        </div>
-        <ul className="m-0 flex list-none flex-wrap justify-center gap-2 p-0">
-          {SEAL_PARTS.map((p) => (
-            <li key={p.name} className="rounded-full border border-ivory/25 px-3 py-1.5 text-[13px] font-semibold text-on-dark">
-              {p.name.replace(/^The /, "").replace(/^./, (c) => c.toUpperCase())}
-            </li>
-          ))}
-        </ul>
-        <Link href="/sentinels-of-peace" className="lnk inline-flex min-h-11 items-center text-sm font-bold text-gold underline md:min-h-0">
-          What the seal means
-        </Link>
-      </div>
+      <ol className="m-0 grid list-none grid-cols-1 p-0 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4">
+        {pillars.map((p, i) => (
+          <li key={p.title} className="flex flex-col gap-2 border-t border-ivory/20 py-5 lg:pb-0">
+            <span className="t-eyebrow text-gold">0{i + 1}</span>
+            <h3 className="t-display m-0 text-xl md:text-2xl">{p.title}</h3>
+            <p className="m-0 text-[15px] leading-[1.55] text-on-dark-2">{p.body}</p>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
