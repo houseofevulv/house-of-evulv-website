@@ -26,11 +26,11 @@ export default async function Image() {
         >
           <img src={emblem} alt="" width={312} height={450} style={{ width: 312, height: 450 }} />
           <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 24 }}>
-            <div style={{ display: "flex", fontSize: 46, lineHeight: 1.12, color: C.gold, ...DISPLAY }}>
-              We honour and support the people who keep communities at peace.
+            <div style={{ display: "flex", fontSize: 54, lineHeight: 1.12, color: C.gold, ...DISPLAY }}>
+              Honouring those who keep the peace
             </div>
             <div style={{ display: "flex", fontSize: 24, lineHeight: 1.4, fontWeight: 500, color: C.onDark2 }}>
-              Programmes in peace, healing and human development, run from Lagos.
+              We honour and support the people who keep communities at peace, through programmes in peace, healing and human development.
             </div>
           </div>
         </div>
