@@ -6,25 +6,33 @@ import type { ReactNode } from "react";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
+// House of Evulv Identity 2 palette (brand manual, section 06)
 export const C = {
-  bone: "#F3F1EC",
-  ink: "#121614",
-  forest: "#16302B",
-  forestInk: "#0B1A17",
-  lime: "#C3DD6E",
-  onDark: "#DCE3DD",
-  onDark2: "#C9D3CD",
-  onDark3: "#9FB0A8",
-  ruleDark: "#2E4A42",
-  muted: "#4F5752",
+  ivory: "#F5F0E6",
+  ink: "#1E1712",
+  espresso: "#1E1712",
+  black: "#0B0907",
+  gold: "#C9A54C",
+  bronze: "#7E6029",
+  silver: "#CDD0D4",
+  onDark: "#E8E1D2",
+  onDark2: "#CFC5B3",
+  onDark3: "#A3978A",
+  ruleDark: "#3A2E24",
+  muted: "#5F5347",
 };
+
+/** Cinzel heading style for preview images: capitals, tracked, as in the logos */
+export const DISPLAY = { fontFamily: "Cinzel", fontWeight: 700, letterSpacing: "0.03em" } as const;
 
 const root = process.cwd();
 
 export async function ogFonts() {
   const load = (w: number) => readFile(join(root, `assets/fonts/Manrope-${w}.ttf`));
+  const cinzel = await readFile(join(root, "assets/fonts/Cinzel-700.ttf"));
   const [w500, w700, w800] = await Promise.all([load(500), load(700), load(800)]);
   return [
+    { name: "Cinzel", data: cinzel, weight: 700 as const, style: "normal" as const },
     { name: "Manrope", data: w500, weight: 500 as const, style: "normal" as const },
     { name: "Manrope", data: w700, weight: 700 as const, style: "normal" as const },
     { name: "Manrope", data: w800, weight: 800 as const, style: "normal" as const },
@@ -43,7 +51,7 @@ export async function ogSvg(path: string) {
 }
 
 /** The page gutter and rounded panel used across the site */
-export function Frame({ children, background = C.bone }: { children: ReactNode; background?: string }) {
+export function Frame({ children, background = C.ivory }: { children: ReactNode; background?: string }) {
   return (
     <div style={{ width: "100%", height: "100%", display: "flex", padding: 16, background, fontFamily: "Manrope" }}>
       {children}
@@ -60,13 +68,13 @@ export function StatusPill({ children }: { children: ReactNode }) {
         gap: 12,
         padding: "12px 20px",
         borderRadius: 999,
-        background: C.forest,
-        color: C.bone,
+        background: C.espresso,
+        color: C.ivory,
         fontSize: 22,
         fontWeight: 700,
       }}
     >
-      <div style={{ width: 10, height: 10, borderRadius: 999, background: C.lime }} />
+      <div style={{ width: 10, height: 10, borderRadius: 999, background: C.gold }} />
       {children}
     </div>
   );

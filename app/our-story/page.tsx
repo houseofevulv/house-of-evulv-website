@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
+import { TheEmblem } from "@/components/TheEmblem";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ContactBand } from "@/components/home/ContactBand";
@@ -25,13 +26,13 @@ export default function OurStoryPage() {
   return (
     <PageShell>
       <main className="flex flex-col gap-2 md:gap-4">
-        <section className="on-dark flex flex-col rounded-[22px] bg-forest text-bone md:rounded-[28px] lg:min-h-[560px]">
+        <section className="on-dark flex flex-col rounded-[22px] bg-espresso text-ivory md:rounded-[28px] lg:min-h-[560px]">
           <SiteHeader variant="page" />
           <div
             id="content"
             className="mt-auto flex flex-col gap-[18px] px-5 pt-16 pb-8 md:px-8 md:pt-24 md:pb-10 lg:gap-7 lg:px-10 lg:pb-12"
           >
-            <p className="m-0 text-sm font-semibold text-lime md:text-base">About {site.name}</p>
+            <p className="t-eyebrow m-0 text-gold">About {site.name}</p>
             <h1 className="t-sop-hero m-0">Our story</h1>
             <p className="m-0 max-w-[640px] text-base leading-[1.55] text-on-dark-2 md:text-xl">{lead}</p>
           </div>
@@ -65,18 +66,20 @@ export default function OurStoryPage() {
               first ceremony takes place in Lagos on {event.ceremonyDateDisplay}.
             </p>
             <div className="flex flex-col gap-3 pt-2 md:flex-row md:items-center md:gap-5">
-              <Link href="/sentinels-of-peace" className="btn min-h-12 bg-forest px-6 py-4 font-bold text-bone">
+              <Link href="/sentinels-of-peace" className="btn min-h-12 bg-espresso px-6 py-4 font-bold text-ivory">
                 See the Sentinels of Peace
               </Link>
               <Link
                 href="/#donate"
-                className="lnk inline-flex min-h-11 items-center justify-center text-[15px] font-bold text-forest underline md:min-h-0"
+                className="lnk inline-flex min-h-11 items-center justify-center text-[15px] font-bold text-espresso underline md:min-h-0"
               >
                 Support the work
               </Link>
             </div>
           </div>
         </section>
+
+        <TheEmblem />
 
         <ContactBand />
       </main>

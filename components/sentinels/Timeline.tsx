@@ -9,12 +9,12 @@ export function Timeline() {
   return (
     <section
       id="selection"
-      className="flex scroll-mt-4 flex-col gap-[22px] rounded-[22px] bg-sage px-5 py-7 md:gap-12 md:rounded-[28px] md:p-12 lg:gap-24 lg:p-16"
+      className="flex scroll-mt-4 flex-col gap-[22px] rounded-[22px] bg-sand px-5 py-7 md:gap-12 md:rounded-[28px] md:p-12 lg:gap-24 lg:p-16"
     >
       <div className="flex flex-col gap-[22px] md:flex-row md:items-end md:justify-between">
-        <h2 className="t-h2-52 m-0 max-w-[620px] text-forest">How an honouree is chosen</h2>
+        <h2 className="t-h2-52 m-0 max-w-[620px] text-espresso">How an honouree is chosen</h2>
         {/* TODO(client): criteria and panel members go in content/site-content.json (selection); confirm the timing */}
-        <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sage-text md:text-[17px]">
+        <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sand-text md:text-[17px]">
           {published
             ? "Each candidate is verified, then scored by an independent panel against the criteria below."
             : "Criteria and panel members are published here before shortlisting begins."}
@@ -35,39 +35,39 @@ export function Timeline() {
               {!last && (
                 <span
                   aria-hidden="true"
-                  className="absolute top-4 -bottom-0.5 left-1.5 w-0.5 bg-forest opacity-25 lg:hidden"
+                  className="absolute top-4 -bottom-0.5 left-1.5 w-0.5 bg-espresso opacity-25 lg:hidden"
                 />
               )}
               <span aria-hidden="true" className="absolute top-0.5 left-0 lg:static lg:flex lg:items-center lg:gap-2.5">
                 <span
-                  className={`block size-3.5 rounded-full border-2 border-forest ${now ? "bg-lime" : "bg-transparent"}`}
+                  className={`block size-3.5 rounded-full border-2 border-espresso ${now ? "bg-gold" : "bg-transparent"}`}
                 />
-                <span className="hidden h-0.5 grow bg-forest opacity-25 lg:block" />
+                <span className="hidden h-0.5 grow bg-espresso opacity-25 lg:block" />
               </span>
-              <div className="text-[13px] font-bold text-forest lg:text-sm">
+              <div className="text-[13px] font-bold text-espresso lg:text-sm">
                 {s.when}
                 {now && <span className="sr-only"> (current stage)</span>}
               </div>
-              <h3 className="m-0 py-1 text-[22px] font-bold tracking-[-0.025em] text-forest lg:py-0 lg:text-2xl">
+              <h3 className="m-0 py-1 text-[22px] font-bold text-espresso lg:py-0 lg:text-2xl">
                 {s.title}
               </h3>
-              <p className="m-0 text-[15px] leading-normal text-sage-text">{s.body}</p>
+              <p className="m-0 text-[15px] leading-normal text-sand-text">{s.body}</p>
             </li>
           );
         })}
       </ol>
 
       {published && (
-        <div className="grid grid-cols-1 gap-8 border-t border-forest/20 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-x-6">
+        <div className="grid grid-cols-1 gap-8 border-t border-espresso/20 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-x-6">
           {criteria.length > 0 && (
             <div className="flex flex-col gap-4 lg:col-span-7">
-              <h3 className="m-0 text-[22px] font-bold tracking-[-0.025em] text-forest md:text-2xl">The criteria</h3>
+              <h3 className="m-0 text-[22px] font-bold text-espresso md:text-2xl">The criteria</h3>
               <ol className="m-0 grid list-none grid-cols-1 gap-3 p-0 md:grid-cols-2">
                 {criteria.map((c, i) => (
-                  <li key={c.title} className="flex flex-col gap-1.5 rounded-2xl bg-bone/60 p-5">
-                    <span className="text-[13px] font-bold text-forest/70">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="text-lg font-bold tracking-[-0.015em] text-forest">{c.title}</span>
-                    <span className="text-[15px] leading-normal text-sage-text">{c.body}</span>
+                  <li key={c.title} className="flex flex-col gap-1.5 rounded-2xl bg-ivory/60 p-5">
+                    <span className="text-[13px] font-bold text-espresso/70">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-lg font-bold text-espresso">{c.title}</span>
+                    <span className="text-[15px] leading-normal text-sand-text">{c.body}</span>
                   </li>
                 ))}
               </ol>
@@ -75,12 +75,12 @@ export function Timeline() {
           )}
           {panel.length > 0 && (
             <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9">
-              <h3 className="m-0 text-[22px] font-bold tracking-[-0.025em] text-forest md:text-2xl">The panel</h3>
-              <ul className="m-0 list-none border-t border-forest/20 p-0">
+              <h3 className="m-0 text-[22px] font-bold text-espresso md:text-2xl">The panel</h3>
+              <ul className="m-0 list-none border-t border-espresso/20 p-0">
                 {panel.map((m) => (
-                  <li key={m.name} className="flex flex-col gap-0.5 border-b border-forest/20 py-3.5">
-                    <span className="text-[17px] font-bold text-forest">{m.name}</span>
-                    <span className="text-sm text-sage-text">{m.role}</span>
+                  <li key={m.name} className="flex flex-col gap-0.5 border-b border-espresso/20 py-3.5">
+                    <span className="text-[17px] font-bold text-espresso">{m.name}</span>
+                    <span className="text-sm text-sand-text">{m.role}</span>
                   </li>
                 ))}
               </ul>

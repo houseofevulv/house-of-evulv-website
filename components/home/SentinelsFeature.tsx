@@ -22,7 +22,7 @@ export function SentinelsFeature() {
   return (
     <section
       id="sentinels"
-      className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-forest px-5 py-7 text-bone md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0 lg:p-16"
+      className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-espresso px-5 py-7 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0 lg:p-16"
     >
       <div className="contents lg:col-span-6 lg:flex lg:flex-col lg:justify-between lg:gap-12">
         <div className="contents lg:flex lg:flex-col lg:gap-7">
@@ -61,14 +61,14 @@ export function SentinelsFeature() {
             {action && (
               <Link
                 href={action.href}
-                className="btn min-h-12 bg-lime px-5 py-[15px] font-bold text-forest-ink md:order-2 md:border md:border-bone md:bg-transparent md:px-[23px] md:py-[15px] md:font-semibold md:text-bone"
+                className="btn min-h-12 bg-gold px-5 py-[15px] font-bold text-black md:order-2 md:border md:border-ivory md:bg-transparent md:px-[23px] md:py-[15px] md:font-semibold md:text-ivory"
               >
                 {action.label}
               </Link>
             )}
             <Link
               href="/sentinels-of-peace"
-              className="btn min-h-12 border border-bone px-[19px] py-[14px] font-semibold text-bone md:order-1 md:border-0 md:bg-lime md:px-6 md:py-4 md:font-bold md:text-forest-ink"
+              className="btn min-h-12 border border-ivory px-[19px] py-[14px] font-semibold text-ivory md:order-1 md:border-0 md:bg-gold md:px-6 md:py-4 md:font-bold md:text-black"
             >
               Visit the programme
             </Link>
@@ -85,7 +85,7 @@ export function SentinelsFeature() {
         tone="dark"
         className="order-1 h-[300px] rounded-2xl md:order-4 md:aspect-[4/3] md:h-auto md:w-full md:rounded-[20px] lg:order-none lg:col-span-5 lg:col-start-8 lg:aspect-[519/692]"
       >
-        <p className="absolute right-5 bottom-5 left-5 m-0 hidden rounded-2xl bg-bone p-[22px] text-base leading-normal font-medium text-ink md:block">
+        <p className="absolute right-5 bottom-5 left-5 m-0 hidden rounded-2xl bg-ivory p-[22px] text-base leading-normal font-medium text-ink md:block">
           {nominations.public
             ? "The public nominates. An independent panel reviews each nomination against published criteria."
             : "Our research team identifies candidates. An independent panel chooses the honourees against published criteria."}

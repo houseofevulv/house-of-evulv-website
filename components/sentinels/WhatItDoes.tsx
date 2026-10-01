@@ -19,18 +19,18 @@ export function WhatItDoes() {
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,17,0)_40%,rgba(10,20,17,.75)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,10,7,0)_40%,rgba(14,10,7,.75)_100%)]"
         />
-        <div className="relative p-[22px] text-bone md:p-8">
+        <div className="relative p-[22px] text-ivory md:p-8">
           <h3 className="t-tile-40 m-0">Recognise</h3>
           <p className="m-0 mt-2 max-w-[420px] text-[15px] leading-normal text-on-dark md:mt-2.5 md:text-[17px]">
             Public honours for documented service in peace, security and community resilience.
           </p>
         </div>
       </Photo>
-      <article className={`${tile} bg-sage md:justify-between lg:col-span-3`}>
-        <h3 className="t-tile-28 m-0 text-forest">Convene</h3>
-        <p className={`${body} text-sage-text`}>
+      <article className={`${tile} bg-sand md:justify-between lg:col-span-3`}>
+        <h3 className="t-tile-28 m-0 text-espresso">Convene</h3>
+        <p className={`${body} text-sand-text`}>
           Government, business, diplomatic, traditional, humanitarian and civic leaders in one room.
         </p>
       </article>
@@ -41,9 +41,9 @@ export function WhatItDoes() {
         </p>
       </article>
       <article
-        className={`${tile} on-dark bg-forest text-bone md:col-span-2 md:flex-row md:items-end md:justify-between md:gap-6 lg:col-span-6`}
+        className={`${tile} on-dark bg-espresso text-ivory md:col-span-2 md:flex-row md:items-end md:justify-between md:gap-6 lg:col-span-6`}
       >
-        <h3 className="t-tile-28 m-0 text-lime">Advance</h3>
+        <h3 className="t-tile-28 m-0 text-gold">Advance</h3>
         <p className={`${body} max-w-[380px] text-on-dark`}>
           Honourees are introduced to partners who can fund, extend or replicate what they started.
         </p>

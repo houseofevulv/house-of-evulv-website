@@ -11,15 +11,15 @@ type Props = {
   /** object-position below 768px, if different */
   mobilePosition?: string;
   priority?: boolean;
-  /** Fallback colour while loading: light, dark (forest-mid) or sage */
-  tone?: "light" | "dark" | "sage";
+  /** Fallback colour while loading: light, dark (espresso) or sand */
+  tone?: "light" | "dark" | "sand";
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
   as?: "div" | "section" | "article" | "span";
 };
 
-const tones = { light: "bg-photo-fallback", dark: "bg-forest-mid", sage: "bg-sage-deep" };
+const tones = { light: "bg-photo-fallback", dark: "bg-espresso-mid", sand: "bg-sand-deep" };
 
 export function Photo({
   src,

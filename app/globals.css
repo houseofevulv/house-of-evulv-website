@@ -1,33 +1,49 @@
 @import "tailwindcss";
 
+/*
+  House of Evulv Identity 2 (see "brand identity assets/House of Evulv Identity 2 - Brand Manual.pdf").
+  Six brand colours: Evulv Gold, Bronze, Espresso, Ivory, Silver, Black. The remaining tokens are tints of
+  espresso and ivory for text, rules and panels. Gold is for dark backgrounds only; on light, use bronze.
+*/
 @theme {
   --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-cinzel), "Times New Roman", serif;
 
-  --color-bone: #f3f1ec;
-  --color-ink: #121614;
-  --color-muted: #4f5752;
-  --color-body: #3e4641;
-  --color-statement-grey: #7c857f;
-  --color-forest: #16302b;
-  --color-forest-ink: #0b1a17;
-  --color-forest-mid: #2a443d;
-  --color-sage: #d9e0d3;
-  --color-sage-deep: #b9c4b1;
-  --color-photo-fallback: #c9d1c2;
-  --color-sage-text: #2f3a35;
-  --color-lime: #c3dd6e;
-  --color-on-dark: #dce3dd;
-  --color-on-dark-2: #c9d3cd;
-  --color-on-dark-3: #9fb0a8;
-  --color-rule-dark: #2e4a42;
-  --color-rule-dark-2: #3c5a51;
-  --color-rule: #d6d4cc;
-  --color-rule-2: #cfd3cc;
-  --color-card-border: #deddd6;
-  --color-row-hover: #eceae3;
-  --color-table-rule: #e4e2db;
-  --color-table-rule-2: #efede7;
-  --color-help: #5e6661;
+  /* Brand palette */
+  --color-gold: #c9a54c;
+  --color-bronze: #7e6029;
+  --color-espresso: #1e1712;
+  --color-ivory: #f5f0e6;
+  --color-silver: #cdd0d4;
+  --color-black: #0b0907;
+
+  /* Text on ivory */
+  --color-ink: #1e1712;
+  --color-body: #3d332a;
+  --color-muted: #5f5347;
+  --color-statement-grey: #9a8d7c;
+  --color-help: #6b5f52;
+
+  /* Light panels and rules */
+  --color-sand: #e9e2d3;
+  --color-sand-deep: #d8cdb8;
+  --color-sand-text: #3d332a;
+  --color-photo-fallback: #d8cdb8;
+  --color-rule: #ddd5c4;
+  --color-rule-2: #d6ccb9;
+  --color-card-border: #e2dac9;
+  --color-row-hover: #ede6d8;
+  --color-table-rule: #e6dfcf;
+  --color-table-rule-2: #efe9dc;
+
+  /* On espresso and black */
+  --color-espresso-mid: #3a2e24;
+  --color-on-dark: #e8e1d2;
+  --color-on-dark-2: #cfc5b3;
+  --color-on-dark-3: #a3978a;
+  --color-rule-dark: #3a2e24;
+  --color-rule-dark-2: #4d3f32;
+
   --color-error: #b42318;
   --color-white: #ffffff;
 
@@ -35,127 +51,124 @@
 }
 
 /*
-  Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px,
-  and interpolates linearly between.
+  Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px, and interpolates between.
+  Headings are Cinzel (capitals and small capitals), SemiBold or Bold, tracked +4%, as the manual sets out.
 */
-@utility t-home-hero {
-  font-size: clamp(44px, calc(7.1429vw - 10.857px), 92px);
-  line-height: 1;
+@utility t-display {
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  @media (min-width: 768px) {
-    line-height: 0.98;
-  }
+  letter-spacing: 0.04em;
+}
+@utility t-home-hero {
+  font-family: var(--font-display);
+  font-size: clamp(32px, calc(5.0595vw - 6.857px), 66px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 @utility t-sop-hero {
-  font-size: clamp(48px, calc(8.3333vw - 16px), 104px);
-  line-height: 0.95;
+  font-family: var(--font-display);
+  font-size: clamp(38px, calc(8.0357vw - 23.714px), 92px);
+  line-height: 1;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: 0.03em;
 }
 @utility t-feature {
-  font-size: clamp(40px, calc(5.3571vw - 1.143px), 76px);
-  line-height: 0.98;
+  font-family: var(--font-display);
+  font-size: clamp(30px, calc(3.869vw + 0.286px), 56px);
+  line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.045em;
+  letter-spacing: 0.03em;
 }
 @utility t-nominate {
-  font-size: clamp(36px, calc(4.1667vw + 4px), 64px);
-  line-height: 1;
+  font-family: var(--font-display);
+  font-size: clamp(28px, calc(2.9762vw + 5.143px), 48px);
+  line-height: 1.12;
   font-weight: 700;
-  letter-spacing: -0.045em;
+  letter-spacing: 0.03em;
 }
 @utility t-h2-48 {
-  font-size: clamp(32px, calc(2.381vw + 13.714px), 48px);
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-size: clamp(26px, calc(2.0833vw + 10px), 40px);
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.035em;
-  @media (max-width: 767px) {
-    line-height: 1.08;
-  }
+  letter-spacing: 0.04em;
 }
 @utility t-h2-52 {
-  font-size: clamp(32px, calc(2.9762vw + 9.143px), 52px);
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-size: clamp(26px, calc(2.381vw + 7.714px), 42px);
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  @media (max-width: 767px) {
-    line-height: 1.08;
-    letter-spacing: -0.035em;
-  }
+  letter-spacing: 0.04em;
 }
 @utility t-h2-56 {
-  font-size: clamp(32px, calc(3.5714vw + 4.571px), 56px);
-  line-height: 1.08;
+  font-family: var(--font-display);
+  font-size: clamp(26px, calc(2.9762vw + 3.143px), 46px);
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  @media (max-width: 767px) {
-    letter-spacing: -0.035em;
-  }
+  letter-spacing: 0.04em;
 }
 @utility t-contact-email {
-  font-size: clamp(26px, calc(8.631vw - 40.286px), 84px);
+  font-size: clamp(24px, calc(7.1429vw - 30.857px), 72px);
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -0.05em;
-  @media (max-width: 767px) {
-    letter-spacing: -0.03em;
-  }
+  letter-spacing: -0.03em;
 }
 @utility t-statement {
-  font-size: clamp(28px, calc(3.869vw - 1.714px), 54px);
-  line-height: 1.22;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  @media (min-width: 768px) {
-    line-height: 1.18;
-  }
-}
-@utility t-quote {
-  font-size: clamp(24px, calc(2.381vw + 5.714px), 40px);
+  font-size: clamp(26px, calc(3.2738vw + 0.857px), 48px);
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.02em;
-  @media (min-width: 768px) {
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-  }
+}
+@utility t-quote {
+  font-size: clamp(22px, calc(2.0833vw + 6px), 36px);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 @utility t-tile-44 {
-  font-size: clamp(30px, calc(2.0833vw + 14px), 44px);
+  font-family: var(--font-display);
+  font-size: clamp(26px, calc(1.7857vw + 12.286px), 38px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  @media (min-width: 768px) {
-    letter-spacing: -0.035em;
-  }
+  letter-spacing: 0.04em;
 }
 @utility t-tile-40 {
-  font-size: clamp(26px, calc(2.0833vw + 10px), 40px);
+  font-family: var(--font-display);
+  font-size: clamp(24px, calc(1.4881vw + 12.571px), 34px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  @media (min-width: 768px) {
-    letter-spacing: -0.035em;
-  }
+  letter-spacing: 0.04em;
 }
 @utility t-tile-36 {
-  font-size: clamp(26px, calc(1.4881vw + 14.571px), 36px);
+  font-family: var(--font-display);
+  font-size: clamp(24px, calc(1.1905vw + 14.857px), 32px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
 }
 @utility t-tile-28 {
-  font-size: clamp(26px, calc(0.2976vw + 23.714px), 28px);
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-size: clamp(22px, calc(0.5952vw + 17.429px), 26px);
+  line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
 }
 @utility t-category {
-  font-size: clamp(22px, calc(1.1905vw + 12.857px), 30px);
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: clamp(19px, calc(0.744vw + 13.286px), 24px);
+  line-height: 1.25;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
+}
+/* Small tracked capitals for labels above headings, as in the manual ("01 THE FAMILY") */
+@utility t-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 @layer base {
@@ -165,7 +178,7 @@
   }
   body {
     margin: 0;
-    background: var(--color-bone);
+    background: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -176,20 +189,27 @@
     }
   }
   a {
-    color: var(--color-forest);
+    color: var(--color-espresso);
+  }
+  /* Headings carry the logo lettering: Cinzel, tracked. Label-sized headings opt out with font-sans. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
   }
 
-  /* Focus ring: forest on light surfaces, lime on dark ones */
+  /* Focus ring: espresso on light surfaces, gold on dark ones */
   :focus-visible {
-    outline: 2px solid var(--color-forest);
+    outline: 2px solid var(--color-espresso);
     outline-offset: 2px;
   }
   .on-dark :focus-visible,
   .on-dark:focus-visible {
-    outline-color: var(--color-lime);
+    outline-color: var(--color-gold);
   }
   .on-dark .on-light :focus-visible {
-    outline-color: var(--color-forest);
+    outline-color: var(--color-espresso);
   }
 }
 
@@ -198,7 +218,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 999px;
     font-size: 15px;
     line-height: 20px;
     text-decoration: none;
@@ -233,10 +253,10 @@
   }
   .prose-evulv h2 {
     margin: 2.2em 0 0;
-    font-size: 22px;
-    line-height: 1.25;
+    font-size: 20px;
+    line-height: 1.3;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.04em;
     color: var(--color-ink);
   }
   .prose-evulv h2 + * {
@@ -254,7 +274,7 @@
     margin-top: 0.4em;
   }
   .prose-evulv a {
-    color: var(--color-forest);
+    color: var(--color-espresso);
     font-weight: 600;
     text-decoration: underline;
   }

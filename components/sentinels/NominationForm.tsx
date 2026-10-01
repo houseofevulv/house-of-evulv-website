@@ -10,7 +10,7 @@ import { DESCRIPTION_MAX, FIELD_ORDER, type FieldName, type NominateState } from
 export type AfterStep = { when: string; text: string };
 
 const control =
-  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#8A918C] md:py-[15px]";
+  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#9A8D7C] md:py-[15px]";
 const fmt = (n: number) => n.toLocaleString("en-GB");
 
 function Field({
@@ -107,16 +107,16 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
     return (
       <div aria-live="polite" className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <Logo name="seal" alt="" className="mb-3 h-[72px] self-start" />
-          <h3 ref={doneRef} tabIndex={-1} className="m-0 text-[28px] leading-[1.1] font-bold tracking-[-0.03em] outline-none">
+          <Logo name="sentinelsSealLight" alt="" className="mb-3 h-auto w-[120px] self-start" />
+          <h3 ref={doneRef} tabIndex={-1} className="m-0 text-[28px] leading-[1.1] font-bold outline-none">
             Nomination received
           </h3>
           <p className="m-0 text-[15px] leading-normal text-body">Your reference number is</p>
-          <p className="m-0 text-[28px] leading-[1.2] font-bold tracking-[-0.01em] text-forest">{state.reference}</p>
+          <p className="m-0 text-[28px] leading-[1.2] font-bold text-espresso">{state.reference}</p>
           <p className="m-0 text-[15px] leading-normal text-body">Keep it for your records. Quote it if you contact us.</p>
         </div>
         <div>
-          <h4 className="m-0 pb-3.5 text-[15px] font-bold">What happens next</h4>
+          <h4 className="t-eyebrow m-0 pb-3.5 text-bronze">What happens next</h4>
           <ol className="m-0 list-none p-0">
             {after.map((s, i) => (
               <li
@@ -125,7 +125,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
                   i === after.length - 1 ? "border-b" : ""
                 }`}
               >
-                <b className="text-forest">{s.when}</b>
+                <b className="text-espresso">{s.when}</b>
                 <span className="text-body">{s.text}</span>
               </li>
             ))}
@@ -147,7 +147,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
       <input type="hidden" name="rendered_at" value={renderedAt} />
 
       <fieldset className="m-0 border-0 p-0">
-        <legend className="p-0 pb-3.5 text-lg font-bold tracking-[-0.01em]">The nominee</legend>
+        <legend className="t-display p-0 pb-3.5 text-lg">The nominee</legend>
         <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 md:gap-4">
           <Field id="nomineeName" label="Full name" error={errors.nomineeName}>
             <input
@@ -196,7 +196,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
 
       <div className="border-t border-rule pt-5 md:pt-6">
         <fieldset className="m-0 border-0 p-0">
-          <legend className="p-0 pb-3.5 text-lg font-bold tracking-[-0.01em]">Their work</legend>
+          <legend className="t-display p-0 pb-3.5 text-lg">Their work</legend>
           <div className="flex flex-col gap-3.5 md:gap-4">
             <Field
               id="description"
@@ -238,7 +238,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
 
       <div className="border-t border-rule pt-5 md:pt-6">
         <fieldset className="m-0 border-0 p-0">
-          <legend className="p-0 pb-3.5 text-lg font-bold tracking-[-0.01em]">About you</legend>
+          <legend className="t-display p-0 pb-3.5 text-lg">About you</legend>
           <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 md:gap-4">
             <Field id="nominatorName" label="Your name" error={errors.nominatorName}>
               <input
@@ -267,11 +267,11 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
                   {...a11y("consent")}
                   type="checkbox"
                   required
-                  className="mt-px size-6 shrink-0 accent-forest md:size-5"
+                  className="mt-px size-6 shrink-0 accent-espresso md:size-5"
                 />
                 <label htmlFor="consent">
                   I agree that House of Evulv may contact me and the nominee about this nomination, as set out in the{" "}
-                  <Link href="/privacy" className="font-semibold text-forest underline">
+                  <Link href="/privacy" className="font-semibold text-espresso underline">
                     privacy notice
                   </Link>{" "}
                   (NDPA 2023).
@@ -304,7 +304,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
           type="submit"
           // Disabled until hydrated, so a tap before JavaScript loads never falls back to a native submit
           disabled={pending || renderedAt === 0}
-          className="btn min-h-12 w-full border-0 bg-forest px-7 py-[15px] text-base font-bold text-bone disabled:cursor-wait disabled:opacity-70 md:w-auto md:py-[17px]"
+          className="btn min-h-12 w-full border-0 bg-espresso px-7 py-[15px] text-base font-bold text-ivory disabled:cursor-wait disabled:opacity-70 md:w-auto md:py-[17px]"
         >
           {pending ? "Sending…" : "Submit nomination"}
         </button>

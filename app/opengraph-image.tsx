@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { C, Frame, asJpeg, OG_SIZE, ogFonts, ogPhoto, ogSvg } from "@/lib/og";
+import { C, DISPLAY, Frame, asJpeg, OG_SIZE, ogFonts, ogPhoto, ogSvg } from "@/lib/og";
 import { site } from "@/lib/content";
 
 export const alt = `${site.name}: we honour and support the people who keep communities at peace.`;
@@ -10,7 +10,7 @@ export default async function Image() {
   const [fonts, hero, logo] = await Promise.all([
     ogFonts(),
     ogPhoto("durbar-riders"),
-    ogSvg("brand/house-of-evulv/svg/horizontal-no-tagline-reversed.svg"),
+    ogSvg("brand/house/house-of-evulv_horizontal_gold-and-silver.svg"),
   ]);
   return asJpeg(
     new ImageResponse(
@@ -25,8 +25,8 @@ export default async function Image() {
             justifyContent: "space-between",
             borderRadius: 28,
             overflow: "hidden",
-            background: "#2A443D",
-            color: C.bone,
+            background: C.espresso,
+            color: C.ivory,
             padding: "36px 44px 44px",
           }}
         >
@@ -45,14 +45,14 @@ export default async function Image() {
               width: 1168,
               height: 598,
               backgroundImage:
-                "linear-gradient(180deg, rgba(10,20,17,.6) 0%, rgba(10,20,17,0) 30%, rgba(10,20,17,.15) 45%, rgba(10,20,17,.85) 100%)",
+                "linear-gradient(180deg, rgba(14,10,7,.82) 0%, rgba(14,10,7,.25) 34%, rgba(14,10,7,.3) 48%, rgba(14,10,7,.9) 100%)",
             }}
           />
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <img src={logo} alt="" width={177} height={46} style={{ width: 177, height: 46 }} />
+            <img src={logo} alt="" width={244} height={90} style={{ width: 244, height: 90 }} />
             <div style={{ fontSize: 20, fontWeight: 500, color: C.onDark }}>{site.tagline}</div>
           </div>
-          <div style={{ display: "flex", fontSize: 68, lineHeight: 0.98, fontWeight: 700, letterSpacing: "-0.045em", maxWidth: 940 }}>
+          <div style={{ display: "flex", fontSize: 54, lineHeight: 1.1, maxWidth: 1000, color: C.gold, ...DISPLAY }}>
             We honour and support the people who keep communities at peace.
           </div>
         </div>

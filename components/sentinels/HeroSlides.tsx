@@ -79,7 +79,7 @@ export function HeroSlides({ slides, controlsSlot }: { slides: Slide[]; controls
             {slides.map((s, i) => (
               <span
                 key={s.src}
-                className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-6 bg-lime" : "w-1.5 bg-bone/50"}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-6 bg-gold" : "w-1.5 bg-ivory/50"}`}
               />
             ))}
           </div>
@@ -88,7 +88,7 @@ export function HeroSlides({ slides, controlsSlot }: { slides: Slide[]; controls
               type="button"
               onClick={() => setPaused((p) => !p)}
               aria-label={paused ? "Play slideshow" : "Pause slideshow"}
-              className="flex size-11 items-center justify-center rounded-xl bg-bone/12 text-bone backdrop-blur-sm"
+              className="flex size-11 items-center justify-center rounded-xl bg-ivory/12 text-ivory backdrop-blur-sm"
             >
               {paused ? (
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">

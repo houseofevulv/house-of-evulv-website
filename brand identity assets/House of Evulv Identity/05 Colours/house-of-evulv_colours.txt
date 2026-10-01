@@ -1,0 +1,10 @@
+House of Evulv Identity 2: colours
+
+Evulv Gold   HEX #C9A54C   RGB 201 165 76   CMYK 0/18/62/21 (starting point; confirm on a printer proof)
+Bronze       HEX #7E6029   RGB 126 96 41   CMYK 0/24/67/51 (starting point; confirm on a printer proof)
+Espresso     HEX #1E1712   RGB 30 23 18   CMYK 0/23/40/88 (starting point; confirm on a printer proof)
+Ivory        HEX #F5F0E6   RGB 245 240 230   CMYK 0/2/6/4 (starting point; confirm on a printer proof)
+Silver       HEX #CDD0D4   RGB 205 208 212   CMYK 3/2/0/17 (starting point; confirm on a printer proof)
+Black        HEX #0B0907   RGB 11 9 7   CMYK 0/18/36/96 (starting point; confirm on a printer proof)
+
+For print, gold and silver are best produced as metallic foil.

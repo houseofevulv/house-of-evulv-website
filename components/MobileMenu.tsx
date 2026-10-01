@@ -18,12 +18,12 @@ type Props = {
   phoneDisplay: string;
   phoneHref: string;
   /** Background of the trigger; slightly stronger over the home photo */
-  triggerTone?: "photo" | "forest";
+  triggerTone?: "photo" | "panel";
 };
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export function MobileMenu({ groups, status, phase, action, email, phoneDisplay, phoneHref, triggerTone = "forest" }: Props) {
+export function MobileMenu({ groups, status, phase, action, email, phoneDisplay, phoneHref, triggerTone = "panel" }: Props) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -87,8 +87,8 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`flex size-11 items-center justify-center rounded-xl text-bone lg:hidden ${
-          triggerTone === "photo" ? "bg-bone/16" : "bg-bone/12"
+        className={`flex size-11 items-center justify-center rounded-xl text-ivory lg:hidden ${
+          triggerTone === "photo" ? "bg-ivory/16" : "bg-ivory/12"
         }`}
       >
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -102,7 +102,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="on-dark fixed inset-0 z-50 flex overflow-y-auto overscroll-contain bg-bone"
+          className="on-dark fixed inset-0 z-50 flex overflow-y-auto overscroll-contain bg-ivory"
           style={{
             paddingTop: "calc(8px + env(safe-area-inset-top))",
             paddingRight: "calc(8px + env(safe-area-inset-right))",
@@ -110,17 +110,17 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
             paddingLeft: "calc(8px + env(safe-area-inset-left))",
           }}
         >
-          <div className="flex min-h-full flex-1 flex-col rounded-[22px] bg-forest text-bone">
-            <div className="flex h-16 shrink-0 items-center justify-between pr-3 pl-5">
+          <div className="flex min-h-full flex-1 flex-col rounded-[22px] bg-espresso text-ivory">
+            <div className="flex h-[92px] shrink-0 items-center justify-between pr-3 pl-4">
               <Link href="/" onClick={close} className="-m-1 p-1">
-                <Logo name="houseReversed" className="h-[34px]" />
+                <Logo name="houseHorizontal" eager className="h-auto w-[200px]" />
               </Link>
               <button
                 ref={closeRef}
                 type="button"
                 aria-label="Close menu"
                 onClick={close}
-                className="flex size-11 items-center justify-center rounded-xl bg-bone/12 text-bone"
+                className="flex size-11 items-center justify-center rounded-xl bg-ivory/12 text-ivory"
               >
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                   <path d="M6 6l12 12M18 6L6 18" />
@@ -131,7 +131,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
             <nav aria-label="Main" className="flex flex-col px-5 py-6">
               {groups.map((g, gi) => (
                 <div key={g.title}>
-                  <h2 className="pt-5 pb-2 text-[13px] font-semibold text-on-dark-3">{g.title}</h2>
+                  <h2 className="t-eyebrow pt-5 pb-2 text-gold">{g.title}</h2>
                   <ul className="m-0 list-none p-0">
                     {g.links.map((l, li) => (
                       <li
@@ -141,7 +141,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
                         <Link
                           href={l.href}
                           onClick={close}
-                          className="flex min-h-15 items-center text-[28px] font-bold tracking-[-0.03em] text-bone no-underline"
+                          className="flex min-h-15 items-center text-[28px] font-bold text-ivory no-underline"
                         >
                           {l.label}
                         </Link>
@@ -158,15 +158,15 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
                 {status}
               </p>
               {action && (
-                <Link href={action.href} onClick={close} className="btn min-h-12 bg-lime px-5 py-[15px] font-bold text-forest-ink">
+                <Link href={action.href} onClick={close} className="btn min-h-12 bg-gold px-5 py-[15px] font-bold text-black">
                   {action.label}
                 </Link>
               )}
               <div className="flex flex-col gap-1.5 text-sm">
-                <a href={`mailto:${email}`} className="inline-flex min-h-11 items-center self-start text-bone underline">
+                <a href={`mailto:${email}`} className="inline-flex min-h-11 items-center self-start text-ivory underline">
                   {email}
                 </a>
-                <a href={phoneHref} className="inline-flex min-h-11 items-center self-start text-bone underline">
+                <a href={phoneHref} className="inline-flex min-h-11 items-center self-start text-ivory underline">
                   {phoneDisplay}
                 </a>
               </div>

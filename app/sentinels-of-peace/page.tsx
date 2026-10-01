@@ -9,6 +9,7 @@ import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
 import { Support } from "@/components/sentinels/Support";
 import { SupportPledge } from "@/components/sentinels/SupportPledge";
+import { TheSeal } from "@/components/sentinels/TheSeal";
 import { Timeline } from "@/components/sentinels/Timeline";
 import { WhatItDoes } from "@/components/sentinels/WhatItDoes";
 import { WhyItExists } from "@/components/sentinels/WhyItExists";
@@ -28,10 +29,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sentinels-of-peace" },
   icons: {
     icon: [
-      { url: "/brand/sentinels-of-peace/svg/favicon.svg", type: "image/svg+xml" },
-      { url: "/brand/sentinels-of-peace/png/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icons/sentinels-of-peace_favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/icons/sentinels-of-peace_favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: { url: "/brand/sentinels-of-peace/png/favicon-180.png", sizes: "180x180" },
+    apple: { url: "/brand/icons/sentinels-of-peace_app-icon-180.png", sizes: "180x180" },
   },
   openGraph: pageOpenGraph("/sentinels-of-peace", title, description),
 };
@@ -66,6 +67,7 @@ export default function SentinelsPage() {
         <main className="flex flex-col gap-2 md:gap-4">
           <Hero />
           <WhyItExists />
+          <TheSeal />
           <WhatItDoes />
           <Categories />
           <Timeline />

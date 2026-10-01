@@ -17,7 +17,7 @@ export async function sendAlert(title: string, fields: AlertField[], replyTo?: s
   const rows = fields
     .map(
       (f) =>
-        `<tr><th align="left" valign="top" style="padding:6px 16px 6px 0;color:#4F5752;font-weight:600">${esc(f.label)}</th>` +
+        `<tr><th align="left" valign="top" style="padding:6px 16px 6px 0;color:#5F5347;font-weight:600">${esc(f.label)}</th>` +
         `<td style="padding:6px 0;white-space:pre-wrap">${esc(f.value || "-")}</td></tr>`
     )
     .join("");
@@ -28,7 +28,7 @@ export async function sendAlert(title: string, fields: AlertField[], replyTo?: s
     replyTo,
     subject: title,
     text: [title, "", ...fields.map((f) => `${f.label}: ${f.value || "-"}`)].join("\n"),
-    html: `<div style="font-family:system-ui,sans-serif;font-size:15px;color:#121614"><h2 style="margin:0 0 16px">${esc(
+    html: `<div style="font-family:system-ui,sans-serif;font-size:15px;color:#1E1712"><h2 style="margin:0 0 16px">${esc(
       title
     )}</h2><table cellspacing="0" cellpadding="0">${rows}</table></div>`,
   });

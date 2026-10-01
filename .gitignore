@@ -9,3 +9,9 @@ next-env.d.ts
 .vercel
 
 .vercel
+
+# Brand source files: keep the manual and SVGs, skip the 2400px PNG exports and the duplicate manual
+brand identity assets/**/PNG/
+brand identity assets/House of Evulv Identity 2 - Brand Manual.pdf
+brand identity assets/**/04 Social media/*.png
+brand identity assets/**/03 Icons and favicons/*.png

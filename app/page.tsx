@@ -26,7 +26,7 @@ const orgJsonLd = {
   "@type": "Organization",
   name: site.name,
   url: site.url,
-  logo: `${site.url}/brand/house-of-evulv/png/favicon-512.png`,
+  logo: `${site.url}/brand/icons/house-of-evulv_app-icon-512.png`,
   description: site.description,
   email: contact.email,
   telephone: contact.phoneHref.replace("tel:", ""),

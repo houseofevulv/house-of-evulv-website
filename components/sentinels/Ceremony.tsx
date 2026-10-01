@@ -15,10 +15,10 @@ export function Ceremony() {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,17,.1)_20%,rgba(10,20,17,.85)_100%)] md:bg-[linear-gradient(90deg,rgba(10,20,17,.8)_0%,rgba(10,20,17,.1)_70%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,10,7,.1)_20%,rgba(14,10,7,.85)_100%)] md:bg-[linear-gradient(90deg,rgba(14,10,7,.8)_0%,rgba(14,10,7,.1)_70%)]"
       />
-      <div className="relative flex flex-col gap-2.5 px-5 py-6 text-bone md:gap-3.5 md:px-12 md:py-12 lg:px-16 lg:py-14">
-        <h2 className="m-0 text-sm font-semibold text-lime md:text-base">The ceremony</h2>
+      <div className="relative flex flex-col gap-2.5 px-5 py-6 text-ivory md:gap-3.5 md:px-12 md:py-12 lg:px-16 lg:py-14">
+        <h2 className="t-eyebrow m-0 text-gold">The ceremony</h2>
         {/* TODO(client): the venue is unconfirmed (event.venueConfirmed = false) */}
         <p className="t-h2-56 m-0 max-w-[720px] !leading-[1.04]">
           {event.ceremonyDateDisplay}, {event.venue}.

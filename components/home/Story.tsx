@@ -25,7 +25,7 @@ export function Story({ onStoryPage = false }: { onStoryPage?: boolean }) {
           founderPhoto ? "md:col-span-7 md:col-start-6 lg:col-span-6 lg:col-start-7" : "md:col-span-12 lg:col-span-10 lg:col-start-2"
         }`}
       >
-        <h2 className="m-0 hidden text-[15px] font-semibold text-muted md:block">{onStoryPage ? "From the founder" : "Our story"}</h2>
+        <h2 className="t-eyebrow m-0 hidden text-bronze md:block">{onStoryPage ? "From the founder" : "Our story"}</h2>
         <blockquote className="t-quote m-0">
           <p className="m-0">“{founder.quote}”</p>
         </blockquote>
@@ -36,7 +36,7 @@ export function Story({ onStoryPage = false }: { onStoryPage?: boolean }) {
             <div className="pt-0.5 text-sm text-muted md:pt-1 md:text-[15px]">{founder.title}</div>
           </div>
           {!onStoryPage && (
-            <Link href="/our-story" className="lnk inline-flex min-h-11 shrink-0 items-center text-[15px] font-bold text-forest underline md:min-h-0">
+            <Link href="/our-story" className="lnk inline-flex min-h-11 shrink-0 items-center text-[15px] font-bold text-espresso underline md:min-h-0">
               Read the full story
             </Link>
           )}

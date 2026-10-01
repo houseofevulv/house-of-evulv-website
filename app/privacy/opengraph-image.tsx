@@ -9,6 +9,6 @@ export default function Image() {
   return readingOgImage({
     label: "Nigeria Data Protection Act 2023",
     title: "Privacy notice",
-    subtitle: "What we collect through the nomination form, why, and how to exercise your rights.",
+    subtitle: "What we collect, why we collect it, and how to exercise your rights.",
   });
 }

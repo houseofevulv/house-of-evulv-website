@@ -21,11 +21,11 @@ export function Partnership() {
           <article
             key={t.name}
             className={`rounded-[20px] border p-[22px] ${
-              t.highlight ? "on-dark border-forest bg-forest text-bone" : "border-card-border bg-white"
+              t.highlight ? "on-dark border-espresso bg-espresso text-ivory" : "border-card-border bg-white"
             }`}
           >
-            <h3 className="m-0 text-2xl font-bold tracking-[-0.02em]">{t.name}</h3>
-            <p className={`m-0 pt-0.5 text-sm ${t.highlight ? "text-lime" : "text-muted"}`}>{t.limit}</p>
+            <h3 className="m-0 text-2xl font-bold">{t.name}</h3>
+            <p className={`m-0 pt-0.5 text-sm ${t.highlight ? "text-gold" : "text-muted"}`}>{t.limit}</p>
             <dl className="mt-4 mb-0">
               {rows.map((r) => (
                 <div key={r.label}>
@@ -62,10 +62,10 @@ export function Partnership() {
                   <th
                     key={t.name}
                     scope="col"
-                    className={`px-6 py-7 align-top font-normal ${t.highlight ? "on-dark bg-forest text-bone" : "bg-white text-ink"}`}
+                    className={`px-6 py-7 align-top font-normal ${t.highlight ? "on-dark bg-espresso text-ivory" : "bg-white text-ink"}`}
                   >
-                    <span className="block text-2xl font-bold tracking-[-0.02em]">{t.name}</span>
-                    <span className={`block pt-1.5 text-sm ${t.highlight ? "text-lime" : "text-muted"}`}>{t.limit}</span>
+                    <span className="t-display block text-xl">{t.name}</span>
+                    <span className={`block pt-1.5 text-sm ${t.highlight ? "text-gold" : "text-muted"}`}>{t.limit}</span>
                   </th>
                 ))}
               </tr>
@@ -92,12 +92,12 @@ export function Partnership() {
       </div>
 
       <div className="flex flex-col gap-3 px-2 pt-1 md:flex-row md:items-center md:gap-5 md:p-0">
-        <a href={briefMailto} className="btn min-h-12 bg-forest px-5 py-[15px] font-bold text-bone md:px-6 md:py-4">
+        <a href={briefMailto} className="btn min-h-12 bg-espresso px-5 py-[15px] font-bold text-ivory md:px-6 md:py-4">
           Request the partnership brief
         </a>
         <span className="text-center text-[15px] text-body md:text-left md:text-base">
           Or call{" "}
-          <a href={contact.phoneHref} className="lnk inline-flex min-h-11 items-center font-bold text-forest underline md:min-h-0">
+          <a href={contact.phoneHref} className="lnk inline-flex min-h-11 items-center font-bold text-espresso underline md:min-h-0">
             {contact.phoneDisplay}
           </a>
         </span>

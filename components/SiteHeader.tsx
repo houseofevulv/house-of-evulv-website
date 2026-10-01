@@ -61,14 +61,16 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
 
   return (
     <>
-      <header className="relative flex h-16 shrink-0 items-center justify-between pr-3 pl-5 text-bone lg:h-22 lg:px-10">
+      {/* A solid espresso bar: logos never sit directly on photographs (brand manual, section 07) */}
+      <header className="relative flex h-[92px] shrink-0 items-center justify-between bg-espresso pr-3 pl-4 text-ivory lg:h-[108px] lg:px-10">
         <Link href="/" className="lnk -m-1 p-1">
-          <Logo name="houseReversed" className="h-[34px] lg:h-10" />
+          {/* Horizontal logo: 200px is its smallest size on screen (brand manual, section 04) */}
+          <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-9 text-[15px] font-semibold lg:flex">
           {navLinks[variant].map((l) => (
-            <Link key={l.label} href={l.href} className="lnk py-3 text-bone no-underline">
+            <Link key={l.label} href={l.href} className="lnk py-3 text-ivory no-underline">
               {l.label}
             </Link>
           ))}
@@ -82,7 +84,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
                 {status.sentinels}
               </span>
               {action && (
-                <Link href={action.href} className="btn bg-lime px-5 py-[13px] font-bold text-forest-ink">
+                <Link href={action.href} className="btn bg-gold px-5 py-[13px] font-bold text-black">
                   {action.label}
                 </Link>
               )}
@@ -96,7 +98,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
                 <StatusDot phase={status.phase} />
                 {status.home}
               </Link>
-              <Link href={variant === "home" ? "#contact" : "/#contact"} className="btn bg-bone px-5 py-[13px] font-bold text-forest-ink">
+              <Link href={variant === "home" ? "#contact" : "/#contact"} className="btn bg-ivory px-5 py-[13px] font-bold text-black">
                 Partner with us
               </Link>
             </>
@@ -111,11 +113,11 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
           email={contact.email}
           phoneDisplay={contact.phoneDisplay}
           phoneHref={contact.phoneHref}
-          triggerTone={onPhoto ? "photo" : "forest"}
+          triggerTone={onPhoto ? "photo" : "panel"}
         />
       </header>
       {variant === "sentinels" && (
-        <p className="m-0 flex items-center gap-2 px-5 text-[13px] font-medium text-on-dark-2 lg:hidden">
+        <p className="relative m-0 flex items-center gap-2 bg-espresso px-5 pb-3.5 text-[13px] font-medium text-on-dark-2 lg:hidden">
           <StatusDot phase={status.phase} />
           {status.sentinelsMobile}
         </p>

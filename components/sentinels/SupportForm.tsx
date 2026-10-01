@@ -7,7 +7,7 @@ import { support } from "@/lib/content";
 import { SUPPORT_FIELDS, SUPPORT_MESSAGE_MAX, type SupportField, type SupportState } from "@/lib/support-fields";
 
 const control =
-  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#8A918C] md:py-[15px]";
+  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#9A8D7C] md:py-[15px]";
 const fmt = (n: number) => n.toLocaleString("en-GB");
 
 function Field({ id, label, error, className = "", children, hint }: {
@@ -88,7 +88,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
   if (state.status === "success") {
     return (
       <div aria-live="polite" className="flex flex-col gap-4">
-        <h3 ref={doneRef} tabIndex={-1} className="m-0 text-[28px] leading-[1.1] font-bold tracking-[-0.03em] outline-none">
+        <h3 ref={doneRef} tabIndex={-1} className="m-0 text-[28px] leading-[1.1] font-bold outline-none">
           Thank you, {state.name}.
         </h3>
         <p className="m-0 text-base leading-[1.6] text-body">
@@ -99,7 +99,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
             href={paymentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn min-h-12 self-start bg-forest px-6 py-4 font-bold text-bone"
+            className="btn min-h-12 self-start bg-espresso px-6 py-4 font-bold text-ivory"
           >
             Give online now
             <span className="sr-only"> (opens in a new tab)</span>
@@ -120,7 +120,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
       <input type="hidden" name="rendered_at" value={renderedAt} />
 
       <fieldset className="m-0 border-0 p-0">
-        <legend className="p-0 pb-3.5 text-lg font-bold tracking-[-0.01em]">About you</legend>
+        <legend className="t-display p-0 pb-3.5 text-lg">About you</legend>
         <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 md:gap-4">
           <Field id="name" label="Your name" error={errors.name}>
             <input {...a11y("name")} type="text" autoComplete="name" required maxLength={120} className={`${control} ${border("name")}`} />
@@ -151,7 +151,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
 
       <div className="border-t border-rule pt-5 md:pt-6">
         <fieldset className="m-0 border-0 p-0">
-          <legend className="p-0 pb-3.5 text-lg font-bold tracking-[-0.01em]">Your support</legend>
+          <legend className="t-display p-0 pb-3.5 text-lg">Your support</legend>
           <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 md:gap-4">
             <Field id="supportType" label="How would you like to help?" error={errors.supportType}>
               <select {...a11y("supportType")} required defaultValue="" className={`${control} ${border("supportType")}`}>
@@ -195,10 +195,10 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
             </Field>
             <div className="flex flex-col gap-2 md:col-span-2">
               <div className="flex items-start gap-3 text-sm leading-normal font-medium text-body">
-                <input {...a11y("consent")} type="checkbox" required className="mt-px size-6 shrink-0 accent-forest md:size-5" />
+                <input {...a11y("consent")} type="checkbox" required className="mt-px size-6 shrink-0 accent-espresso md:size-5" />
                 <label htmlFor="consent">
                   I agree that House of Evulv may contact me about my support, as set out in the{" "}
-                  <Link href="/privacy" className="font-semibold text-forest underline">
+                  <Link href="/privacy" className="font-semibold text-espresso underline">
                     privacy notice
                   </Link>{" "}
                   (NDPA 2023).
@@ -226,7 +226,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
           type="submit"
           // Disabled until hydrated, so a tap before JavaScript loads never falls back to a native submit
           disabled={pending || renderedAt === 0}
-          className="btn min-h-12 w-full border-0 bg-forest px-7 py-[15px] text-base font-bold text-bone disabled:cursor-wait disabled:opacity-70 md:w-auto md:py-[17px]"
+          className="btn min-h-12 w-full border-0 bg-espresso px-7 py-[15px] text-base font-bold text-ivory disabled:cursor-wait disabled:opacity-70 md:w-auto md:py-[17px]"
         >
           {pending ? "Sending…" : "Send my pledge"}
         </button>

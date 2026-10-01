@@ -27,7 +27,7 @@ export function Statement() {
         <span className="hidden md:inline">
           <Chip src="/images/woman-blazer.jpg" alt="Woman in a black blazer, smiling" />{" "}
         </span>
-        and young people <Chip src="/images/young-speaker-portrait.jpg" alt="A young woman speaking into a microphone" position="center 28%" />{" "}
+        and young people <Chip src="/images/young-speaker-portrait.jpg" alt="A young woman speaking into a microphone" position="45% 42%" />{" "}
         preparing to lead.{" "}
         <span className="hidden text-statement-grey md:inline">
           The first is a national honours programme, held in Lagos this December.

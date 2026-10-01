@@ -3,6 +3,7 @@
 Website for House of Evulv (Lagos) and its first programme, the Sentinels of Peace Grand Honours.
 
 - **Stack:** Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Server Actions with zod
+- **Brand:** House of Evulv Identity 2. The manual and source files are in `brand identity assets/`; the site uses the SVGs in `public/brand` through `components/Logo.tsx`, and the palette and type in `app/globals.css`. The earlier forest-and-lime design is kept on the `previously-used` branch.
 - **2026 edition:** honourees are **selected**, not publicly nominated. `nominations.public` is `false` in `content/site-content.json`, which hides the nomination form and shows a support pledge form in its place. Set it to `true` to bring public nominations back in a future edition.
 - **Forms:** support pledges (and, when switched on, nominations) are stored in a Google Sheet, with an email alert through Resend
 - **Hosting:** Vercel
@@ -41,6 +42,7 @@ Dates, venue, categories, timeline, partnership tiers, states, contact details a
 - **Nomination window:** `nominations.opens` and `nominations.closes`. The site switches between "opens soon", "open" and "closed" by itself, in Lagos time.
 - **Donations:** `donate.paymentUrl` (a Paystack or Flutterwave payment page) and/or `donate.bank`. With neither, the section invites people to get in touch.
 - **Photos:** `public/images`, credits in `IMAGE-CREDITS.md`.
+- **Logos:** never place them on a photograph without a dark panel, never use gold on a light background (use the bronze files), and respect the minimum sizes noted in `components/Logo.tsx`.
 
 Search the code for `TODO(client)` to find everything still waiting on the client.
 
