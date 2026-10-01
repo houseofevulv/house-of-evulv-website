@@ -107,7 +107,7 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
     return (
       <div aria-live="polite" className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <Logo name="sentinelsSealLight" alt="" className="mb-3 h-auto w-[120px] self-start" />
+          <Logo name="sentinelsSeal" alt="" className="mb-3 h-auto w-[120px] self-start" />
           <h3 ref={doneRef} tabIndex={-1} className="m-0 text-[28px] leading-[1.1] font-bold outline-none">
             Nomination received
           </h3>

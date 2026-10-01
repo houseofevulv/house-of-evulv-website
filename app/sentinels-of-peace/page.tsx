@@ -29,9 +29,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sentinels-of-peace" },
   icons: {
     icon: [
-      { url: "/brand/icons/sentinels-of-peace_favicon.svg", type: "image/svg+xml" },
       { url: "/brand/icons/sentinels-of-peace_favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icons/sentinels-of-peace_favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/brand/icons/sentinels-of-peace_app-icon-192.png", sizes: "192x192", type: "image/png" },
     ],
+    shortcut: "/brand/icons/sentinels-of-peace_favicon.ico",
     apple: { url: "/brand/icons/sentinels-of-peace_app-icon-180.png", sizes: "180x180" },
   },
   openGraph: pageOpenGraph("/sentinels-of-peace", title, description),

@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element -- SVG logos need no optimisation */
+/* eslint-disable @next/next/no-img-element -- logos are SVG or pre-sized WebP and need no optimisation */
 
 /*
   House of Evulv Identity 2 marks, from public/brand. Rules from the brand manual:
@@ -6,6 +6,8 @@
     Evulv Gold is never used on light backgrounds.
   - Smallest sizes on screen: horizontal 200px wide, full logo 240px, emblem 96px, Sentinels seal 120px.
     Below that, use the icon or the crest (24px minimum).
+  - The Sentinels seal is used in full colour, as created. Its knights may flank content as a pair on espresso, black
+    or Sentinel Navy only, never recoloured, flipped, cropped or shown singly.
   - Files are used exactly as supplied: no stretching, recolouring, effects or retyping the name.
 */
 const H = "/brand/house/house-of-evulv";
@@ -25,11 +27,15 @@ const LOGOS = {
   },
   houseEmblem: { src: `${H}_emblem_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv emblem" },
   houseIcon: { src: `${H}_icon_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv" },
-  // Sentinels of Peace
-  sentinelsHorizontal: { src: `${S}_horizontal_gold-and-silver.svg`, w: 1815, h: 640, alt: "Sentinels of Peace, by House of Evulv" },
-  sentinelsSeal: { src: `${S}_seal_gold-and-silver.svg`, w: 1000, h: 1000, alt: "Sentinels of Peace seal" },
-  sentinelsSealLight: { src: `${S}_seal_bronze.svg`, w: 1000, h: 1000, alt: "Sentinels of Peace seal" },
-  sentinelsCrest: { src: `${S}_crest_gold-and-silver.svg`, w: 700, h: 1016, alt: "Sentinels of Peace crest" },
+  // Sentinels of Peace: the seal artwork as created (full colour, gold on Sentinel Navy), supplied as images
+  sentinelsHorizontal: { src: `${S}_horizontal-gold.webp`, w: 1200, h: 416, alt: "Sentinels of Peace, by House of Evulv" },
+  sentinelsHorizontalLight: { src: `${S}_horizontal-bronze.webp`, w: 1200, h: 416, alt: "Sentinels of Peace, by House of Evulv" },
+  sentinelsSeal: { src: `${S}_seal.webp`, w: 1000, h: 949, alt: "Sentinels of Peace seal" },
+  sentinelsFull: { src: `${S}_full-logo.webp`, w: 1000, h: 1004, alt: "Sentinels of Peace, by House of Evulv" },
+  sentinelsCrest: { src: `${S}_crest.webp`, w: 480, h: 709, alt: "Sentinels of Peace crest" },
+  // The two knights: always as a pair, facing inward, on dark backgrounds, 300px tall or more
+  knightLeft: { src: `${S}_knight-left.webp`, w: 404, h: 900, alt: "" },
+  knightRight: { src: `${S}_knight-right.webp`, w: 397, h: 900, alt: "" },
   // Elements of the emblem, one for each word of the tagline
   dove: { src: `${E}-dove_gold-and-silver.svg`, w: 1000, h: 930, alt: "Dove carrying an olive branch" },
   doveWhite: { src: `${E}-dove_white.svg`, w: 1000, h: 930, alt: "Dove carrying an olive branch" },

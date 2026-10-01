@@ -1,18 +1,23 @@
 House of Evulv Identity 2
 
-Start with "House of Evulv Identity 2 - Brand Manual.pdf". Page 17 explains which file to use where.
+Start with "House of Evulv Identity 2 - Brand Manual.pdf". The last page explains which file to use where.
 
-SVG files are vectors: send them to printers, sign makers and web developers. They scale to any size.
-PNG files are transparent images, 2400 pixels wide: use them in Word, PowerPoint, Canva and WhatsApp.
+01 House of Evulv
+  Every logo version in seven colourways, as SVG (vector, any size) and transparent PNG (2400 px).
+  Elements: the dove (peace), the lotus and water (healing), the tree of life (evolution), the open ring and a leaf.
+  Colourways for dark backgrounds: gold-and-silver, gold-and-ivory, gold, white.
+  Colourways for light backgrounds: bronze, espresso, black.
 
-File names follow brand_version_colourway, for example sentinels-of-peace_seal_gold-and-ivory.svg.
-For dark backgrounds: gold-and-silver, gold-and-ivory, gold, white.
-For light backgrounds: bronze, espresso, black.
+02 Sentinels of Peace
+  Files ending in _original are the Sentinels of Peace seal artwork as created, enhanced to high resolution:
+  the full logo, the seal and the crest cut out on transparent backgrounds, the two knights (left, right and as a pair),
+  and the original square artwork. These are supplied as high-resolution transparent PNG.
+  seal_greyscale is for one-colour print such as newspapers.
+  The horizontal lockup and wordmark come as PNG and SVG, with vector lettering in several colours.
 
-01 House of Evulv/Elements holds each part of the emblem on its own:
-the dove (peace), the lotus and water (healing), the tree of life (evolution), the open ring and a single leaf.
+03 Icons and favicons, 04 Social media, 05 Colours
+  Website icons, 1080 x 1080 profile pictures, and colour swatches (.ase for Adobe apps, .css, and a text sheet).
 
 Typefaces: Cinzel (headings) and Manrope (body), both free from Google Fonts.
-For certificates and plaques, print gold and silver as metallic foil.
 
 Questions: Chibuzor Nwachukwu, chibuzordev@gmail.com

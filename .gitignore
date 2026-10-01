@@ -10,8 +10,8 @@ next-env.d.ts
 
 .vercel
 
-# Brand source files: keep the manual and SVGs, skip the 2400px PNG exports and the duplicate manual
-brand identity assets/**/PNG/
-brand identity assets/House of Evulv Identity 2 - Brand Manual.pdf
+# Brand source files: keep the manual, SVGs and the Sentinels artwork (PNG only); skip the other 2400px PNG exports
+brand identity assets/**/01 House of Evulv/**/PNG/
 brand identity assets/**/04 Social media/*.png
 brand identity assets/**/03 Icons and favicons/*.png
+brand identity assets/**/02 Sentinels of Peace/SVG/sentinels-of-peace_horizontal_*.svg

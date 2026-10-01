@@ -15,6 +15,7 @@ export const C = {
   gold: "#C9A54C",
   bronze: "#7E6029",
   silver: "#CDD0D4",
+  navy: "#10234F",
   onDark: "#E8E1D2",
   onDark2: "#CFC5B3",
   onDark3: "#A3978A",
@@ -43,6 +44,12 @@ export async function ogFonts() {
 export async function ogPhoto(name: string) {
   const buf = await readFile(join(root, `assets/og/${name}.jpg`));
   return `data:image/jpeg;base64,${buf.toString("base64")}`;
+}
+
+/** PNG artwork prepared for previews, in assets/og */
+export async function ogPng(name: string) {
+  const buf = await readFile(join(root, `assets/og/${name}.png`));
+  return `data:image/png;base64,${buf.toString("base64")}`;
 }
 
 export async function ogSvg(path: string) {
