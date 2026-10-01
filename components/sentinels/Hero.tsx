@@ -17,7 +17,7 @@ const slides: Slide[] = [
     src: "/images/officer-helipad.jpg",
     alt: "A uniformed officer standing watch beside a helicopter",
     position: "center 45%",
-    mobilePosition: "56% center",
+    mobilePosition: "31% center",
   },
   {
     src: "/images/guard-of-honour.jpg",
