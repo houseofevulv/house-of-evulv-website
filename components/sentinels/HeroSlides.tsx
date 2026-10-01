@@ -65,8 +65,9 @@ export function HeroSlides({ slides, controlsSlot }: { slides: Slide[]; controls
               fill
               priority={i === 0}
               sizes="(min-width: 1440px) 1408px, 100vw"
-              className="object-cover object-[var(--pos-m)] md:object-[var(--pos)]"
+              className="photo-toned object-cover object-[var(--pos-m)] md:object-[var(--pos)]"
             />
+            <span aria-hidden="true" className="photo-wash" />
           </div>
         ))}
       </div>

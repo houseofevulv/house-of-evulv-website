@@ -279,3 +279,20 @@
     text-decoration: underline;
   }
 }
+
+/*
+  Photograph treatment. Stock photos come in every palette; this pulls them into the brand's warm range so they read
+  as one set: colour is partly drained and warmed, then a thin wash of Evulv Gold sits over the picture.
+*/
+@layer components {
+  .photo-toned {
+    filter: grayscale(0.55) sepia(0.35) saturate(1.15) contrast(1.04);
+  }
+  .photo-wash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(201, 165, 76, 0.2), rgba(126, 96, 41, 0.26));
+    mix-blend-mode: soft-light;
+  }
+}

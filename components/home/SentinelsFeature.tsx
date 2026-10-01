@@ -77,11 +77,11 @@ export function SentinelsFeature() {
       </div>
 
       <Photo
-        src="/images/elder-chief.jpg"
-        alt="An elder in a fila and coral beads, dressed for a ceremony"
+        src="/images/conference.webp"
+        alt="A woman in a patterned headwrap, seen from behind, watching a speaker on stage in a full auditorium"
         sizes="(min-width: 1440px) 520px, (min-width: 1024px) 38vw, 100vw"
-        position="center 30%"
-        mobilePosition="center 22%"
+        position="40% center"
+        mobilePosition="40% 35%"
         tone="dark"
         className="order-1 h-[300px] rounded-2xl md:order-4 md:aspect-[4/3] md:h-auto md:w-full md:rounded-[20px] lg:order-none lg:col-span-5 lg:col-start-8 lg:aspect-[519/692]"
       >

@@ -43,8 +43,9 @@ export function Photo({
         fill
         sizes={sizes}
         priority={priority}
-        className="object-cover object-[var(--pos-m)] md:object-[var(--pos)]"
+        className="photo-toned object-cover object-[var(--pos-m)] md:object-[var(--pos)]"
       />
+      <span aria-hidden="true" className="photo-wash" />
       {children}
     </Tag>
   );
