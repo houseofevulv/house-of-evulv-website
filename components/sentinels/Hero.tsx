@@ -14,10 +14,10 @@ const slides: Slide[] = [
     mobilePosition: "48% center",
   },
   {
-    src: "/images/award-presentation.jpg",
-    alt: "Two people smiling as they hold up an award at a presentation",
-    position: "center 28%",
-    mobilePosition: "center 25%",
+    src: "/images/officer-helipad.jpg",
+    alt: "A uniformed officer standing watch beside a helicopter",
+    position: "center 45%",
+    mobilePosition: "56% center",
   },
   {
     src: "/images/guard-of-honour.jpg",

@@ -8,10 +8,9 @@ Evulv's own photos, and the programme's own after the first edition.
 | --- | --- | --- |
 | durbar-riders.jpg | kings-studio, 39822749 | Home hero, home social preview |
 | medal-pinning.jpg | sanusi-jabir, 30129324 | Sentinels hero slide 1, home support section |
-| award-presentation.jpg | chris-wade-ntezicimpa, 32660518 | Sentinels hero slide 2 |
 | reception-guests.jpg | eagrapher, 3611092 | Sentinels ceremony band |
 | trophy-dark.jpg | n-voitkevich, 6532366 | Sentinels Recognise tile |
-| officer-helipad.jpg | oacthecreator, 10550113 | Sentinels support section |
+| officer-helipad.jpg | oacthecreator, 10550113 | Sentinels hero slide 2 |
 | community-rooftops.jpg | alameenng, 31729409 | Sentinels "Why it exists" |
 | elder-chief.jpg | lekepov, 31713384 | Home Sentinels feature portrait |
 | elder-portrait-bw.jpg | megwara-favour, 30344256 | Home statement photo ("elders and mediators") |
