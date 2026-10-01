@@ -8,11 +8,11 @@ import { dayMonth, dayMonthShort } from "@/lib/dates";
 function Row({ label, children, last }: { label: string; children: React.ReactNode; last?: boolean }) {
   return (
     <div
-      className={`flex justify-between gap-4 border-t border-rule-dark py-3.5 text-[15px] md:py-[18px] md:text-base ${
+      className={`flex justify-between gap-4 border-t border-ivory/20 py-3.5 text-[15px] md:py-[18px] md:text-base ${
         last ? "border-b" : ""
       }`}
     >
-      <dt className="text-on-dark-3">{label}</dt>
+      <dt className="text-on-dark-2">{label}</dt>
       <dd className="m-0 text-right font-semibold">{children}</dd>
     </div>
   );
@@ -23,12 +23,12 @@ export function SentinelsFeature() {
   return (
     <section
       id="sentinels"
-      className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-espresso px-5 py-7 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0 lg:p-16"
+      className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-navy px-5 py-7 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0 lg:p-16"
     >
       <div className="contents lg:col-span-6 lg:flex lg:flex-col lg:justify-between lg:gap-12">
         <div className="contents lg:flex lg:flex-col lg:gap-7">
           <h2 className="t-feature m-0">The Sentinels of Peace Grand Honours</h2>
-          <p className="order-2 m-0 max-w-[520px] text-base leading-[1.55] text-on-dark-2 md:text-[19px] lg:order-none">
+          <p className="order-2 m-0 max-w-[520px] text-base leading-[1.55] text-on-dark md:text-[19px] lg:order-none">
             A national honours programme for <span className="md:hidden">people</span>
             <span className="hidden md:inline">individuals</span> and organisations whose work prevents conflict,
             protects lives or helps communities recover.
@@ -78,7 +78,7 @@ export function SentinelsFeature() {
       </div>
 
       {/* The seal alone: it already carries its two sentinels */}
-      <div className="order-1 flex flex-col items-center justify-center gap-6 rounded-2xl bg-navy px-6 py-9 text-center md:order-4 md:rounded-[20px] md:py-12 lg:order-none lg:col-span-5 lg:col-start-8">
+      <div className="order-1 flex flex-col items-center justify-center gap-6 rounded-2xl border border-ivory/20 px-6 py-9 text-center md:order-4 md:rounded-[20px] md:py-12 lg:order-none lg:col-span-5 lg:col-start-8">
         <Logo name="sentinelsSeal" className="h-auto w-[200px] md:w-[260px] lg:w-[300px]" />
         <div className="flex flex-col gap-2.5">
           <p className="t-eyebrow m-0 text-gold">The seal</p>

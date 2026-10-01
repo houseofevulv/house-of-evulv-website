@@ -58,11 +58,15 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
   const action = primaryAction(variant === "sentinels");
   const menuAction = primaryAction();
   const onPhoto = variant === "home";
+  // The Sentinels page opens on Sentinel Navy, so its header matches; everywhere else it is espresso
+  const bar = variant === "sentinels" ? "bg-navy" : "bg-espresso";
 
   return (
     <>
       {/* A solid espresso bar: logos never sit directly on photographs (brand manual, section 07) */}
-      <header className="relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] bg-espresso pr-3 pl-4 text-ivory md:rounded-t-[28px] lg:h-[108px] lg:px-10">
+      <header
+        className={`relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] pr-3 pl-4 text-ivory md:rounded-t-[28px] lg:h-[108px] lg:px-10 ${bar}`}
+      >
         <Link href="/" className="lnk -m-1 p-1">
           {/* Horizontal logo: 200px is its smallest size on screen (brand manual, section 04) */}
           <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
@@ -117,7 +121,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
         />
       </header>
       {variant === "sentinels" && (
-        <p className="relative m-0 flex items-center gap-2 bg-espresso px-5 pb-3.5 text-[13px] font-medium text-on-dark-2 lg:hidden">
+        <p className="relative m-0 flex items-center gap-2 px-5 pb-3.5 text-[13px] font-medium text-on-dark-2 lg:hidden">
           <StatusDot phase={status.phase} />
           {status.sentinelsMobile}
         </p>
