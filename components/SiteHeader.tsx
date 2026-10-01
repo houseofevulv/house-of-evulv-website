@@ -62,7 +62,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
   return (
     <>
       {/* A solid espresso bar: logos never sit directly on photographs (brand manual, section 07) */}
-      <header className="relative flex h-[92px] shrink-0 items-center justify-between bg-espresso pr-3 pl-4 text-ivory lg:h-[108px] lg:px-10">
+      <header className="relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] bg-espresso pr-3 pl-4 text-ivory md:rounded-t-[28px] lg:h-[108px] lg:px-10">
         <Link href="/" className="lnk -m-1 p-1">
           {/* Horizontal logo: 200px is its smallest size on screen (brand manual, section 04) */}
           <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
