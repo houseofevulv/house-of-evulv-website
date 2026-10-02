@@ -5,18 +5,19 @@ export function TheHouse() {
   return (
     <section
       id="about"
-      className="relative flex scroll-mt-4 flex-col items-center overflow-clip px-4 pt-8 pb-28 text-center md:px-12 md:pt-12 md:pb-28 lg:pt-14 lg:pb-36"
+      className="relative flex scroll-mt-4 flex-col items-center overflow-clip px-4 pt-8 pb-32 text-center md:px-12 md:pt-12 md:pb-40 lg:pt-14 lg:pb-44"
     >
-      {/* The lotus on still water, faint, in each bottom corner: bronze, as the emblem's elements are on ivory */}
+      {/* The lotus on still water, faint, in each bottom corner: bronze, as the emblem's elements are on ivory. The
+          bottom padding is at least the lotus's height, so it always sits below the text, never behind it. */}
       <Logo
         name="lotusLight"
         alt=""
-        className="pointer-events-none absolute bottom-0 left-0 h-auto w-[130px] -translate-x-[8%] opacity-[0.14] md:w-[220px] lg:w-[260px]"
+        className="pointer-events-none absolute bottom-0 left-0 h-auto w-[110px] -translate-x-[8%] opacity-[0.14] md:w-[150px] lg:w-[170px]"
       />
       <Logo
         name="lotusLight"
         alt=""
-        className="pointer-events-none absolute right-0 bottom-0 h-auto w-[130px] translate-x-[8%] opacity-[0.14] md:w-[220px] lg:w-[260px]"
+        className="pointer-events-none absolute right-0 bottom-0 h-auto w-[110px] translate-x-[8%] opacity-[0.14] md:w-[150px] lg:w-[170px]"
       />
       {/* The name as one line the full width of the hero card, softened; it never wraps, at any width.
           em: the line's width in Libre Bodoni Bold at size 1, measured with fontTools (see FitLine). */}
