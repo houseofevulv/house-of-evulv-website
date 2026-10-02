@@ -10,6 +10,10 @@ const promises: Record<string, string> = {
   Media: "National amplification",
 };
 
+// Media leads here; the Sentinels page keeps the tiers in their own order
+const ORDER = ["Media", "Founding", "Strategic", "Programme"];
+const tiers = [...partnership.tiers].sort((a, b) => ORDER.indexOf(a.name) - ORDER.indexOf(b.name));
+
 export function Partnership() {
   return (
     // The heading and intro centred across the top; below them the Sentinels badge in gold on the left and the tiers
@@ -33,14 +37,15 @@ export function Partnership() {
           {/* No cards: each tier is a plain link that opens the support form with that tier already chosen */}
           <p className="t-eyebrow m-0 text-muted">Choose where you stand</p>
           <ul className="m-0 grid w-full max-w-[640px] list-none grid-cols-1 gap-y-2 p-0 pt-4 sm:grid-cols-2 md:pt-8">
-            {partnership.tiers.map((t) => (
+            {tiers.map((t) => (
               <li key={t.name}>
                 <Link
                   href={`/sentinels-of-peace?partner=${t.name}#support`}
                   className="group flex min-h-11 flex-col items-center gap-1.5 px-3 py-5 no-underline lg:items-start lg:px-0"
                 >
                   <span className="t-display text-2xl text-ink group-hover:text-bronze md:text-[28px]">
-                    {t.name}{" "}
+                    {/* "Partner" in the name, so no one reads a tier as a fee to be honoured: these are sponsors */}
+                    {t.name} Partner{" "}
                     <span aria-hidden="true" className="inline-block text-bronze transition-transform group-hover:translate-x-1">
                       →
                     </span>
