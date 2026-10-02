@@ -7,7 +7,7 @@ import { Donate } from "@/components/home/Donate";
 import { Hero } from "@/components/home/Hero";
 import { HonoursAims } from "@/components/home/HonoursAims";
 import { Ideology } from "@/components/home/Ideology";
-import { Mark } from "@/components/home/Mark";
+// import { Mark } from "@/components/home/Mark";
 import { Partnership } from "@/components/home/Partnership";
 import { SentinelsFeature } from "@/components/home/SentinelsFeature";
 import { Statement } from "@/components/home/Statement";
@@ -46,7 +46,8 @@ export default function Home() {
           <Hero />
           <TheHouse />
           <Ideology />
-          <Mark />
+          {/* Official mark section, set aside for now: the House icon sits behind the ideology heading instead */}
+          {/* <Mark /> */}
           <Statement />
           <SentinelsFeature />
           <HonoursAims />

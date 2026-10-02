@@ -27,6 +27,7 @@ const LOGOS = {
   },
   houseEmblem: { src: `${H}_emblem_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv emblem" },
   houseIcon: { src: `${H}_icon_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv" },
+  houseIconWhite: { src: `${H}_icon_white.svg`, w: 1000, h: 1059, alt: "House of Evulv" },
   // Sentinels of Peace: the seal artwork as created (full colour, gold on Sentinel Navy), supplied as images
   sentinelsHorizontal: { src: `${S}_horizontal-gold.webp`, w: 1200, h: 416, alt: "Sentinels of Peace, by House of Evulv" },
   sentinelsHorizontalLight: { src: `${S}_horizontal-bronze.webp`, w: 1200, h: 416, alt: "Sentinels of Peace, by House of Evulv" },

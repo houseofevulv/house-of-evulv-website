@@ -38,12 +38,19 @@ export function Ideology() {
       className="on-dark -mx-2 bg-espresso text-ivory shadow-[0_0_0_100vmax_var(--color-espresso)] [clip-path:inset(0_-100vmax)] max-sm:h-[280svh] md:-mx-4"
     >
       <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-20 lg:py-32">
-        <div className="flex flex-col lg:col-span-4">
-          <h2 className="t-h2-48 reveal m-0">
+        <div className="relative flex flex-col lg:col-span-4">
+          {/* The House icon in plain white, faint, behind the heading: the tree, the figure and the helix in the open
+              ring. The icon rather than the full emblem, since the dove and the lotus stand beside it as ideals. */}
+          <Logo
+            name="houseIconWhite"
+            alt=""
+            className="pointer-events-none absolute top-1/2 left-1/2 h-auto w-[280px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.07] md:w-[380px] lg:w-[420px]"
+          />
+          <h2 className="t-h2-48 reveal relative m-0">
             Three forces, <br />
             one human future.
           </h2>
-          <p className="m-0 max-w-[400px] pt-6 text-base leading-[1.65] text-on-dark md:pt-8 md:text-[17px]">
+          <p className="relative m-0 max-w-[400px] pt-6 text-base leading-[1.65] text-on-dark md:pt-8 md:text-[17px]">
             Our philosophy is not ornamental language. It is the compass by which we conceive, choose and execute every
             initiative.
           </p>
