@@ -169,12 +169,13 @@
   font-weight: 700;
   letter-spacing: 0;
 }
+/* Honour category titles: Manrope, 20% larger than the Bodoni size they replaced (19 to 24px, now 22.8 to 28.8px) */
 @utility t-category {
-  font-family: var(--font-display);
-  font-size: clamp(1.1875rem, 0.744vw + 0.8304rem, 1.5rem);
+  font-family: var(--font-sans);
+  font-size: clamp(1.425rem, 0.8928vw + 0.9965rem, 1.8rem);
   line-height: 1.25;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.015em;
 }
 /* Small tracked capitals for labels above headings, as in the manual ("01 THE FAMILY") */
 @utility t-eyebrow {
