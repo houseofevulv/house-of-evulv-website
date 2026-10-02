@@ -26,10 +26,11 @@ export function TheHouse() {
           House of Evulv
         </FitLine>
       </h2>
-      {/* One headline only: this line supports it, so it is set as a lead, not a second statement */}
+      {/* Lead line, set aside for now:
       <p className="relative m-0 max-w-[520px] pt-5 text-[17px] leading-[1.55] font-medium text-muted md:pt-6 md:text-xl">
         Not every idea deserves a stage. The right idea deserves an institution.
       </p>
+      */}
       <p className="relative m-0 max-w-[640px] pt-8 text-base leading-[1.7] text-body md:pt-12 md:text-[17px]">
         House of Evulv is a creative, strategic and impact-driven enterprise shaping premium initiatives at the
         intersection of culture, leadership, civic distinction and human progress. We bring ambitious visions to life
