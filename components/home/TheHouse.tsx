@@ -1,4 +1,5 @@
 import { FitLine } from "@/components/FitLine";
+import { Divider } from "@/components/Ornament";
 
 export function TheHouse() {
   return (
@@ -6,9 +7,8 @@ export function TheHouse() {
       id="about"
       className="flex scroll-mt-4 flex-col items-center px-4 py-16 text-center md:px-12 md:py-28 lg:py-36"
     >
-      <p className="t-eyebrow m-0 text-bronze">The House</p>
       {/* The statement as one line the full width of the hero card, softened; it never wraps, at any width */}
-      <h2 className="m-0 w-full pt-4 md:pt-6">
+      <h2 className="reveal m-0 w-full">
         <FitLine as="span" em={17.81} className="text-espresso/35">
           We create what the future remembers.
         </FitLine>
@@ -26,7 +26,8 @@ export function TheHouse() {
         Our work is anchored upon three enduring ideals: peace that restores order, healing that renews the human
         spirit, and evolution that transforms noble intention into lasting progress.
       </p>
-      <p className="t-eyebrow m-0 pt-8 text-bronze md:pt-12">Purpose, polished into permanence.</p>
+      <Divider tone="light" className="pt-10 md:pt-14" />
+      <p className="t-display m-0 pt-5 text-lg leading-snug text-bronze md:text-xl">Purpose, polished into permanence.</p>
     </section>
   );
 }

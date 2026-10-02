@@ -15,7 +15,7 @@ export function WhatItDoes() {
         alt="A star-topped trophy on a dark background"
         sizes="(min-width: 1024px) 50vw, 100vw"
         position="center 30%"
-        className="flex h-[360px] flex-col justify-end rounded-[20px] md:col-span-2 md:h-[440px] md:rounded-3xl lg:col-span-6 lg:row-span-2 lg:h-auto"
+        className="reveal-photo photo-hover flex h-[360px] flex-col justify-end rounded-[20px] md:col-span-2 md:h-[440px] md:rounded-3xl lg:col-span-6 lg:row-span-2 lg:h-auto"
       >
         <div
           aria-hidden="true"

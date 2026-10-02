@@ -33,10 +33,13 @@ export default function OurStoryPage() {
             id="content"
             className="mt-auto flex flex-col gap-[18px] px-5 pt-16 pb-8 md:px-8 md:pt-24 md:pb-10 lg:gap-7 lg:px-10 lg:pb-12"
           >
-            <p className="t-eyebrow m-0 text-gold">About {site.name}</p>
-            <h1 className="t-sop-hero m-0 text-gold">Our story</h1>
-            <Divider className="self-start" />
-            <p className="m-0 max-w-[640px] text-base leading-[1.55] text-on-dark-2 md:text-xl">{lead}</p>
+            <h1 className="t-sop-hero m-0 text-gold">
+              <span className="line-mask">
+                <span className="line">Our story</span>
+              </span>
+            </h1>
+            <Divider className="arrive self-start [--d:400ms]" />
+            <p className="arrive m-0 max-w-[640px] text-base leading-[1.55] text-on-dark-2 [--d:450ms] md:text-xl">{lead}</p>
           </div>
         </section>
 
@@ -47,7 +50,7 @@ export default function OurStoryPage() {
           aria-labelledby="why-heading"
           className="flex flex-col gap-6 px-4 pt-4 pb-12 md:grid md:grid-cols-12 md:gap-x-6 md:gap-y-0 md:px-12 md:pt-8 md:pb-20 lg:pb-24"
         >
-          <h2 id="why-heading" className="t-h2-48 m-0 md:col-span-4 lg:col-span-4">
+          <h2 id="why-heading" className="t-h2-48 reveal m-0 md:col-span-4 lg:col-span-4">
             Why the House exists
           </h2>
           <div className="flex flex-col gap-5 text-[17px] leading-[1.6] text-body md:col-span-8 md:gap-6 md:text-xl lg:col-span-7 lg:col-start-6">

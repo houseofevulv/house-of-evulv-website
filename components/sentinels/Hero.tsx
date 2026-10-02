@@ -12,8 +12,9 @@ import { SEAL_PARTS } from "@/lib/seal";
  * The seal is the hero: full colour on Sentinel Navy, with the two knights standing guard either side from 1024px
  * (a pair, facing inward, 300px tall or more, as the brand manual requires), and the meaning of each part beneath.
  * On arrival the badge frame draws itself large and faint behind the seal, the knights rise in four measured steps
- * onto a gold floor line and then catch the light, and the title rises into place. A light passes over the seal
- * every few seconds. All motion stops for reduced-motion visitors.
+ * onto a gold floor line and catch the light once, the title rises into place and a light crosses the seal once.
+ * Then everything is still: the knight and frame files are the _once builds, whose loops play a single time
+ * (scripts/brand-motion/build_site_variants.py). All motion stops for reduced-motion visitors.
  */
 const MOTION = "/brand/motion/sentinels-of-peace";
 
@@ -21,7 +22,7 @@ function Knight({ side }: { side: "left" | "right" }) {
   return (
     <div className="knight-rise hidden h-[420px] overflow-hidden lg:block xl:h-[520px]">
       <img
-        src={`${MOTION}_motion-knight-${side}_light.svg`}
+        src={`${MOTION}_motion-knight-${side}_light_once.svg`}
         width={side === "left" ? 406 : 398}
         height={900}
         alt=""
@@ -45,7 +46,7 @@ export function Hero() {
   return (
     <section className="hero-sentinels on-dark relative flex flex-col overflow-clip rounded-[22px] text-ivory md:rounded-[28px]">
       <img
-        src={`${MOTION}_motion-badge-frame_white.svg`}
+        src={`${MOTION}_motion-badge-frame_white_once.svg`}
         width={1000}
         height={1000}
         alt=""
@@ -60,20 +61,20 @@ export function Hero() {
             <div className="seal-light relative">
               <Logo name="sentinelsSeal" eager className="h-auto w-[220px] md:w-[280px] xl:w-[320px]" />
             </div>
-            <FlankedLabel className="rise-in [animation-delay:.2s]">By House of Evulv, first edition</FlankedLabel>
+            <FlankedLabel className="rise-in [animation-delay:.1s]">By House of Evulv, first edition</FlankedLabel>
             <h1 className="t-sop-hero m-0">
               <span className="reveal-line">
-                <span className="gilt" style={{ animationDelay: "0.3s" }}>
+                <span className="gilt" style={{ animationDelay: "0.2s" }}>
                   Sentinels of Peace
                 </span>
               </span>
             </h1>
-            <p className="rise-in m-0 font-display text-xl leading-snug text-ivory italic md:text-[28px]" style={{ animationDelay: "0.55s" }}>
+            <p className="rise-in m-0 font-display text-xl leading-snug text-ivory italic md:text-[28px]" style={{ animationDelay: "0.45s" }}>
               Courage deserves more than applause.
             </p>
             <div
               className="rise-in flex flex-col gap-2.5 self-stretch pt-1 md:flex-row md:justify-center md:self-auto"
-              style={{ animationDelay: "0.7s" }}
+              style={{ animationDelay: "0.55s" }}
             >
               {action && (
                 <Link href={action.href} className="btn min-h-12 bg-gold px-6 py-[15px] font-bold text-black">

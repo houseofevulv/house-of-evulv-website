@@ -9,6 +9,7 @@ Generators for the animated brand files in `public/brand/motion` (copied to `bra
 | `build_sentinels.py` | Sentinels badge, badge frame and lettering, still (`public/brand/sentinels`) and animated |
 | `knights.py` | Clean knight cut-outs from the seal (PNG for the brand package, WebP for the site) |
 | `build_knights_motion.py` | Knights catching the light; the pair rising (run `knights.py` first) |
+| `build_site_variants.py` | The website's builds: `_still` (tree, lotus, dove at rest) and `_once` (knights, badge frame: each loop plays once), so no loop on the site runs past five seconds |
 | `frames.mjs` | Renders an animated SVG at chosen moments, for checking motion by eye |
 
 ```bash
@@ -17,6 +18,7 @@ python3 scripts/brand-motion/build_elements.py
 python3 scripts/brand-motion/build_tree.py
 python3 scripts/brand-motion/build_sentinels.py
 python3 scripts/brand-motion/knights.py && python3 scripts/brand-motion/build_knights_motion.py
+python3 scripts/brand-motion/build_site_variants.py
 node scripts/brand-motion/frames.mjs public/brand/motion/house-of-evulv_motion-dove_gold.svg /tmp/dove "#1E1712" 0,1,2,3
 ```
 

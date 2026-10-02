@@ -56,6 +56,8 @@
 
 /*
   Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px, and interpolates between.
+  Sizes are rem plus vw, and no role's maximum is more than 2.5 times its minimum, so text still scales with browser
+  zoom (WCAG 1.4.4).
   Headings are Libre Bodoni in sentence case: SemiBold and slightly tight at large sizes, Bold at small sizes,
   where Bodoni's hairlines need the weight.
 */
@@ -66,102 +68,110 @@
 }
 @utility t-home-hero {
   font-family: var(--font-display);
-  font-size: clamp(32px, calc(5.0595vw - 6.857px), 66px);
+  font-size: clamp(2rem, 5.0595vw - 0.4286rem, 4.125rem);
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
+/* Home hero headline: 44px on phones to 96px at 1440px */
+@utility t-home-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 4.6vw + 1.6rem, 6rem);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
 @utility t-sop-hero {
   font-family: var(--font-display);
-  font-size: clamp(38px, calc(8.0357vw - 23.714px), 92px);
+  font-size: clamp(2.375rem, 8.0357vw - 1.4821rem, 5.75rem);
   line-height: 1;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-feature {
   font-family: var(--font-display);
-  font-size: clamp(30px, calc(3.869vw + 0.286px), 56px);
+  font-size: clamp(1.875rem, 3.869vw + 0.0179rem, 3.5rem);
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-nominate {
   font-family: var(--font-display);
-  font-size: clamp(28px, calc(2.9762vw + 5.143px), 48px);
+  font-size: clamp(1.75rem, 2.9762vw + 0.3214rem, 3rem);
   line-height: 1.12;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-h2-48 {
   font-family: var(--font-display);
-  font-size: clamp(26px, calc(2.0833vw + 10px), 40px);
+  font-size: clamp(1.625rem, 2.0833vw + 0.625rem, 2.5rem);
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-h2-52 {
   font-family: var(--font-display);
-  font-size: clamp(26px, calc(2.381vw + 7.714px), 42px);
+  font-size: clamp(1.625rem, 2.381vw + 0.4821rem, 2.625rem);
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-h2-56 {
   font-family: var(--font-display);
-  font-size: clamp(26px, calc(2.9762vw + 3.143px), 46px);
+  font-size: clamp(1.625rem, 2.9762vw + 0.1964rem, 2.875rem);
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 @utility t-contact-email {
-  font-size: clamp(24px, calc(7.1429vw - 30.857px), 72px);
+  font-size: clamp(1.625rem, 4.2vw + 0.9rem, 4rem);
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.03em;
 }
 @utility t-statement {
-  font-size: clamp(26px, calc(3.2738vw + 0.857px), 48px);
+  font-size: clamp(1.625rem, 3.2738vw + 0.0536rem, 3rem);
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 @utility t-quote {
-  font-size: clamp(22px, calc(2.0833vw + 6px), 36px);
+  font-size: clamp(1.375rem, 2.0833vw + 0.375rem, 2.25rem);
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
 @utility t-tile-44 {
   font-family: var(--font-display);
-  font-size: clamp(26px, calc(1.7857vw + 12.286px), 38px);
+  font-size: clamp(1.625rem, 1.7857vw + 0.7679rem, 2.375rem);
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: 0;
 }
 @utility t-tile-40 {
   font-family: var(--font-display);
-  font-size: clamp(24px, calc(1.4881vw + 12.571px), 34px);
+  font-size: clamp(1.5rem, 1.4881vw + 0.7857rem, 2.125rem);
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: 0;
 }
 @utility t-tile-36 {
   font-family: var(--font-display);
-  font-size: clamp(24px, calc(1.1905vw + 14.857px), 32px);
+  font-size: clamp(1.5rem, 1.1905vw + 0.9286rem, 2rem);
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: 0;
 }
 @utility t-tile-28 {
   font-family: var(--font-display);
-  font-size: clamp(22px, calc(0.5952vw + 17.429px), 26px);
+  font-size: clamp(1.375rem, 0.5952vw + 1.0893rem, 1.625rem);
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: 0;
 }
 @utility t-category {
   font-family: var(--font-display);
-  font-size: clamp(19px, calc(0.744vw + 13.286px), 24px);
+  font-size: clamp(1.1875rem, 0.744vw + 0.8304rem, 1.5rem);
   line-height: 1.25;
   font-weight: 700;
   letter-spacing: 0;
@@ -228,7 +238,7 @@
     line-height: 20px;
     text-decoration: none;
     transition:
-      transform 0.18s ease,
+      transform 0.18s cubic-bezier(0.2, 0, 0, 1),
       background-color 0.18s ease;
     cursor: pointer;
   }
@@ -241,6 +251,13 @@
     }
     .lnk:hover {
       opacity: 0.7;
+    }
+  }
+  /* Press feedback, quicker than the hover lift; the focus ring itself never animates */
+  @media (prefers-reduced-motion: no-preference) {
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+      transition-duration: 0.1s;
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -305,7 +322,12 @@
 
 /*
   Hero motion and grounds (both heroes). Everything rests in its final state; the movement is layered on only for
-  visitors who have not asked for reduced motion.
+  visitors who have not asked for reduced motion. Each hero has one arrival of about 1.3 seconds (headline lines
+  rise out of their masks, then the lead and the actions), a few play-once moments (the dove lands, the knights
+  rise, the gold catches the light), and then stillness. The one loop on the site is the home hero's slow ring:
+  it stops when the hero is off screen or the tab is hidden, and the hero's "Pause motion" button stops it for
+  good (WCAG 2.2.2). Moves are transform and opacity only, and nothing starts below 0.1 opacity, so the hero text
+  still counts for LCP.
 */
 .hero-home {
   background:
@@ -409,10 +431,10 @@
   }
   .reveal-line > span {
     display: inline-block;
-    animation: line-up 1s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    animation: line-up 0.9s cubic-bezier(0.05, 0.7, 0.1, 1) both;
   }
   .rise-in {
-    animation: rise-in 0.9s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    animation: rise-in 0.7s cubic-bezier(0.05, 0.7, 0.1, 1) both;
   }
   .gilt {
     animation: gilt 2.6s cubic-bezier(0.45, 0, 0.3, 1) 1.2s both;
@@ -420,8 +442,14 @@
   .ring-turn {
     animation: ring-turn 240s linear infinite;
   }
+  /* The one loop: held while its hero is off screen, and stopped by the Pause motion button */
+  .scene[data-offscreen] .ring-turn,
+  :root[data-motion="paused"] .ring-turn {
+    animation-play-state: paused;
+  }
+  /* The light crosses the seal once, on arrival */
   .seal-light::after {
-    animation: seal-light 9s cubic-bezier(0.45, 0, 0.35, 1) 2.2s infinite both;
+    animation: seal-light 2.4s cubic-bezier(0.45, 0, 0.35, 1) 1.6s both;
   }
   /* The knights rise together in four lifts of decreasing height, a pause after each */
   .knight-rise > img {
@@ -438,12 +466,12 @@
   .dove-arrive {
     animation: dove-arrive 3.4s cubic-bezier(0.25, 0.6, 0.25, 1) 0.5s both;
   }
-  /* Depth: each layer follows the pointer by its own amount (set by HeroParallax) */
+  /* Depth: each layer follows the pointer by its own amount (set by HeroParallax), felt rather than seen.
+     The text never moves. */
   .scene [data-depth] {
-    translate: calc(var(--px, 0) * var(--d) * 5px) calc(var(--py, 0) * var(--d) * 3px);
+    translate: calc(var(--px, 0) * var(--d) * 2.5px) calc(var(--py, 0) * var(--d) * 1.5px);
     transition: translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
-  .scene [data-depth="-1"] { --d: -1; }
   .scene [data-depth="1"] { --d: 1; }
   .scene [data-depth="2"] { --d: 2; }
   .scene [data-depth="2.5"] { --d: 2.5; }
@@ -476,8 +504,8 @@
 }
 @keyframes rise-in {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    opacity: 0.1;
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -498,11 +526,10 @@
   }
 }
 @keyframes seal-light {
-  0% {
+  from {
     background-position: 130% 0;
   }
-  26%,
-  100% {
+  to {
     background-position: -30% 0;
   }
 }
@@ -537,5 +564,107 @@
   90%,
   100% {
     transform: none;
+  }
+}
+
+/*
+  Below the heroes. Section headings and photo tiles are revealed once as they scroll into view, with CSS
+  scroll-driven animations where supported; elsewhere components/MotionObserver.tsx adds .reveal-pending to the
+  ones still below the fold and removes it when they arrive. Server-rendered content is always fully visible.
+  .draw-x and .draw-y draw the selection timeline's connectors as the steps scroll into view (scroll-driven only;
+  otherwise they are simply there).
+*/
+@keyframes reveal-up {
+  from {
+    opacity: 0.1;
+    transform: translateY(16px);
+  }
+}
+@keyframes photo-settle {
+  from {
+    transform: scale(1.04);
+  }
+}
+@keyframes draw {
+  from {
+    transform: scale(var(--draw-x, 1), var(--draw-y, 1));
+  }
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu-in {
+    animation: menu-in 0.22s cubic-bezier(0.2, 0, 0, 1) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    /* The timeline is declared after the shorthand, which would otherwise reset it */
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+    .reveal-photo img {
+      animation: photo-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    .draw-y,
+    .draw-x {
+      animation: draw linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 60%;
+    }
+    .draw-y {
+      --draw-y: 0;
+      transform-origin: top;
+    }
+    .draw-x {
+      --draw-x: 0;
+      transform-origin: left;
+    }
+  }
+
+  .reveal-pending {
+    opacity: 0.1;
+    transform: translateY(16px);
+  }
+  .reveal-photo.reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-photo.reveal-pending img {
+    transform: scale(1.04);
+  }
+  .reveal-done,
+  .reveal-photo.reveal-done img {
+    transition:
+      opacity 0.6s cubic-bezier(0.05, 0.7, 0.1, 1),
+      transform 0.9s cubic-bezier(0.05, 0.7, 0.1, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-in {
+    animation: menu-fade 0.16s ease both;
+  }
+}
+
+/* Photo tiles lean in slightly under a pointer. The scale property, not transform, so it stacks with the reveal. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .photo-hover img {
+    transition: scale 0.4s cubic-bezier(0.2, 0, 0, 1);
+  }
+  .photo-hover:hover img {
+    scale: 1.025;
   }
 }

@@ -25,7 +25,7 @@ export function Nominate() {
       className="on-dark grid scroll-mt-4 grid-cols-1 gap-5 rounded-[22px] bg-espresso px-3 pt-7 pb-3 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-6 lg:gap-y-12 lg:p-16"
     >
       <div className="flex flex-col gap-3.5 px-2 md:gap-6 md:px-0 lg:col-span-5">
-        <h2 className="t-nominate m-0">Nominate someone whose work deserves a name.</h2>
+        <h2 className="t-nominate reveal m-0">Nominate someone whose work deserves a name.</h2>
         <p className="m-0 max-w-[420px] text-base leading-[1.55] text-on-dark-2 md:text-lg">
           Anyone can nominate, including the nominee&apos;s colleagues, neighbours or the people they helped. It takes about ten
           minutes.

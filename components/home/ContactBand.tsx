@@ -11,10 +11,7 @@ export function ContactBand() {
       {/* The open ring of the emblem, as a quiet ornament */}
       <RingBackdrop className="!top-full !left-[82%] opacity-[0.12]" />
       <div className="relative flex items-start justify-between gap-8">
-        <div className="flex flex-col gap-3">
-          <p className="t-eyebrow m-0 text-gold">Begin a conversation</p>
-          <h2 className="t-h2-48 m-0 max-w-[700px]">Let us create something worthy of remembrance.</h2>
-        </div>
+        <h2 className="t-h2-48 reveal m-0 max-w-[700px]">Let us create something worthy of remembrance.</h2>
         <p className="m-0 hidden shrink-0 text-right text-[17px] leading-[1.7] font-medium text-on-dark md:block">
           Partnership &amp; Enquiries
           <br />
@@ -26,7 +23,7 @@ export function ContactBand() {
         </p>
       </div>
       <div className="relative flex flex-col gap-2.5">
-        <p className="t-eyebrow m-0 text-on-dark-2 md:hidden">Partnership &amp; Enquiries</p>
+        <p className="m-0 text-[15px] font-medium text-on-dark-2 md:hidden">Partnership &amp; Enquiries</p>
         <a href={`mailto:${contact.email}`} className={`t-contact-email self-start break-all text-gold ${linkCls}`}>
           {contact.email}
         </a>

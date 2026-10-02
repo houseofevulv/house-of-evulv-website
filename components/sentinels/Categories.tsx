@@ -4,7 +4,7 @@ export function Categories() {
   return (
     <section id="categories" className="flex scroll-mt-4 flex-col gap-5 px-4 py-10 md:gap-10 md:p-12 lg:p-16 lg:pb-[136px]">
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <h2 className="t-h2-56 m-0">Honour categories</h2>
+        <h2 className="t-h2-56 reveal m-0">Honour categories</h2>
         {/* TODO(client): categories are a draft; confirm the final list */}
         <p className="m-0 max-w-[360px] text-sm leading-[1.55] text-muted md:text-[15px]">
           Draft list for the first edition. Final categories are confirmed before shortlisting begins.

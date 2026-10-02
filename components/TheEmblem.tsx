@@ -19,12 +19,9 @@ export function TheEmblem() {
         <Logo name="houseEmblem" className="h-auto w-[58%]" />
       </div>
       <div className="flex flex-col gap-6 px-2 md:px-0 lg:col-span-6 lg:col-start-7">
-        <div className="flex flex-col gap-3">
-          <p className="t-eyebrow m-0 text-bronze">The emblem</p>
-          <h2 id="emblem-heading" className="t-h2-48 m-0">
-            Five elements in one circle.
-          </h2>
-        </div>
+        <h2 id="emblem-heading" className="t-h2-48 reveal m-0">
+          Five elements in one circle.
+        </h2>
         <dl className="m-0 border-t border-rule-2">
           {elements.map((e) => (
             <div key={e.name} className="grid grid-cols-1 gap-1 border-b border-rule-2 py-3.5 md:grid-cols-[180px_1fr] md:gap-6">

@@ -102,7 +102,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="on-dark fixed inset-0 z-50 flex overflow-y-auto overscroll-contain bg-ivory"
+          className="on-dark menu-in fixed inset-0 z-50 flex overflow-y-auto overscroll-contain bg-ivory"
           style={{
             paddingTop: "calc(8px + env(safe-area-inset-top))",
             paddingRight: "calc(8px + env(safe-area-inset-right))",

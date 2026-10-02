@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Libre_Bodoni, Manrope } from "next/font/google";
+import { MotionObserver } from "@/components/MotionObserver";
 import { site } from "@/lib/content";
 import { metadataBaseUrl } from "@/lib/metadata";
 import "./globals.css";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         {children}
+        <MotionObserver />
       </body>
     </html>
   );

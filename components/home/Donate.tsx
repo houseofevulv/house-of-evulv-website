@@ -24,13 +24,12 @@ export function Donate() {
         position="46% center"
         mobilePosition="center 40%"
         tone="dark"
-        className="h-[300px] w-full rounded-2xl md:h-[420px] md:rounded-[20px] lg:col-span-5 lg:h-full lg:min-h-[560px]"
+        className="reveal-photo photo-hover h-[300px] w-full rounded-2xl md:h-[420px] md:rounded-[20px] lg:col-span-5 lg:h-full lg:min-h-[560px]"
       />
 
       <div className="flex flex-col gap-7 px-2 md:px-0 lg:col-span-6 lg:col-start-7 lg:justify-center">
         <div className="flex flex-col gap-4">
-          <p className="t-eyebrow m-0 text-gold">Support the work</p>
-          <h2 className="t-h2-48 m-0">Help us honour and support the people who keep the peace.</h2>
+          <h2 className="t-h2-48 reveal m-0">Help us honour and support the people who keep the peace.</h2>
           <p className="m-0 text-base leading-[1.6] text-on-dark-2 md:text-lg">
             Most of the people who hold communities together never receive recognition or backing. Your gift changes that.
           </p>

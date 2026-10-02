@@ -15,7 +15,7 @@ export function Timeline() {
       {/* The heading stays with the steps: on phones the two pin together while the steps slide past */}
       <TimelineSteps steps={steps.map(({ id, when, title, body }) => ({ id, when, title, body }))} current={current}>
         <div className="flex flex-col gap-[22px] md:flex-row md:items-end md:justify-between">
-          <h2 className="t-h2-52 m-0 max-w-[620px] text-espresso">How an honouree is chosen</h2>
+          <h2 className="t-h2-52 reveal m-0 max-w-[620px] text-espresso">How an honouree is chosen</h2>
           {/* TODO(client): criteria and panel members go in content/site-content.json (selection); confirm the timing */}
           <p className="m-0 max-w-[380px] text-[15px] leading-[1.55] text-sand-text md:text-[17px]">
             {published

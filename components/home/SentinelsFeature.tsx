@@ -11,11 +11,14 @@ const pillars = [
 
 const MOTION = "/brand/motion/sentinels-of-peace";
 
-/** A knight that catches a passing light on its gold. Always shown as a pair, facing inward, 300px tall or more. */
+/**
+ * A knight that catches a passing light on its gold, once (the _once build; it loads lazily, so the moment comes
+ * as the band nears the screen). Always shown as a pair, facing inward, 300px tall or more.
+ */
 function Knight({ side, className = "" }: { side: "left" | "right"; className?: string }) {
   return (
     <img
-      src={`${MOTION}_motion-knight-${side}_light.svg`}
+      src={`${MOTION}_motion-knight-${side}_light_once.svg`}
       width={side === "left" ? 406 : 398}
       height={900}
       alt=""
@@ -46,9 +49,8 @@ export function SentinelsFeature() {
         <Knight side="left" className="hidden h-[460px] lg:block xl:h-[540px]" />
 
         <div className="flex max-w-[660px] flex-col items-center text-center lg:pb-4">
-          <p className="t-eyebrow m-0 text-on-dark-2">The Grand Honours · Lagos · December 2026</p>
-          <p className="t-eyebrow m-0 pt-8 text-gold md:pt-10">Our Flagship Institution</p>
-          <h2 className="t-feature m-0 pt-3 md:pt-4">Courage deserves more than applause.</h2>
+          <p className="m-0 text-[15px] font-medium text-on-dark-2">The Grand Honours · Lagos · December 2026</p>
+          <h2 className="t-feature reveal m-0 pt-6 md:pt-8">Courage deserves more than applause.</h2>
           <p className="m-0 pt-6 text-base leading-[1.65] text-on-dark md:pt-8 md:text-lg">
             The Sentinels of Peace™ Grand Honours is conceived as an enduring national institution dedicated to
             identifying, honouring and amplifying extraordinary individuals and organisations advancing peace, responsible
@@ -80,17 +82,15 @@ export function SentinelsFeature() {
         <div className="flex justify-center lg:col-span-5">
           <Logo name="sentinelsSeal" className="h-auto w-[220px] md:w-[280px] lg:w-[min(100%,360px)]" />
         </div>
-        <ol className="m-0 list-none border-t border-ivory/20 p-0 lg:col-span-7">
-          {pillars.map((p, i) => (
-            <li key={p.title} className="grid grid-cols-[44px_1fr] items-baseline gap-x-4 border-b border-ivory/20 py-5 md:grid-cols-[56px_200px_1fr] md:gap-x-6 md:py-6">
-              <span className="t-eyebrow text-gold tabular-nums">0{i + 1}</span>
-              <h3 className="t-display m-0 text-xl md:text-2xl">{p.title}</h3>
-              <p className="col-start-2 m-0 pt-1.5 text-[15px] leading-[1.6] text-on-dark-2 md:col-start-3 md:pt-0 md:text-base">
-                {p.body}
-              </p>
+        {/* Parallel aims, not steps, so no numbering */}
+        <ul className="m-0 list-none border-t border-ivory/20 p-0 lg:col-span-7">
+          {pillars.map((p) => (
+            <li key={p.title} className="grid grid-cols-1 items-baseline border-b border-ivory/20 py-5 md:grid-cols-[200px_1fr] md:gap-x-6 md:py-6">
+              <h3 className="t-display m-0 text-xl text-gold md:text-2xl">{p.title}</h3>
+              <p className="m-0 pt-1.5 text-[15px] leading-[1.6] text-on-dark-2 md:pt-0 md:text-base">{p.body}</p>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </section>
   );

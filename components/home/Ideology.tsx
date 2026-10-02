@@ -39,8 +39,7 @@ export function Ideology() {
     >
       <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-20 lg:py-32">
         <div className="flex flex-col lg:col-span-4">
-          <p className="t-eyebrow m-0 text-gold">The Evulv Ideology</p>
-          <h2 className="t-h2-48 m-0 pt-3 md:pt-4">
+          <h2 className="t-h2-48 reveal m-0">
             Three forces, <br />
             one human future.
           </h2>
@@ -60,7 +59,7 @@ export function Ideology() {
                 <div className="flex size-[120px] items-center justify-center rounded-full border border-gold/40 md:size-[140px]">
                   <Logo name={c.mark} className={`h-auto ${c.art}`} />
                 </div>
-                <h3 className="t-eyebrow m-0 pt-6 text-gold md:pt-7">{c.title}</h3>
+                <h3 className="t-tile-28 m-0 pt-6 text-gold md:pt-7">{c.title}</h3>
                 <p className="m-0 max-w-[320px] pt-2.5 text-[15px] leading-[1.65] text-on-dark-2">{c.body}</p>
               </article>
             ))}

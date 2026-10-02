@@ -48,11 +48,12 @@ export function TimelineSteps({ steps, current, children }: { steps: Step[]; cur
                   aria-current={now ? "step" : undefined}
                   className="relative max-sm:w-full max-sm:shrink-0 max-sm:pr-6 sm:pb-[22px] sm:pl-[30px] sm:last:pb-0 lg:flex lg:flex-col lg:gap-3.5 lg:p-0"
                 >
-                  {/* Connector: vertical from 640px, horizontal from 1024px */}
+                  {/* Connector: vertical from 640px, horizontal from 1024px. Drawn as the steps scroll into view
+                      where the browser supports it; otherwise, and under reduced motion, it is simply there. */}
                   {!last && (
                     <span
                       aria-hidden="true"
-                      className="absolute top-4 -bottom-0.5 left-1.5 w-0.5 bg-espresso opacity-25 max-sm:hidden lg:hidden"
+                      className="draw-y absolute top-4 -bottom-0.5 left-1.5 w-0.5 bg-espresso opacity-25 max-sm:hidden lg:hidden"
                     />
                   )}
                   <span
@@ -62,7 +63,7 @@ export function TimelineSteps({ steps, current, children }: { steps: Step[]; cur
                     <span
                       className={`block size-3.5 rounded-full border-2 border-espresso ${now ? "bg-gold" : "bg-transparent"}`}
                     />
-                    <span className="hidden h-0.5 grow bg-espresso opacity-25 lg:block" />
+                    <span className="draw-x hidden h-0.5 grow bg-espresso opacity-25 lg:block" />
                   </span>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] font-bold text-espresso lg:text-sm">
                     <span className="sm:hidden">
