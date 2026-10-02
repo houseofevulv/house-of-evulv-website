@@ -169,10 +169,11 @@
   font-weight: 700;
   letter-spacing: 0;
 }
-/* Honour category titles: Manrope, 20% larger than the Bodoni size they replaced (19 to 24px, now 22.8 to 28.8px) */
+/* Honour category titles: Manrope. 20% larger than the Bodoni size they replaced (19 to 24px), then 25% more:
+   28.5 to 36px */
 @utility t-category {
   font-family: var(--font-sans);
-  font-size: clamp(1.425rem, 0.8928vw + 0.9965rem, 1.8rem);
+  font-size: clamp(1.78125rem, 1.116vw + 1.2456rem, 2.25rem);
   line-height: 1.25;
   font-weight: 700;
   letter-spacing: -0.015em;
