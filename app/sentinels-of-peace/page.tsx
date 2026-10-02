@@ -7,6 +7,7 @@ import { Faq } from "@/components/sentinels/Faq";
 import { Hero } from "@/components/sentinels/Hero";
 import { Nominate } from "@/components/sentinels/Nominate";
 import { Partnership } from "@/components/sentinels/Partnership";
+import { SealMeaning } from "@/components/sentinels/SealMeaning";
 import { Support } from "@/components/sentinels/Support";
 import { SupportPledge } from "@/components/sentinels/SupportPledge";
 import { Timeline } from "@/components/sentinels/Timeline";
@@ -72,6 +73,7 @@ export default function SentinelsPage() {
           <Categories />
           <Timeline />
           <Ceremony />
+          <SealMeaning />
           <Partnership />
           {/* 2026 edition: honourees are selected, so the pledge form takes the nomination form's place */}
           {nominations.public ? (

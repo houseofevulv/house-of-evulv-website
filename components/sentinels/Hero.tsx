@@ -6,11 +6,11 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { primaryAction } from "@/lib/cta";
 import { event, nominations, steps } from "@/lib/content";
 import { weekdayDayMonth } from "@/lib/dates";
-import { SEAL_PARTS } from "@/lib/seal";
 
 /**
  * The seal is the hero: full colour on Sentinel Navy, with the two knights standing guard either side from 1024px
- * (a pair, facing inward, 300px tall or more, as the brand manual requires), and the meaning of each part beneath.
+ * (a pair, facing inward, 300px tall or more, as the brand manual requires). One message and one main action: the
+ * meaning of each part of the seal is set out in its own section further down (SealMeaning).
  * On arrival the badge frame draws itself large and faint behind the seal, the knights rise in four measured steps
  * onto a gold floor line and catch the light once, the title rises into place and a light crosses the seal once.
  * Then everything is still: the knight and frame files are the _once builds, whose loops play a single time
@@ -53,7 +53,7 @@ export function Hero() {
         className="pointer-events-none absolute top-[230px] left-1/2 block h-auto w-[640px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.08] md:top-[300px] md:w-[900px] xl:top-[320px] xl:w-[1000px]"
       />
       <SiteHeader variant="sentinels" />
-      <div id="content" className="flex flex-col gap-10 px-5 pt-8 pb-8 md:gap-14 md:px-8 md:pt-12 md:pb-12 lg:px-10 lg:pb-14">
+      <div id="content" className="flex flex-col gap-10 px-5 pt-8 pb-10 md:gap-14 md:px-8 md:pt-12 md:pb-12 lg:px-10 lg:pb-14">
         <div className="relative flex items-end justify-center gap-8 xl:gap-16">
           <span aria-hidden="true" className="floor-line absolute right-0 bottom-0 left-0 hidden h-px bg-gold/50 lg:block" />
           <Knight side="left" />
@@ -89,31 +89,15 @@ export function Hero() {
           <Knight side="right" />
         </div>
 
-        <dl className="m-0 grid grid-cols-1 overflow-hidden rounded-2xl border border-ivory/20 md:grid-cols-3">
-          {meta.map((m, i) => (
-            <div
-              key={m.label}
-              className={`flex items-baseline justify-between gap-4 px-5 py-4 md:block md:px-6 md:py-5 ${
-                i > 0 ? "border-t border-ivory/20 md:border-t-0 md:border-l" : ""
-              }`}
-            >
-              <dt className="t-eyebrow text-on-dark-3">{m.label}</dt>
-              <dd className="m-0 text-right text-[15px] font-bold md:pt-2 md:text-left md:text-xl">{m.value}</dd>
+        {/* The essentials only: when, where, and the next date. What the seal means has its own section below. */}
+        <dl className="rise-in m-0 flex flex-col items-center gap-x-10 gap-y-3 border-t border-ivory/15 pt-6 text-center [animation-delay:.65s] sm:flex-row sm:flex-wrap sm:justify-center md:pt-8">
+          {meta.map((m) => (
+            <div key={m.label} className="flex items-baseline gap-2">
+              <dt className="text-sm text-on-dark-3">{m.label}</dt>
+              <dd className="m-0 text-[15px] font-semibold text-ivory md:text-base">{m.value}</dd>
             </div>
           ))}
         </dl>
-
-        <div className="flex flex-col gap-5">
-          <h2 className="t-eyebrow m-0 text-gold">The seal</h2>
-          <dl className="m-0 grid grid-cols-1 border-t border-ivory/20 md:grid-cols-2 md:gap-x-10 lg:grid-cols-3">
-            {SEAL_PARTS.map((p) => (
-              <div key={p.name} className="flex flex-col gap-1 border-b border-ivory/20 py-4">
-                <dt className="text-[15px] font-bold text-gold">{p.name}</dt>
-                <dd className="m-0 text-[15px] leading-normal text-on-dark">{p.meaning}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   );
