@@ -37,7 +37,7 @@ export function Ideology() {
       id="commitments"
       className="on-dark -mx-2 bg-espresso text-ivory shadow-[0_0_0_100vmax_var(--color-espresso)] [clip-path:inset(0_-100vmax)] max-sm:h-[280svh] md:-mx-4"
     >
-      <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:overflow-hidden max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-20 lg:py-32">
+      <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:overflow-hidden max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:px-20 lg:py-28 xl:grid-cols-12 xl:items-center xl:gap-x-6 xl:py-32">
         {/* Phones: the pinned screen is its own small page, so the icon sits centred behind all of it, very faint,
             rather than on the left-aligned heading */}
         <Logo
@@ -45,14 +45,16 @@ export function Ideology() {
           alt=""
           className="pointer-events-none absolute top-1/2 left-1/2 h-auto w-[min(118vw,560px)] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.05] sm:hidden"
         />
-        <div className="relative flex flex-col lg:col-span-4">
+        {/* Heading beside the three ideals only from 1280px; below that there is not room for three readable
+            columns beside it, so the heading sits above them */}
+        <div className="relative flex max-w-[480px] flex-col xl:col-span-4 xl:max-w-none">
           {/* The House icon in plain white, faint, behind the heading: the tree, the figure and the helix in the open
               ring. The icon rather than the full emblem, since the dove and the lotus stand beside it as ideals.
               On phones it sits centred behind the whole pinned screen instead (below). */}
           <Logo
             name="houseIconWhite"
             alt=""
-            className="pointer-events-none absolute top-1/2 left-1/2 h-auto w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.07] max-sm:hidden lg:w-[420px]"
+            className="pointer-events-none absolute top-1/2 left-1/2 h-auto w-[320px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.07] max-sm:hidden xl:w-[420px]"
           />
           <h2 className="t-h2-48 reveal relative m-0">
             Three forces, <br />
@@ -64,7 +66,7 @@ export function Ideology() {
           </p>
         </div>
 
-        <div className="relative max-sm:overflow-hidden lg:col-span-7 lg:col-start-6">
+        <div className="relative max-sm:overflow-hidden xl:col-span-7 xl:col-start-6">
           <div
             style={{ "--shift": active } as React.CSSProperties}
             className="flex transition-transform duration-500 ease-out max-sm:[transform:translateX(calc(var(--shift)*-100%))] motion-reduce:transition-none sm:grid sm:grid-cols-3 sm:gap-6 lg:gap-8"
