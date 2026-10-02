@@ -14,10 +14,10 @@ import { SEAL_PARTS } from "@/lib/seal";
 export function Hero() {
   const action = primaryAction(true);
   const announcement = steps.find((s) => s.id === "announcement");
-  // TODO(client): the venue is unconfirmed (event.venueConfirmed = false)
+  // The venue stays off the site until the client announces it
   const meta = [
     { label: "Ceremony", value: weekdayDayMonth(event.ceremonyDate) },
-    { label: "Venue", value: event.venueShort },
+    { label: "City", value: "Lagos" },
     nominations.public
       ? { label: "Nominations close", value: weekdayDayMonth(nominations.closes) }
       : { label: "Honourees announced", value: weekdayDayMonth(announcement?.start ?? nominations.outcomeBy) },
