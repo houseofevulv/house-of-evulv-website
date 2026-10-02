@@ -24,20 +24,20 @@ export function WhatItDoes() {
         <div className="relative p-[22px] text-ivory md:p-8">
           <h3 className="t-tile-40 m-0">Recognise</h3>
           <p className="m-0 mt-2 max-w-[420px] text-[15px] leading-normal text-on-dark md:mt-2.5 md:text-[17px]">
-            Public honours for documented service in peace, security and community resilience.
+            Distinguished service, sacrifice and moral courage.
           </p>
         </div>
       </Photo>
       <article className={`${tile} bg-sand md:justify-between lg:col-span-3`}>
         <h3 className="t-tile-28 m-0 text-espresso">Convene</h3>
         <p className={`${body} text-sand-text`}>
-          Government, business, diplomatic, traditional, humanitarian and civic leaders in one room.
+          Influential voices across sectors and generations.
         </p>
       </article>
       <article className={`${tile} border border-card-border bg-white md:justify-between lg:col-span-3`}>
         <h3 className="t-tile-28 m-0">Amplify</h3>
         <p className={`${body} text-body`}>
-          Each honouree&apos;s story is written up and published so the work reaches more people.
+          Stories that restore faith in leadership and humanity.
         </p>
       </article>
       <article
@@ -45,7 +45,7 @@ export function WhatItDoes() {
       >
         <h3 className="t-tile-28 m-0 text-gold">Advance</h3>
         <p className={`${body} max-w-[380px] text-on-dark`}>
-          Honourees are introduced to partners who can fund, extend or replicate what they started.
+          Partnerships that translate honour into social impact.
         </p>
       </article>
     </section>

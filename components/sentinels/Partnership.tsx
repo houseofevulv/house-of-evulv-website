@@ -9,9 +9,9 @@ export function Partnership() {
       className="flex scroll-mt-4 flex-col gap-4 px-2 py-10 md:gap-10 md:px-12 md:pt-20 md:pb-12 lg:px-16 lg:pt-[88px] lg:pb-16"
     >
       <div className="flex flex-col gap-3.5 px-2 md:flex-row md:items-end md:justify-between md:gap-10 md:px-0">
-        <h2 className="t-h2-56 m-0 max-w-[640px] !leading-[1.04]">Partner with the inaugural edition</h2>
+        <h2 className="t-h2-56 m-0 max-w-[640px] !leading-[1.04]">Stand at the founding edge of history.</h2>
         <p className="m-0 max-w-[400px] text-[15px] leading-[1.55] text-body md:text-[17px]">
-          Partners fund the research, honouree documentation and the ceremony. Terms are agreed with each partner in advance.
+          We invite select institutions to participate as Strategic and Founding Partners of The Sentinels of Peace™ Grand Honours. Partnership is designed around shared values, institutional visibility and meaningful national impact.
         </p>
       </div>
 

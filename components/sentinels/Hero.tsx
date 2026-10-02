@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { Divider, FlankedLabel } from "@/components/Ornament";
+import { FlankedLabel } from "@/components/Ornament";
 import { SiteHeader } from "@/components/SiteHeader";
 import { primaryAction } from "@/lib/cta";
 import { event, nominations, steps } from "@/lib/content";
@@ -34,9 +34,8 @@ export function Hero() {
             <FlankedLabel>By House of Evulv, first edition</FlankedLabel>
             <h1 className="t-sop-hero m-0 text-gold">Sentinels of Peace</h1>
             <p className="t-display m-0 text-lg leading-snug text-ivory md:text-2xl">
-              Honour for those who stand guard over peace.
+              Courage deserves more than applause.
             </p>
-            <Divider />
             <div className="flex flex-col gap-2.5 self-stretch pt-1 md:flex-row md:justify-center md:self-auto">
               {action && (
                 <Link href={action.href} className="btn min-h-12 bg-gold px-6 py-[15px] font-bold text-black">

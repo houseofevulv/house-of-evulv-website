@@ -6,7 +6,8 @@ export function TheHouse() {
     >
       <p className="t-eyebrow m-0 text-bronze">The House</p>
       <h2 className="t-h2-48 m-0 max-w-[720px] pt-3 md:pt-4">We create what the future remembers.</h2>
-      <p className="t-quote m-0 max-w-[820px] pt-8 md:pt-12">
+      {/* One headline only: this line supports it, so it is set as a lead, not a second statement */}
+      <p className="m-0 max-w-[520px] pt-5 text-[17px] leading-[1.55] font-medium text-muted md:pt-6 md:text-xl">
         Not every idea deserves a stage. The right idea deserves an institution.
       </p>
       <p className="m-0 max-w-[640px] pt-8 text-base leading-[1.7] text-body md:pt-12 md:text-[17px]">
