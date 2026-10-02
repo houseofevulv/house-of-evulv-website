@@ -33,9 +33,10 @@ const LOGOS = {
   sentinelsSeal: { src: `${S}_seal.webp`, w: 1000, h: 949, alt: "Sentinels of Peace seal" },
   sentinelsFull: { src: `${S}_full-logo.webp`, w: 1000, h: 1004, alt: "Sentinels of Peace, by House of Evulv" },
   sentinelsCrest: { src: `${S}_crest.webp`, w: 480, h: 709, alt: "Sentinels of Peace crest" },
-  // The two knights: always as a pair, facing inward, on dark backgrounds, 300px tall or more
-  knightLeft: { src: `${S}_knight-left.webp`, w: 404, h: 900, alt: "" },
-  knightRight: { src: `${S}_knight-right.webp`, w: 397, h: 900, alt: "" },
+  // The two knights: always as a pair, facing inward, on dark backgrounds, 300px tall or more.
+  // Clean cut-outs from the seal, each on its own plinth (scripts/brand-motion/knights.py).
+  knightLeft: { src: `${S}_knight-left-clean.webp`, w: 406, h: 900, alt: "" },
+  knightRight: { src: `${S}_knight-right-clean.webp`, w: 398, h: 900, alt: "" },
   // Elements of the emblem, one for each word of the tagline
   dove: { src: `${E}-dove_gold-and-silver.svg`, w: 1000, h: 930, alt: "Dove carrying an olive branch" },
   doveWhite: { src: `${E}-dove_white.svg`, w: 1000, h: 930, alt: "Dove carrying an olive branch" },

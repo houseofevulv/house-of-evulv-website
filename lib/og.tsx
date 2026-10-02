@@ -23,17 +23,17 @@ export const C = {
   muted: "#5F5347",
 };
 
-/** Cinzel heading style for preview images: capitals, tracked, as in the logos */
-export const DISPLAY = { fontFamily: "Cinzel", fontWeight: 700, letterSpacing: "0.03em" } as const;
+/** Heading style for preview images: Libre Bodoni, as on the site */
+export const DISPLAY = { fontFamily: "Libre Bodoni", fontWeight: 700, letterSpacing: "0" } as const;
 
 const root = process.cwd();
 
 export async function ogFonts() {
   const load = (w: number) => readFile(join(root, `assets/fonts/Manrope-${w}.ttf`));
-  const cinzel = await readFile(join(root, "assets/fonts/Cinzel-700.ttf"));
+  const bodoni = await readFile(join(root, "assets/fonts/LibreBodoni-700.ttf"));
   const [w500, w700, w800] = await Promise.all([load(500), load(700), load(800)]);
   return [
-    { name: "Cinzel", data: cinzel, weight: 700 as const, style: "normal" as const },
+    { name: "Libre Bodoni", data: bodoni, weight: 700 as const, style: "normal" as const },
     { name: "Manrope", data: w500, weight: 500 as const, style: "normal" as const },
     { name: "Manrope", data: w700, weight: 700 as const, style: "normal" as const },
     { name: "Manrope", data: w800, weight: 800 as const, style: "normal" as const },

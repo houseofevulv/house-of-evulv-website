@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Manrope } from "next/font/google";
+import { Libre_Bodoni, Manrope } from "next/font/google";
 import { site } from "@/lib/content";
 import { metadataBaseUrl } from "@/lib/metadata";
 import "./globals.css";
@@ -11,12 +11,13 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-// Headings: the logo lettering. Capitals and small capitals only, SemiBold and Bold (brand manual, section 08).
-const cinzel = Cinzel({
+// Headings: Libre Bodoni, in sentence case. SemiBold for large headings, Bold for small ones.
+// (The logo files keep their own lettering; this is the website's heading face.)
+const bodoni = Libre_Bodoni({
   subsets: ["latin"],
   weight: ["600", "700"],
   display: "swap",
-  variable: "--font-cinzel",
+  variable: "--font-bodoni",
 });
 
 export const metadata: Metadata = {
@@ -52,7 +53,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NG" className={`${manrope.variable} ${cinzel.variable}`} data-scroll-behavior="smooth">
+    <html lang="en-NG" className={`${manrope.variable} ${bodoni.variable}`} data-scroll-behavior="smooth">
       <body>
         <a
           href="#content"

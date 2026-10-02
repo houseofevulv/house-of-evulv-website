@@ -3,7 +3,7 @@ import { Logo } from "@/components/Logo";
 import { RingBackdrop } from "@/components/Ornament";
 import { SiteHeader } from "@/components/SiteHeader";
 
-/** No photograph: a quiet Manrope headline beside the emblem, which sits inside its own open ring */
+/** No photograph: the headline beside the emblem, which sits inside its own open ring */
 export function Hero() {
   return (
     <section className="on-dark relative flex min-h-[min(720px,100svh)] flex-col overflow-clip rounded-[22px] bg-espresso text-ivory md:rounded-[28px] lg:min-h-[820px]">
@@ -20,8 +20,7 @@ export function Hero() {
           className="h-auto w-[140px] justify-self-center md:w-[200px] lg:order-2 lg:col-span-5 lg:w-[min(100%,360px)] lg:justify-self-end"
         />
         <div className="flex flex-col lg:col-span-7">
-          {/* Manrope in sentence case: Cinzel has no lowercase and reads as shouting at this size */}
-          <h1 className="m-0 text-[clamp(40px,6vw,84px)] leading-[1.04] font-semibold tracking-[-0.035em]">
+            <h1 className="m-0 text-[clamp(40px,6vw,84px)] leading-[1.04] font-semibold tracking-[-0.015em]">
             Where vision <br className="hidden sm:block" />
             becomes <span className="text-gold">legacy.</span>
           </h1>

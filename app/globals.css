@@ -7,7 +7,7 @@
 */
 @theme {
   --font-sans: var(--font-manrope), system-ui, sans-serif;
-  --font-display: var(--font-cinzel), "Times New Roman", serif;
+  --font-display: var(--font-bodoni), "Times New Roman", serif;
 
   /* Brand palette */
   --color-gold: #c9a54c;
@@ -54,61 +54,62 @@
 
 /*
   Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px, and interpolates between.
-  Headings are Cinzel (capitals and small capitals), SemiBold or Bold, tracked +4%, as the manual sets out.
+  Headings are Libre Bodoni in sentence case: SemiBold and slightly tight at large sizes, Bold at small sizes,
+  where Bodoni's hairlines need the weight.
 */
 @utility t-display {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 @utility t-home-hero {
   font-family: var(--font-display);
   font-size: clamp(32px, calc(5.0595vw - 6.857px), 66px);
   line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-sop-hero {
   font-family: var(--font-display);
   font-size: clamp(38px, calc(8.0357vw - 23.714px), 92px);
   line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-feature {
   font-family: var(--font-display);
   font-size: clamp(30px, calc(3.869vw + 0.286px), 56px);
   line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-nominate {
   font-family: var(--font-display);
   font-size: clamp(28px, calc(2.9762vw + 5.143px), 48px);
   line-height: 1.12;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-h2-48 {
   font-family: var(--font-display);
   font-size: clamp(26px, calc(2.0833vw + 10px), 40px);
   line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-h2-52 {
   font-family: var(--font-display);
   font-size: clamp(26px, calc(2.381vw + 7.714px), 42px);
   line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-h2-56 {
   font-family: var(--font-display);
   font-size: clamp(26px, calc(2.9762vw + 3.143px), 46px);
   line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 @utility t-contact-email {
   font-size: clamp(24px, calc(7.1429vw - 30.857px), 72px);
@@ -133,35 +134,35 @@
   font-size: clamp(26px, calc(1.7857vw + 12.286px), 38px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 @utility t-tile-40 {
   font-family: var(--font-display);
   font-size: clamp(24px, calc(1.4881vw + 12.571px), 34px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 @utility t-tile-36 {
   font-family: var(--font-display);
   font-size: clamp(24px, calc(1.1905vw + 14.857px), 32px);
   line-height: 1.1;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 @utility t-tile-28 {
   font-family: var(--font-display);
   font-size: clamp(22px, calc(0.5952vw + 17.429px), 26px);
   line-height: 1.15;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 @utility t-category {
   font-family: var(--font-display);
   font-size: clamp(19px, calc(0.744vw + 13.286px), 24px);
   line-height: 1.25;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 /* Small tracked capitals for labels above headings, as in the manual ("01 THE FAMILY") */
 @utility t-eyebrow {
@@ -193,12 +194,12 @@
   a {
     color: var(--color-espresso);
   }
-  /* Headings carry the logo lettering: Cinzel, tracked. Label-sized headings opt out with font-sans. */
+  /* Headings are Libre Bodoni. Label-sized headings opt out with font-sans. */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
   }
 
   /* Focus ring: espresso on light surfaces, gold on dark ones */
