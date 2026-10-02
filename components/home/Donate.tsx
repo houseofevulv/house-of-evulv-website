@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CopyButton } from "@/components/CopyButton";
-import { Photo } from "@/components/Photo";
+import { Logo } from "@/components/Logo";
 import { contact, donate } from "@/lib/content";
 import { GIFT_USES, giveLink } from "@/lib/giving";
 
@@ -17,15 +17,16 @@ export function Donate() {
       id="donate"
       className="on-dark grid scroll-mt-4 grid-cols-1 gap-6 rounded-[22px] bg-espresso p-3 pb-7 text-ivory md:gap-10 md:rounded-[28px] md:p-12 lg:grid-cols-12 lg:gap-x-6 lg:p-16"
     >
-      <Photo
-        src="/images/medal-pinning.jpg"
-        alt="A medal being pinned to a decorated uniform"
-        sizes="(min-width: 1024px) 40vw, 100vw"
-        position="46% center"
-        mobilePosition="center 40%"
-        tone="dark"
-        className="reveal-photo photo-hover h-[300px] w-full rounded-2xl md:h-[420px] md:rounded-[20px] lg:col-span-5 lg:h-full lg:min-h-[560px]"
-      />
+      {/* A single knight, facing right towards the text: the clean cut-out straight on the espresso, at 85% so it
+          settles into the panel, its plinth fading out. (The manual shows the knights as a pair; this single use is at
+          the owner's request.) */}
+      <div className="flex items-end justify-center pt-4 lg:col-span-5 lg:pt-0">
+        <Logo
+          name="knightLeft"
+          alt=""
+          className="h-[300px] w-auto opacity-85 [mask-image:linear-gradient(to_bottom,#000_82%,transparent)] md:h-[420px] lg:h-[min(560px,100%)] xl:h-[600px]"
+        />
+      </div>
 
       <div className="flex flex-col gap-7 px-2 md:px-0 lg:col-span-6 lg:col-start-7 lg:justify-center">
         <div className="flex flex-col gap-4">
