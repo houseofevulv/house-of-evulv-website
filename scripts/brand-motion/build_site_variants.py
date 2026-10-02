@@ -5,6 +5,9 @@ variant is baked into the file:
 
 - _still: the file's own reduced-motion state, always on (the scene comes to rest; the page animates the arrival)
 
+Also a gold Sentinels badge (sentinels-of-peace_badge_gold.svg), recoloured from the white one, for the home page's
+partnership section at the owner's request. The manual keeps gold for dark grounds; this is the exception.
+
 The knights are no longer animated files on the site: they stand as a faint backdrop (KnightsBackdrop) that rises once in the Sentinels hero.
 
 Run after the other build scripts:  python3 scripts/brand-motion/build_site_variants.py
@@ -33,3 +36,11 @@ for name in STILL:
     assert REDUCED in svg, f"{name}: no reduced-motion block"
     write(name, "still", svg.replace(REDUCED, "@media all{"))
 
+
+
+SENTINELS = MOTION.parent / "sentinels"
+badge = (SENTINELS / "sentinels-of-peace_badge_white.svg").read_text(encoding="utf-8")
+assert "#FFFFFF" in badge
+gold = SENTINELS / "sentinels-of-peace_badge_gold.svg"
+gold.write_text(badge.replace("#FFFFFF", "#C9A54C"), encoding="utf-8")
+print(f"wrote {gold.relative_to(MOTION.parents[2])}")

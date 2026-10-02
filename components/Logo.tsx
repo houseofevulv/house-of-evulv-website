@@ -35,6 +35,7 @@ const LOGOS = {
   sentinelsFull: { src: `${S}_full-logo.webp`, w: 1000, h: 1004, alt: "Sentinels of Peace, by House of Evulv" },
   // The badge: a medal ring with the name arched along its top and a star (scripts/brand-motion/build_sentinels.py)
   sentinelsBadgeWhite: { src: `${S}_badge_white.svg`, w: 1000, h: 1000, alt: "" },
+  sentinelsBadgeGold: { src: `${S}_badge_gold.svg`, w: 1000, h: 1000, alt: "" },
   sentinelsCrest: { src: `${S}_crest.webp`, w: 480, h: 709, alt: "Sentinels of Peace crest" },
   // The two knights: always as a pair, facing inward, on dark backgrounds, 300px tall or more.
   // Beside the seal (which carries them) they appear only as a faint backdrop: see components/KnightsBackdrop.tsx.
