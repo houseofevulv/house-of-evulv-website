@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { KnightsBackdrop } from "@/components/KnightsBackdrop";
 import { Logo } from "@/components/Logo";
+import { ShieldTile } from "@/components/ShieldTile";
 
 const pillars = [
   { title: "Recognise", body: "Distinguished service, sacrifice and moral courage." },
@@ -12,13 +13,14 @@ const pillars = [
 /**
  * The flagship on the home page, on Sentinel Navy: the seal leads, then the introduction and its two actions, then
  * what the honours do. The seal carries its own knights, so the standalone pair stays in the background, faint, rising
- * from the bottom edge of the band.
+ * from the bottom edge of the band. Each of the four aims sits in a tile shaped like the shield at the centre of the
+ * seal, navy in a gold frame.
  */
 export function SentinelsFeature() {
   return (
     <section
       id="sentinels"
-      className="field-navy on-dark relative flex scroll-mt-4 flex-col items-center overflow-clip rounded-[22px] px-5 pt-14 pb-20 text-center text-ivory md:rounded-[28px] md:px-12 md:pt-24 md:pb-32 lg:pt-28 lg:pb-40"
+      className="field-navy on-dark relative flex scroll-mt-4 flex-col items-center overflow-clip rounded-[22px] px-5 pt-14 pb-28 text-center text-ivory md:rounded-[28px] md:px-12 md:pt-24 md:pb-32 lg:pt-28 lg:pb-40"
     >
       <KnightsBackdrop />
       <div className="relative flex max-w-[660px] flex-col items-center">
@@ -48,12 +50,16 @@ export function SentinelsFeature() {
         </div>
       </div>
 
-      {/* What the honours do: parallel aims, so no numbering and no rules, just space */}
-      <ul className="relative m-0 grid w-full max-w-[920px] list-none grid-cols-1 gap-x-8 gap-y-8 p-0 pt-16 sm:grid-cols-2 md:pt-24 lg:grid-cols-4">
-        {pillars.map((p) => (
-          <li key={p.title} className="flex flex-col items-center">
-            <h3 className="t-display m-0 text-xl text-gold md:text-2xl">{p.title}</h3>
-            <p className="m-0 max-w-[240px] pt-2 text-[15px] leading-[1.6] text-on-dark-2">{p.body}</p>
+      {/* What the honours do: four shields of equal weight, parallel aims, so no numbering */}
+      <ul className="relative m-0 grid w-full max-w-[480px] list-none grid-cols-2 max-[359px]:max-w-[220px] max-[359px]:grid-cols-1 gap-x-3 gap-y-4 p-0 pt-16 sm:gap-x-6 sm:gap-y-6 md:pt-24 lg:max-w-[1000px] lg:grid-cols-4">
+        {pillars.map((p, i) => (
+          <li key={p.title} className="reveal">
+            <ShieldTile id={`pillar-${i}`}>
+              <h3 className="t-display m-0 text-lg leading-tight text-gold sm:text-xl lg:text-2xl">{p.title}</h3>
+              <p className="m-0 pt-1.5 text-[13px] leading-[1.45] text-on-dark sm:pt-2 sm:text-[15px] sm:leading-normal">
+                {p.body}
+              </p>
+            </ShieldTile>
           </li>
         ))}
       </ul>

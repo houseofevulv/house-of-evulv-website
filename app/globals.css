@@ -425,7 +425,7 @@
   height so only the upper half shows, fading out towards the panel's edge. --kh is the knight's full height.
 */
 .knights-backdrop {
-  --kh: 300px;
+  --kh: 240px;
   height: calc(var(--kh) / 2);
   opacity: 0.2;
 }

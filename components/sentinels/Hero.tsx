@@ -3,27 +3,17 @@ import { KnightsBackdrop } from "@/components/KnightsBackdrop";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { primaryAction } from "@/lib/cta";
-import { event, nominations, steps } from "@/lib/content";
-import { weekdayDayMonth } from "@/lib/dates";
 
 /**
- * The seal is the hero and the one focal point: full colour on Sentinel Navy, then the title, the line, the two
- * actions and the dates. The seal already carries its knights, so the standalone pair stays in the background:
- * faint, rising once from the bottom edge on arrival, only their upper half showing. What each part of the seal
+ * The seal is the hero and the one focal point: full colour on Sentinel Navy, then the title, the line and the two
+ * actions. The seal already carries its knights, so the standalone pair stays in the background:
+ * faint, rising once from the bottom edge on arrival, only their upper half showing. The ceremony date is given by the
+ * header status and the ceremony band further down. What each part of the seal
  * means is set out in its own section further down (SealMeaning). A light crosses the seal once; after the arrival
  * everything is still, and nothing moves for reduced-motion visitors.
  */
 export function Hero() {
   const action = primaryAction(true);
-  const announcement = steps.find((s) => s.id === "announcement");
-  // The venue stays off the site until the client announces it
-  const meta = [
-    { label: "Ceremony", value: weekdayDayMonth(event.ceremonyDate) },
-    { label: "City", value: "Lagos" },
-    nominations.public
-      ? { label: "Nominations close", value: weekdayDayMonth(nominations.closes) }
-      : { label: "Honourees announced", value: weekdayDayMonth(announcement?.start ?? nominations.outcomeBy) },
-  ];
 
   return (
     <section className="hero-sentinels on-dark relative flex flex-col overflow-clip rounded-[22px] text-ivory md:rounded-[28px]">
@@ -31,7 +21,7 @@ export function Hero() {
       <SiteHeader variant="sentinels" />
       <div
         id="content"
-        className="relative flex flex-col items-center gap-6 px-5 pt-8 pb-12 text-center md:gap-7 md:px-8 md:pt-12 md:pb-16 lg:pb-20"
+        className="relative flex flex-col items-center gap-6 px-5 pt-8 pb-28 text-center md:gap-7 md:px-8 md:pt-12 md:pb-16 lg:pb-20"
       >
         <div className="seal-light relative">
           <Logo name="sentinelsSeal" eager className="h-auto w-[200px] md:w-[260px] xl:w-[300px]" />
@@ -63,18 +53,6 @@ export function Hero() {
             Become a partner
           </Link>
         </div>
-        {/* The essentials only: when, where, and the next date */}
-        <dl
-          className="rise-in m-0 flex flex-col items-center gap-x-10 gap-y-2 pt-6 sm:flex-row sm:flex-wrap sm:justify-center md:pt-10"
-          style={{ animationDelay: "0.65s" }}
-        >
-          {meta.map((m) => (
-            <div key={m.label} className="flex items-baseline gap-2">
-              <dt className="text-sm text-on-dark-2">{m.label}</dt>
-              <dd className="m-0 text-[15px] font-semibold text-ivory md:text-base">{m.value}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );
