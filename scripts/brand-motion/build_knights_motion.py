@@ -78,7 +78,8 @@ def svg(name, title, rise=False):
     h, w = img.shape[:2]
     art = data_uri(cv2.cvtColor(img, cv2.COLOR_BGRA2RGBA))
     mask = data_uri(gold_mask(img), "RGB", 70)
-    css, beam_defs, beam = light(w, h, delay=4.6 if rise else 1.2, period=12 if rise else 10)
+    # the first pass waits until the knights have risen, when a page shows them rising (components/sentinels/Hero.tsx)
+    css, beam_defs, beam = light(w, h, delay=4.6, period=12 if rise else 10)
     defs = (
         f"<defs>{beam_defs}"
         f'<mask id="gold" maskUnits="userSpaceOnUse" x="0" y="0" width="{w}" height="{h}">'

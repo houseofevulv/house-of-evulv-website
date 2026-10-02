@@ -58,12 +58,13 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
   const action = primaryAction(variant === "sentinels");
   const menuAction = primaryAction();
   const onPhoto = variant === "home";
-  // The Sentinels page opens on Sentinel Navy, so its header matches; everywhere else it is espresso
-  const bar = variant === "sentinels" ? "bg-navy" : "bg-espresso";
+  // The two heroes are fields of espresso and Sentinel Navy with no photograph, so their header lets the field run
+  // through to the top; other pages keep a solid espresso bar
+  const bar = variant === "page" ? "bg-espresso" : "";
 
   return (
     <>
-      {/* A solid espresso bar: logos never sit directly on photographs (brand manual, section 07) */}
+      {/* Logos never sit directly on photographs (brand manual, section 07): a solid bar wherever a photo could follow */}
       <header
         className={`relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] pr-3 pl-4 text-ivory md:rounded-t-[28px] lg:h-[108px] lg:px-10 ${bar}`}
       >

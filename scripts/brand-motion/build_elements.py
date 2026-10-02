@@ -7,7 +7,9 @@ Motion is slow and small on purpose: every movement is a sine-like swing (ease-i
 original pose, and no two loops share a period, so the pattern never visibly repeats.
 """
 
-from common import COLOURWAYS, origin, path, read_element, wrap, write
+import re
+
+from common import COLOURWAYS, ROOT, origin, path, read_element, wrap, write
 
 
 def swing(cls: str, prop_from: str, prop_to: str, seconds: float, centred: bool = True, lag: float = 0.0) -> str:
@@ -107,7 +109,22 @@ def dove(colourway: str) -> str:
     return wrap(vb, "House of Evulv dove, in motion", style, body)
 
 
+def emblem_ring(colourway: str) -> str:
+    """The emblem's open ring on its own, for the live emblem (components/LiveEmblem.tsx), which layers the animated
+    tree, dove and lotus over it in their places in the emblem."""
+    src = (ROOT / f"public/brand/house/house-of-evulv_emblem_{colourway}.svg").read_text()
+    main = re.findall(r'<path fill="(#[0-9A-Fa-f]{6})" fill-rule="evenodd" d="([^"]+)"', src)[0]
+    sub = [p for p in re.split(r"(?=M)", main[1]) if p.strip()]
+    # subpaths 0 and 2 are the two arcs, 1 is the piece below the dove's tail
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1059" width="1000" height="1059">'
+        f"<title>House of Evulv emblem ring</title>{path(main[0], [sub[0], sub[1], sub[2]])}</svg>\n"
+    )
+
+
 if __name__ == "__main__":
+    for c in COLOURWAYS:
+        write(f"house-of-evulv_emblem-ring_{c}.svg", emblem_ring(c))
     for c in COLOURWAYS:
         write(f"house-of-evulv_motion-lotus_{c}.svg", lotus(c))
         write(f"house-of-evulv_motion-dove_{c}.svg", dove(c))

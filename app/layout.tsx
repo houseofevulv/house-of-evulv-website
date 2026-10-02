@@ -16,6 +16,7 @@ const manrope = Manrope({
 const bodoni = Libre_Bodoni({
   subsets: ["latin"],
   weight: ["600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
   variable: "--font-bodoni",
 });
