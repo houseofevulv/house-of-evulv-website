@@ -17,3 +17,7 @@ brand identity assets/**/03 Icons and favicons/*.png
 brand identity assets/**/02 Sentinels of Peace/SVG/sentinels-of-peace_horizontal_*.svg
 
 __pycache__/
+
+# Research working files (reports are sent separately, not part of the site)
+research_notes/
+reports/
