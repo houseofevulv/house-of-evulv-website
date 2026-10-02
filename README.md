@@ -59,7 +59,16 @@ See `.env.example`. Set them in Vercel under Project → Settings → Environmen
 
 ## Deploying
 
-Pushes to `main` deploy to production once the repository is connected to Vercel; pull requests get preview links. Without the connection, deploy with the Vercel CLI:
+Two branches, two sites:
+
+| Branch | Deploys to | Use |
+| --- | --- | --- |
+| `main` | Production: `houseofevulv.com` | The live site. Changes arrive only through a pull request the owner has approved. |
+| `staging` | A Vercel preview at `<project>-git-staging-<team>.vercel.app` (shown under the branch in the Vercel dashboard) | Testing new work, such as the animated brand elements, before it goes live. |
+
+Push work to `staging` (or a feature branch merged into it), check it on the preview link, then open a pull request from `staging` to `main` when it is approved. Preview deployments stay out of search engines because `ALLOW_INDEXING` is only set for production.
+
+Pull requests also get their own preview links. Without the Vercel connection, deploy with the Vercel CLI:
 
 ```bash
 npm run deploy:preview   # private preview link
