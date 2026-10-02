@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
 import { contact, partnership } from "@/lib/content";
 import { TierCarousel } from "./TierCarousel";
 
@@ -17,8 +16,8 @@ const tiers = [...partnership.tiers].sort((a, b) => ORDER.indexOf(a.name) - ORDE
 
 export function Partnership() {
   return (
-    // The heading and intro centred across the top; below them the Sentinels badge in gold on the left and the tiers
-    // and actions on the right. No panel, straight on the ivory. Phones and tablets: everything stacks, centred.
+    // The heading and intro centred across the top; below them the Sentinels badge on the left and the tier cards and
+    // actions on the right (TierCarousel). No panel, straight on the ivory. Phones and tablets: everything stacks, centred.
     <section
       id="partnership"
       className="flex scroll-mt-4 flex-col items-center px-4 py-16 text-center md:px-12 md:py-28 lg:px-16 lg:py-32"
@@ -30,22 +29,21 @@ export function Partnership() {
         Honours. Partnership is designed around shared values, institutional visibility and meaningful national impact.
       </p>
 
-      <div className="grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 pt-12 md:gap-14 md:pt-20 lg:grid-cols-12 lg:gap-x-6 lg:text-left">
-        <div className="flex justify-center lg:col-span-5">
-          <Logo name="sentinelsBadgeGold" alt="" className="h-auto w-[220px] md:w-[300px] lg:w-[min(100%,420px)]" />
-        </div>
-        <div className="flex flex-col items-center lg:col-span-7 lg:items-start">
-          {/* One tier at a time, each on its own colour; every card opens the support form with its tier chosen.
-              "Partner" is in each name, so no one reads a tier as a fee to be honoured: these are sponsors. */}
-          <p className="t-eyebrow m-0 pb-4 text-muted md:pb-6">Choose where you stand</p>
-          <TierCarousel
-            tiers={tiers.map((t) => ({
+      {/* The badge with the current tier's name on the left, the tier's card on the right; they change together every
+          five seconds. "Partner" stays with every name, so no one reads a tier as a fee to be honoured. */}
+      <div className="w-full max-w-[1200px] pt-12 md:pt-20">
+        <TierCarousel
+          tiers={tiers.map((t) => {
+            const col = partnership.tiers.findIndex((x) => x.name === t.name);
+            return {
               name: t.name,
               promise: promises[t.name],
               limit: t.limit,
               href: `/sentinels-of-peace?partner=${t.name}#support`,
-            }))}
-          />
+              details: partnership.rows.map((r) => ({ label: r.label, value: r.cells[col] })),
+            };
+          })}
+        >
           <div className="flex flex-col items-center gap-3 self-stretch pt-8 md:flex-row md:justify-center md:gap-5 md:self-center md:pt-12 lg:self-start lg:justify-start">
             <a
               href={partnership.briefMailto}
@@ -66,7 +64,7 @@ export function Partnership() {
           >
             Compare what each partnership includes
           </Link>
-        </div>
+        </TierCarousel>
       </div>
     </section>
   );
