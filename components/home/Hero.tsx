@@ -1,31 +1,89 @@
-/* eslint-disable @next/next/no-img-element -- the tree is an animated SVG */
+/* eslint-disable @next/next/no-img-element -- the scene is made of animated SVGs */
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
+import { HeroParallax } from "./HeroParallax";
+
+const M = "/brand/motion/house-of-evulv";
 
 /**
- * No photograph and no repeat of the logo (it is already in the header): one element of the emblem at full scale.
- * The tree of life stands on the right, almost the height of the panel, its crown moving in a breeze and its DNA
- * turning; the open ring turns slowly behind the crown in a warm light. On phones the tree stands behind the text.
- * The headline rises line by line on arrival. Motion stops for reduced-motion visitors.
+ * One tile of a flowing water line, drawn like the emblem's water: a gold stroke that swells and thins along a gentle
+ * wave. The tile repeats seamlessly, so sliding it by one tile's width loops forever (see .water in globals.css).
+ */
+function waveTile(width: number, amp: number, thin: number, thick: number, phase: number) {
+  const h = 40;
+  const n = 48;
+  const top: string[] = [];
+  const bottom: string[] = [];
+  for (let i = 0; i <= n; i++) {
+    const x = (i / n) * width;
+    const a = (i / n) * Math.PI * 2;
+    const y = h / 2 + amp * Math.sin(a);
+    const t = thin + ((thick - thin) * (1 + Math.sin(a + phase))) / 2;
+    top.push(`${x.toFixed(1)} ${(y - t / 2).toFixed(2)}`);
+    bottom.unshift(`${x.toFixed(1)} ${(y + t / 2).toFixed(2)}`);
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${h}" width="${width}" height="${h}" preserveAspectRatio="none"><path fill="#C9A54C" d="M${top.join("L")}L${bottom.join("L")}Z"/></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+
+const WATER_UPPER = waveTile(360, 7, 2.2, 7, 0.6);
+const WATER_LOWER = waveTile(300, 6, 1.8, 6, 2.2);
+
+/**
+ * The emblem unfolded into a scene. The tree of life stands on the right with its DNA rooted below a horizon of
+ * moving water; the lotus floats beside the trunk; the dove flies in on arrival and glides beside the crown. The
+ * open ring turns behind the crown in a warm light, and on desktops the layers shift with the pointer for depth.
+ * On phones the scene sits above the headline. Motion stops for reduced-motion visitors.
  */
 export function Hero() {
   return (
-    <section className="hero-home on-dark relative flex min-h-[min(720px,100svh)] flex-col overflow-clip rounded-[22px] text-ivory md:min-h-[760px] md:rounded-[28px] lg:min-h-[840px]">
+    <section className="hero-home scene on-dark relative flex min-h-[min(760px,100svh)] flex-col overflow-clip rounded-[22px] text-ivory md:min-h-[760px] md:rounded-[28px] lg:min-h-[840px]">
+      <HeroParallax />
       <div aria-hidden="true" className="hero-tree pointer-events-none absolute">
-        <Logo name="ring" alt="" className="ring-turn absolute top-[24%] left-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14]" />
-        <img
-          src="/brand/motion/house-of-evulv_motion-tree-of-life_gold-and-silver.svg"
-          width={1000}
-          height={1594}
-          alt=""
-          className="relative block h-full w-full object-contain object-right-bottom"
-        />
+        <div data-depth="3" className="absolute inset-0">
+          <Logo
+            name="ring"
+            alt=""
+            className="ring-turn absolute top-[24%] left-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14]"
+          />
+        </div>
+
+        <div data-depth="2" className="absolute inset-0">
+          <img
+            src={`${M}_motion-tree-of-life_gold-and-silver.svg`}
+            width={1000}
+            height={1594}
+            alt=""
+            className="tree-rooted relative block h-full w-full object-contain object-right-bottom"
+          />
+        </div>
+
+        {/* The horizon: two water lines across the whole panel, flowing at different speeds, in front of the DNA */}
+        <div data-depth="1" className="water-band absolute top-[77%] right-[-150vw] left-[-150vw] h-[8%]">
+          <div className="water water-upper absolute inset-x-0 top-0 h-[55%]" style={{ backgroundImage: WATER_UPPER }} />
+          <div className="water water-lower absolute inset-x-0 bottom-0 h-[50%]" style={{ backgroundImage: WATER_LOWER }} />
+        </div>
+
+        {/* In the emblem's own places, measured relative to the tree */}
+        <div data-depth="2.5" className="absolute top-[55.9%] left-[63.1%] w-[45.9%]">
+          <img src={`${M}_motion-lotus-flower_gold-and-silver.svg`} width={1000} height={955} alt="" className="block h-auto w-full" />
+        </div>
+        <div data-depth="4" className="absolute top-[42.4%] left-[-23.4%] w-[64.4%]">
+          <div className="dove-arrive">
+            <img src={`${M}_motion-dove_gold-and-silver.svg`} width={1000} height={930} alt="" className="block h-auto w-full" />
+          </div>
+        </div>
       </div>
+
       <SiteHeader variant="home" />
-      <div id="content" className="relative flex grow flex-col justify-end px-5 pt-6 pb-10 md:justify-center md:px-12 md:pb-16 lg:px-16 lg:pb-20">
-        <div className="flex max-w-[620px] flex-col md:max-w-[56%] lg:max-w-[52%] xl:max-w-[56%]">
-          <h1 className="m-0 text-[clamp(46px,6.6vw,96px)] leading-[1.02] font-semibold tracking-[-0.015em]">
+      <div
+        id="content"
+        data-depth="-1"
+        className="relative flex grow flex-col justify-end px-5 pt-[300px] pb-10 md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
+      >
+        <div className="flex max-w-[620px] flex-col md:max-w-[52%] lg:max-w-[50%] xl:max-w-[54%]">
+          <h1 className="m-0 text-[clamp(44px,6.4vw,96px)] leading-[1.02] font-semibold tracking-[-0.015em]">
             <span className="reveal-line">
               <span style={{ animationDelay: "0.15s" }}>Where vision</span>
             </span>

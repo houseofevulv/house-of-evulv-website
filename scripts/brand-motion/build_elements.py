@@ -23,7 +23,8 @@ def swing(cls: str, prop_from: str, prop_to: str, seconds: float, centred: bool 
 
 # ---------- Lotus and water: the flower floats and leans in a breeze; the water lines ripple out of step ----------
 
-def lotus(colourway: str) -> str:
+def lotus(colourway: str, water: bool = True) -> str:
+    """water=False leaves out the two water lines, for scenes that draw their own water (the home hero)."""
     vb, layers = read_element("lotus-and-water", colourway)
     (main, m), (second, s) = layers
     assert len(m) == 11 and len(s) == 2, colourway
@@ -47,11 +48,9 @@ def lotus(colourway: str) -> str:
         + f'<g class="pr">{path(main, [m[4]])}</g>'
         + path(second, s)
     )
-    body = (
-        f'<g class="bob"><g class="sway">{flower}</g></g>'
-        + f'<g class="w1">{path(main, [m[9]])}</g>'
-        + f'<g class="w2">{path(main, [m[10]])}</g>'
-    )
+    body = f'<g class="bob"><g class="sway">{flower}</g></g>'
+    if water:
+        body += f'<g class="w1">{path(main, [m[9]])}</g><g class="w2">{path(main, [m[10]])}</g>'
     return wrap(vb, "House of Evulv lotus and water, in motion", style, body)
 
 
@@ -127,5 +126,6 @@ if __name__ == "__main__":
         write(f"house-of-evulv_emblem-ring_{c}.svg", emblem_ring(c))
     for c in COLOURWAYS:
         write(f"house-of-evulv_motion-lotus_{c}.svg", lotus(c))
+        write(f"house-of-evulv_motion-lotus-flower_{c}.svg", lotus(c, water=False))
         write(f"house-of-evulv_motion-dove_{c}.svg", dove(c))
     print("lotus and dove:", len(COLOURWAYS), "colourways each")
