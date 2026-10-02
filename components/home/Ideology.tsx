@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Logo, type LogoName } from "@/components/Logo";
+import { usePinnedStep } from "@/lib/usePinnedStep";
 
 // Each ideal has its own element of the emblem (brand manual, section 02)
 const ideals: { title: string; mark: LogoName; body: string; art: string }[] = [
@@ -26,27 +26,8 @@ const ideals: { title: string; mark: LogoName; body: string; art: string }[] = [
 ];
 
 export function Ideology() {
-  const ref = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
-
   // Below 640px the band is tall and its content pins: scrolling down steps through the three ideals sideways
-  useEffect(() => {
-    const onScroll = () => {
-      const el = ref.current;
-      if (!el) return;
-      const { top, height } = el.getBoundingClientRect();
-      const travel = height - window.innerHeight;
-      const progress = travel > 0 ? Math.min(Math.max(-top / travel, 0), 1) : 0;
-      setActive(Math.min(ideals.length - 1, Math.floor(progress * ideals.length)));
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
+  const { ref, active } = usePinnedStep<HTMLElement>(ideals.length);
 
   return (
     // A square-cornered espresso band that runs to both edges of the screen: the shadow paints past the page gutter
