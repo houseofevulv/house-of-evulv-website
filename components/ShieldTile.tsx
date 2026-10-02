@@ -8,7 +8,8 @@ import type { ReactNode } from "react";
 */
 const SHIELD = "M1 9 L50 1 L99 9 L99 74 C99 100 74 116 50 129 C26 116 1 100 1 74 Z";
 
-export function ShieldTile({ id, children }: { id: string; children: ReactNode }) {
+/** `icon`: paths for a 24 x 24 line icon, set faint in the shield's lower point so it never competes with the text */
+export function ShieldTile({ id, icon, children }: { id: string; icon?: ReactNode; children: ReactNode }) {
   const fill = `shield-fill-${id}`;
   return (
     <div className="relative aspect-[100/130] w-full">
@@ -41,6 +42,20 @@ export function ShieldTile({ id, children }: { id: string; children: ReactNode }
       <div className="absolute inset-x-[13%] top-[19%] bottom-[26%] flex flex-col items-center justify-start text-center">
         {children}
       </div>
+      {icon && (
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--color-gold)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="absolute bottom-[11%] left-1/2 block w-[17%] -translate-x-1/2 opacity-40"
+        >
+          {icon}
+        </svg>
+      )}
     </div>
   );
 }
