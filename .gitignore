@@ -15,3 +15,5 @@ brand identity assets/**/01 House of Evulv/**/PNG/
 brand identity assets/**/04 Social media/*.png
 brand identity assets/**/03 Icons and favicons/*.png
 brand identity assets/**/02 Sentinels of Peace/SVG/sentinels-of-peace_horizontal_*.svg
+
+__pycache__/
