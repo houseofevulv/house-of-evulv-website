@@ -1,3 +1,4 @@
+import { ScrollArea } from "@/components/ScrollArea";
 import { contact, partnership } from "@/lib/content";
 
 const { tiers, rows, briefMailto } = partnership;
@@ -44,13 +45,14 @@ export function Partnership() {
         ))}
       </div>
 
-      {/* 768px up: comparison table; scrolls sideways inside its card below 1024px */}
-      <div className="hidden overflow-hidden rounded-3xl border border-card-border bg-white md:block">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[880px] table-fixed border-collapse text-left">
+      {/* 768px up: comparison table. Where it is wider than the screen it scrolls sideways inside its card: by swipe,
+          or with the arrows above it, which move one partner column at a time */}
+      <div className="hidden md:block">
+        <ScrollArea label="partnership table" step={180}>
+          <table className="w-full min-w-[860px] table-fixed border-collapse text-left">
             <caption className="sr-only">Partnership tiers compared</caption>
             <colgroup>
-              <col className="w-[220px]" />
+              <col className="w-[200px]" />
               {tiers.map((t) => (
                 <col key={t.name} />
               ))}
@@ -88,7 +90,7 @@ export function Partnership() {
               ))}
             </tbody>
           </table>
-        </div>
+        </ScrollArea>
       </div>
 
       <div className="flex flex-col gap-3 px-2 pt-1 md:flex-row md:items-center md:gap-5 md:p-0">
