@@ -49,9 +49,13 @@
   --color-error: #b42318;
   --color-white: #ffffff;
 
-  --breakpoint-xs: 400px;
+  /*
+    Every breakpoint is in rem, like Tailwind's own (md is 48rem), so all of a page switches layout at the same
+    point. Mixed px and rem queries disagree when the browser's text size is not the default 16px.
+  */
+  --breakpoint-xs: 25rem;
   /* The full navigation bar: from small laptops (with display scaling many report 880 to 1000px wide) */
-  --breakpoint-nav: 768px;
+  --breakpoint-nav: 42.5rem;
 }
 
 /*
@@ -341,7 +345,7 @@
     radial-gradient(70% 40% at 50% 22%, rgb(201 165 76 / 0.08), transparent 72%),
     var(--color-black);
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .hero-home {
     background:
       radial-gradient(34% 44% at 24% 40%, rgb(201 165 76 / 0.08), transparent 72%),
@@ -363,7 +367,7 @@
   /* Faint: it sits right under the header logo, which carries the same emblem */
   opacity: 0.3;
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .hero-tree {
     top: auto;
     bottom: -2%;
@@ -374,7 +378,7 @@
     opacity: 0.22;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .hero-tree {
     left: 10%;
     height: min(calc(100% - 118px), calc((100vw - 32px) * 0.34 * 1.594));
@@ -450,12 +454,12 @@
 .knights-backdrop-right {
   right: -20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .knights-backdrop {
     --kh: 440px;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
   .knights-backdrop {
     --kh: 560px;
   }

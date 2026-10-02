@@ -30,14 +30,16 @@ export const menuGroups = [
 ];
 
 /*
-  The full bar shows from 768px, so small laptops at 125 to 150% display scaling (about 850 to 1100px wide) never
-  fall back to the menu button. Below 1024px the links marked `wide` give way: Contact duplicates the "Partner with
-  us" button beside it, and "Why it exists" is the section straight after the hero. Below 860px "Our House" (also the
-  section straight after the hero) gives way too. The live status shows from 1380px.
+  How the bar steps down (all in rem, like the rest of the site's breakpoints):
+  - 1024px up: every link and the main button; no menu button.
+  - 680 to 1023px: the three key links stay; the links marked `wide` give way to the menu button, which holds
+    everything. The main button joins from 860px, where it fits.
+  - Below 680px (phones): the logo and the menu button.
+  The live status shows from 1380px.
 */
-const navLinks: Record<"home" | "sentinels" | "page", { href: string; label: string; wide?: boolean; narrow?: boolean }[]> = {
+const navLinks: Record<"home" | "sentinels" | "page", { href: string; label: string; wide?: boolean }[]> = {
   home: [
-    { href: "#about", label: "Our House", narrow: true },
+    { href: "#about", label: "Our House", wide: true },
     { href: "#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
     { href: "#partnership", label: "Partnership" },
@@ -51,7 +53,7 @@ const navLinks: Record<"home" | "sentinels" | "page", { href: string; label: str
   ],
   // Pages without their own sections link back to the home anchors
   page: [
-    { href: "/#about", label: "Our House", narrow: true },
+    { href: "/#about", label: "Our House", wide: true },
     { href: "/#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
     { href: "/#partnership", label: "Partnership" },
@@ -84,17 +86,17 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
             <Link
               key={l.label}
               href={l.href}
-              className={`lnk py-3 whitespace-nowrap text-ivory no-underline ${l.wide ? "max-lg:hidden" : ""} ${l.narrow ? "max-[859px]:hidden" : ""}`}
+              className={`lnk py-3 whitespace-nowrap text-ivory no-underline ${l.wide ? "max-lg:hidden" : ""}`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 nav:flex">
+        <div className="hidden items-center gap-6 min-[53.75rem]:flex">
           {variant === "sentinels" ? (
             <>
-              <span className="hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark-2 min-[1380px]:flex">
+              <span className="hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark-2 min-[86.25rem]:flex">
                 <StatusDot phase={status.phase} />
                 {status.sentinels}
               </span>
@@ -108,7 +110,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
             <>
               <Link
                 href="/sentinels-of-peace"
-                className="lnk hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark no-underline min-[1380px]:flex"
+                className="lnk hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark no-underline min-[86.25rem]:flex"
               >
                 <StatusDot phase={status.phase} />
                 {status.home}

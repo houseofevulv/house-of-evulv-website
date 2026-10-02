@@ -39,7 +39,7 @@ const pillars = [
 export function HonoursAims() {
   return (
     <section className="flex justify-center px-4 py-12 md:px-12 md:py-20 lg:py-24">
-      <ul className="m-0 grid w-full max-w-[480px] list-none grid-cols-2 gap-x-3 gap-y-4 p-0 max-[359px]:max-w-[220px] max-[359px]:grid-cols-1 sm:gap-x-6 sm:gap-y-6 lg:max-w-[1000px] lg:grid-cols-4">
+      <ul className="m-0 grid w-full max-w-[480px] list-none grid-cols-2 gap-x-3 gap-y-4 p-0 max-[22.5rem]:max-w-[220px] max-[22.5rem]:grid-cols-1 sm:gap-x-6 sm:gap-y-6 lg:max-w-[1000px] lg:grid-cols-4">
         {pillars.map((p, i) => (
           <li key={p.title} className="reveal">
             <ShieldTile id={`pillar-${i}`} icon={p.icon}>

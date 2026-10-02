@@ -65,7 +65,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
     document.addEventListener("keydown", onKey);
 
     // The menu is for small screens; close it if the viewport grows past the breakpoint.
-    const mq = window.matchMedia("(min-width: 768px)");
+    const mq = window.matchMedia("(min-width: 64rem)");
     const onMq = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onMq);
 
@@ -87,7 +87,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`flex size-11 items-center justify-center rounded-xl text-ivory nav:hidden ${
+        className={`flex size-11 items-center justify-center rounded-xl text-ivory lg:hidden ${
           triggerTone === "photo" ? "bg-ivory/16" : "bg-ivory/12"
         }`}
       >
