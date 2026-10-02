@@ -66,30 +66,30 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
     <>
       {/* Logos never sit directly on photographs (brand manual, section 07): a solid bar wherever a photo could follow */}
       <header
-        className={`relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] pr-3 pl-4 text-ivory md:rounded-t-[28px] lg:h-[108px] lg:px-10 ${bar}`}
+        className={`relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] pr-3 pl-4 text-ivory md:rounded-t-[28px] nav:px-5 lg:h-[108px] lg:px-10 ${bar}`}
       >
         <Link href="/" className="lnk -m-1 p-1">
           {/* Horizontal logo: 200px is its smallest size on screen (brand manual, section 04) */}
           <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-5 text-sm font-semibold lg:flex xl:gap-9 xl:text-[15px]">
+        <nav aria-label="Main" className="hidden items-center gap-3 text-[13px] font-semibold nav:flex lg:gap-5 lg:text-sm xl:gap-7 xl:text-[15px] 2xl:gap-9">
           {navLinks[variant].map((l) => (
-            <Link key={l.label} href={l.href} className="lnk py-3 text-ivory no-underline">
+            <Link key={l.label} href={l.href} className="lnk py-3 whitespace-nowrap text-ivory no-underline">
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-6 nav:flex">
           {variant === "sentinels" ? (
             <>
-              <span className="hidden items-center gap-2.5 text-sm font-medium text-on-dark-2 xl:flex">
+              <span className="hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark-2 min-[1380px]:flex">
                 <StatusDot phase={status.phase} />
                 {status.sentinels}
               </span>
               {action && (
-                <Link href={action.href} className="btn bg-gold px-5 py-[13px] font-bold text-black">
+                <Link href={action.href} className="btn bg-gold px-4 py-[13px] text-sm font-bold whitespace-nowrap text-black lg:px-5 lg:text-[15px]">
                   {action.label}
                 </Link>
               )}
@@ -98,12 +98,12 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
             <>
               <Link
                 href="/sentinels-of-peace"
-                className="lnk hidden items-center gap-2.5 text-sm font-medium text-on-dark no-underline xl:flex"
+                className="lnk hidden items-center gap-2.5 text-sm font-medium whitespace-nowrap text-on-dark no-underline min-[1380px]:flex"
               >
                 <StatusDot phase={status.phase} />
                 {status.home}
               </Link>
-              <Link href={variant === "home" ? "#contact" : "/#contact"} className="btn bg-ivory px-5 py-[13px] font-bold text-black">
+              <Link href={variant === "home" ? "#contact" : "/#contact"} className="btn bg-ivory px-4 py-[13px] text-sm font-bold whitespace-nowrap text-black lg:px-5 lg:text-[15px]">
                 Partner with us
               </Link>
             </>
@@ -122,7 +122,7 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
         />
       </header>
       {variant === "sentinels" && (
-        <p className="relative m-0 flex items-center gap-2 px-5 pb-3.5 text-[13px] font-medium text-on-dark-2 lg:hidden">
+        <p className="relative m-0 flex items-center gap-2 px-5 pb-3.5 text-[13px] font-medium text-on-dark-2 nav:hidden">
           <StatusDot phase={status.phase} />
           {status.sentinelsMobile}
         </p>

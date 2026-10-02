@@ -1,27 +1,31 @@
+/* eslint-disable @next/next/no-img-element -- the tree is an animated SVG */
 import Link from "next/link";
-import { LiveEmblem } from "@/components/LiveEmblem";
-import { RingBackdrop } from "@/components/Ornament";
+import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
 
 /**
- * No photograph: the headline beside the living emblem. A warm light sits behind the emblem and the open ring turns
- * slowly in the background; the headline rises line by line on arrival. Motion stops for reduced-motion visitors.
+ * No photograph and no repeat of the logo (it is already in the header): one element of the emblem at full scale.
+ * The tree of life stands on the right, almost the height of the panel, its crown moving in a breeze and its DNA
+ * turning; the open ring turns slowly behind the crown in a warm light. On phones the tree stands behind the text.
+ * The headline rises line by line on arrival. Motion stops for reduced-motion visitors.
  */
 export function Hero() {
   return (
-    <section className="hero-home on-dark relative flex min-h-[min(720px,100svh)] flex-col overflow-clip rounded-[22px] text-ivory md:rounded-[28px] lg:min-h-[820px]">
-      <RingBackdrop className="ring-turn !top-[30%] opacity-[0.1] lg:!top-[52%] lg:!left-[76%] lg:!w-[1000px]" />
-      <SiteHeader variant="home" />
-      <div
-        id="content"
-        className="relative grid grow grid-cols-1 content-center gap-10 px-5 pt-6 pb-10 md:gap-14 md:px-12 md:pb-16 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-16 lg:pb-24"
-      >
-        <LiveEmblem
-          eager
-          className="w-[170px] justify-self-center md:w-[230px] lg:order-2 lg:col-span-5 lg:w-[min(100%,420px)] lg:justify-self-end"
+    <section className="hero-home on-dark relative flex min-h-[min(720px,100svh)] flex-col overflow-clip rounded-[22px] text-ivory md:min-h-[760px] md:rounded-[28px] lg:min-h-[840px]">
+      <div aria-hidden="true" className="hero-tree pointer-events-none absolute">
+        <Logo name="ring" alt="" className="ring-turn absolute top-[24%] left-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14]" />
+        <img
+          src="/brand/motion/house-of-evulv_motion-tree-of-life_gold-and-silver.svg"
+          width={1000}
+          height={1594}
+          alt=""
+          className="relative block h-full w-full object-contain object-right-bottom"
         />
-        <div className="flex flex-col lg:col-span-7">
-          <h1 className="m-0 text-[clamp(44px,6.4vw,92px)] leading-[1.02] font-semibold tracking-[-0.015em]">
+      </div>
+      <SiteHeader variant="home" />
+      <div id="content" className="relative flex grow flex-col justify-end px-5 pt-6 pb-10 md:justify-center md:px-12 md:pb-16 lg:px-16 lg:pb-20">
+        <div className="flex max-w-[620px] flex-col md:max-w-[56%] lg:max-w-[52%] xl:max-w-[56%]">
+          <h1 className="m-0 text-[clamp(46px,6.6vw,96px)] leading-[1.02] font-semibold tracking-[-0.015em]">
             <span className="reveal-line">
               <span style={{ animationDelay: "0.15s" }}>Where vision</span>
             </span>
@@ -35,11 +39,11 @@ export function Hero() {
             House of Evulv conceives and produces consequential platforms that foster peace, inspire healing and advance
             the evolution of people, institutions and society.
           </p>
-          <div className="rise-in flex flex-col gap-2.5 pt-8 md:flex-row md:gap-3 md:pt-10" style={{ animationDelay: "0.7s" }}>
-            <Link href="#sentinels" className="btn min-h-12 bg-gold px-7 py-[15px] font-bold text-black">
+          <div className="rise-in flex flex-col gap-2.5 pt-8 sm:flex-row sm:flex-wrap sm:gap-3 md:pt-10" style={{ animationDelay: "0.7s" }}>
+            <Link href="#sentinels" className="btn min-h-12 bg-gold px-7 py-[15px] font-bold whitespace-nowrap text-black">
               Discover our flagship →
             </Link>
-            <Link href="#commitments" className="btn min-h-12 border border-ivory/60 px-7 py-[14px] font-semibold text-ivory">
+            <Link href="#commitments" className="btn min-h-12 border border-ivory/60 px-7 py-[14px] font-semibold whitespace-nowrap text-ivory">
               Explore our ideology
             </Link>
           </div>

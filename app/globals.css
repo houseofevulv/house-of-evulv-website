@@ -50,6 +50,8 @@
   --color-white: #ffffff;
 
   --breakpoint-xs: 400px;
+  /* The full navigation bar: from small laptops (with display scaling many report 880 to 1000px wide) */
+  --breakpoint-nav: 880px;
 }
 
 /*
@@ -307,19 +309,57 @@
 */
 .hero-home {
   background:
-    radial-gradient(48% 42% at 50% 24%, rgb(201 165 76 / 0.16), transparent 72%),
-    radial-gradient(70% 60% at 50% 110%, rgb(58 46 36 / 0.9), transparent 70%),
+    radial-gradient(70% 46% at 78% 26%, rgb(201 165 76 / 0.17), transparent 72%),
+    radial-gradient(80% 50% at 20% 112%, rgb(58 46 36 / 0.9), transparent 70%),
     var(--color-espresso);
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hero-home {
     background:
-      radial-gradient(34% 46% at 77% 52%, rgb(201 165 76 / 0.17), transparent 72%),
+      radial-gradient(34% 44% at 76% 34%, rgb(201 165 76 / 0.2), transparent 72%),
       radial-gradient(40% 50% at 8% 0%, rgb(205 208 212 / 0.05), transparent 70%),
-      radial-gradient(60% 60% at 30% 110%, rgb(58 46 36 / 0.85), transparent 70%),
+      radial-gradient(60% 60% at 30% 112%, rgb(58 46 36 / 0.85), transparent 70%),
       var(--color-espresso);
   }
 }
+
+/* The tree of life in the home hero: behind the text on phones, standing on the right from tablets up */
+.hero-tree {
+  top: 76px;
+  right: -22%;
+  height: 74%;
+  aspect-ratio: 1000 / 1594;
+  opacity: 0.36;
+  -webkit-mask-image: linear-gradient(to left, #000 55%, transparent 98%);
+  mask-image: linear-gradient(to left, #000 55%, transparent 98%);
+}
+/* From tablets up: sized by the panel's width, capped so the crown stays clear of the header, on the right third */
+@media (min-width: 768px) {
+  .hero-tree {
+    top: auto;
+    bottom: -3%;
+    right: 2%;
+    width: 40%;
+    height: auto;
+    aspect-ratio: 1000 / 1594;
+    max-height: calc(100% - 118px);
+    opacity: 1;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-tree {
+    right: 5%;
+    width: 36%;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-tree {
+    width: 34%;
+  }
+}
+
 .hero-sentinels {
   background:
     radial-gradient(42% 34% at 50% 22%, rgb(52 92 178 / 0.5), transparent 72%),

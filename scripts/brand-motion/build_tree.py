@@ -168,7 +168,8 @@ def tree(colourway: str) -> str:
     assert len(m) == 30, colourway
     # main subpaths: 0-1 side branches, 2-7 rungs, 8-9 lower strand pieces, 10 arms, torso and the long strand,
     # 11 head, 12-29 gold leaves. Everything from the helix down is regenerated.
-    keep = [m[i] for i in (0, 1, *range(11, 30))]
+    keep = [m[i] for i in (0, 1, 11)]  # side branches and head
+    leaves = [m[i] for i in range(12, 30)]  # the gold leaves; the second colour is all leaves
     still = f'<path fill="{main}" fill-rule="evenodd" d="{md}"/><path fill="{second}" fill-rule="evenodd" d="{sd}"/>'
 
     # FRAMES + 1 keyframes: the last is one full turn on, the same picture as the first, so the loop is seamless
@@ -194,14 +195,21 @@ def tree(colourway: str) -> str:
         '<g class="moving">'
         f'<path fill="{main}" fill-rule="evenodd" d="{"".join(keep)}"/>'
         f'<path fill="{main}" fill-rule="evenodd" clip-path="url(#hoe-tree-top)" d="{m[10]}"/>'
-        f'<path fill="{second}" fill-rule="evenodd" d="{sd}"/>'
+        # the crown moves as one, as if a breeze passed through it; the leaves are separate shapes, so nothing opens
+        f'<g class="crown"><path fill="{main}" fill-rule="evenodd" d="{"".join(leaves)}"/>'
+        f'<path fill="{second}" fill-rule="evenodd" d="{sd}"/></g>'
         '<g clip-path="url(#hoe-tree-foot)">'
         + animated(main, "", rg)
         + f'<g mask="url(#hoe-tree-ma)">{animated(main, "", sa)}</g>'
         + f'<g mask="url(#hoe-tree-mb)">{animated(main, "", sb)}</g>'
         + "</g></g>"
     )
-    style = ".still{display:none}@media (prefers-reduced-motion: reduce){.moving{display:none}.still{display:inline}}"
+    style = (
+        ".still{display:none}@media (prefers-reduced-motion: reduce){.moving{display:none}.still{display:inline}}"
+        "@keyframes crown{from{transform:rotate(-0.8deg)}to{transform:rotate(0.8deg)}}"
+        ".crown{transform-box:view-box;transform-origin:495px 900px;"
+        "animation:crown 7.5s ease-in-out -3.75s infinite alternate both}"
+    )
     return wrap(vb, "House of Evulv tree of life, in motion", style, defs + moving + f'<g class="still">{still}</g>')
 
 

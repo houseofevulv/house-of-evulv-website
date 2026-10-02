@@ -87,7 +87,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`flex size-11 items-center justify-center rounded-xl text-ivory lg:hidden ${
+        className={`flex size-11 items-center justify-center rounded-xl text-ivory nav:hidden ${
           triggerTone === "photo" ? "bg-ivory/16" : "bg-ivory/12"
         }`}
       >
