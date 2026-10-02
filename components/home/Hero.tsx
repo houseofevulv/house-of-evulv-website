@@ -8,7 +8,8 @@ import { MotionToggle } from "./MotionToggle";
 const M = "/brand/motion/house-of-evulv";
 
 /**
- * The emblem unfolded into a scene. The tree of life stands on the right, its DNA fading at the root; the lotus
+ * The emblem unfolded into a scene on black, like the official mark band: the text on the right, and on the left,
+ * faint, the tree of life, its DNA fading at the root; the lotus
  * rests beside the trunk; the dove flies in on arrival and lands beside the crown. The open ring turns slowly
  * behind the crown (the site's one loop, with a pause button), and on desktops the layers shift slightly with the
  * pointer. The elements are the _still builds of the motion files (scripts/brand-motion/build_site_variants.py):
@@ -54,7 +55,8 @@ export function Hero() {
         id="content"
         className="relative flex grow flex-col justify-end px-5 pt-[300px] pb-16 md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
       >
-        <div className="flex max-w-[620px] flex-col md:max-w-[52%] lg:max-w-[50%] xl:max-w-[54%]">
+        {/* Text on the right, opposite the scene, as in the official mark band */}
+        <div className="flex max-w-[620px] flex-col md:ml-auto md:max-w-[64%] lg:max-w-[56%] xl:max-w-[52%]">
           <h1 className="t-home-display m-0">
             <span className="reveal-line">
               <span style={{ animationDelay: "0.1s" }}>Where vision</span>

@@ -73,10 +73,10 @@
   font-weight: 600;
   letter-spacing: -0.01em;
 }
-/* Home hero headline: 44px on phones to 96px at 1440px */
+/* Home hero headline: 44px on phones to 80px at 1440px, sized so its two lines hold beside the emblem scene */
 @utility t-home-display {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 4.6vw + 1.6rem, 6rem);
+  font-size: clamp(2.75rem, 3.6vw + 1.75rem, 5rem);
   line-height: 1.02;
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -330,25 +330,24 @@
   still counts for LCP.
 */
 .hero-home {
+  /* Black, like the official mark band, with a faint warm light behind the emblem scene */
   background:
-    radial-gradient(70% 46% at 78% 26%, rgb(201 165 76 / 0.1), transparent 72%),
-    radial-gradient(80% 50% at 20% 112%, rgb(58 46 36 / 0.9), transparent 70%),
-    var(--color-espresso);
+    radial-gradient(70% 40% at 50% 22%, rgb(201 165 76 / 0.08), transparent 72%),
+    var(--color-black);
 }
 @media (min-width: 768px) {
   .hero-home {
     background:
-      radial-gradient(34% 44% at 76% 34%, rgb(201 165 76 / 0.09), transparent 72%),
-      radial-gradient(40% 50% at 8% 0%, rgb(205 208 212 / 0.05), transparent 70%),
-      radial-gradient(60% 60% at 30% 112%, rgb(58 46 36 / 0.85), transparent 70%),
-      var(--color-espresso);
+      radial-gradient(34% 44% at 24% 40%, rgb(201 165 76 / 0.08), transparent 72%),
+      var(--color-black);
   }
 }
 
 /*
   The home hero scene. .hero-tree is the tree's own box (always the tree's proportions), so the dove and the lotus
   can be placed in it exactly where the emblem has them. On phones the scene sits above the headline; from
-  tablets up it stands on the right, sized by the panel's height and never wider than about a third of the panel.
+  tablets up it stands on the left, opposite the text, sized by the panel's height and never wider than about a
+  third of the panel.
 */
 .hero-tree {
   top: 92px;
@@ -362,7 +361,8 @@
   .hero-tree {
     top: auto;
     bottom: -2%;
-    right: 6%;
+    right: auto;
+    left: 9%;
     height: min(calc(100% - 118px), calc((100vw - 32px) * 0.4 * 1.594));
     /* A quiet presence beside the headline, not a second focal point */
     opacity: 0.22;
@@ -370,7 +370,7 @@
 }
 @media (min-width: 1024px) {
   .hero-tree {
-    right: 7%;
+    left: 10%;
     height: min(calc(100% - 118px), calc((100vw - 32px) * 0.34 * 1.594));
   }
 }
