@@ -6,7 +6,7 @@ import { TheEmblem } from "@/components/TheEmblem";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ContactBand } from "@/components/home/ContactBand";
-import { Story } from "@/components/home/Story";
+import { Creed } from "@/components/home/Creed";
 import { event, site } from "@/lib/content";
 import { pageOpenGraph } from "@/lib/metadata";
 
@@ -14,7 +14,7 @@ import { pageOpenGraph } from "@/lib/metadata";
 export const revalidate = 3600;
 
 const lead =
-  "A social impact platform in Lagos, built on one conviction: the people who keep communities at peace deserve to be seen, supported and followed.";
+  "House of Evulv conceives and produces consequential platforms that foster peace, inspire healing and advance the evolution of people, institutions and society.";
 
 export const metadata: Metadata = {
   title: "Our story",
@@ -40,7 +40,7 @@ export default function OurStoryPage() {
           </div>
         </section>
 
-        <Story onStoryPage />
+        <Creed standalone />
 
         {/* TODO(client): draft drawn from the site's own copy. Replace or extend with the founder's story when supplied. */}
         <section
