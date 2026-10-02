@@ -360,6 +360,14 @@
   }
 }
 
+/* Sentinel Navy with depth, for the flagship band on the home page */
+.field-navy {
+  background:
+    radial-gradient(40% 30% at 50% 22%, rgb(52 92 178 / 0.42), transparent 72%),
+    radial-gradient(36% 26% at 30% 78%, rgb(52 92 178 / 0.3), transparent 72%),
+    radial-gradient(90% 40% at 50% 112%, rgb(5 14 36 / 0.8), transparent 70%),
+    var(--color-navy);
+}
 .hero-sentinels {
   background:
     radial-gradient(42% 34% at 50% 22%, rgb(52 92 178 / 0.5), transparent 72%),
