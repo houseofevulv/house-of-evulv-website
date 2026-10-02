@@ -1,5 +1,3 @@
-import { Photo } from "@/components/Photo";
-
 export function WhyItExists() {
   return (
     <section
@@ -19,13 +17,6 @@ export function WhyItExists() {
           entertainment.
         </p>
       </div>
-      <Photo
-        src="/images/community-rooftops.jpg"
-        alt="Rooftops of a densely built Nigerian city stretching to the horizon"
-        sizes="(min-width: 1440px) 1312px, 100vw"
-        position="center 60%"
-        className="mt-4 aspect-[4/3] w-full rounded-[20px] md:col-span-12 md:mt-14 md:aspect-[21/9] md:rounded-3xl lg:mt-20"
-      />
     </section>
   );
 }

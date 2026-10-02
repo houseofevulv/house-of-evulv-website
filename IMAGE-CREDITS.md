@@ -10,7 +10,6 @@ Evulv's own photos, and the programme's own after the first edition.
 | reception-guests.jpg | eagrapher, 3611092 | Sentinels ceremony band |
 | trophy-dark.jpg | n-voitkevich, 6532366 | Sentinels Recognise tile |
 | officer-helipad.jpg | oacthecreator, 10550113 | Sentinels support band (shown only when public nominations are on) |
-| community-rooftops.jpg | alameenng, 31729409 | Sentinels "Why it exists" |
 | elder-portrait-bw.jpg | megwara-favour, 30344256 | Home statement photo ("elders and mediators") |
 | young-speaker-portrait.jpg | turaki-photography, 33664026 | Home statement photo ("young people preparing to lead") |
 
