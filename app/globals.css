@@ -702,3 +702,11 @@
     scale: 1.025;
   }
 }
+
+/* Scrollers that keep their scroll (swipe, wheel, keys) but show no scrollbar, such as the partnership carousel */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

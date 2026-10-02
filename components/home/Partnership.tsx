@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { contact, partnership } from "@/lib/content";
+import { TierCarousel } from "./TierCarousel";
 
 // The client's one-line promise for each tier; names and places come from the same list as the Sentinels page
 const promises: Record<string, string> = {
@@ -34,28 +35,17 @@ export function Partnership() {
           <Logo name="sentinelsBadgeGold" alt="" className="h-auto w-[220px] md:w-[300px] lg:w-[min(100%,420px)]" />
         </div>
         <div className="flex flex-col items-center lg:col-span-7 lg:items-start">
-          {/* No cards: each tier is a plain link that opens the support form with that tier already chosen */}
-          <p className="t-eyebrow m-0 text-muted">Choose where you stand</p>
-          <ul className="m-0 grid w-full max-w-[640px] list-none grid-cols-1 gap-y-2 p-0 pt-4 sm:grid-cols-2 md:pt-8">
-            {tiers.map((t) => (
-              <li key={t.name}>
-                <Link
-                  href={`/sentinels-of-peace?partner=${t.name}#support`}
-                  className="group flex min-h-11 flex-col items-center gap-1.5 px-3 py-5 no-underline lg:items-start lg:px-0"
-                >
-                  <span className="t-display text-2xl text-ink group-hover:text-bronze md:text-[28px]">
-                    {/* "Partner" in the name, so no one reads a tier as a fee to be honoured: these are sponsors */}
-                    {t.name} Partner{" "}
-                    <span aria-hidden="true" className="inline-block text-bronze transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </span>
-                  <span className="text-[15px] font-semibold text-body">{promises[t.name]}</span>
-                  <span className="text-[13px] text-muted">{t.limit}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* One tier at a time, each on its own colour; every card opens the support form with its tier chosen.
+              "Partner" is in each name, so no one reads a tier as a fee to be honoured: these are sponsors. */}
+          <p className="t-eyebrow m-0 pb-4 text-muted md:pb-6">Choose where you stand</p>
+          <TierCarousel
+            tiers={tiers.map((t) => ({
+              name: t.name,
+              promise: promises[t.name],
+              limit: t.limit,
+              href: `/sentinels-of-peace?partner=${t.name}#support`,
+            }))}
+          />
           <div className="flex flex-col items-center gap-3 self-stretch pt-8 md:flex-row md:justify-center md:gap-5 md:self-center md:pt-12 lg:self-start lg:justify-start">
             <a
               href={partnership.briefMailto}
