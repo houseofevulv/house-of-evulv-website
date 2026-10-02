@@ -324,8 +324,8 @@
 }
 
 /*
-  The home hero scene. .hero-tree is the tree's own box (always the tree's proportions), so the dove, the lotus and
-  the water can be placed in it exactly where the emblem has them. On phones the scene sits above the headline; from
+  The home hero scene. .hero-tree is the tree's own box (always the tree's proportions), so the dove and the lotus
+  can be placed in it exactly where the emblem has them. On phones the scene sits above the headline; from
   tablets up it stands on the right, sized by the panel's height and never wider than about a third of the panel.
 */
 .hero-tree {
@@ -351,29 +351,10 @@
     height: min(calc(100% - 118px), calc((100vw - 32px) * 0.34 * 1.594));
   }
 }
-/* The DNA goes on below the waterline and fades into the depth */
+/* The DNA fades softly at its root */
 .tree-rooted {
   -webkit-mask-image: linear-gradient(to bottom, #000 81%, rgb(0 0 0 / 0.35) 88%, transparent 99%);
   mask-image: linear-gradient(to bottom, #000 81%, rgb(0 0 0 / 0.35) 88%, transparent 99%);
-}
-/* Each water line repeats one wave tile; it flows by sliding exactly one tile, so the loop has no seam */
-.water {
-  background-repeat: repeat-x;
-  background-size: var(--tile) 100%;
-}
-.water-upper {
-  --tile: 240px;
-}
-.water-lower {
-  --tile: 200px;
-}
-@media (min-width: 768px) {
-  .water-upper {
-    --tile: 380px;
-  }
-  .water-lower {
-    --tile: 310px;
-  }
 }
 
 /* Sentinel Navy with depth, for the flagship band on the home page */
@@ -453,13 +434,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* The water flows from right to left, the nearer line faster */
-  .water-upper {
-    animation: water-flow 16s linear infinite;
-  }
-  .water-lower {
-    animation: water-flow 11s linear infinite;
-  }
   /* The dove flies in from the left on arrival and comes to rest beside the crown */
   .dove-arrive {
     animation: dove-arrive 3.4s cubic-bezier(0.25, 0.6, 0.25, 1) 0.5s both;
@@ -475,11 +449,6 @@
   .scene [data-depth="2.5"] { --d: 2.5; }
   .scene [data-depth="3"] { --d: 3.5; }
   .scene [data-depth="4"] { --d: 4.5; }
-}
-@keyframes water-flow {
-  to {
-    background-position-x: calc(-1 * var(--tile));
-  }
 }
 @keyframes dove-arrive {
   0% {
