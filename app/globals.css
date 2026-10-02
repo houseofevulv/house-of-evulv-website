@@ -193,6 +193,8 @@
   }
   body {
     margin: 0;
+    /* The full-width home hero spans 100vw, which includes the scrollbar on some systems */
+    overflow-x: clip;
     background: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);

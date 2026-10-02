@@ -18,8 +18,11 @@ const M = "/brand/motion/house-of-evulv";
  */
 export function Hero() {
   return (
-    <section className="hero-home scene on-dark relative flex min-h-[min(760px,100svh)] flex-col overflow-clip rounded-[22px] text-ivory md:min-h-[760px] md:rounded-[28px] lg:min-h-[840px]">
+    // Full width: the panel steps out of the page gutter to both edges of the screen at every size (past the 1440px
+    // page frame on wide screens), square-edged. Its contents stay in the 1440px frame.
+    <section className="hero-home scene on-dark relative -mx-2 -mt-2 flex min-h-[min(760px,100svh)] flex-col overflow-clip text-ivory md:-mx-4 md:-mt-4 md:min-h-[760px] lg:min-h-[840px] min-[90rem]:mx-[calc(704px_-_50vw)]">
       <HeroParallax />
+      <div className="relative mx-auto flex w-full max-w-[1440px] grow flex-col">
       <div aria-hidden="true" className="hero-tree pointer-events-none absolute">
         <div data-depth="3" className="absolute inset-0">
           <Logo
@@ -89,6 +92,7 @@ export function Hero() {
         </div>
       </div>
       <MotionToggle />
+      </div>
     </section>
   );
 }
