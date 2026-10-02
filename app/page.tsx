@@ -9,6 +9,7 @@ import { Ideology } from "@/components/home/Ideology";
 import { Mark } from "@/components/home/Mark";
 import { Partnership } from "@/components/home/Partnership";
 import { SentinelsFeature } from "@/components/home/SentinelsFeature";
+import { Statement } from "@/components/home/Statement";
 import { TheHouse } from "@/components/home/TheHouse";
 import { contact, site } from "@/lib/content";
 import { pageOpenGraph } from "@/lib/metadata";
@@ -45,6 +46,7 @@ export default function Home() {
           <TheHouse />
           <Ideology />
           <Mark />
+          <Statement />
           <SentinelsFeature />
           <Partnership />
           <Creed />

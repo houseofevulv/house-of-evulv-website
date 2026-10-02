@@ -5,12 +5,13 @@ export function TheHouse() {
   return (
     <section
       id="about"
-      className="flex scroll-mt-4 flex-col items-center px-4 py-16 text-center md:px-12 md:py-28 lg:py-36"
+      className="flex scroll-mt-4 flex-col items-center px-4 pt-8 pb-16 text-center md:px-12 md:pt-12 md:pb-28 lg:pt-14 lg:pb-36"
     >
-      {/* The statement as one line the full width of the hero card, softened; it never wraps, at any width */}
+      {/* The name as one line the full width of the hero card, softened; it never wraps, at any width.
+          em: the line's width in Libre Bodoni Bold at size 1, measured with fontTools (see FitLine). */}
       <h2 className="reveal m-0 w-full">
-        <FitLine as="span" em={17.81} className="text-espresso/35">
-          We create what the future remembers.
+        <FitLine as="span" em={6.87} className="text-espresso/35">
+          House of Evulv
         </FitLine>
       </h2>
       {/* One headline only: this line supports it, so it is set as a lead, not a second statement */}
