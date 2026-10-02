@@ -5,6 +5,7 @@ import { ContactBand } from "@/components/home/ContactBand";
 import { Creed } from "@/components/home/Creed";
 import { Donate } from "@/components/home/Donate";
 import { Hero } from "@/components/home/Hero";
+import { HonoursAims } from "@/components/home/HonoursAims";
 import { Ideology } from "@/components/home/Ideology";
 import { Mark } from "@/components/home/Mark";
 import { Partnership } from "@/components/home/Partnership";
@@ -48,6 +49,7 @@ export default function Home() {
           <Mark />
           <Statement />
           <SentinelsFeature />
+          <HonoursAims />
           <Partnership />
           <Creed />
           <Donate />
