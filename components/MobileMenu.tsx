@@ -65,7 +65,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
     document.addEventListener("keydown", onKey);
 
     // The menu is for small screens; close it if the viewport grows past the breakpoint.
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 768px)");
     const onMq = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onMq);
 

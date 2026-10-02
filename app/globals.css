@@ -51,7 +51,7 @@
 
   --breakpoint-xs: 400px;
   /* The full navigation bar: from small laptops (with display scaling many report 880 to 1000px wide) */
-  --breakpoint-nav: 880px;
+  --breakpoint-nav: 768px;
 }
 
 /*

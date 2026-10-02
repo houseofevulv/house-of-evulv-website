@@ -29,27 +29,33 @@ export const menuGroups = [
   },
 ];
 
-const navLinks = {
+/*
+  The full bar shows from 768px, so small laptops at 125 to 150% display scaling (about 850 to 1100px wide) never
+  fall back to the menu button. Below 1024px the links marked `wide` give way: Contact duplicates the "Partner with
+  us" button beside it, and "Why it exists" is the section straight after the hero. Below 860px "Our House" (also the
+  section straight after the hero) gives way too. The live status shows from 1380px.
+*/
+const navLinks: Record<"home" | "sentinels" | "page", { href: string; label: string; wide?: boolean; narrow?: boolean }[]> = {
   home: [
-    { href: "#about", label: "Our House" },
+    { href: "#about", label: "Our House", narrow: true },
     { href: "#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
     { href: "#partnership", label: "Partnership" },
-    { href: "#contact", label: "Contact" },
+    { href: "#contact", label: "Contact", wide: true },
   ],
   sentinels: [
-    { href: "#why", label: "Why it exists" },
+    { href: "#why", label: "Why it exists", wide: true },
     { href: "#categories", label: "Categories" },
     { href: "#selection", label: "Selection" },
     { href: "#partner", label: "Partnership" },
   ],
   // Pages without their own sections link back to the home anchors
   page: [
-    { href: "/#about", label: "Our House" },
+    { href: "/#about", label: "Our House", narrow: true },
     { href: "/#commitments", label: "Our Ideology" },
     { href: "/sentinels-of-peace", label: "Sentinels of Peace" },
     { href: "/#partnership", label: "Partnership" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/#contact", label: "Contact", wide: true },
   ],
 };
 
@@ -75,7 +81,11 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
 
         <nav aria-label="Main" className="hidden items-center gap-3 text-[13px] font-semibold nav:flex lg:gap-5 lg:text-sm xl:gap-7 xl:text-[15px] 2xl:gap-9">
           {navLinks[variant].map((l) => (
-            <Link key={l.label} href={l.href} className="lnk py-3 whitespace-nowrap text-ivory no-underline">
+            <Link
+              key={l.label}
+              href={l.href}
+              className={`lnk py-3 whitespace-nowrap text-ivory no-underline ${l.wide ? "max-lg:hidden" : ""} ${l.narrow ? "max-[859px]:hidden" : ""}`}
+            >
               {l.label}
             </Link>
           ))}
