@@ -37,7 +37,7 @@ export function Ideology() {
       id="commitments"
       className="on-dark -mx-2 bg-espresso text-ivory shadow-[0_0_0_100vmax_var(--color-espresso)] [clip-path:inset(0_-100vmax)] max-sm:h-[280svh] md:-mx-4"
     >
-      <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-20 lg:py-32">
+      <div className="grid grid-cols-1 gap-10 px-6 py-16 max-sm:sticky max-sm:top-0 max-sm:h-svh max-sm:content-center max-sm:overflow-hidden max-sm:py-8 md:gap-16 md:px-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:px-20 lg:py-32">
         {/* Phones: the pinned screen is its own small page, so the icon sits centred behind all of it, very faint,
             rather than on the left-aligned heading */}
         <Logo
