@@ -20,13 +20,13 @@ export function FitLine({
   ariaHidden?: boolean;
 }) {
   return (
-    <div className="w-full [container-type:inline-size]" aria-hidden={ariaHidden || undefined}>
+    <span className="block w-full [container-type:inline-size]" aria-hidden={ariaHidden || undefined}>
       <Tag
         className={`m-0 block font-display leading-[0.95] font-semibold tracking-[-0.02em] whitespace-nowrap ${className}`}
         style={{ fontSize: `calc(100cqw / ${em})` }}
       >
         {children}
       </Tag>
-    </div>
+    </span>
   );
 }
