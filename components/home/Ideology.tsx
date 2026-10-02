@@ -32,15 +32,13 @@ export function Ideology() {
       id="commitments"
       className="flex scroll-mt-12 flex-col gap-10 px-4 pb-14 md:gap-14 md:px-12 md:pb-24 lg:gap-16 lg:px-16 lg:pb-[120px]"
     >
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end lg:gap-x-6">
-        <div className="flex flex-col gap-3 md:gap-4 lg:col-span-6">
-          <p className="t-eyebrow m-0 text-bronze">The Evulv Ideology</p>
-          <h2 className="t-h2-48 m-0">
-            Three forces. <br />
-            One human future.
-          </h2>
-        </div>
-        <p className="m-0 max-w-[460px] text-base leading-[1.65] text-muted md:text-[17px] lg:col-span-5 lg:col-start-8">
+      <div className="flex flex-col items-center text-center">
+        <p className="t-eyebrow m-0 text-bronze">The Evulv Ideology</p>
+        <h2 className="t-h2-48 m-0 pt-3 md:pt-4">
+          Three forces. <br />
+          One human future.
+        </h2>
+        <p className="m-0 max-w-[560px] pt-6 text-base leading-[1.65] text-muted md:pt-8 md:text-[17px]">
           Our philosophy is not ornamental language. It is the compass by which we conceive, choose and execute every
           initiative.
         </p>
