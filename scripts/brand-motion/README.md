@@ -9,7 +9,7 @@ Generators for the animated brand files in `public/brand/motion` (copied to `bra
 | `build_sentinels.py` | Sentinels badge, badge frame and lettering, still (`public/brand/sentinels`) and animated |
 | `knights.py` | Clean knight cut-outs from the seal (PNG for the brand package, WebP for the site) |
 | `build_knights_motion.py` | Knights catching the light; the pair rising (run `knights.py` first) |
-| `build_site_variants.py` | The website's builds: `_still` (tree, lotus, dove at rest) and `_once` (knights, badge frame: each loop plays once), so no loop on the site runs past five seconds |
+| `build_site_variants.py` | The website's `_still` builds of the tree, lotus and dove, so no loop on the site runs past five seconds |
 | `frames.mjs` | Renders an animated SVG at chosen moments, for checking motion by eye |
 
 ```bash

@@ -34,6 +34,7 @@ const LOGOS = {
   sentinelsFull: { src: `${S}_full-logo.webp`, w: 1000, h: 1004, alt: "Sentinels of Peace, by House of Evulv" },
   sentinelsCrest: { src: `${S}_crest.webp`, w: 480, h: 709, alt: "Sentinels of Peace crest" },
   // The two knights: always as a pair, facing inward, on dark backgrounds, 300px tall or more.
+  // Beside the seal (which carries them) they appear only as a faint backdrop: see components/KnightsBackdrop.tsx.
   // Clean cut-outs from the seal, each on its own plinth (scripts/brand-motion/knights.py).
   knightLeft: { src: `${S}_knight-left-clean.webp`, w: 406, h: 900, alt: "" },
   knightRight: { src: `${S}_knight-right-clean.webp`, w: 398, h: 900, alt: "" },

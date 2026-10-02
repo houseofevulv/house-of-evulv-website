@@ -355,7 +355,8 @@
   right: 14%;
   height: 300px;
   aspect-ratio: 1000 / 1594;
-  opacity: 0.55;
+  /* Faint: it sits right under the header logo, which carries the same emblem */
+  opacity: 0.3;
 }
 @media (min-width: 768px) {
   .hero-tree {
@@ -419,6 +420,41 @@
   mask: url("/brand/sentinels/sentinels-of-peace_seal.webp") center / contain no-repeat;
 }
 
+/*
+  The knights as a faint backdrop (components/KnightsBackdrop.tsx): each stands in a bottom corner, its box half its
+  height so only the upper half shows, fading out towards the panel's edge. --kh is the knight's full height.
+*/
+.knights-backdrop {
+  --kh: 300px;
+  height: calc(var(--kh) / 2);
+  opacity: 0.2;
+}
+.knights-backdrop > div {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+}
+/* At the panel's edges, clear of the centred text: the knights frame the content, never sit under it */
+.knights-backdrop-left {
+  left: -20px;
+}
+.knights-backdrop-right {
+  right: -20px;
+}
+@media (min-width: 768px) {
+  .knights-backdrop {
+    --kh: 440px;
+  }
+}
+@media (min-width: 1280px) {
+  .knights-backdrop {
+    --kh: 560px;
+  }
+}
+
 /* Each headline line is its own block; with motion it rises from behind its own edge */
 .reveal-line {
   display: block;
@@ -454,10 +490,6 @@
   /* The knights rise together in four lifts of decreasing height, a pause after each */
   .knight-rise > img {
     animation: knight-rise 3.6s 0.5s both;
-  }
-  .floor-line {
-    transform-origin: 50% 50%;
-    animation: floor-line 0.9s cubic-bezier(0.3, 0.7, 0.2, 1) 0.1s both;
   }
 }
 
@@ -531,14 +563,6 @@
   }
   to {
     background-position: -30% 0;
-  }
-}
-@keyframes floor-line {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: none;
   }
 }
 @keyframes knight-rise {
