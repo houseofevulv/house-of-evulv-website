@@ -1,13 +1,13 @@
-import { contact } from "@/lib/content";
+import Link from "next/link";
+import { contact, partnership } from "@/lib/content";
 
-const tiers = [
-  { name: "Founding Partnership", promise: "Institutional legacy" },
-  { name: "Strategic Partnership", promise: "Shared impact" },
-  { name: "Programme Partnership", promise: "Purposeful activation" },
-  { name: "Media Partnership", promise: "National amplification" },
-];
-
-const subject = encodeURIComponent("Partnership interest: The Sentinels of Peace Grand Honours");
+// The client's one-line promise for each tier; names and places come from the same list as the Sentinels page
+const promises: Record<string, string> = {
+  Founding: "Institutional legacy",
+  Strategic: "Shared impact",
+  Programme: "Purposeful activation",
+  Media: "National amplification",
+};
 
 export function Partnership() {
   return (
@@ -21,20 +21,48 @@ export function Partnership() {
         We invite select institutions to participate as Strategic and Founding Partners of The Sentinels of Peace™ Grand
         Honours. Partnership is designed around shared values, institutional visibility and meaningful national impact.
       </p>
-      <ul className="m-0 grid w-full max-w-[1100px] list-none grid-cols-1 gap-3 p-0 pt-10 sm:grid-cols-2 md:gap-4 md:pt-14 lg:grid-cols-4">
-        {tiers.map((t) => (
-          <li key={t.name} className="flex flex-col gap-2 rounded-[20px] bg-sand px-5 py-7 md:py-9">
-            <span className="t-display text-lg text-ink">{t.name}</span>
-            <span className="text-[15px] text-muted">{t.promise}</span>
+
+      {/* No cards: each tier is a plain link that opens the support form with that tier already chosen */}
+      <p className="t-eyebrow m-0 pt-12 text-muted md:pt-20">Choose where you stand</p>
+      <ul className="m-0 grid w-full max-w-[1100px] list-none grid-cols-1 gap-y-2 p-0 pt-4 sm:grid-cols-2 md:pt-8 lg:grid-cols-4">
+        {partnership.tiers.map((t) => (
+          <li key={t.name}>
+            <Link
+              href={`/sentinels-of-peace?partner=${t.name}#support`}
+              className="group flex min-h-11 flex-col items-center gap-1.5 px-3 py-5 no-underline"
+            >
+              <span className="t-display text-2xl text-ink group-hover:text-bronze md:text-[28px]">
+                {t.name}{" "}
+                <span aria-hidden="true" className="inline-block text-bronze transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+              <span className="text-[15px] font-semibold text-body">{promises[t.name]}</span>
+              <span className="text-[13px] text-muted">{t.limit}</span>
+            </Link>
           </li>
         ))}
       </ul>
-      <a
-        href={`mailto:${contact.email}?subject=${subject}`}
-        className="btn mt-10 min-h-12 self-stretch bg-espresso px-6 py-[15px] font-bold text-ivory md:mt-14 md:self-center"
+      <div className="flex flex-col items-center gap-3 self-stretch pt-8 md:flex-row md:justify-center md:gap-5 md:self-center md:pt-12">
+        <a
+          href={partnership.briefMailto}
+          className="btn min-h-12 self-stretch bg-espresso px-6 py-[15px] font-bold text-ivory md:self-auto md:py-4"
+        >
+          Request the partnership brief
+        </a>
+        <span className="text-[15px] text-body md:text-base">
+          Or call{" "}
+          <a href={contact.phoneHref} className="lnk inline-flex min-h-11 items-center font-bold text-espresso underline md:min-h-0">
+            {contact.phoneDisplay}
+          </a>
+        </span>
+      </div>
+      <Link
+        href="/sentinels-of-peace#partner"
+        className="lnk mt-4 inline-flex min-h-11 items-center text-[15px] font-bold text-espresso underline"
       >
-        Express interest →
-      </a>
+        Compare what each partnership includes
+      </Link>
     </section>
   );
 }

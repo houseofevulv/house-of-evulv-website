@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition, type ReactNode } from "react";
 import { pledgeSupport } from "@/app/actions/support";
-import { support } from "@/lib/content";
+import { partnership, support } from "@/lib/content";
 import { SUPPORT_FIELDS, SUPPORT_MESSAGE_MAX, type SupportField, type SupportState } from "@/lib/support-fields";
 
 const control =
@@ -34,6 +34,60 @@ function Field({ id, label, error, className = "", children, hint }: {
   );
 }
 
+type Kind = "money" | "partner" | "kind" | "volunteer" | "other";
+
+const kindOf = (type: string): Kind =>
+  /money/i.test(type) ? "money" : /partner/i.test(type) ? "partner" : /kind/i.test(type) ? "kind" : /volunteer/i.test(type) ? "volunteer" : "other";
+
+// Labels, placeholders and the button follow the kind of support chosen
+const COPY: Record<Kind, { organisation: string; amountLabel: string; amount: string; message: string; note: string; submit: string; done: string }> = {
+  money: {
+    organisation: "Leave blank if giving personally",
+    amountLabel: "Amount you would like to give",
+    amount: "Optional, e.g. ₦50,000",
+    message: "Optional: a category you care about, a region, or how you would like to be acknowledged.",
+    note: "No payment is taken here. We contact you to arrange it.",
+    submit: "Send my pledge",
+    done: "Your pledge has reached the House.",
+  },
+  partner: {
+    organisation: "The institution you represent",
+    amountLabel: "Partnership of interest",
+    amount: "",
+    message: "Optional: what your institution hopes to achieve, and who we should send the partnership brief to.",
+    note: "We reply with the partnership brief and arrange a conversation.",
+    submit: "Send my enquiry",
+    done: "Your partnership enquiry has reached the House.",
+  },
+  kind: {
+    organisation: "Your company or organisation, if any",
+    amountLabel: "What you can offer",
+    amount: "e.g. media coverage, printing, transport",
+    message: "Optional: when it is available, and anything we should know about using it.",
+    note: "We contact you to agree the details.",
+    submit: "Send my offer",
+    done: "Your offer has reached the House.",
+  },
+  volunteer: {
+    organisation: "Leave blank if volunteering personally",
+    amountLabel: "Time you can give",
+    amount: "e.g. weekends in November, or the ceremony day",
+    message: "Optional: your skills or experience, and where you are based.",
+    note: "We contact you about where you can help.",
+    submit: "Offer my time",
+    done: "Your offer to volunteer has reached the House.",
+  },
+  other: {
+    organisation: "Leave blank if giving personally",
+    amountLabel: "Amount or what you can offer",
+    amount: "Optional",
+    message: "Tell us how you would like to help.",
+    note: "We contact you to arrange the next step.",
+    submit: "Send my message",
+    done: "Your message has reached the House.",
+  },
+};
+
 /** Pledge of support: saved to the Google Sheet with an email alert. Online payment, if any, is a separate link. */
 export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
   const [state, setState] = useState<SupportState>({ status: "idle" });
@@ -41,10 +95,23 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
   const [pending, startTransition] = useTransition();
   const [renderedAt, setRenderedAt] = useState(0);
   const [count, setCount] = useState(0);
+  const [type, setType] = useState("");
+  const [tier, setTier] = useState("");
+  const kind = kindOf(type);
+  const copy = COPY[kind];
   const formRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => setRenderedAt(Date.now()), []);
+
+  // Arriving from a partnership tier (?partner=Founding): choose "partner" and that tier
+  useEffect(() => {
+    const name = new URLSearchParams(window.location.search).get("partner");
+    const option = support.types.find((t) => kindOf(t) === "partner");
+    if (!option || !partnership.tiers.some((t) => t.name === name)) return;
+    setType(option);
+    setTier(`${name} Partnership`);
+  }, []);
 
   useEffect(() => {
     if (state.status === "error") {
@@ -92,7 +159,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
           Thank you, {state.name}.
         </h3>
         <p className="m-0 text-base leading-[1.6] text-body">
-          Your pledge has reached the House. We will be in touch using the details you gave to arrange the next step.
+          {copy.done} We will be in touch using the details you gave to arrange the next step.
         </p>
         {paymentUrl && (
           <a
@@ -131,7 +198,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
               type="text"
               autoComplete="organization"
               maxLength={160}
-              placeholder="Leave blank if giving personally"
+              placeholder={copy.organisation}
               className={`${control} ${border("organisation")}`}
             />
           </Field>
@@ -154,7 +221,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
           <legend className="t-display p-0 pb-3.5 text-lg">Your support</legend>
           <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2 md:gap-4">
             <Field id="supportType" label="How would you like to help?" error={errors.supportType}>
-              <select {...a11y("supportType")} required defaultValue="" className={`${control} ${border("supportType")}`}>
+              <select {...a11y("supportType")} required value={type} onChange={(e) => setType(e.target.value)} className={`${control} ${border("supportType")}`}>
                 <option value="" disabled>
                   Choose one
                 </option>
@@ -163,14 +230,23 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
                 ))}
               </select>
             </Field>
-            <Field id="amount" label="Amount or what you can offer" error={errors.amount}>
-              <input
-                {...a11y("amount")}
-                type="text"
-                maxLength={60}
-                placeholder="Optional, e.g. ₦50,000"
-                className={`${control} ${border("amount")}`}
-              />
+            <Field id="amount" label={copy.amountLabel} error={errors.amount}>
+              {kind === "partner" ? (
+                <select {...a11y("amount")} value={tier} onChange={(e) => setTier(e.target.value)} className={`${control} ${border("amount")}`}>
+                  <option value="">Not sure yet</option>
+                  {partnership.tiers.map((t) => (
+                    <option key={t.name}>{t.name} Partnership</option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  {...a11y("amount")}
+                  type="text"
+                  maxLength={60}
+                  placeholder={copy.amount}
+                  className={`${control} ${border("amount")}`}
+                />
+              )}
             </Field>
             <Field
               id="message"
@@ -189,7 +265,7 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
                 rows={4}
                 maxLength={SUPPORT_MESSAGE_MAX}
                 onChange={(e) => setCount(e.target.value.length)}
-                placeholder="Optional: a category you care about, a region, or how you would like to be acknowledged."
+                placeholder={copy.message}
                 className={`${control} resize-y leading-normal ${border("message")}`}
               />
             </Field>
@@ -221,14 +297,14 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
       </div>
 
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-5">
-        <p className="m-0 hidden text-[13px] text-help md:block">No payment is taken here. We contact you to arrange it.</p>
+        <p className="m-0 hidden text-[13px] text-help md:block">{copy.note}</p>
         <button
           type="submit"
           // Disabled until hydrated, so a tap before JavaScript loads never falls back to a native submit
           disabled={pending || renderedAt === 0}
           className="btn min-h-12 w-full border-0 bg-espresso px-7 py-[15px] text-base font-bold text-ivory disabled:cursor-wait disabled:opacity-70 md:w-auto md:py-[17px]"
         >
-          {pending ? "Sending…" : "Send my pledge"}
+          {pending ? "Sending…" : copy.submit}
         </button>
       </div>
     </form>
