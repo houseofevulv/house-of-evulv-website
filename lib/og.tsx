@@ -8,19 +8,19 @@ export const OG_SIZE = { width: 1200, height: 630 };
 
 // House of Evulv Identity 2 palette (brand manual, section 06)
 export const C = {
-  ivory: "#F5F0E6",
-  ink: "#1E1712",
-  espresso: "#1E1712",
-  black: "#0B0907",
-  gold: "#C9A54C",
+  ivory: "#F6F2E8",
+  ink: "#0C1529",
+  espresso: "#0C1529",
+  black: "#060B17",
+  gold: "#D0A94F",
   bronze: "#7E6029",
   silver: "#CDD0D4",
   navy: "#10234F",
-  onDark: "#E8E1D2",
-  onDark2: "#CFC5B3",
-  onDark3: "#A3978A",
-  ruleDark: "#3A2E24",
-  muted: "#5F5347",
+  onDark: "#E9E4D7",
+  onDark2: "#C9CBCF",
+  onDark3: "#9BA3B4",
+  ruleDark: "#1F2D4C",
+  muted: "#586072",
 };
 
 /** Heading style for preview images: Bungee, as on the site */

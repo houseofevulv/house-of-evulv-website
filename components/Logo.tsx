@@ -25,7 +25,8 @@ const LOGOS = {
     h: 1553,
     alt: "House of Evulv: peace, healing, evolution. Elevating humanity, evolving consciousness.",
   },
-  houseEmblem: { src: `${H}_emblem_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv emblem" },
+  // The metallic emblem (gold and silver in relief), cut from the client's artwork: dark backgrounds only
+  houseEmblem: { src: `${H}_emblem_metallic.webp`, w: 640, h: 676, alt: "House of Evulv emblem" },
   houseIcon: { src: `${H}_icon_gold-and-silver.svg`, w: 1000, h: 1059, alt: "House of Evulv" },
   houseIconWhite: { src: `${H}_icon_white.svg`, w: 1000, h: 1059, alt: "House of Evulv" },
   // Sentinels of Peace: the seal artwork as created (full colour, gold on Sentinel Navy), supplied as images
@@ -67,8 +68,35 @@ type Props = {
   eager?: boolean;
 };
 
+/*
+  The gold-and-silver lockups pair the metallic emblem with the wordmark from the supplied logo files (the same
+  lettering, cropped to the name). Widths keep each lockup's proportions: horizontal 1628 by 600, stacked 975 by 1407.
+*/
+const LOCKUPS: Partial<Record<LogoName, "horizontal" | "stacked">> = {
+  houseHorizontal: "horizontal",
+  houseLogo: "stacked",
+};
+
 export function Logo({ name, className = "", alt, eager }: Props) {
   const l = LOGOS[name];
+  const lockup = LOCKUPS[name];
+  const loading = eager ? "eager" : "lazy";
+  if (lockup === "horizontal") {
+    return (
+      <span role="img" aria-label={alt ?? l.alt} className={`flex aspect-[1628/600] items-center gap-[4%] ${className}`}>
+        <img src={`${H}_emblem_metallic-160.webp`} width={160} height={169} alt="" className="block h-full w-auto" decoding="async" loading={loading} />
+        <img src={`${H}_wordmark-horizontal_gold.svg`} width={975} height={390} alt="" className="block h-auto min-w-0 flex-1" decoding="async" loading={loading} />
+      </span>
+    );
+  }
+  if (lockup === "stacked") {
+    return (
+      <span role="img" aria-label={alt ?? l.alt} className={`flex flex-col items-center gap-[6%] ${className}`}>
+        <img src={`${H}_emblem_metallic.webp`} width={640} height={676} alt="" className="block h-auto w-[84%]" decoding="async" loading={loading} />
+        <img src={`${H}_wordmark-stacked_gold.svg`} width={975} height={467} alt="" className="block h-auto w-full" decoding="async" loading={loading} />
+      </span>
+    );
+  }
   return (
     <img
       src={l.src}

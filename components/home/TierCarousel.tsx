@@ -14,10 +14,10 @@ export type Tier = {
 
 // One brand colour per tier, shared by its card, the badge and the progress bar: black, espresso, bronze, gold
 const SKINS = [
-  { colour: "#0b0907", card: "bg-black text-ivory", sub: "text-on-dark-2", ring: "border-ivory/40", rule: "border-ivory/15" },
-  { colour: "#1e1712", card: "bg-espresso text-ivory", sub: "text-on-dark-2", ring: "border-ivory/40", rule: "border-ivory/15" },
+  { colour: "#060b17", card: "bg-black text-ivory", sub: "text-on-dark-2", ring: "border-ivory/40", rule: "border-ivory/15" },
+  { colour: "#0c1529", card: "bg-espresso text-ivory", sub: "text-on-dark-2", ring: "border-ivory/40", rule: "border-ivory/15" },
   { colour: "#7e6029", card: "bg-bronze text-ivory", sub: "text-ivory/75", ring: "border-ivory/50", rule: "border-ivory/20" },
-  { colour: "#c9a54c", card: "bg-gold text-espresso", sub: "text-espresso/70", ring: "border-espresso/35", rule: "border-espresso/15" },
+  { colour: "#d0a94f", card: "bg-gold text-espresso", sub: "text-espresso/70", ring: "border-espresso/35", rule: "border-espresso/15" },
 ];
 
 const INTERVAL = 5000;

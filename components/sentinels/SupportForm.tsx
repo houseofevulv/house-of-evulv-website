@@ -7,7 +7,7 @@ import { partnership, support } from "@/lib/content";
 import { SUPPORT_FIELDS, SUPPORT_MESSAGE_MAX, type SupportField, type SupportState } from "@/lib/support-fields";
 
 const control =
-  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#9A8D7C] md:py-[15px]";
+  "w-full min-h-[50px] rounded-xl border bg-white px-4 py-3.5 text-base font-medium text-ink placeholder:text-[#8A90A0] md:py-[15px]";
 const fmt = (n: number) => n.toLocaleString("en-GB");
 
 function Field({ id, label, error, className = "", children, hint }: {
