@@ -1,25 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Libre_Bodoni, Manrope } from "next/font/google";
+import { Bungee, Inter } from "next/font/google";
 import { MotionObserver } from "@/components/MotionObserver";
 import { site } from "@/lib/content";
 import { metadataBaseUrl } from "@/lib/metadata";
 import "./globals.css";
 
-const manrope = Manrope({
+// Body: Inter. Headings: Bungee, which has a single weight (400). Both chosen by the client after wearingfine.com.
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-manrope",
+  variable: "--font-inter",
 });
 
-// Headings: Libre Bodoni, in sentence case. SemiBold for large headings, Bold for small ones.
-// (The logo files keep their own lettering; this is the website's heading face.)
-const bodoni = Libre_Bodoni({
+const bungee = Bungee({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  style: ["normal", "italic"],
+  weight: "400",
   display: "swap",
-  variable: "--font-bodoni",
+  variable: "--font-bungee",
 });
 
 export const metadata: Metadata = {
@@ -55,7 +53,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NG" className={`${manrope.variable} ${bodoni.variable}`} data-scroll-behavior="smooth">
+    <html lang="en-NG" className={`${inter.variable} ${bungee.variable}`} data-scroll-behavior="smooth">
       <body>
         <a
           href="#content"

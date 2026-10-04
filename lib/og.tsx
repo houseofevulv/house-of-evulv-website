@@ -23,20 +23,20 @@ export const C = {
   muted: "#5F5347",
 };
 
-/** Heading style for preview images: Libre Bodoni, as on the site */
-export const DISPLAY = { fontFamily: "Libre Bodoni", fontWeight: 700, letterSpacing: "0" } as const;
+/** Heading style for preview images: Bungee, as on the site */
+export const DISPLAY = { fontFamily: "Bungee", fontWeight: 400, letterSpacing: "0" } as const;
 
 const root = process.cwd();
 
 export async function ogFonts() {
-  const load = (w: number) => readFile(join(root, `assets/fonts/Manrope-${w}.ttf`));
-  const bodoni = await readFile(join(root, "assets/fonts/LibreBodoni-700.ttf"));
+  const load = (w: number) => readFile(join(root, `assets/fonts/Inter-${w}.ttf`));
+  const bungee = await readFile(join(root, "assets/fonts/Bungee-400.ttf"));
   const [w500, w700, w800] = await Promise.all([load(500), load(700), load(800)]);
   return [
-    { name: "Libre Bodoni", data: bodoni, weight: 700 as const, style: "normal" as const },
-    { name: "Manrope", data: w500, weight: 500 as const, style: "normal" as const },
-    { name: "Manrope", data: w700, weight: 700 as const, style: "normal" as const },
-    { name: "Manrope", data: w800, weight: 800 as const, style: "normal" as const },
+    { name: "Bungee", data: bungee, weight: 400 as const, style: "normal" as const },
+    { name: "Inter", data: w500, weight: 500 as const, style: "normal" as const },
+    { name: "Inter", data: w700, weight: 700 as const, style: "normal" as const },
+    { name: "Inter", data: w800, weight: 800 as const, style: "normal" as const },
   ];
 }
 
@@ -60,7 +60,7 @@ export async function ogSvg(path: string) {
 /** The page gutter and rounded panel used across the site */
 export function Frame({ children, background = C.ivory }: { children: ReactNode; background?: string }) {
   return (
-    <div style={{ width: "100%", height: "100%", display: "flex", padding: 16, background, fontFamily: "Manrope" }}>
+    <div style={{ width: "100%", height: "100%", display: "flex", padding: 16, background, fontFamily: "Inter" }}>
       {children}
     </div>
   );

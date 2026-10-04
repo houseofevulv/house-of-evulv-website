@@ -20,9 +20,9 @@ export function TheHouse() {
         className="pointer-events-none absolute right-0 bottom-0 h-auto w-[110px] translate-x-[8%] opacity-[0.14] md:w-[150px] lg:w-[170px]"
       />
       {/* The name as one line the full width of the hero card, softened; it never wraps, at any width.
-          em: the line's width in Libre Bodoni Bold at size 1, measured with fontTools (see FitLine). */}
+          em: the line's width in Bungee at size 1, measured with fontTools (see FitLine). */}
       <h2 className="reveal relative m-0 w-full">
-        <FitLine as="span" em={6.87} className="text-espresso/35">
+        <FitLine as="span" em={8.91} className="text-espresso/35">
           House of Evulv
         </FitLine>
       </h2>

@@ -6,8 +6,8 @@
   espresso and ivory for text, rules and panels. Gold is for dark backgrounds only; on light, use bronze.
 */
 @theme {
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
-  --font-display: var(--font-bodoni), "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-bungee), Impact, sans-serif;
 
   /* Brand palette */
   --color-gold: #c9a54c;
@@ -62,70 +62,71 @@
   Fluid type. Each role is its mobile value below 768px, its desktop value at 1440px, and interpolates between.
   Sizes are rem plus vw, and no role's maximum is more than 2.5 times its minimum, so text still scales with browser
   zoom (WCAG 1.4.4).
-  Headings are Libre Bodoni in sentence case: SemiBold and slightly tight at large sizes, Bold at small sizes,
-  where Bodoni's hairlines need the weight.
+  Headings are Bungee, after wearingfine.com at the client's request. It has one weight and sets about 30% wider
+  than the Libre Bodoni these sizes were drawn for, so each display size is scaled by --display-scale to keep the
+  same line breaks.
 */
 @utility t-display {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
 @utility t-home-hero {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5.0595vw - 0.4286rem, 4.125rem);
+  font-size: calc(var(--display-scale) * clamp(2rem, 5.0595vw - 0.4286rem, 4.125rem));
   line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 /* Home hero headline: 44px on phones to 80px at 1440px, sized so its two lines hold beside the emblem scene */
 @utility t-home-display {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 3.6vw + 1.75rem, 5rem);
+  font-size: calc(var(--display-scale) * clamp(2.75rem, 3.6vw + 1.75rem, 5rem));
   line-height: 1.02;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-sop-hero {
   font-family: var(--font-display);
-  font-size: clamp(2.375rem, 8.0357vw - 1.4821rem, 5.75rem);
+  font-size: calc(var(--display-scale) * clamp(2.375rem, 8.0357vw - 1.4821rem, 5.75rem));
   line-height: 1;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-feature {
   font-family: var(--font-display);
-  font-size: clamp(1.875rem, 3.869vw + 0.0179rem, 3.5rem);
+  font-size: calc(var(--display-scale) * clamp(1.875rem, 3.869vw + 0.0179rem, 3.5rem));
   line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-nominate {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 2.9762vw + 0.3214rem, 3rem);
+  font-size: calc(var(--display-scale) * clamp(1.75rem, 2.9762vw + 0.3214rem, 3rem));
   line-height: 1.12;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-h2-48 {
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 2.0833vw + 0.625rem, 2.5rem);
+  font-size: calc(var(--display-scale) * clamp(1.625rem, 2.0833vw + 0.625rem, 2.5rem));
   line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-h2-52 {
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 2.381vw + 0.4821rem, 2.625rem);
+  font-size: calc(var(--display-scale) * clamp(1.625rem, 2.381vw + 0.4821rem, 2.625rem));
   line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-h2-56 {
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 2.9762vw + 0.1964rem, 2.875rem);
+  font-size: calc(var(--display-scale) * clamp(1.625rem, 2.9762vw + 0.1964rem, 2.875rem));
   line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 @utility t-contact-email {
   font-size: clamp(1.625rem, 4.2vw + 0.9rem, 4rem);
@@ -147,33 +148,33 @@
 }
 @utility t-tile-44 {
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 1.7857vw + 0.7679rem, 2.375rem);
+  font-size: calc(var(--display-scale) * clamp(1.625rem, 1.7857vw + 0.7679rem, 2.375rem));
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
 @utility t-tile-40 {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.4881vw + 0.7857rem, 2.125rem);
+  font-size: calc(var(--display-scale) * clamp(1.5rem, 1.4881vw + 0.7857rem, 2.125rem));
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
 @utility t-tile-36 {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.1905vw + 0.9286rem, 2rem);
+  font-size: calc(var(--display-scale) * clamp(1.5rem, 1.1905vw + 0.9286rem, 2rem));
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
 @utility t-tile-28 {
   font-family: var(--font-display);
-  font-size: clamp(1.375rem, 0.5952vw + 1.0893rem, 1.625rem);
+  font-size: calc(var(--display-scale) * clamp(1.375rem, 0.5952vw + 1.0893rem, 1.625rem));
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0;
 }
-/* Honour category titles: Manrope. 20% larger than the Bodoni size they replaced (19 to 24px), then 25% more:
+/* Honour category titles: Inter. 20% larger than the Bodoni size they replaced (19 to 24px), then 25% more:
    28.5 to 36px */
 @utility t-category {
   font-family: var(--font-sans);
@@ -216,12 +217,22 @@
   a {
     color: var(--color-espresso);
   }
-  /* Headings are Libre Bodoni. Label-sized headings opt out with font-sans. */
+  :root {
+    --display-scale: 0.8;
+  }
+  /* Headings are Bungee. Label-sized headings opt out with font-sans. */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
     letter-spacing: 0;
+  }
+  /* Bungee has no bold or italic: show its one style rather than a browser-faked one */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-synthesis: none;
   }
 
   /* Focus ring: espresso on light surfaces, gold on dark ones */

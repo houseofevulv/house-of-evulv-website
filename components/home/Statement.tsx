@@ -4,9 +4,9 @@ import { FitLine } from "@/components/FitLine";
 export function Statement() {
   return (
     <section className="px-4 py-12 md:px-12 md:py-20 lg:py-24">
-      {/* em: the line's width in Libre Bodoni Bold at size 1, measured with fontTools (see FitLine) */}
+      {/* em: the line's width in Bungee at size 1, measured with fontTools (see FitLine) */}
       <h2 className="reveal m-0 w-full text-center">
-        <FitLine as="span" em={17.81} className="text-espresso/35">
+        <FitLine as="span" em={22.79} className="text-espresso/35">
           We create what the future remembers.
         </FitLine>
       </h2>

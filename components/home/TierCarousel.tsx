@@ -119,9 +119,9 @@ export function TierCarousel({ tiers, children }: { tiers: Tier[]; children?: Re
             className="tier-name absolute inset-x-[18%] top-[40%] m-0 flex flex-col items-center text-center transition-colors duration-700 motion-reduce:transition-none"
             style={{ color: skin.colour }}
           >
-            {/* Sized to the badge: the longest name, Programme (5.76em wide in Libre Bodoni), fills about 54% of it and
+            {/* Sized to the badge: the longest name, Programme (6.7em wide in Bungee), fills about 54% of it and
                 stays clear of the lettering round the ring */}
-            <span className="t-display text-[9cqw] leading-none">{current.name}</span>
+            <span className="t-display text-[8cqw] leading-none">{current.name}</span>
             <span className="pt-[1.5cqw] text-[max(11px,3.1cqw)] font-bold tracking-[0.16em] uppercase">Partner</span>
           </p>
         </div>
