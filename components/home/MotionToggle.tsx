@@ -65,7 +65,7 @@ export function MotionToggle() {
       ref={ref}
       type="button"
       onClick={toggle}
-      className="lnk absolute bottom-3 left-3 z-10 inline-flex min-h-11 min-w-11 items-center gap-2 rounded-full px-3 text-[13px] font-semibold text-on-dark-2 motion-reduce:hidden md:bottom-6 md:left-6"
+      className="lnk absolute bottom-10 left-3 z-10 inline-flex min-h-11 min-w-11 items-center gap-2 rounded-full px-3 text-[13px] font-semibold text-on-dark-2 motion-reduce:hidden md:bottom-16 md:left-6 lg:bottom-20"
     >
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="currentColor">
         {paused ? <path d="M4 2.5v11l9-5.5z" /> : <path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" />}

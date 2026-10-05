@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
+import { GoldLight } from "./GoldLight";
 import { HeroParallax } from "./HeroParallax";
 import { MotionToggle } from "./MotionToggle";
 
@@ -31,10 +32,12 @@ export function Hero() {
         </div>
       </div>
 
+      <GoldLight />
+
       <SiteHeader variant="home" />
       <div
         id="content"
-        className="relative flex grow flex-col justify-end px-5 pt-[340px] pb-16 md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
+        className="relative flex grow flex-col justify-end px-5 pt-[340px] pb-[124px] md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
       >
         {/* Text on the right, opposite the scene, as in the official mark band */}
         <div className="flex max-w-[620px] flex-col md:ml-auto md:max-w-[64%] lg:max-w-[56%] xl:max-w-[52%]">

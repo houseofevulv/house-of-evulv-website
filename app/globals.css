@@ -546,8 +546,18 @@
     animation: ring-turn 240s linear infinite;
   }
   /* The one loop: held while its hero is off screen, and stopped by the Pause motion button */
+  /* The gold lights in the air twinkle slowly; the horizon catches a light once on arrival */
+  .bokeh-twinkle {
+    animation: bokeh-twinkle 7s ease-in-out infinite;
+  }
+  .gold-arc {
+    stroke-dasharray: 260 2400;
+    animation: gold-arc 3.2s cubic-bezier(0.45, 0, 0.3, 1) 0.8s both;
+  }
   .scene[data-offscreen] .ring-turn,
-  :root[data-motion="paused"] .ring-turn {
+  :root[data-motion="paused"] .ring-turn,
+  .scene[data-offscreen] .bokeh-twinkle,
+  :root[data-motion="paused"] .bokeh-twinkle {
     animation-play-state: paused;
   }
   /* The light crosses the seal once, on arrival */
@@ -600,6 +610,32 @@
   }
   to {
     background-position: 0% 0;
+  }
+}
+@keyframes bokeh-twinkle {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.35);
+    filter: brightness(1.35);
+  }
+}
+/* A short bright stretch runs along the horizon, then the line is whole again */
+@keyframes gold-arc {
+  from {
+    stroke-dasharray: 260 2400;
+    stroke-dashoffset: 260;
+  }
+  99% {
+    stroke-dasharray: 260 2400;
+    stroke-dashoffset: -1900;
+  }
+  to {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
   }
 }
 @keyframes ring-turn {
