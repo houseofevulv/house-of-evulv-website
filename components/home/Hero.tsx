@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { GoldLight } from "@/components/GoldLight";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
-import { GoldLight } from "./GoldLight";
 import { HeroParallax } from "./HeroParallax";
 import { MotionToggle } from "./MotionToggle";
 
@@ -17,7 +17,7 @@ export function Hero() {
     <section className="hero-home scene on-dark relative -mx-2 -mt-2 flex min-h-[min(760px,100svh)] flex-col overflow-clip text-ivory md:-mx-4 md:-mt-4 md:min-h-[760px] lg:min-h-[840px] min-[90rem]:mx-[calc(704px_-_50vw)]">
       <HeroParallax />
       {/* Full width of the hero, outside the 1440px frame, so the ribbons run to both edges of the screen */}
-      <GoldLight />
+      <GoldLight id="gl-home" bokeh />
       <div className="relative mx-auto flex w-full max-w-[1440px] grow flex-col">
       {/* The metallic emblem is the hero's mark (the header shows the wordmark alone, so it is not shown twice). The open
           ring turns slowly behind it, and a light crosses the metal once on arrival. */}

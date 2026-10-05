@@ -20,10 +20,14 @@ const FLARES = [
   { left: "81.9%", top: "56.7%", size: 56, o: 0.65 },
 ];
 
-export function GoldLight() {
+/**
+ * `id` keeps the SVG's gradient names unique to each use. `bokeh` adds the twinkling lights: only where the panel has a
+ * Pause motion button (the home hero), since they loop.
+ */
+export function GoldLight({ id = "gl", bokeh = false }: { id?: string; bokeh?: boolean }) {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-      {BOKEH.map((b) => (
+      {bokeh && BOKEH.map((b) => (
         <span
           key={b.left + b.top}
           className="bokeh-twinkle absolute rounded-full blur-[1.5px]"
@@ -63,7 +67,7 @@ export function GoldLight() {
         preserveAspectRatio="none"
       >
         <defs>
-          <linearGradient id="gl-arc" x1="0" x2="1" y1="0" y2="0">
+          <linearGradient id={`${id}-arc`} x1="0" x2="1" y1="0" y2="0">
             <stop offset="0" stopColor="#b8862e" stopOpacity="0" />
             <stop offset="0.2" stopColor="#b8862e" stopOpacity="0.7" />
             <stop offset="0.5" stopColor="#f8e1a0" />
@@ -71,11 +75,11 @@ export function GoldLight() {
             <stop offset="1" stopColor="#b8862e" stopOpacity="0" />
           </linearGradient>
           {/* Below the horizon the globe is a shade darker than the sky; the glowing line lights its edge */}
-          <linearGradient id="gl-rim" x1="0" x2="0" y1="0" y2="1">
+          <linearGradient id={`${id}-rim`} x1="0" x2="0" y1="0" y2="1">
             <stop offset="0" stopColor="#040914" stopOpacity="0.35" />
             <stop offset="1" stopColor="#040914" stopOpacity="0.85" />
           </linearGradient>
-          <linearGradient id="gl-ribbon" x1="0" x2="1" y1="0" y2="0">
+          <linearGradient id={`${id}-ribbon`} x1="0" x2="1" y1="0" y2="0">
             <stop offset="0" stopColor="#8c6420" />
             <stop offset="0.22" stopColor="#e9c46e" />
             <stop offset="0.4" stopColor="#a8792c" />
@@ -83,51 +87,51 @@ export function GoldLight() {
             <stop offset="0.82" stopColor="#b88a36" />
             <stop offset="1" stopColor="#8c6420" />
           </linearGradient>
-          <linearGradient id="gl-navy" x1="0" x2="1" y1="0" y2="0">
+          <linearGradient id={`${id}-navy`} x1="0" x2="1" y1="0" y2="0">
             <stop offset="0" stopColor="#0c1a3f" />
             <stop offset="0.5" stopColor="#24407f" />
             <stop offset="1" stopColor="#0c1a3f" />
           </linearGradient>
-          <filter id="gl-blur" x="-10%" y="-50%" width="120%" height="200%">
+          <filter id={`${id}-blur`} x="-10%" y="-50%" width="120%" height="200%">
             <feGaussianBlur stdDeviation="6" />
           </filter>
-          <filter id="gl-soft" x="-10%" y="-50%" width="120%" height="200%">
+          <filter id={`${id}-soft`} x="-10%" y="-50%" width="120%" height="200%">
             <feGaussianBlur stdDeviation="2.5" />
           </filter>
         </defs>
 
         {/* The globe under the horizon */}
-        <path d="M-100 300 Q720 -80 1540 300 Z" fill="url(#gl-rim)" />
+        <path d="M-100 300 Q720 -80 1540 300 Z" fill={`url(#${id}-rim)`} />
         {/* The horizon: a blurred glow under a fine bright line */}
-        <path d="M-100 300 Q720 -80 1540 300" fill="none" stroke="url(#gl-arc)" strokeWidth="10" opacity="0.5" filter="url(#gl-blur)" vectorEffect="non-scaling-stroke" />
+        <path d="M-100 300 Q720 -80 1540 300" fill="none" stroke={`url(#${id}-arc)`} strokeWidth="10" opacity="0.5" filter={`url(#${id}-blur)`} vectorEffect="non-scaling-stroke" />
         <path
           className="gold-arc"
           d="M-100 300 Q720 -80 1540 300"
           pathLength={1000}
           fill="none"
-          stroke="url(#gl-arc)"
+          stroke={`url(#${id}-arc)`}
           strokeWidth="1.6"
           vectorEffect="non-scaling-stroke"
         />
         {/* Ribbons along the foot: gold, navy, gold, with a soft glow under the first */}
         <path
           d="M0 258 C300 214 520 300 820 254 S1260 206 1440 244 L1440 258 C1260 222 1100 290 820 270 S300 230 0 274 Z"
-          fill="url(#gl-ribbon)"
+          fill={`url(#${id}-ribbon)`}
           opacity="0.55"
-          filter="url(#gl-soft)"
+          filter={`url(#${id}-soft)`}
         />
         <path
           d="M0 270 C320 236 560 306 860 270 S1270 232 1440 262 L1440 300 L0 300 Z"
-          fill="url(#gl-navy)"
+          fill={`url(#${id}-navy)`}
           opacity="0.85"
         />
         <path
           d="M0 258 C300 214 520 300 820 254 S1260 206 1440 244 L1440 254 C1260 220 1100 284 820 266 S300 228 0 268 Z"
-          fill="url(#gl-ribbon)"
+          fill={`url(#${id}-ribbon)`}
         />
         <path
           d="M0 290 C340 262 600 312 900 284 S1300 262 1440 280 L1440 286 C1300 270 1120 304 900 292 S340 274 0 298 Z"
-          fill="url(#gl-ribbon)"
+          fill={`url(#${id}-ribbon)`}
           opacity="0.8"
         />
       </svg>

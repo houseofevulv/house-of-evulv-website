@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GoldLight } from "@/components/GoldLight";
 import { KnightsBackdrop } from "@/components/KnightsBackdrop";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -18,10 +19,12 @@ export function Hero() {
   return (
     <section className="hero-sentinels on-dark relative flex flex-col overflow-clip rounded-[22px] text-ivory md:rounded-[28px]">
       <KnightsBackdrop rise />
+      {/* The gold horizon and ribbons from the home hero, along the foot of the panel; the knights stand behind it */}
+      <GoldLight id="gl-sop" />
       <SiteHeader variant="sentinels" />
       <div
         id="content"
-        className="relative flex flex-col items-center gap-6 px-5 pt-8 pb-28 text-center md:gap-7 md:px-8 md:pt-12 md:pb-16 lg:pb-20"
+        className="relative flex flex-col items-center gap-6 px-5 pt-8 pb-[130px] text-center md:gap-7 md:px-8 md:pt-12 md:pb-[160px] lg:pb-[190px]"
       >
         <div className="seal-light relative">
           <Logo name="sentinelsSeal" eager className="h-auto w-[200px] md:w-[260px] xl:w-[300px]" />
