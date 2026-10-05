@@ -57,6 +57,23 @@ export async function ogSvg(path: string) {
   return `data:image/svg+xml;base64,${buf.toString("base64")}`;
 }
 
+/**
+ * The gold horizon and ribbons from the site's heroes, along the foot of a 1168px panel. A pre-rendered image
+ * (assets/og/gold-band.png, with the panel's rounded bottom corners), since preview images cannot run the SVG effects.
+ * Give the panel position: relative and keep its content above the bottom 120px.
+ */
+export function GoldBand({ src }: { src: string }) {
+  return (
+    <img
+      src={src}
+      alt=""
+      width={1168}
+      height={170}
+      style={{ position: "absolute", left: 0, bottom: 0, width: 1168, height: 170 }}
+    />
+  );
+}
+
 /** The page gutter and rounded panel used across the site */
 export function Frame({ children, background = C.ivory }: { children: ReactNode; background?: string }) {
   return (

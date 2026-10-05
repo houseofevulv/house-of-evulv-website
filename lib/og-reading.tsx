@@ -1,13 +1,14 @@
 import { ImageResponse } from "next/og";
-import { C, DISPLAY, Frame, OG_SIZE, ogFonts, ogPng, ogSvg } from "./og";
+import { C, DISPLAY, Frame, GoldBand, OG_SIZE, ogFonts, ogPng, ogSvg } from "./og";
 import { site } from "./content";
 
 /** Preview for the plain reading pages: a forest panel with the page title */
 export async function readingOgImage({ label, title, subtitle }: { label: string; title: string; subtitle: string }) {
-  const [fonts, emblem, wordmark] = await Promise.all([
+  const [fonts, emblem, wordmark, band] = await Promise.all([
     ogFonts(),
     ogPng("house-emblem-metallic"),
     ogSvg("brand/house/house-of-evulv_wordmark-horizontal_gold.svg"),
+    ogPng("gold-band"),
   ]);
   const domain = new URL(site.url).hostname;
   return new ImageResponse(
@@ -18,13 +19,15 @@ export async function readingOgImage({ label, title, subtitle }: { label: string
             flex: 1,
             display: "flex",
             flexDirection: "column",
+            position: "relative",
             justifyContent: "space-between",
             borderRadius: 28,
             background: C.espresso,
             color: C.ivory,
-            padding: "36px 48px 48px",
+            padding: "36px 48px 144px",
           }}
         >
+          <GoldBand src={band} />
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <img src={emblem} alt="" width={86} height={91} style={{ width: 86, height: 91 }} />
