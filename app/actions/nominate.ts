@@ -12,7 +12,7 @@ import { clientIp, looksLikeBot, rateLimited } from "@/lib/spam";
 let devCounter = 0;
 
 const GENERIC_ERROR =
-  "We couldn't send your nomination just now. Please try again in a few minutes, or email it to hello@houseofevulv.com.";
+  "We couldn't send your nomination just now. Please try again in a few minutes, or email it to houseofevulv@gmail.com.";
 
 export async function nominate(formData: FormData): Promise<NominateState> {
   // 2026 edition: honourees are selected, not nominated, so the form is off and the action refuses submissions.
