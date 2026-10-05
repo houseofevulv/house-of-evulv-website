@@ -1,10 +1,14 @@
 import { ImageResponse } from "next/og";
-import { C, DISPLAY, Frame, OG_SIZE, ogFonts, ogSvg } from "./og";
+import { C, DISPLAY, Frame, OG_SIZE, ogFonts, ogPng, ogSvg } from "./og";
 import { site } from "./content";
 
 /** Preview for the plain reading pages: a forest panel with the page title */
 export async function readingOgImage({ label, title, subtitle }: { label: string; title: string; subtitle: string }) {
-  const [fonts, logo] = await Promise.all([ogFonts(), ogSvg("brand/house/house-of-evulv_horizontal_gold-and-silver.svg")]);
+  const [fonts, emblem, wordmark] = await Promise.all([
+    ogFonts(),
+    ogPng("house-emblem-metallic"),
+    ogSvg("brand/house/house-of-evulv_wordmark-horizontal_gold.svg"),
+  ]);
   const domain = new URL(site.url).hostname;
   return new ImageResponse(
     (
@@ -22,7 +26,10 @@ export async function readingOgImage({ label, title, subtitle }: { label: string
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <img src={logo} alt="" width={244} height={90} style={{ width: 244, height: 90 }} />
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <img src={emblem} alt="" width={86} height={91} style={{ width: 86, height: 91 }} />
+              <img src={wordmark} alt="" width={170} height={68} style={{ width: 170, height: 68 }} />
+            </div>
             <div style={{ fontSize: 20, fontWeight: 500, color: C.onDark3 }}>{domain}</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>

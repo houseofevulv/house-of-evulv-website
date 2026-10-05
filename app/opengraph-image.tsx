@@ -1,14 +1,18 @@
 import { ImageResponse } from "next/og";
-import { C, DISPLAY, Frame, OG_SIZE, ogFonts, ogSvg } from "@/lib/og";
+import { C, DISPLAY, Frame, OG_SIZE, ogFonts, ogPng, ogSvg } from "@/lib/og";
 import { site } from "@/lib/content";
 
 export const alt = `${site.name}: we honour and support the people who keep communities at peace.`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
-// Emblem in gold and silver on espresso, matching the home page
+// The metallic emblem over the wordmark on midnight, matching the home page
 export default async function Image() {
-  const [fonts, emblem] = await Promise.all([ogFonts(), ogSvg("brand/house/house-of-evulv_logo_gold-and-silver.svg")]);
+  const [fonts, emblem, wordmark] = await Promise.all([
+    ogFonts(),
+    ogPng("house-emblem-metallic"),
+    ogSvg("brand/house/house-of-evulv_wordmark-stacked_gold.svg"),
+  ]);
   return new ImageResponse(
     (
       <Frame background={C.black}>
@@ -24,7 +28,10 @@ export default async function Image() {
             padding: "0 72px",
           }}
         >
-          <img src={emblem} alt="" width={312} height={450} style={{ width: 312, height: 450 }} />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
+            <img src={emblem} alt="" width={290} height={306} style={{ width: 290, height: 306 }} />
+            <img src={wordmark} alt="" width={250} height={120} style={{ width: 250, height: 120 }} />
+          </div>
           <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 24 }}>
             <div style={{ display: "flex", fontSize: 54, lineHeight: 1.12, color: C.gold, ...DISPLAY }}>
               Honouring those who keep the peace
