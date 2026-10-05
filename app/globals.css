@@ -551,7 +551,7 @@
     animation: bokeh-twinkle 7s ease-in-out infinite;
   }
   .gold-arc {
-    stroke-dasharray: 260 2400;
+    stroke-dasharray: 120 1200;
     animation: gold-arc 3.2s cubic-bezier(0.45, 0, 0.3, 1) 0.8s both;
   }
   .scene[data-offscreen] .ring-turn,
@@ -626,12 +626,12 @@
 /* A short bright stretch runs along the horizon, then the line is whole again */
 @keyframes gold-arc {
   from {
-    stroke-dasharray: 260 2400;
-    stroke-dashoffset: 260;
+    stroke-dasharray: 120 1200;
+    stroke-dashoffset: 120;
   }
   99% {
-    stroke-dasharray: 260 2400;
-    stroke-dashoffset: -1900;
+    stroke-dasharray: 120 1200;
+    stroke-dashoffset: -1000;
   }
   to {
     stroke-dasharray: none;

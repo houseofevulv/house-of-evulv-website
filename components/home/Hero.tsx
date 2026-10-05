@@ -16,6 +16,8 @@ export function Hero() {
     // page frame on wide screens), square-edged. Its contents stay in the 1440px frame.
     <section className="hero-home scene on-dark relative -mx-2 -mt-2 flex min-h-[min(760px,100svh)] flex-col overflow-clip text-ivory md:-mx-4 md:-mt-4 md:min-h-[760px] lg:min-h-[840px] min-[90rem]:mx-[calc(704px_-_50vw)]">
       <HeroParallax />
+      {/* Full width of the hero, outside the 1440px frame, so the ribbons run to both edges of the screen */}
+      <GoldLight />
       <div className="relative mx-auto flex w-full max-w-[1440px] grow flex-col">
       {/* The metallic emblem is the hero's mark (the header shows the wordmark alone, so it is not shown twice). The open
           ring turns slowly behind it, and a light crosses the metal once on arrival. */}
@@ -31,8 +33,6 @@ export function Hero() {
           <Logo name="houseEmblem" alt="" eager className="h-full w-full" />
         </div>
       </div>
-
-      <GoldLight />
 
       <SiteHeader variant="home" />
       <div

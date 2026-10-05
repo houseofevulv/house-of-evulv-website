@@ -1,6 +1,6 @@
 /**
- * The gold light from the client's "100 Days of Peace" artwork, kept quiet: a glowing horizon arc with two flares,
- * gold and navy ribbons along the foot of the hero, and a few soft lights in the air. Decorative only. The lights
+ * The gold light from the client's "100 Days of Peace" artwork, kept quiet: a glowing horizon arc with two stars,
+ * gold and navy ribbons along the foot of the hero (both stretch to the full width of the screen), and a few soft lights in the air. Decorative only. The lights
  * twinkle slowly (paused with the hero's motion button, and still for reduced-motion visitors); the arc catches a
  * light once on arrival.
  */
@@ -12,6 +12,12 @@ const BOKEH = [
   { left: "89%", top: "28%", size: 18, delay: "2.4s", o: 0.5 },
   { left: "94%", top: "60%", size: 24, delay: "4s", o: 0.45 },
   { left: "36%", top: "72%", size: 10, delay: "5.2s", o: 0.5 },
+];
+
+// On the horizon: x 330 and 1180 of 1440, y 153 and 170 of 300 in the band's viewBox
+const FLARES = [
+  { left: "22.9%", top: "51%", size: 84, o: 0.9 },
+  { left: "81.9%", top: "56.7%", size: 56, o: 0.65 },
 ];
 
 export function GoldLight() {
@@ -33,10 +39,28 @@ export function GoldLight() {
         />
       ))}
 
+      {/* Two stars where the light catches the horizon: round glows only, so nothing runs beside the curved line */}
+      <div className="absolute inset-x-0 bottom-0 h-[150px] md:h-[200px] lg:h-[240px]">
+        {FLARES.map((f) => (
+          <span
+            key={f.left}
+            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{
+              left: f.left,
+              top: f.top,
+              width: f.size,
+              height: f.size,
+              opacity: f.o,
+              background: "radial-gradient(circle, #fff6dc 0%, rgb(243 210 124 / 0.75) 18%, rgb(208 169 79 / 0.25) 45%, transparent 70%)",
+            }}
+          />
+        ))}
+      </div>
+
       <svg
-        className="gold-horizon absolute inset-x-0 bottom-0 h-[150px] w-full md:h-[200px] lg:h-[240px]"
+        className="absolute inset-x-0 bottom-0 h-[150px] w-full md:h-[200px] lg:h-[240px]"
         viewBox="0 0 1440 300"
-        preserveAspectRatio="xMidYMax slice"
+        preserveAspectRatio="none"
       >
         <defs>
           <linearGradient id="gl-arc" x1="0" x2="1" y1="0" y2="0">
@@ -51,11 +75,6 @@ export function GoldLight() {
             <stop offset="0" stopColor="#040914" stopOpacity="0.35" />
             <stop offset="1" stopColor="#040914" stopOpacity="0.85" />
           </linearGradient>
-          <radialGradient id="gl-flare">
-            <stop offset="0" stopColor="#fff6dc" />
-            <stop offset="0.25" stopColor="#f3d27c" stopOpacity="0.7" />
-            <stop offset="1" stopColor="#d0a94f" stopOpacity="0" />
-          </radialGradient>
           <linearGradient id="gl-ribbon" x1="0" x2="1" y1="0" y2="0">
             <stop offset="0" stopColor="#8c6420" />
             <stop offset="0.22" stopColor="#e9c46e" />
@@ -80,18 +99,16 @@ export function GoldLight() {
         {/* The globe under the horizon */}
         <path d="M-100 300 Q720 -80 1540 300 Z" fill="url(#gl-rim)" />
         {/* The horizon: a blurred glow under a fine bright line */}
-        <path d="M-100 300 Q720 -80 1540 300" fill="none" stroke="url(#gl-arc)" strokeWidth="10" opacity="0.5" filter="url(#gl-blur)" />
-        <path className="gold-arc" d="M-100 300 Q720 -80 1540 300" fill="none" stroke="url(#gl-arc)" strokeWidth="1.6" />
-        {/* Flares where the light catches the horizon */}
-        <g opacity="0.85">
-          <circle cx="330" cy="153" r="46" fill="url(#gl-flare)" />
-          <ellipse cx="330" cy="153" rx="150" ry="1.4" fill="#fbe7b0" opacity="0.7" />
-        </g>
-        <g opacity="0.6">
-          <circle cx="1180" cy="170" r="30" fill="url(#gl-flare)" />
-          <ellipse cx="1180" cy="170" rx="90" ry="1.1" fill="#fbe7b0" opacity="0.6" />
-        </g>
-
+        <path d="M-100 300 Q720 -80 1540 300" fill="none" stroke="url(#gl-arc)" strokeWidth="10" opacity="0.5" filter="url(#gl-blur)" vectorEffect="non-scaling-stroke" />
+        <path
+          className="gold-arc"
+          d="M-100 300 Q720 -80 1540 300"
+          pathLength={1000}
+          fill="none"
+          stroke="url(#gl-arc)"
+          strokeWidth="1.6"
+          vectorEffect="non-scaling-stroke"
+        />
         {/* Ribbons along the foot: gold, navy, gold, with a soft glow under the first */}
         <path
           d="M0 258 C300 214 520 300 820 254 S1260 206 1440 244 L1440 258 C1260 222 1100 290 820 270 S300 230 0 274 Z"
