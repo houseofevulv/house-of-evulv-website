@@ -53,6 +53,10 @@ const LOGOS = {
   lotusLight: { src: `${E}-lotus-and-water_bronze.svg`, w: 1000, h: 955, alt: "Lotus rising from still water" },
   tree: { src: `${E}-tree-of-life_gold-and-silver.svg`, w: 1000, h: 1594, alt: "Tree of life growing from a strand of DNA" },
   treeLight: { src: `${E}-tree-of-life_bronze.svg`, w: 1000, h: 1594, alt: "Tree of life growing from a strand of DNA" },
+  // The same three elements cut from the metallic emblem (dark backgrounds only)
+  doveMetallic: { src: `${E}-dove_metallic.webp`, w: 360, h: 388, alt: "Dove carrying an olive branch" },
+  lotusMetallic: { src: `${E}-lotus_metallic.webp`, w: 360, h: 376, alt: "Lotus rising from still water" },
+  treeMetallic: { src: `${E}-tree_metallic.webp`, w: 300, h: 464, alt: "Tree of life growing from a strand of DNA" },
   ring: { src: `${E}-open-ring_gold.svg`, w: 1000, h: 942, alt: "" },
   leaf: { src: `${E}-leaf_gold.svg`, w: 400, h: 881, alt: "" },
   leafLight: { src: `${E}-leaf_bronze.svg`, w: 400, h: 881, alt: "" },

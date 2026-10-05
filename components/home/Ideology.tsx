@@ -7,21 +7,21 @@ import { usePinnedStep } from "@/lib/usePinnedStep";
 const ideals: { title: string; mark: LogoName; body: string; art: string }[] = [
   {
     title: "Peace",
-    mark: "dove",
+    mark: "doveMetallic",
     body: "We cultivate the conditions in which dignity, justice and mutual understanding can flourish. Peace is the architecture upon which every enduring society must rise.",
     art: "w-[62%]",
   },
   {
     title: "Healing",
-    mark: "lotus",
+    mark: "lotusMetallic",
     body: "We believe progress begins where wounds are acknowledged and humanity is restored. Healing reconnects people to hope, purpose and one another.",
     art: "w-[62%]",
   },
   {
     title: "Evolution",
-    mark: "tree",
+    mark: "treeMetallic",
     body: "We transform insight into action and action into advancement. Evolution is our commitment to becoming wiser, stronger and more useful to the world.",
-    art: "w-[40%]",
+    art: "w-[48%]",
   },
 ];
 
