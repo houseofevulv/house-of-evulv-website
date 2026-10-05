@@ -386,7 +386,7 @@
 /*
   Hero motion and grounds (both heroes). Everything rests in its final state; the movement is layered on only for
   visitors who have not asked for reduced motion. Each hero has one arrival of about 1.3 seconds (headline lines
-  rise out of their masks, then the lead and the actions), a few play-once moments (the dove lands, the knights
+  rise out of their masks, then the lead and the actions), a few play-once moments (light crosses the emblem, the knights
   rise, the gold catches the light), and then stillness. The one loop on the site is the home hero's slow ring:
   it stops when the hero is off screen or the tab is hidden, and the hero's "Pause motion" button stops it for
   good (WCAG 2.2.2). Moves are transform and opacity only, and nothing starts below 0.1 opacity, so the hero text
@@ -409,40 +409,42 @@
 }
 
 /*
-  The home hero scene. .hero-tree is the tree's own box (always the tree's proportions), so the dove and the lotus
-  can be placed in it exactly where the emblem has them. On phones the scene sits above the headline; from
-  tablets up it stands on the left, opposite the text, sized by the panel's height and never wider than about a
-  third of the panel.
+  The home hero emblem, in the emblem's own proportions. On phones it sits centred above the headline; from tablets
+  up it stands on the left, opposite the text, and never reaches the text column.
 */
-.hero-tree {
-  top: 92px;
-  right: 14%;
-  height: 300px;
-  aspect-ratio: 1000 / 1594;
-  /* Faint: it sits right under the header logo, which carries the same emblem */
-  opacity: 0.3;
+.hero-emblem {
+  top: 100px;
+  left: 50%;
+  width: 220px;
+  aspect-ratio: 640 / 676;
+  transform: translateX(-50%);
 }
 @media (min-width: 48rem) {
-  .hero-tree {
-    top: auto;
-    bottom: -2%;
-    right: auto;
-    left: 9%;
-    height: min(calc(100% - 118px), calc((100vw - 32px) * 0.4 * 1.594));
-    /* A quiet presence beside the headline, not a second focal point */
-    opacity: 0.22;
+  .hero-emblem {
+    top: calc(50% + 24px);
+    left: 3%;
+    width: min(30vw, 300px);
+    transform: translateY(-50%);
   }
 }
 @media (min-width: 64rem) {
-  .hero-tree {
-    left: 10%;
-    height: min(calc(100% - 118px), calc((100vw - 32px) * 0.34 * 1.594));
+  .hero-emblem {
+    left: 8%;
+    width: min(32vw, 500px);
   }
 }
-/* The DNA fades softly at its root */
-.tree-rooted {
-  -webkit-mask-image: linear-gradient(to bottom, #000 81%, rgb(0 0 0 / 0.35) 88%, transparent 99%);
-  mask-image: linear-gradient(to bottom, #000 81%, rgb(0 0 0 / 0.35) 88%, transparent 99%);
+/* A light that passes across the metal once, confined to the emblem's own shape */
+.emblem-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgb(255 244 214 / 0.5) 50%, transparent 62%) no-repeat;
+  background-size: 320% 100%;
+  background-position: 130% 0;
+  mix-blend-mode: screen;
+  -webkit-mask: url("/brand/house/house-of-evulv_emblem_metallic.webp") center / contain no-repeat;
+  mask: url("/brand/house/house-of-evulv_emblem_metallic.webp") center / contain no-repeat;
 }
 
 /* Sentinel Navy with depth, for the flagship band on the home page */
@@ -552,6 +554,9 @@
   .seal-light::after {
     animation: seal-light 2.4s cubic-bezier(0.45, 0, 0.35, 1) 1.6s both;
   }
+  .emblem-light::after {
+    animation: seal-light 2.4s cubic-bezier(0.45, 0, 0.35, 1) 1.2s both;
+  }
   /* The knights rise together in four lifts of decreasing height, a pause after each */
   .knight-rise > img {
     animation: knight-rise 3.6s 0.5s both;
@@ -559,10 +564,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* The dove flies in from the left on arrival and comes to rest beside the crown */
-  .dove-arrive {
-    animation: dove-arrive 3.4s cubic-bezier(0.25, 0.6, 0.25, 1) 0.5s both;
-  }
   /* Depth: each layer follows the pointer by its own amount (set by HeroParallax), felt rather than seen.
      The text never moves. */
   .scene [data-depth] {
@@ -574,22 +575,6 @@
   .scene [data-depth="2.5"] { --d: 2.5; }
   .scene [data-depth="3"] { --d: 3.5; }
   .scene [data-depth="4"] { --d: 4.5; }
-}
-@keyframes dove-arrive {
-  0% {
-    opacity: 0;
-    transform: translate(-150%, 55%) rotate(-7deg) scale(0.86);
-  }
-  18% {
-    opacity: 1;
-  }
-  55% {
-    transform: translate(-48%, -14%) rotate(-3deg) scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
 }
 @keyframes line-up {
   from {

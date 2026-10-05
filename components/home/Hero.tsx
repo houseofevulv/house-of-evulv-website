@@ -1,20 +1,13 @@
-/* eslint-disable @next/next/no-img-element -- the scene is made of animated SVGs */
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HeroParallax } from "./HeroParallax";
 import { MotionToggle } from "./MotionToggle";
 
-const M = "/brand/motion/house-of-evulv";
-
 /**
- * The emblem unfolded into a scene on black, like the official mark band: the text on the right, and on the left,
- * faint, the tree of life, its DNA fading at the root; the lotus
- * rests beside the trunk; the dove flies in on arrival and lands beside the crown. The open ring turns slowly
- * behind the crown (the site's one loop, with a pause button), and on desktops the layers shift slightly with the
- * pointer. The elements are the _still builds of the motion files (scripts/brand-motion/build_site_variants.py):
- * after the arrival the scene is a still composition. On phones it sits above the headline. Motion stops for
- * reduced-motion visitors.
+ * The metallic emblem on midnight, the text on the right. The open ring turns slowly behind the emblem (the site's
+ * one loop, with a pause button), and on desktops the layers shift slightly with the pointer. On phones the emblem
+ * sits above the headline. Motion stops for reduced-motion visitors.
  */
 export function Hero() {
   return (
@@ -23,40 +16,25 @@ export function Hero() {
     <section className="hero-home scene on-dark relative -mx-2 -mt-2 flex min-h-[min(760px,100svh)] flex-col overflow-clip text-ivory md:-mx-4 md:-mt-4 md:min-h-[760px] lg:min-h-[840px] min-[90rem]:mx-[calc(704px_-_50vw)]">
       <HeroParallax />
       <div className="relative mx-auto flex w-full max-w-[1440px] grow flex-col">
-      <div aria-hidden="true" className="hero-tree pointer-events-none absolute">
+      {/* The metallic emblem is the hero's mark (the header shows the wordmark alone, so it is not shown twice). The open
+          ring turns slowly behind it, and a light crosses the metal once on arrival. */}
+      <div aria-hidden="true" className="hero-emblem pointer-events-none absolute">
         <div data-depth="3" className="absolute inset-0">
           <Logo
             name="ring"
             alt=""
-            className="ring-turn absolute top-[24%] left-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14]"
+            className="ring-turn absolute top-1/2 left-1/2 h-auto w-[128%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.07]"
           />
         </div>
-
-        <div data-depth="2" className="absolute inset-0">
-          <img
-            src={`${M}_motion-tree-of-life_gold-and-silver_still.svg`}
-            width={1000}
-            height={1594}
-            alt=""
-            className="tree-rooted relative block h-full w-full object-contain object-right-bottom"
-          />
-        </div>
-
-        {/* In the emblem's own places, measured relative to the tree */}
-        <div data-depth="2.5" className="absolute top-[55.9%] left-[63.1%] w-[45.9%]">
-          <img src={`${M}_motion-lotus-flower_gold-and-silver_still.svg`} width={1000} height={955} alt="" className="block h-auto w-full" />
-        </div>
-        <div data-depth="4" className="absolute top-[42.4%] left-[-23.4%] w-[64.4%]">
-          <div className="dove-arrive">
-            <img src={`${M}_motion-dove_gold-and-silver_still.svg`} width={1000} height={930} alt="" className="block h-auto w-full" />
-          </div>
+        <div data-depth="2" className="emblem-light rise-in relative h-full w-full" style={{ animationDelay: "0.2s" }}>
+          <Logo name="houseEmblem" alt="" eager className="h-full w-full" />
         </div>
       </div>
 
       <SiteHeader variant="home" />
       <div
         id="content"
-        className="relative flex grow flex-col justify-end px-5 pt-[300px] pb-16 md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
+        className="relative flex grow flex-col justify-end px-5 pt-[340px] pb-16 md:justify-center md:px-12 md:pt-6 md:pb-[150px] lg:px-16 lg:pb-[170px]"
       >
         {/* Text on the right, opposite the scene, as in the official mark band */}
         <div className="flex max-w-[620px] flex-col md:ml-auto md:max-w-[64%] lg:max-w-[56%] xl:max-w-[52%]">

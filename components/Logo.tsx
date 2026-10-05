@@ -18,6 +18,8 @@ const LOGOS = {
   // House of Evulv
   houseHorizontal: { src: `${H}_horizontal_gold-and-silver.svg`, w: 1628, h: 600, alt: "House of Evulv" },
   houseHorizontalLight: { src: `${H}_horizontal_bronze.svg`, w: 1628, h: 600, alt: "House of Evulv" },
+  // The name alone, cropped from the horizontal logo: for the navigation bars
+  houseWordmark: { src: `${H}_wordmark-horizontal_gold.svg`, w: 975, h: 390, alt: "House of Evulv" },
   houseLogo: { src: `${H}_logo_gold-and-silver.svg`, w: 975, h: 1407, alt: "House of Evulv: peace, healing, evolution" },
   houseFull: {
     src: `${H}_full-logo_gold-and-silver.svg`,

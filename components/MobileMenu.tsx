@@ -113,7 +113,7 @@ export function MobileMenu({ groups, status, phase, action, email, phoneDisplay,
           <div className="flex min-h-full flex-1 flex-col rounded-[22px] bg-espresso text-ivory">
             <div className="flex h-[92px] shrink-0 items-center justify-between pr-3 pl-4">
               <Link href="/" onClick={close} className="-m-1 p-1">
-                <Logo name="houseHorizontal" eager className="h-auto w-[200px]" />
+                <Logo name="houseWordmark" eager className="h-auto w-[150px]" />
               </Link>
               <button
                 ref={closeRef}

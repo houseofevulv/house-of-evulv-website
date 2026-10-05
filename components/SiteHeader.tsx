@@ -77,8 +77,8 @@ export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page"
         className={`relative flex h-[92px] shrink-0 items-center justify-between rounded-t-[22px] pr-3 pl-4 text-ivory md:rounded-t-[28px] nav:px-5 lg:h-[108px] lg:px-10 ${bar}`}
       >
         <Link href="/" className="lnk -m-1 p-1">
-          {/* Horizontal logo: 200px is its smallest size on screen (brand manual, section 04) */}
-          <Logo name="houseHorizontal" eager className="h-auto w-[200px] lg:w-[212px]" />
+          {/* The wordmark alone: the emblem is not repeated in the bar (the home hero carries it) */}
+          <Logo name="houseWordmark" eager className="h-auto w-[150px] lg:w-[170px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-3 text-[13px] font-semibold nav:flex lg:gap-5 lg:text-sm xl:gap-7 xl:text-[15px] 2xl:gap-9">
