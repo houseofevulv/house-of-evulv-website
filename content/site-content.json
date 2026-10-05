@@ -210,15 +210,21 @@
     "Zamfara"
   ],
   "donate": {
-    "_note": "Fill paymentUrl (a Paystack or Flutterwave payment page link) and/or bank once the client provides them. With neither, the section invites people to get in touch. Confirm how gifts are used before launch.",
+    "_note": "Fill paymentUrl (a Paystack or Flutterwave payment page link) when the client has one; banks lists the accounts for transfers (supplied by the client). With neither, the section invites people to get in touch. Confirm how gifts are used before launch.",
     "paymentUrl": null,
     "paymentProvider": null,
-    "bank": null,
-    "_bankExample": {
-      "bankName": "",
-      "accountName": "",
-      "accountNumber": ""
-    },
+    "banks": [
+      {
+        "bankName": "Kuda Microfinance Bank",
+        "accountName": "Evulv Global Ventures",
+        "accountNumber": "3004280704"
+      },
+      {
+        "bankName": "Fidelity Bank",
+        "accountName": "Evulv Global Ventures",
+        "accountNumber": "5610182891"
+      }
+    ],
     "useConfirmed": false
   },
   "selection": {

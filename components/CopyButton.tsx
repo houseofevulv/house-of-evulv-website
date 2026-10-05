@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 /** Copies a value such as an account number, with a short confirmation announced to screen readers */
-export function CopyButton({ value, label }: { value: string; label: string }) {
+export function CopyButton({ value, label, tone = "light" }: { value: string; label: string; tone?: "light" | "dark" }) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -21,7 +21,9 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
       type="button"
       onClick={copy}
       aria-label={`Copy ${label}`}
-      className="btn min-h-11 shrink-0 border border-rule-2 bg-white px-4 py-2.5 text-sm font-semibold text-espresso"
+      className={`btn min-h-11 shrink-0 px-4 py-2.5 text-sm font-semibold ${
+        tone === "dark" ? "border border-gold/50 text-gold" : "border border-rule-2 bg-white text-espresso"
+      }`}
     >
       <span aria-live="polite">{copied ? "Copied" : "Copy"}</span>
     </button>

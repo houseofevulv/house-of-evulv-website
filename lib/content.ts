@@ -67,7 +67,7 @@ export type SiteContent = {
   donate: {
     paymentUrl: string | null;
     paymentProvider: string | null;
-    bank: { bankName: string; accountName: string; accountNumber: string } | null;
+    banks: { bankName: string; accountName: string; accountNumber: string }[];
     useConfirmed: boolean;
   };
   support: { types: string[] };

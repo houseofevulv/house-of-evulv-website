@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BankDetails } from "@/components/BankDetails";
 import { contact, donate } from "@/lib/content";
 import { GIFT_USES } from "@/lib/giving";
 import { SupportForm } from "./SupportForm";
@@ -35,6 +36,7 @@ export function SupportPledge() {
             {paymentProvider && <span className="text-[13px] text-on-dark-3">Secure payment by {paymentProvider}</span>}
           </div>
         )}
+        <BankDetails className="pt-3" />
       </div>
 
       <div className="on-light rounded-[20px] bg-ivory px-[18px] py-[22px] text-ink md:rounded-[22px] md:px-9 md:pt-9 md:pb-8 lg:col-span-6 lg:col-start-7 lg:row-span-2 lg:row-start-1">

@@ -1,16 +1,18 @@
 import Link from "next/link";
-import { CopyButton } from "@/components/CopyButton";
+import { BankDetails } from "@/components/BankDetails";
 import { Logo } from "@/components/Logo";
 import { contact, donate } from "@/lib/content";
 import { GIFT_USES, giveLink } from "@/lib/giving";
 
 /*
-  Giving options come from content/site-content.json (donate): a payment page link, bank details, or neither.
-  The main button always works: it opens the payment page when there is one, otherwise an email to the House.
+  Giving options come from content/site-content.json (donate): a payment page link, bank accounts, or neither.
+  With a payment page the gold button opens it; with only bank accounts, the accounts take its place.
 */
 export function Donate() {
   const give = giveLink();
-  const { bank, paymentProvider, paymentUrl } = donate;
+  const { banks, paymentProvider, paymentUrl } = donate;
+  // With bank details and no payment page, the accounts are the way to give; the gold button would only repeat them
+  const showGive = Boolean(paymentUrl) || banks.length === 0;
 
   return (
     <section
@@ -54,16 +56,20 @@ export function Donate() {
           </ol>
         </div>
 
+        <BankDetails />
+
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-2.5 md:flex-row md:items-center md:gap-3">
-            <a
-              href={give.href}
-              {...(give.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="btn min-h-12 bg-gold px-7 py-4 text-base font-bold text-black"
-            >
-              {paymentUrl ? "Give now" : "Give to the work"}
-              {give.external && <span className="sr-only"> (opens in a new tab)</span>}
-            </a>
+            {showGive && (
+              <a
+                href={give.href}
+                {...(give.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="btn min-h-12 bg-gold px-7 py-4 text-base font-bold text-black"
+              >
+                {paymentUrl ? "Give now" : "Give to the work"}
+                {give.external && <span className="sr-only"> (opens in a new tab)</span>}
+              </a>
+            )}
             <Link
               href="/sentinels-of-peace#partner"
               className="btn min-h-12 border border-ivory px-[23px] py-[15px] font-semibold text-ivory"
@@ -74,32 +80,10 @@ export function Donate() {
           <p className="m-0 text-[13px] leading-normal text-on-dark-3">
             {paymentUrl
               ? `Secure payment${paymentProvider ? ` by ${paymentProvider}` : ""}. Questions about giving: ${contact.email}.`
-              : `Tell us how you would like to help and we will be in touch. Or call ${contact.phoneDisplay}.`}
+              : `Questions about giving, or another way to help? Call ${contact.phoneDisplay}.`}
           </p>
         </div>
 
-        {bank && (
-          <div className="on-light flex flex-col gap-3 rounded-2xl bg-ivory p-5 text-ink">
-            <h3 className="t-eyebrow m-0 text-bronze">Give by bank transfer</h3>
-            <dl className="m-0 flex flex-col text-[15px]">
-              <div className="flex justify-between gap-4 border-t border-rule-2 py-2.5">
-                <dt className="text-muted">Bank</dt>
-                <dd className="m-0 text-right font-semibold">{bank.bankName}</dd>
-              </div>
-              <div className="flex justify-between gap-4 border-t border-rule-2 py-2.5">
-                <dt className="text-muted">Account name</dt>
-                <dd className="m-0 text-right font-semibold">{bank.accountName}</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-y border-rule-2 py-2">
-                <dt className="text-muted">Account number</dt>
-                <dd className="m-0 flex items-center gap-3">
-                  <span className="text-lg font-bold tracking-wide tabular-nums">{bank.accountNumber}</span>
-                  <CopyButton value={bank.accountNumber} label="account number" />
-                </dd>
-              </div>
-            </dl>
-          </div>
-        )}
       </div>
     </section>
   );
