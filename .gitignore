@@ -21,3 +21,6 @@ __pycache__/
 # Research working files (reports are sent separately, not part of the site)
 research_notes/
 reports/
+
+# Working notes for AI coding tools: kept out of the repository
+CLAUDE.md

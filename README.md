@@ -77,7 +77,7 @@ npm run deploy:prod      # production
 
 ## Launch checklist
 
-The full brief and acceptance checklist are in `CLAUDE.md`. Before go-live:
+Before go-live:
 
 1. Confirm the venue and set `event.venueConfirmed`.
 2. Replace the founder stand-in photo (`founder.photo`) and confirm his name.
