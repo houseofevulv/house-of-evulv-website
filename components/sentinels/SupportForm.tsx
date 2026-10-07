@@ -180,8 +180,8 @@ export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
     <form ref={formRef} method="post" noValidate onSubmit={onSubmit} onInput={clear} onChange={clear} className="flex flex-col gap-[22px] md:gap-6">
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label>
-          Website
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+          Leave this empty
+          <input type="text" name="hp_note" tabIndex={-1} autoComplete="off" data-1p-ignore data-lpignore="true" data-bwignore data-form-type="other" defaultValue="" />
         </label>
       </div>
       <input type="hidden" name="rendered_at" value={renderedAt} />

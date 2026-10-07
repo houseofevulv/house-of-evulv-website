@@ -29,7 +29,7 @@ export async function nominate(formData: FormData): Promise<NominateState> {
   }
 
   // Spam checks. Bots get a generic message so they learn nothing.
-  if (looksLikeBot(formData)) {
+  if (looksLikeBot(formData, "nominate")) {
     return { status: "error", errors: {}, message: GENERIC_ERROR };
   }
 

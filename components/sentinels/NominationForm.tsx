@@ -140,8 +140,8 @@ export function NominationForm({ after, contactHint }: { after: AfterStep[]; con
       {/* Spam traps: a field people never see, and the time the form was rendered */}
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
         <label>
-          Website
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+          Leave this empty
+          <input type="text" name="hp_note" tabIndex={-1} autoComplete="off" data-1p-ignore data-lpignore="true" data-bwignore data-form-type="other" defaultValue="" />
         </label>
       </div>
       <input type="hidden" name="rendered_at" value={renderedAt} />

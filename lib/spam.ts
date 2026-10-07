@@ -4,11 +4,14 @@ const MIN_FILL_MS = 3000;
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 
-/** Hidden honeypot field filled, or the form sent within 3 seconds of rendering: almost certainly a bot */
-export function looksLikeBot(formData: FormData) {
-  const honeypot = String(formData.get("website") ?? "");
+/** Hidden honeypot field (hp_note, ignored by autofill and password managers) filled, or the form sent within 3 seconds of rendering: almost certainly a bot */
+export function looksLikeBot(formData: FormData, form: string) {
+  const honeypot = String(formData.get("hp_note") ?? "");
   const renderedAt = Number(formData.get("rendered_at") ?? 0);
-  return honeypot !== "" || !renderedAt || Date.now() - renderedAt < MIN_FILL_MS;
+  const reason =
+    honeypot !== "" ? "hidden field filled" : !renderedAt ? "no render time" : Date.now() - renderedAt < MIN_FILL_MS ? "sent too fast" : "";
+  if (reason) console.warn(`[${form}] rejected as a bot: ${reason}`);
+  return reason !== "";
 }
 
 /*

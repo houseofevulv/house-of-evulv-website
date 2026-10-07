@@ -31,7 +31,7 @@ const schema = z.object({
 
 /** A pledge of support, emailed to the House (the email is the record) */
 export async function pledgeSupport(formData: FormData): Promise<SupportState> {
-  if (looksLikeBot(formData)) return { status: "error", errors: {}, message: GENERIC_ERROR };
+  if (looksLikeBot(formData, "support")) return { status: "error", errors: {}, message: GENERIC_ERROR };
 
   const parsed = schema.safeParse(Object.fromEntries(SUPPORT_FIELDS.map((k) => [k, formData.get(k) ?? ""])));
   if (!parsed.success) {
