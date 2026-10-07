@@ -22,7 +22,7 @@
     "title": "Founder, House of Evulv",
     "quote": "Honestly, it is about time we had platforms that foster peace and advance the evolution of society for the next generation.",
     "photo": null,
-    "_photoNote": "Canvas uses founder-standin.jpg, which is NOT the founder. Replace before launch."
+    "_photoNote": "No portrait yet: the founder section works without one. Add the founder's portrait (in public/images) before launch."
   },
   "event": {
     "name": "The Sentinels of Peace Grand Honours",

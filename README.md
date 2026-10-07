@@ -3,7 +3,7 @@
 Website for House of Evulv (Lagos) and its first programme, the Sentinels of Peace Grand Honours.
 
 - **Stack:** Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Server Actions with zod
-- **Brand:** House of Evulv Identity 2. The manual and source files are in `brand identity assets/`; the site uses the SVGs in `public/brand` through `components/Logo.tsx`, and the palette and type in `app/globals.css`. The earlier forest-and-lime design is kept on the `previously-used` branch.
+- **Brand:** House of Evulv Identity 2. The manual and source files are in `brand identity assets/`; the site uses the SVGs in `public/brand` through `components/Logo.tsx`, and the palette and type in `app/globals.css`. The animated brand files in `public/brand/motion` are built by the scripts in `scripts/brand-motion` (see its README).
 - **2026 edition:** honourees are **selected**, not publicly nominated. `nominations.public` is `false` in `content/site-content.json`, which hides the nomination form and shows a support pledge form in its place. Set it to `true` to bring public nominations back in a future edition.
 - **Forms:** support pledges (and, when switched on, nominations) are stored in a Google Sheet, with an email alert through Resend
 - **Hosting:** Vercel
@@ -57,16 +57,25 @@ See `.env.example`. Set them in Vercel under Project → Settings → Environmen
 | `ALLOW_INDEXING` | `true` on the production domain at launch only; everything else stays out of search engines |
 | `FEATURE_FULL` | `false` (Essentials) |
 
+## Email
+
+The domain's mail is set up outside this code, in Cloudflare, Resend and Gmail:
+
+- **Receiving:** Cloudflare Email Routing forwards `hello@houseofevulv.com` and `info@houseofevulv.com` to `houseofevulv@gmail.com`. Add or change addresses under Cloudflare → houseofevulv.com → Email → Email Routing → Routing rules.
+- **Sending:** the domain is verified in Resend (records on the `send.` subdomain). Gmail sends as hello@ and info@ through Resend's SMTP server (`smtp.resend.com`, port 465, username `resend`, password a Resend API key), set under Gmail → Settings → Accounts and Import → Send mail as.
+- **Website alerts:** the forms use Resend too. Give the website its own API key, so either key can be replaced without affecting the other.
+- **DNS:** keep one SPF record on the root domain. DMARC is the `_dmarc` TXT record.
+
 ## Deploying
 
 Two branches, two sites:
 
 | Branch | Deploys to | Use |
 | --- | --- | --- |
-| `main` | Production: `houseofevulv.com` | The live site. Changes arrive only through a pull request the owner has approved. |
-| `staging` | A Vercel preview at `<project>-git-staging-<team>.vercel.app` (shown under the branch in the Vercel dashboard) | Testing new work, such as the animated brand elements, before it goes live. |
+| `main` | Production: `houseofevulv.com` | The live site. Changes arrive only once the owner has approved them on staging. |
+| `staging` | A Vercel preview at `<project>-git-staging-<team>.vercel.app` (shown under the branch in the Vercel dashboard) | Testing new work before it goes live. |
 
-Push work to `staging` (or a feature branch merged into it), check it on the preview link, then open a pull request from `staging` to `main` when it is approved. Preview deployments stay out of search engines because `ALLOW_INDEXING` is only set for production.
+Push work to `staging` (or a feature branch merged into it), check it on the preview link, then merge `staging` into `main` (directly or through a pull request) when it is approved. Preview deployments stay out of search engines because `ALLOW_INDEXING` is only set for production.
 
 Pull requests also get their own preview links. Without the Vercel connection, deploy with the Vercel CLI:
 
@@ -80,7 +89,9 @@ npm run deploy:prod      # production
 Before go-live:
 
 1. Confirm the venue and set `event.venueConfirmed`.
-2. Replace the founder stand-in photo (`founder.photo`) and confirm his name.
-3. Add the Google Sheet and Resend variables, then send one real test pledge.
-4. Connect `houseofevulv.com` in Vercel and set `ALLOW_INDEXING=true` for Production.
-5. Legal review of the privacy notice and nomination terms.
+2. Add the founder's portrait (`founder.photo`) and confirm the name (`founder.nameConfirmed`).
+3. Add the payment link (`donate.paymentUrl`) or bank details, and confirm how gifts are used.
+4. Add the Google Sheet and Resend variables in Vercel, then send one real test pledge.
+5. Connect `houseofevulv.com` in Vercel and set `ALLOW_INDEXING=true` for Production.
+6. Legal review of the privacy notice and the selection terms.
+7. Clear the remaining `TODO(client)` items in the code.
