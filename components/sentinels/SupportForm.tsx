@@ -88,7 +88,7 @@ const COPY: Record<Kind, { organisation: string; amountLabel: string; amount: st
   },
 };
 
-/** Pledge of support: saved to the Google Sheet with an email alert. Online payment, if any, is a separate link. */
+/** Pledge of support: emailed to the House. Online payment, if any, is a separate link. */
 export function SupportForm({ paymentUrl }: { paymentUrl: string | null }) {
   const [state, setState] = useState<SupportState>({ status: "idle" });
   const [errors, setErrors] = useState<Partial<Record<SupportField, string>>>({});

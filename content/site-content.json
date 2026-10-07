@@ -44,7 +44,7 @@
     "closesDisplay": "20 November",
     "verificationBy": "2026-11-27",
     "outcomeBy": "2026-12-07",
-    "referenceFormat": "SOP-26-0000",
+    "referenceFormat": "SOP-26-XXXX",
     "descriptionMaxChars": 1200
   },
   "steps": [
@@ -388,7 +388,7 @@
     ]
   },
   "support": {
-    "_note": "Options for the support pledge form on the Sentinels page. Pledges go to the 'Support' tab of the Google Sheet with an email alert.",
+    "_note": "Options for the support pledge form on the Sentinels page. Each pledge is emailed to the House; the email is the record.",
     "types": [
       "Give money",
       "Sponsor or partner",

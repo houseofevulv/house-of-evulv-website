@@ -6,7 +6,6 @@ import { support } from "@/lib/content";
 import { TIME_ZONE } from "@/lib/dates";
 import { emailConfigured, sendAlert } from "@/lib/email";
 import { isEmail, isNigerianPhone } from "@/lib/nomination";
-import { appendRow, sheetsConfigured } from "@/lib/sheets";
 import { clientIp, looksLikeBot, rateLimited } from "@/lib/spam";
 import { SUPPORT_FIELDS, SUPPORT_MESSAGE_MAX, type SupportField, type SupportState } from "@/lib/support-fields";
 
@@ -30,7 +29,7 @@ const schema = z.object({
   consent: z.literal("on", { error: "Tick the box so we can contact you." }),
 });
 
-/** A pledge of support: stored on the "Support" tab of the Google Sheet, with an email alert to the House */
+/** A pledge of support, emailed to the House (the email is the record) */
 export async function pledgeSupport(formData: FormData): Promise<SupportState> {
   if (looksLikeBot(formData)) return { status: "error", errors: {}, message: GENERIC_ERROR };
 
@@ -51,52 +50,35 @@ export async function pledgeSupport(formData: FormData): Promise<SupportState> {
   }
 
   const s = parsed.data;
-  const timestamp = new Intl.DateTimeFormat("en-GB", { timeZone: TIME_ZONE, dateStyle: "short", timeStyle: "medium" }).format(
+  const received = new Intl.DateTimeFormat("en-GB", { timeZone: TIME_ZONE, dateStyle: "full", timeStyle: "short" }).format(
     new Date()
   );
 
-  try {
-    if (sheetsConfigured()) {
-      // Columns: timestamp, name, organisation, contact, how they want to help, amount, message, consent, user agent
-      await appendRow("Support", "A:I", [
-        timestamp,
-        s.name,
-        s.organisation,
-        s.contact,
-        s.supportType,
-        s.amount,
-        s.message,
-        true,
-        h.get("user-agent") ?? "",
-      ]);
-    } else if (process.env.NODE_ENV !== "production") {
-      console.warn("[support] Google Sheets is not configured; pledge not stored.", s.supportType);
-    } else {
-      throw new Error("Google Sheets environment variables are missing");
+  // The email is the only record of the pledge, so if it cannot be sent the supporter is asked to try again
+  if (!emailConfigured()) {
+    if (process.env.NODE_ENV === "production") {
+      console.error("[support] RESEND_API_KEY or FORMS_ALERT_TO is missing; pledge not delivered");
+      return { status: "error", errors: {}, message: GENERIC_ERROR };
     }
-  } catch (err) {
-    console.error("[support] storage failed", err);
-    return { status: "error", errors: {}, message: GENERIC_ERROR };
-  }
-
-  // The pledge is saved; an alert failure must not show the supporter an error.
-  if (emailConfigured()) {
+    console.warn("[support] Email is not configured; pledge not sent.", s.supportType);
+  } else {
     try {
-      await sendAlert(
-        `New support pledge: ${s.supportType}`,
-        [
-          { label: "Received", value: `${timestamp} (Lagos)` },
+      await sendAlert({
+        subject: `Support pledge from ${s.name}`,
+        intro: `${s.supportType}, received ${received} (Lagos time)`,
+        fields: [
           { label: "Name", value: s.name },
           { label: "Organisation", value: s.organisation },
           { label: "Contact", value: s.contact },
           { label: "How they want to help", value: s.supportType },
           { label: "Amount", value: s.amount },
-          { label: "Message", value: s.message },
         ],
-        isEmail(s.contact) ? s.contact : undefined
-      );
+        note: { label: "Message", value: s.message },
+        sender: { name: s.name, contact: s.contact },
+      });
     } catch (err) {
       console.error("[support] alert email failed", err);
+      return { status: "error", errors: {}, message: GENERIC_ERROR };
     }
   }
 

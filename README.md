@@ -5,7 +5,7 @@ Website for House of Evulv (Lagos) and its first programme, the Sentinels of Pea
 - **Stack:** Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Server Actions with zod
 - **Brand:** House of Evulv Identity 2. The manual and source files are in `brand identity assets/`; the site uses the SVGs in `public/brand` through `components/Logo.tsx`, and the palette and type in `app/globals.css`. The animated brand files in `public/brand/motion` are built by the scripts in `scripts/brand-motion` (see its README).
 - **2026 edition:** honourees are **selected**, not publicly nominated. `nominations.public` is `false` in `content/site-content.json`, which hides the nomination form and shows a support pledge form in its place. Set it to `true` to bring public nominations back in a future edition.
-- **Forms:** support pledges (and, when switched on, nominations) are stored in a Google Sheet, with an email alert through Resend
+- **Forms:** support pledges (and, when switched on, nominations) are emailed to the House through Resend. Nothing is stored anywhere else, so the email is the record.
 - **Hosting:** Vercel
 - **Package:** Essentials. `FEATURE_FULL` stays `false`; see `lib/content.ts`.
 
@@ -30,7 +30,7 @@ cp .env.example .env.local   # then fill in the values you have
 npm run dev                  # http://localhost:3000
 ```
 
-Without the Google and Resend keys, the form still works in development: it logs a warning and issues test reference numbers instead of saving.
+Without the Resend key, the forms still work in development: they log a warning instead of sending. In production a missing key shows the visitor an error, since the submission would otherwise be lost.
 
 To preview a different date (nomination status, timeline, form state), set `DEBUG_TODAY=YYYY-MM-DD` in `.env.local`. It is ignored in production.
 
@@ -52,8 +52,9 @@ See `.env.example`. Set them in Vercel under Project → Settings → Environmen
 
 | Variable | Purpose |
 | --- | --- |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `NOMINATIONS_SHEET_ID` | The Google Sheet. It needs a tab named `Support` (columns: timestamp, name, organisation, contact, how they want to help, amount, message, consent, user agent) and, for editions with public nominations, a tab named `Nominations`. Each tab needs a header row. |
-| `RESEND_API_KEY`, `NOMINATIONS_ALERT_TO`, `NOMINATIONS_FROM` | Email alert for each pledge (and nomination) |
+| `RESEND_API_KEY` | Resend key for the website's form emails (its own key, separate from Gmail's) |
+| `FORMS_ALERT_TO` | Inbox that receives each pledge (and nomination): `houseofevulv@gmail.com`. Comma-separate for several. |
+| `FORMS_FROM` | Sender, on the verified domain: `House of Evulv Website <website@houseofevulv.com>` |
 | `ALLOW_INDEXING` | `true` on the production domain at launch only; everything else stays out of search engines |
 | `FEATURE_FULL` | `false` (Essentials) |
 
@@ -63,7 +64,7 @@ The domain's mail is set up outside this code, in Cloudflare, Resend and Gmail:
 
 - **Receiving:** Cloudflare Email Routing forwards `hello@houseofevulv.com` and `info@houseofevulv.com` to `houseofevulv@gmail.com`. Add or change addresses under Cloudflare → houseofevulv.com → Email → Email Routing → Routing rules.
 - **Sending:** the domain is verified in Resend (records on the `send.` subdomain). Gmail sends as hello@ and info@ through Resend's SMTP server (`smtp.resend.com`, port 465, username `resend`, password a Resend API key), set under Gmail → Settings → Accounts and Import → Send mail as.
-- **Website alerts:** the forms use Resend too. Give the website its own API key, so either key can be replaced without affecting the other.
+- **Website forms:** each submission arrives in Gmail from `website@houseofevulv.com` as one email, with a reply button (email or WhatsApp). Replying answers the sender directly. A Gmail filter on that address can label them "Website forms". The website has its own Resend API key, so either key can be replaced without affecting the other.
 - **DNS:** keep one SPF record on the root domain. DMARC is the `_dmarc` TXT record.
 
 ## Deploying
@@ -91,7 +92,7 @@ Before go-live:
 1. Confirm the venue and set `event.venueConfirmed`.
 2. Add the founder's portrait (`founder.photo`) and confirm the name (`founder.nameConfirmed`).
 3. Add the payment link (`donate.paymentUrl`) or bank details, and confirm how gifts are used.
-4. Add the Google Sheet and Resend variables in Vercel, then send one real test pledge.
+4. Add the Resend variables in Vercel, then send one real test pledge and check it arrives.
 5. Connect `houseofevulv.com` in Vercel and set `ALLOW_INDEXING=true` for Production.
 6. Legal review of the privacy notice and the selection terms.
 7. Clear the remaining `TODO(client)` items in the code.

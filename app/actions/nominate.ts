@@ -1,15 +1,12 @@
 "use server";
 
 import { headers } from "next/headers";
-import { emailConfigured, sendNominationAlert } from "@/lib/email";
+import { emailConfigured, sendAlert } from "@/lib/email";
 import { FIELD_ORDER, nominationSchema, type FieldName, type NominateState } from "@/lib/nomination";
 import { nominations } from "@/lib/content";
 import { nominationPhase, TIME_ZONE, weekdayDayMonth } from "@/lib/dates";
-import { formatReference } from "@/lib/reference";
-import { appendNomination, sheetsConfigured } from "@/lib/sheets";
+import { newReference } from "@/lib/reference";
 import { clientIp, looksLikeBot, rateLimited } from "@/lib/spam";
-
-let devCounter = 0;
 
 const GENERIC_ERROR =
   "We couldn't send your nomination just now. Please try again in a few minutes, or email it to hello@houseofevulv.com.";
@@ -59,70 +56,41 @@ export async function nominate(formData: FormData): Promise<NominateState> {
   }
 
   const n = parsed.data;
-  const timestamp = new Intl.DateTimeFormat("en-GB", {
-    timeZone: TIME_ZONE,
-    dateStyle: "short",
-    timeStyle: "medium",
-  }).format(new Date());
-  const userAgent = h.get("user-agent") ?? "";
+  const received = new Intl.DateTimeFormat("en-GB", { timeZone: TIME_ZONE, dateStyle: "full", timeStyle: "short" }).format(
+    new Date()
+  );
 
-  let reference: string;
-  try {
-    if (sheetsConfigured()) {
-      reference = await appendNomination(
-        [
-          timestamp,
-          "",
-          n.nomineeName,
-          n.organisation,
-          n.category,
-          n.state,
-          n.description,
-          n.link,
-          n.nominatorName,
-          n.nominatorContact,
-          true,
-          userAgent,
-        ],
-        formatReference
-      );
-    } else if (process.env.NODE_ENV !== "production") {
-      console.warn("[nominate] Google Sheets is not configured; using a local reference.");
-      reference = formatReference(++devCounter);
-    } else {
-      throw new Error("Google Sheets environment variables are missing");
+  const reference = newReference();
+
+  // The email is the only record of the nomination, so if it cannot be sent the nominator is asked to try again
+  if (!emailConfigured()) {
+    if (process.env.NODE_ENV === "production") {
+      console.error("[nominate] RESEND_API_KEY or FORMS_ALERT_TO is missing; nomination not delivered");
+      return { status: "error", errors: {}, message: GENERIC_ERROR };
     }
-  } catch (err) {
-    console.error("[nominate] storage failed", err);
-    return { status: "error", errors: {}, message: GENERIC_ERROR };
-  }
-
-  // The row is saved; an alert failure must not lose the nominator their reference.
-  if (emailConfigured()) {
+    console.warn("[nominate] Email is not configured; nomination not sent.", reference);
+  } else {
     try {
-      await sendNominationAlert(
-        reference,
-        [
-          { label: "Received", value: `${timestamp} (Lagos)` },
+      await sendAlert({
+        subject: `Nomination ${reference}: ${n.nomineeName}`,
+        intro: `${n.category}, received ${received} (Lagos time)`,
+        fields: [
           { label: "Reference", value: reference },
           { label: "Nominee", value: n.nomineeName },
           { label: "Organisation", value: n.organisation },
           { label: "Category", value: n.category },
           { label: "State", value: n.state },
-          { label: "What they did", value: n.description },
           { label: "Link", value: n.link },
-          { label: "Nominator", value: n.nominatorName },
-          { label: "Nominator contact", value: n.nominatorContact },
-          { label: "Consent", value: "Yes" },
-          { label: "User agent", value: userAgent },
+          { label: "Nominated by", value: n.nominatorName },
+          { label: "Contact", value: n.nominatorContact },
         ],
-        n.nominatorContact.includes("@") ? n.nominatorContact : undefined
-      );
+        note: { label: "What they did", value: n.description },
+        sender: { name: n.nominatorName, contact: n.nominatorContact },
+      });
     } catch (err) {
       console.error("[nominate] alert email failed", reference, err);
+      return { status: "error", errors: {}, message: GENERIC_ERROR };
     }
-  } else {
-    console.warn("[nominate] Resend is not configured; no alert sent for", reference);
   }
 
   return { status: "success", reference };
