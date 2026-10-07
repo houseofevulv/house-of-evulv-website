@@ -13,6 +13,8 @@ export type Category = { title: string; body: string; eligible: string };
 
 type FaqItem = { q: string; a: string; confirmed: boolean; links?: { href: string; label: string }[] };
 
+export type SocialLink = { platform: "instagram" | "tiktok" | "facebook"; label: string; url: string; pending?: boolean };
+
 export type PartnerTier = { name: string; limit: string; highlight: boolean };
 
 export type SiteContent = {
@@ -25,6 +27,7 @@ export type SiteContent = {
     hours: string;
     streetAddress: string | null;
     rcNumber: string | null;
+    social: SocialLink[];
   };
   founder: {
     name: string;

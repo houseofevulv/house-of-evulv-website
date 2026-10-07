@@ -35,6 +35,7 @@ const orgJsonLd = {
   email: contact.email,
   telephone: contact.phoneHref.replace("tel:", ""),
   address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
+  sameAs: contact.social.filter((l) => !l.pending).map((l) => l.url),
 };
 
 export default function Home() {

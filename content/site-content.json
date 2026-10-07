@@ -14,7 +14,13 @@
     "city": "Lagos, Nigeria",
     "hours": "Mon to Fri, 9am to 5pm WAT",
     "streetAddress": null,
-    "rcNumber": null
+    "rcNumber": null,
+    "_socialNote": "Shown as icons in the footer. pending: true marks an account not created yet: its icon still shows, but it is left out of the data for search engines. Create the Facebook page with the username houseofevulv, then set pending to false.",
+    "social": [
+      { "platform": "instagram", "label": "House of Evulv on Instagram", "url": "https://www.instagram.com/houseofevulv/" },
+      { "platform": "tiktok", "label": "House of Evulv on TikTok", "url": "https://www.tiktok.com/@houseofevulv" },
+      { "platform": "facebook", "label": "House of Evulv on Facebook", "url": "https://www.facebook.com/houseofevulv", "pending": true }
+    ]
   },
   "founder": {
     "name": "Mr Taiwo Onayinka",

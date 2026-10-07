@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { primaryAction } from "@/lib/cta";
 import { contact, nominations, partnership, site } from "@/lib/content";
 import { Logo } from "./Logo";
+import { SocialLinks } from "./SocialLinks";
 
 // Mobile: every footer link is a 44px tap target. Desktop: plain text links.
 const linkCls = "lnk inline-flex min-h-11 items-center self-start text-on-dark-2 no-underline md:min-h-0";
@@ -35,6 +36,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
             <p className="m-0 max-w-[300px] leading-[1.55]">
               Programmes in peace, healing and human development, run from Lagos.
             </p>
+            <SocialLinks links={contact.social} />
           </div>
         ) : (
           <div className="col-span-2 flex flex-col gap-6 md:col-span-12 lg:col-span-4">
@@ -45,6 +47,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
                 <Logo name="houseHorizontal" className="h-auto w-[200px]" />
               </Link>
             </div>
+            <SocialLinks links={contact.social} />
           </div>
         )}
 
