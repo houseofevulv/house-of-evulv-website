@@ -11,7 +11,7 @@ import { clientIp, looksLikeBot, rateLimited } from "@/lib/spam";
 import { SUPPORT_FIELDS, SUPPORT_MESSAGE_MAX, type SupportField, type SupportState } from "@/lib/support-fields";
 
 const GENERIC_ERROR =
-  "We couldn't send your message just now. Please try again in a few minutes, or email houseofevulv@gmail.com.";
+  "We couldn't send your message just now. Please try again in a few minutes, or email hello@houseofevulv.com.";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Enter your name.").max(120, "Keep your name under 120 characters."),
@@ -46,7 +46,7 @@ export async function pledgeSupport(formData: FormData): Promise<SupportState> {
     return {
       status: "error",
       errors: {},
-      message: "You have sent several messages in the last hour. Please wait a while, or email houseofevulv@gmail.com.",
+      message: "You have sent several messages in the last hour. Please wait a while, or email hello@houseofevulv.com.",
     };
   }
 
