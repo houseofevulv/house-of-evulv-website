@@ -53,9 +53,8 @@ export function Ideology() {
             one human future.
           </h2>
           <p className="relative m-0 max-w-[400px] pt-6 text-base leading-[1.65] text-on-dark md:pt-8 md:text-[17px]">
-            Our philosophy is not ornamental language. It is the compass by which we conceive, choose and execute every
-            initiative.
-          </p>
+            Our philosophy is the compass by which we conceive, choose and execute everyinitiative.
+          </p>{/*  not ornamental*/}
         </div>
 
         <div className="relative max-sm:overflow-hidden xl:col-span-7 xl:col-start-6">

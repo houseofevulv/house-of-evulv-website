@@ -41,7 +41,7 @@ export function TheHouse() {
         spirit, and evolution that transforms noble intention into lasting progress.
       </p> */}
       <p className="relative m-0 max-w-[640px] pt-4 text-base leading-[1.7] text-body md:pt-5 md:text-[17px]">
-        The house was initiated and originated by Taiwo Onayinka, frontline attorney, strategist, poet & peace advocate.
+        The house was initiated and originated by <b>Taiwo Onayinka</b>, frontline attorney, strategist, poet & peace advocate.
         Our work is anchored upon restoring order, renewing humanity and transforming noble intention into lasting progress.
       </p>
     </section>
