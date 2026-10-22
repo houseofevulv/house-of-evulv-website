@@ -53,7 +53,7 @@ See `.env.example`. Set them in Vercel under Project → Settings → Environmen
 | Variable | Purpose |
 | --- | --- |
 | `RESEND_API_KEY` | Resend key for the website's form emails (its own key, separate from Gmail's) |
-| `FORMS_ALERT_TO` | Inbox that receives each pledge (and nomination): `houseofevulv@gmail.com`. Comma-separate for several. |
+| `FORMS_ALERT_TO` | Inbox that receives each pledge (and nomination): `hello@houseofevulv.com`, which forwards to Gmail. Comma-separate for several. |
 | `FORMS_FROM` | Sender, on the verified domain: `House of Evulv Website <website@houseofevulv.com>` |
 | `ALLOW_INDEXING` | `true` on the production domain at launch only; everything else stays out of search engines |
 | `FEATURE_FULL` | `false` (Essentials) |
