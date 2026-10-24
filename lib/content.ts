@@ -96,7 +96,7 @@ export type Campaign = {
   statement: string;
   figures: { value: string; label: string }[];
   streams: { element: "dove" | "lotus" | "tree"; title: string; body: string }[];
-  updates: { photo?: string; video?: string; alt: string; title: string; text: string }[];
+  updates: { photo?: string; video?: string; position?: string; alt: string; title: string; text: string }[];
   voices: { quote: string; role: string; place: string; name?: string; photo?: string }[];
   videos: string[];
 };

@@ -447,22 +447,25 @@
         "photo": "/images/campaign/team.webp",
         "alt": "Four members of the 100 Days of Peace team in campaign shirts",
         "title": "The team behind the hundred days",
-        "text": "The people taking the campaign to schools, communities and organisations across Nigeria."
+        "text": "The people taking the campaign to schools, communities and organisations across Nigeria.",
+        "position": "50% 35%"
       },
       {
         "photo": "/images/campaign/outdoors.webp",
         "alt": "Three people in 100 Days of Peace shirts standing outdoors",
         "title": "100 days, 100 voices",
-        "text": "One nation, one message: peace begins with each of us."
+        "text": "One nation, one message: peace begins with each of us.",
+        "position": "50% 55%"
       },
       {
         "photo": "/images/campaign/shirt.webp",
         "alt": "Three people holding up a 100 Days of Peace campaign shirt",
         "title": "Wear the campaign",
-        "text": "The campaign shirt carries the message wherever the team goes."
+        "text": "The campaign shirt carries the message wherever the team goes.",
+        "position": "50% 62%"
       }
     ],
-    "_updatesNote": "The latest three are shown, newest first. photo is a path in public/images/campaign; video (optional) is a YouTube video id.",
+    "_updatesNote": "The latest three are shown, newest first. photo is a path in public/images/campaign; video (optional) is a YouTube video id. position (optional) is the CSS object-position that keeps faces in the crop, e.g. \"50% 40%\".",
     "voices": [],
     "_voicesNote": "e.g. [{\"quote\": \"...\", \"role\": \"Secondary school principal\", \"place\": \"Abeokuta\", \"name\": \"optional\", \"photo\": \"optional\"}]. Shown only when filled, with consent.",
     "videos": [],

@@ -5,7 +5,6 @@ import {
   CampaignInvite,
   CampaignNominate,
   CampaignStatement,
-  CampaignStreams,
   CampaignUpdates,
   CampaignVoices,
 } from "@/components/campaign/Sections";
@@ -33,7 +32,6 @@ export default function CampaignPage() {
       <main className="flex flex-col gap-2 md:gap-4">
         <CampaignHero />
         <CampaignStatement />
-        <CampaignStreams />
         <CampaignUpdates />
         <CampaignVoices />
         <CampaignNominate />

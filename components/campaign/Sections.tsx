@@ -73,9 +73,9 @@ export function CampaignHero() {
 
 export function CampaignStatement() {
   return (
-    <section className="grid grid-cols-1 gap-8 rounded-[22px] bg-white px-5 py-12 md:rounded-[28px] md:px-8 md:py-[72px] lg:grid-cols-12 lg:gap-16 lg:px-12 lg:py-24">
+    <section className="grid grid-cols-1 gap-8 rounded-[22px] bg-white px-5 py-12 md:rounded-[28px] md:px-8 md:py-[72px] lg:grid-cols-12 lg:gap-x-16 lg:gap-y-14 lg:px-12 lg:py-24">
       <h2 className="t-h2-48 m-0 text-ink lg:col-span-5">Peace is learned before it is honoured.</h2>
-      <div className="flex flex-col gap-8 lg:col-span-7">
+      <div className="flex flex-col gap-6 lg:col-span-7">
         <p className="m-0 text-[17px] leading-[1.65] text-body md:text-lg">{campaign.statement}</p>
         <p className="m-0 text-base font-semibold text-ink">{campaign.tagline}</p>
         {campaign.figures.length > 0 && (
@@ -89,25 +89,20 @@ export function CampaignStatement() {
           </dl>
         )}
       </div>
+      <ul className="m-0 grid list-none grid-cols-1 p-0 lg:col-span-12 lg:grid-cols-3 lg:gap-12">
+        {campaign.streams.map((st) => (
+          <li key={st.title} className="grid grid-cols-[44px_minmax(0,1fr)] gap-x-4 gap-y-1.5 border-t border-rule py-6 lg:grid-cols-[48px_minmax(0,1fr)] lg:pt-7 lg:pb-0">
+            <Logo name={ELEMENTS_LIGHT[st.element]} alt="" className="row-span-2 h-auto w-10 lg:w-12" />
+            <h3 className="m-0 text-[17px] leading-[1.3] font-bold text-ink md:text-lg">{st.title}</h3>
+            <p className="m-0 text-[15px] leading-[1.6] text-body">{st.body}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
 
-const ELEMENTS: Record<"dove" | "lotus" | "tree", LogoName> = { dove: "doveMetallic", lotus: "lotusMetallic", tree: "treeMetallic" };
-
-export function CampaignStreams() {
-  return (
-    <section className="on-dark grid grid-cols-1 gap-3 rounded-[22px] bg-black px-5 py-12 text-ivory md:gap-4 md:rounded-[28px] md:px-8 md:py-[72px] lg:grid-cols-3 lg:gap-6 lg:px-12 lg:py-24">
-      {campaign.streams.map((s) => (
-        <div key={s.title} className="grid grid-cols-[56px_minmax(0,1fr)] gap-x-5 gap-y-3 rounded-[18px] border border-rule-dark p-6 md:grid-cols-[72px_minmax(0,1fr)] md:p-7 lg:flex lg:flex-col lg:gap-5 lg:p-8">
-          <Logo name={ELEMENTS[s.element]} alt="" className="row-span-2 h-auto w-[52px] md:w-[64px] lg:w-[72px]" />
-          <h3 className="t-display m-0 text-[21px] leading-[1.15] text-ivory md:text-2xl lg:text-[26px]">{s.title}</h3>
-          <p className="m-0 text-[15px] leading-[1.6] text-on-dark-2 md:text-base">{s.body}</p>
-        </div>
-      ))}
-    </section>
-  );
-}
+const ELEMENTS_LIGHT: Record<"dove" | "lotus" | "tree", LogoName> = { dove: "doveLight", lotus: "lotusLight", tree: "treeLight" };
 
 export function CampaignUpdates() {
   const updates = campaign.updates.slice(0, 3);
@@ -134,7 +129,8 @@ export function CampaignUpdates() {
                 width={1200}
                 height={900}
                 sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 300px, 100vw"
-                className="aspect-[4/3] h-auto w-full rounded-[16px] object-cover object-top lg:rounded-[18px]"
+                style={{ objectPosition: u.position ?? "50% 40%" }}
+                className="aspect-[4/3] h-auto w-full rounded-[16px] object-cover lg:rounded-[18px]"
               />
             ) : null}
             <div className="flex flex-col gap-2.5">
@@ -219,15 +215,15 @@ export function CampaignNominate() {
 
 export function CampaignInvite() {
   return (
-    <section id="invite" className="on-dark grid scroll-mt-4 grid-cols-1 gap-8 rounded-[22px] bg-espresso px-5 py-12 text-ivory md:gap-9 md:rounded-[28px] md:px-8 md:py-[72px] lg:grid-cols-12 lg:gap-16 lg:px-12 lg:py-24">
-      <div className="flex flex-col gap-4 lg:col-span-5">
+    <section id="invite" className="on-dark flex scroll-mt-4 flex-col items-center gap-8 rounded-[22px] bg-espresso px-5 py-12 text-center text-ivory md:gap-10 md:rounded-[28px] md:px-8 md:py-[72px] lg:py-24">
+      <div className="flex max-w-[640px] flex-col items-center gap-4">
         <h2 className="t-h2-48 m-0 text-ivory">Want us to come to you?</h2>
         <p className="m-0 text-base leading-[1.6] text-on-dark-2 md:text-[17px]">
           The {campaign.name} campaign is on the move. Fill in your details and we may bring it to your school, community or
           organisation.
         </p>
       </div>
-      <div className="lg:col-span-7">
+      <div className="w-full max-w-[760px] text-left">
         <InviteForm states={states} />
       </div>
     </section>

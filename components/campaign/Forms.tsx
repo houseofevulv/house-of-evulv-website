@@ -219,9 +219,9 @@ export function InviteForm({ states }: { states: string[] }) {
   }
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col items-center gap-3">
         <p id="invite-kind-label" className="m-0 text-[15px] font-semibold text-ivory">This request is for a</p>
-        <div role="group" aria-labelledby="invite-kind-label" className="flex flex-wrap gap-2 md:gap-3">
+        <div role="group" aria-labelledby="invite-kind-label" className="grid w-full grid-cols-3 gap-1 rounded-full border border-ivory/30 p-1">
           {INVITE_KINDS.map((k) => {
             const on = k === kind;
             return (
@@ -231,18 +231,16 @@ export function InviteForm({ states }: { states: string[] }) {
                 aria-pressed={on}
                 aria-controls="invite-form"
                 onClick={() => setKind(k)}
-                className={`t-display inline-flex min-h-12 items-center gap-2.5 rounded-full border px-4 text-sm transition-colors md:px-6 md:text-base ${
-                  on ? "border-gold bg-gold text-black" : "border-ivory/45 text-ivory hover:border-gold hover:text-gold"
+                className={`min-h-12 cursor-pointer rounded-full px-2 text-[15px] font-bold transition-colors md:t-display md:min-h-14 md:text-base md:font-normal ${
+                  on ? "bg-gold text-black" : "text-ivory hover:bg-ivory/10"
                 }`}
               >
                 {INVITE_COPY[k].label}
-                {!on && (
-                  <span aria-hidden="true" className="size-2 -rotate-45 border-r-2 border-b-2 border-current opacity-60" />
-                )}
               </button>
             );
           })}
         </div>
+        {!kind && <p className="m-0 text-sm text-on-dark-3">Choose one to open the form.</p>}
       </div>
 
       {copy && (
