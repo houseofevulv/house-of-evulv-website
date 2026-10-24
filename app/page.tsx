@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { SiteFooter } from "@/components/SiteFooter";
+import { CampaignBand } from "@/components/home/CampaignBand";
 import { ContactBand } from "@/components/home/ContactBand";
 import { Creed } from "@/components/home/Creed";
 import { Donate } from "@/components/home/Donate";
@@ -45,6 +46,7 @@ export default function Home() {
       <PageShell>
         <main className="flex flex-col gap-2 md:gap-4">
           <Hero />
+          <CampaignBand />
           <TheHouse />
           <Ideology />
           {/* Official mark section, set aside for now: the House icon sits behind the ideology heading instead */}

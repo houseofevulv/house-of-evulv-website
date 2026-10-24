@@ -84,6 +84,21 @@ export type SiteContent = {
     /** Shown when public nominations return */
     publicItems: FaqItem[];
   };
+  campaign: Campaign;
+};
+
+/** The 100 Days of Peace campaign page. Lists left empty keep their section hidden. */
+export type Campaign = {
+  name: string;
+  tagline: string;
+  hashtag: string;
+  lede: string;
+  statement: string;
+  figures: { value: string; label: string }[];
+  streams: { element: "dove" | "lotus" | "tree"; title: string; body: string }[];
+  updates: { photo?: string; video?: string; alt: string; title: string; text: string }[];
+  voices: { quote: string; role: string; place: string; name?: string; photo?: string }[];
+  videos: string[];
 };
 
 export const content = raw as SiteContent;
@@ -102,6 +117,7 @@ export const {
   support,
   selection,
   faq,
+  campaign,
 } = content;
 
 /**

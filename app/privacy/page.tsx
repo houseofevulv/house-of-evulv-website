@@ -77,6 +77,19 @@ export default function PrivacyPage() {
         support, and we rely on your consent, which you give by ticking the box on the form.
       </p>
 
+      <h2>100 Days of Peace</h2>
+      <p>
+        When you invite the campaign, we collect the name of your school, community or organisation, its town and state,
+        your name and role, your email address or WhatsApp number, your message, your consent and the time you sent it. We
+        ask only for the details of adults, never of pupils. We use this to reply and to plan a visit.
+      </p>
+      <p>
+        When you nominate someone who keeps the peace, we collect their name, where they keep the peace, their town and
+        state, what you tell us about them, and your name and contact details. We use this to find and contact them, and
+        we tell their story only with their agreement. We rely on your consent, which you give by ticking the box on the
+        form.
+      </p>
+
       <h2>Gifts and donations</h2>
       {/* TODO(client): confirm the payment provider and the retention period for donation records */}
       <p>

@@ -17,9 +17,22 @@
     "rcNumber": null,
     "_socialNote": "Shown as icons in the footer. pending: true marks an account not created yet: its icon still shows, but it is left out of the data for search engines. Create the Facebook page with the username houseofevulv, then set pending to false.",
     "social": [
-      { "platform": "instagram", "label": "House of Evulv on Instagram", "url": "https://www.instagram.com/houseofevulv/" },
-      { "platform": "tiktok", "label": "House of Evulv on TikTok", "url": "https://www.tiktok.com/@houseofevulv" },
-      { "platform": "facebook", "label": "House of Evulv on Facebook", "url": "https://www.facebook.com/houseofevulv", "pending": true }
+      {
+        "platform": "instagram",
+        "label": "House of Evulv on Instagram",
+        "url": "https://www.instagram.com/houseofevulv/"
+      },
+      {
+        "platform": "tiktok",
+        "label": "House of Evulv on TikTok",
+        "url": "https://www.tiktok.com/@houseofevulv"
+      },
+      {
+        "platform": "facebook",
+        "label": "House of Evulv on Facebook",
+        "url": "https://www.facebook.com/houseofevulv",
+        "pending": true
+      }
     ]
   },
   "founder": {
@@ -402,5 +415,57 @@
       "Volunteer",
       "Something else"
     ]
+  },
+  "campaign": {
+    "_note": "The 100 Days of Peace page (/100-days-of-peace). The 100 days end on the ceremony date (event.ceremonyDate). Sections with empty lists (figures, voices, videos) stay hidden until filled. Every photo of a pupil or a named person needs consent before it goes here.",
+    "name": "100 Days of Peace",
+    "tagline": "100 Days, 100 Voices, One Nation, Peace.",
+    "hashtag": "#PeaceBeginsWithMe",
+    "lede": "In the hundred days before the Sentinels of Peace Grand Honours, House of Evulv is taking the conversation about peace into classrooms, communities and public life.",
+    "statement": "For a hundred days, the House is visiting schools, communities and organisations, and listening to the people who keep the peace around them. Every visit and every story leads to 12 December, when the Sentinels are honoured.",
+    "figures": [],
+    "_figuresNote": "e.g. [{\"value\": \"12\", \"label\": \"Schools visited\"}]. Shown only when filled.",
+    "streams": [
+      {
+        "element": "dove",
+        "title": "In the classroom",
+        "body": "Visits to schools: a talk, a conversation with students, and a pledge each class makes together."
+      },
+      {
+        "element": "lotus",
+        "title": "In public life",
+        "body": "Leaders, artists and elders lend their voice: what peace has asked of them, in their own words."
+      },
+      {
+        "element": "tree",
+        "title": "Every day, online",
+        "body": "Reflections on Instagram and TikTok, counting down to the night the Sentinels are honoured."
+      }
+    ],
+    "updates": [
+      {
+        "photo": "/images/campaign/team.webp",
+        "alt": "Four members of the 100 Days of Peace team in campaign shirts",
+        "title": "The team behind the hundred days",
+        "text": "The people taking the campaign to schools, communities and organisations across Nigeria."
+      },
+      {
+        "photo": "/images/campaign/outdoors.webp",
+        "alt": "Three people in 100 Days of Peace shirts standing outdoors",
+        "title": "100 days, 100 voices",
+        "text": "One nation, one message: peace begins with each of us."
+      },
+      {
+        "photo": "/images/campaign/shirt.webp",
+        "alt": "Three people holding up a 100 Days of Peace campaign shirt",
+        "title": "Wear the campaign",
+        "text": "The campaign shirt carries the message wherever the team goes."
+      }
+    ],
+    "_updatesNote": "The latest three are shown, newest first. photo is a path in public/images/campaign; video (optional) is a YouTube video id.",
+    "voices": [],
+    "_voicesNote": "e.g. [{\"quote\": \"...\", \"role\": \"Secondary school principal\", \"place\": \"Abeokuta\", \"name\": \"optional\", \"photo\": \"optional\"}]. Shown only when filled, with consent.",
+    "videos": [],
+    "_videosNote": "YouTube video ids, e.g. [\"dQw4w9WgXcQ\"]. Shown only when filled."
   }
 }

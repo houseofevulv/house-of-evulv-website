@@ -22,6 +22,7 @@ export const menuGroups = [
     title: "Sentinels of Peace",
     links: [
       { href: "/sentinels-of-peace", label: "The programme" },
+      { href: "/100-days-of-peace", label: "100 Days of Peace" },
       { href: "/sentinels-of-peace#categories", label: "Categories" },
       { href: "/sentinels-of-peace#partner", label: "Partnership" },
       { href: "/sentinels-of-peace#faq", label: "Questions" },

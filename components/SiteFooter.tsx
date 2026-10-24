@@ -19,7 +19,7 @@ function Col({ title, className = "", children }: { title: string; className?: s
 }
 
 /** Espresso panel closing every page, with the logo in its signature gold and silver */
-export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page" }) {
+export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page" | "campaign" }) {
   const sop = variant === "sentinels" ? "" : "/sentinels-of-peace";
   const home = variant === "home" ? "" : "/";
   const action = primaryAction(variant === "sentinels");
@@ -30,7 +30,7 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
   return (
     <footer className="on-dark flex flex-col gap-10 rounded-[22px] bg-espresso px-5 pt-10 pb-6 text-[15px] text-on-dark-2 md:gap-16 md:rounded-[28px] md:px-12 md:pt-14 md:pb-6 lg:px-16">
       <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-12 md:gap-y-10">
-        {variant !== "sentinels" ? (
+        {variant !== "sentinels" && variant !== "campaign" ? (
           <div className="col-span-2 flex flex-col gap-5 md:col-span-12 lg:col-span-4">
             <Logo name="houseLogo" className="h-auto w-[168px]" />
             <p className="m-0 max-w-[300px] leading-[1.55]">
@@ -51,7 +51,25 @@ export function SiteFooter({ variant }: { variant: "home" | "sentinels" | "page"
           </div>
         )}
 
-        {variant !== "sentinels" ? (
+        {variant === "campaign" ? (
+          <>
+            <Col title="This campaign" className="md:col-span-3 lg:col-span-2 lg:col-start-6">
+              <a href="#invite" className={linkCls}>Invite the campaign</a>
+              <a href="#nominate" className={linkCls}>Nominate someone</a>
+              <Link href="/" className={linkCls}>House of Evulv</Link>
+            </Col>
+            <Col title="Sentinels of Peace" className="md:col-span-3 lg:col-span-2">
+              <Link href="/sentinels-of-peace" className={linkCls}>The Grand Honours</Link>
+              <Link href="/sentinels-of-peace#partner" className={linkCls}>Partnership tiers</Link>
+              <Link href="/sentinels-of-peace#support" className={linkCls}>Give to the programme</Link>
+            </Col>
+            <Col title="Contact" className="col-span-2 md:col-span-4 lg:col-span-3">
+              <a href={`mailto:${contact.email}`} className={linkCls}>{contact.email}</a>
+              <a href={contact.phoneHref} className={linkCls}>{contact.phoneDisplay}</a>
+              <span className="pt-2 md:pt-0">{contact.city}</span>
+            </Col>
+          </>
+        ) : variant !== "sentinels" ? (
           <>
             <Col title="The House" className="md:col-span-3 lg:col-span-2 lg:col-start-6">
               <Link href={`${home}#about`} className={linkCls}>About</Link>
