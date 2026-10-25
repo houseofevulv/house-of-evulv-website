@@ -8,6 +8,7 @@ import { campaign, contact, event, site, states } from "@/lib/content";
 import { todayInLagos } from "@/lib/dates";
 import { InviteForm, PeacemakerForm } from "./Forms";
 import { Player } from "./Player";
+import { ShareButtons } from "./ShareButtons";
 
 const instagram = contact.social.find((s) => s.platform === "instagram")?.url;
 
@@ -248,7 +249,6 @@ export function CampaignInvite() {
 }
 
 export function CampaignClose() {
-  const share = `https://wa.me/?text=${encodeURIComponent(`${campaign.name}: ${campaign.tagline} ${campaign.hashtag} ${site.url}/100-days-of-peace`)}`;
   const photo = campaign.photos.closing;
   return (
     <section className="on-dark relative flex min-h-[480px] flex-col justify-end overflow-hidden rounded-[22px] text-ivory md:min-h-[520px] md:rounded-[28px] lg:min-h-[560px]">
@@ -265,9 +265,7 @@ export function CampaignClose() {
           <Link href="/sentinels-of-peace" className="btn min-h-[52px] bg-gold px-6 font-bold text-black">
             Sentinels of Peace
           </Link>
-          <a href={share} target="_blank" rel="noopener noreferrer" className="btn min-h-[52px] border border-ivory px-6 font-bold text-ivory">
-            Share on WhatsApp<span className="sr-only"> (opens in a new tab)</span>
-          </a>
+          <ShareButtons url={`${site.url}/100-days-of-peace`} text={`${campaign.name}: ${campaign.tagline} ${campaign.hashtag}`} />
         </div>
       </div>
     </section>
