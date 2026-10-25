@@ -33,7 +33,7 @@ export function CampaignHero() {
   const { day, left } = campaignDay(todayInLagos());
   return (
     <section className="on-dark relative flex flex-col overflow-clip rounded-[22px] bg-espresso text-ivory md:rounded-[28px]">
-      <SiteHeader variant="page" />
+      <SiteHeader variant="page" onPanel />
       <div id="content" className="grid grid-cols-1 gap-10 px-5 pt-6 pb-12 md:gap-12 md:px-8 md:pt-10 md:pb-16 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-12 lg:pb-20">
         <div className="flex flex-col gap-6 lg:col-span-7 lg:gap-7">
           <h1 className="t-home-display m-0 text-ivory">

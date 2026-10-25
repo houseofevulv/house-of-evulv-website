@@ -62,14 +62,15 @@ const navLinks: Record<"home" | "sentinels" | "page", { href: string; label: str
   ],
 };
 
-export function SiteHeader({ variant }: { variant: "home" | "sentinels" | "page" }) {
+/** `onPanel`: the header sits on a dark hero panel (as on the campaign page), so it paints no bar of its own */
+export function SiteHeader({ variant, onPanel = false }: { variant: "home" | "sentinels" | "page"; onPanel?: boolean }) {
   const status = siteStatus();
   const action = primaryAction(variant === "sentinels");
   const menuAction = primaryAction();
   const onPhoto = variant === "home";
   // The two heroes are fields of espresso and Sentinel Navy with no photograph, so their header lets the field run
   // through to the top; other pages keep a solid espresso bar
-  const bar = variant === "page" ? "bg-espresso" : "";
+  const bar = variant === "page" && !onPanel ? "bg-espresso" : "";
 
   return (
     <>
