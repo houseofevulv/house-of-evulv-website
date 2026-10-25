@@ -5,7 +5,8 @@ import { useRef, useState, type ReactNode } from "react";
 
 /**
  * A video that shows only its poster and a play button until pressed, so nothing downloads until someone asks for it.
- * Pressing swaps in the native player with its own controls and starts it. `children` sits over the poster (a title,
+ * Pressing swaps in the native player with its own controls and starts it; when it ends, the poster and play button
+ * come back as they were. `children` sits over the poster (a title,
  * a caption) and goes away once the video plays.
  */
 export function Player({
@@ -35,6 +36,8 @@ export function Player({
         controls
         autoPlay
         playsInline
+        // Played to the end: back to the poster and play button, as before it was ever pressed
+        onEnded={() => setPlaying(false)}
         className={`bg-black object-contain ${className}`}
       />
     );
