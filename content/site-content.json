@@ -444,49 +444,47 @@
     ],
     "updates": [
       {
-        "photo": "/images/campaign/team.webp",
-        "alt": "Four members of the 100 Days of Peace team in campaign shirts",
-        "title": "The team behind the hundred days",
-        "text": "The people taking the campaign to schools, communities and organisations across Nigeria.",
-        "position": "50% 35%"
-      },
-      {
-        "photo": "/images/campaign/outdoors.webp",
-        "alt": "Three people in 100 Days of Peace shirts standing outdoors",
-        "title": "100 days, 100 voices",
-        "text": "One nation, one message: peace begins with each of us.",
-        "position": "50% 55%"
+        "video": "/videos/campaign/story-1.mp4",
+        "poster": "/images/campaign/video-story-1.jpg",
+        "alt": "A member of the team speaks about the campaign",
+        "title": "A word from the team",
+        "text": "Why the hundred days matter."
       },
       {
         "photo": "/images/campaign/shirt.webp",
         "alt": "Three people holding up a 100 Days of Peace campaign shirt",
+        "position": "50% 60%",
         "title": "Wear the campaign",
-        "text": "The campaign shirt carries the message wherever the team goes.",
-        "position": "50% 62%"
+        "text": "The shirt carries the message wherever the team goes."
+      },
+      {
+        "video": "/videos/campaign/story-2.mp4",
+        "poster": "/images/campaign/video-story-2.jpg",
+        "alt": "A campaign elder out in the community",
+        "title": "Out in the community",
+        "text": "Taking the conversation to the street."
       }
     ],
-    "_updatesNote": "The latest three are shown, newest first. photo is a path in public/images/campaign; video (optional) is a YouTube video id. position (optional) is the CSS object-position that keeps faces in the crop, e.g. \"50% 40%\".",
+    "_updatesNote": "Shown as tall tiles, up to three: each is a vertical video (video + poster, MP4 in public/videos/campaign) or a photo (photo, with position as the CSS object-position that keeps faces in the crop). film is the landscape campaign film shown in its own section; photos.statement and photos.closing frame the statement and the closing band.",
     "voices": [],
     "_voicesNote": "e.g. [{\"quote\": \"...\", \"role\": \"Secondary school principal\", \"place\": \"Abeokuta\", \"name\": \"optional\", \"photo\": \"optional\"}]. Shown only when filled, with consent.",
-    "videos": [
-      {
-        "src": "/videos/campaign/launch.mp4",
-        "poster": "/images/campaign/video-launch.jpg",
-        "title": "The campaign on the road"
+    "film": {
+      "src": "/videos/campaign/launch.mp4",
+      "poster": "/images/campaign/video-launch.jpg",
+      "title": "100 Days of Peace: the campaign film",
+      "length": "1:15"
+    },
+    "photos": {
+      "statement": {
+        "src": "/images/campaign/team.webp",
+        "alt": "Four members of the 100 Days of Peace team in campaign shirts",
+        "position": "50% 35%"
       },
-      {
-        "src": "/videos/campaign/story-1.mp4",
-        "poster": "/images/campaign/video-story-1.jpg",
-        "title": "A word from the team",
-        "portrait": true
-      },
-      {
-        "src": "/videos/campaign/story-2.mp4",
-        "poster": "/images/campaign/video-story-2.jpg",
-        "title": "Out in the community",
-        "portrait": true
+      "closing": {
+        "src": "/images/campaign/outdoors.webp",
+        "alt": "",
+        "position": "50% 52%"
       }
-    ],
-    "_videosNote": "Self-hosted MP4 (H.264, 720p or 540x960, about 1 Mbps) in public/videos/campaign, each with a poster frame in public/images/campaign. They load only when played. portrait: true for vertical phone videos. For long or many videos, YouTube is better: it costs nothing to stream."
+    }
   }
 }

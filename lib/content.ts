@@ -87,6 +87,8 @@ export type SiteContent = {
   campaign: Campaign;
 };
 
+export type CampaignPhoto = { src: string; alt: string; position?: string };
+
 /** The 100 Days of Peace campaign page. Lists left empty keep their section hidden. */
 export type Campaign = {
   name: string;
@@ -96,9 +98,10 @@ export type Campaign = {
   statement: string;
   figures: { value: string; label: string }[];
   streams: { element: "dove" | "lotus" | "tree"; title: string; body: string }[];
-  updates: { photo?: string; video?: string; position?: string; alt: string; title: string; text: string }[];
+  updates: { video?: string; poster?: string; photo?: string; position?: string; alt: string; title: string; text: string }[];
   voices: { quote: string; role: string; place: string; name?: string; photo?: string }[];
-  videos: { src: string; poster: string; title: string; portrait?: boolean }[];
+  film: { src: string; poster: string; title: string; length: string } | null;
+  photos: { statement: CampaignPhoto; closing: CampaignPhoto };
 };
 
 export const content = raw as SiteContent;

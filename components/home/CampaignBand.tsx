@@ -10,7 +10,7 @@ export function CampaignBand() {
   return (
     <Link
       href="/100-days-of-peace"
-      className="group flex flex-col gap-3.5 border-b border-rule px-3 pt-5 pb-6 text-ink no-underline md:px-6 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-10 lg:px-10 lg:py-7"
+      className="group flex flex-col gap-3.5 px-3 pt-5 pb-6 text-ink no-underline md:px-6 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-10 lg:px-10 lg:py-7"
     >
       <span className="flex items-baseline justify-between gap-4 lg:justify-start">
         <span className="t-display text-[19px] text-ink lg:text-[22px]">{campaign.name}</span>

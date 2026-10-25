@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   CampaignClose,
+  CampaignFilm,
   CampaignHero,
   CampaignInvite,
   CampaignNominate,
@@ -31,6 +32,7 @@ export default function CampaignPage() {
     <PageShell>
       <main className="flex flex-col gap-2 md:gap-4">
         <CampaignHero />
+        <CampaignFilm />
         <CampaignStatement />
         <CampaignUpdates />
         <CampaignVoices />
