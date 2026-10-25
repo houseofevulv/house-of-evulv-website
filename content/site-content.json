@@ -468,7 +468,25 @@
     "_updatesNote": "The latest three are shown, newest first. photo is a path in public/images/campaign; video (optional) is a YouTube video id. position (optional) is the CSS object-position that keeps faces in the crop, e.g. \"50% 40%\".",
     "voices": [],
     "_voicesNote": "e.g. [{\"quote\": \"...\", \"role\": \"Secondary school principal\", \"place\": \"Abeokuta\", \"name\": \"optional\", \"photo\": \"optional\"}]. Shown only when filled, with consent.",
-    "videos": [],
-    "_videosNote": "YouTube video ids, e.g. [\"dQw4w9WgXcQ\"]. Shown only when filled."
+    "videos": [
+      {
+        "src": "/videos/campaign/launch.mp4",
+        "poster": "/images/campaign/video-launch.jpg",
+        "title": "The campaign on the road"
+      },
+      {
+        "src": "/videos/campaign/story-1.mp4",
+        "poster": "/images/campaign/video-story-1.jpg",
+        "title": "A word from the team",
+        "portrait": true
+      },
+      {
+        "src": "/videos/campaign/story-2.mp4",
+        "poster": "/images/campaign/video-story-2.jpg",
+        "title": "Out in the community",
+        "portrait": true
+      }
+    ],
+    "_videosNote": "Self-hosted MP4 (H.264, 720p or 540x960, about 1 Mbps) in public/videos/campaign, each with a poster frame in public/images/campaign. They load only when played. portrait: true for vertical phone videos. For long or many videos, YouTube is better: it costs nothing to stream."
   }
 }

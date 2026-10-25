@@ -140,19 +140,26 @@ export function CampaignUpdates() {
           </article>
         ))}
       </div>
+      {/* Sized for one landscape film beside two vertical clips: the columns (316 : 100 : 100) give all three the same height */}
       {campaign.videos.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-          {campaign.videos.map((id) => (
-            <iframe
-              key={id}
-              src={`https://www.youtube-nocookie.com/embed/${id}`}
-              title={`${campaign.name} video`}
-              loading="lazy"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="aspect-video w-full rounded-[16px] border-0 bg-black"
-            />
-          ))}
+        <div className="flex flex-col gap-4 border-t border-rule pt-8 md:gap-6 md:pt-10 lg:pt-12">
+          <h3 className="t-display m-0 text-[22px] leading-[1.15] text-ink md:text-[28px]">Watch the campaign</h3>
+          <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-[minmax(0,316fr)_minmax(0,100fr)_minmax(0,100fr)] lg:items-start lg:gap-6">
+            {campaign.videos.map((v) => (
+              <figure key={v.src} className={`m-0 flex flex-col gap-2.5 ${v.portrait ? "" : "col-span-2 lg:col-span-1"}`}>
+                <video
+                  controls
+                  playsInline
+                  preload="none"
+                  poster={v.poster}
+                  className={`w-full rounded-[14px] bg-black object-cover md:rounded-[18px] ${v.portrait ? "aspect-[9/16]" : "aspect-video"}`}
+                >
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <figcaption className="text-[13px] leading-[1.45] text-body md:text-sm">{v.title}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       )}
     </section>

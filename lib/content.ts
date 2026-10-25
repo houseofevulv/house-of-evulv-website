@@ -98,7 +98,7 @@ export type Campaign = {
   streams: { element: "dove" | "lotus" | "tree"; title: string; body: string }[];
   updates: { photo?: string; video?: string; position?: string; alt: string; title: string; text: string }[];
   voices: { quote: string; role: string; place: string; name?: string; photo?: string }[];
-  videos: string[];
+  videos: { src: string; poster: string; title: string; portrait?: boolean }[];
 };
 
 export const content = raw as SiteContent;
