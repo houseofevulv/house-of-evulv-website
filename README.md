@@ -15,6 +15,7 @@ Website for House of Evulv (Lagos) and its first programme, the Sentinels of Pea
 | --- | --- |
 | `/` | Home |
 | `/sentinels-of-peace` | Sentinels of Peace, including the support pledge form and FAQ |
+| `/100-days-of-peace` | The 100 Days of Peace campaign: countdown, film, stories, the nomination form and the invite form. A countdown strip under the home hero links to it while the campaign runs. |
 | `/our-story` | Our story |
 | `/privacy` | Privacy notice (pending legal review) |
 | `/selection-terms` | Selection terms for the 2026 edition (pending legal review). `/nomination-terms` redirects here while public nominations are off. |
@@ -41,6 +42,7 @@ Dates, venue, categories, timeline, partnership tiers, states, contact details a
 - **Ceremony date or venue:** `event`. Set `venueConfirmed` to `true` once confirmed; the Event structured data for Google appears only when both date and venue are confirmed.
 - **Nomination window:** `nominations.opens` and `nominations.closes`. The site switches between "opens soon", "open" and "closed" by itself, in Lagos time.
 - **Donations:** `donate.paymentUrl` (a Paystack or Flutterwave payment page) and/or `donate.bank`. With neither, the section invites people to get in touch.
+- **100 Days of Peace:** `campaign`. The statement, streams, the film, the story tiles (up to three: vertical videos or photos), and the framing photos. `figures` and `voices` stay hidden until filled. Campaign photos live in `public/images/campaign`, videos in `public/videos/campaign` (H.264 MP4, about 1 Mbps, with a poster frame). The countdown ends on `event.ceremonyDate`.
 - **Photos:** `public/images`, credits in `IMAGE-CREDITS.md`.
 - **Logos:** never place them on a photograph without a dark panel, never use gold on a light background (use the bronze files), and respect the minimum sizes noted in `components/Logo.tsx`.
 
@@ -69,14 +71,7 @@ The domain's mail is set up outside this code, in Cloudflare, Resend and Gmail:
 
 ## Deploying
 
-Two branches, two sites:
-
-| Branch | Deploys to | Use |
-| --- | --- | --- |
-| `main` | Production: `houseofevulv.com` | The live site. Changes arrive only once the owner has approved them on staging. |
-| `staging` | A Vercel preview at `<project>-git-staging-<team>.vercel.app` (shown under the branch in the Vercel dashboard) | Testing new work before it goes live. |
-
-Push work to `staging` (or a feature branch merged into it), check it on the preview link, then merge `staging` into `main` (directly or through a pull request) when it is approved. Preview deployments stay out of search engines because `ALLOW_INDEXING` is only set for production.
+`main` is the live site: every push to it deploys to `houseofevulv.com` through Vercel. Pull requests and other branches get private preview links, which stay out of search engines because `ALLOW_INDEXING` is set for Production only. (The old `staging` branch is no longer used and can be deleted.)
 
 Pull requests also get their own preview links. Without the Vercel connection, deploy with the Vercel CLI:
 
@@ -85,14 +80,15 @@ npm run deploy:preview   # private preview link
 npm run deploy:prod      # production
 ```
 
-## Launch checklist
+## Still waiting on the client
 
-Before go-live:
+The site is live and open to search engines. Outstanding:
 
 1. Confirm the venue and set `event.venueConfirmed`.
 2. Add the founder's portrait (`founder.photo`) and confirm the name (`founder.nameConfirmed`).
-3. Add the payment link (`donate.paymentUrl`) or bank details, and confirm how gifts are used.
-4. Add the Resend variables in Vercel, then send one real test pledge and check it arrives.
-5. Connect `houseofevulv.com` in Vercel and set `ALLOW_INDEXING=true` for Production.
-6. Legal review of the privacy notice and the selection terms.
-7. Clear the remaining `TODO(client)` items in the code.
+3. Add the payment link (`donate.paymentUrl`), and confirm how gifts are used.
+4. Legal review of the privacy notice and the selection terms.
+5. Real campaign figures and voices (with consent), when there are some.
+6. Clear the remaining `TODO(client)` items in the code.
+
+For the owner's plain-language guide (accounts, costs, what to do if something breaks), see `HANDOVER.md`.
